@@ -146,6 +146,8 @@ Pre-defined context assemblies for multi-disciplinary tasks. See `context_recipe
 | **fundraising** (CC) | 6 | ~14,000 | — | **active** |
 | **curriculum_framework** (CC) | 5 | ~9,200 | 4.2 | **active** (III-reviewed) |
 | **community_engagement** (CC) | 3 | ~9,120 | 4.37 | **active** (III-reviewed) |
+| **pilot_programs** (CC) | 3 | ~6,900 | 4.43 | **active** (III-reviewed) |
+| **use_case_domains** (CC) | 5 | ~11,500 | 4.44 | **active** (III-reviewed) |
 | **adna_for_communities** (CC) | 2 | ~3,500 | — | **seeded** (DRAFT) |
 
 ## Load/Skip Decision

@@ -28,4 +28,15 @@ Developing new use cases, matching communities with potential agent applications
 **Skip when**:
 Working on infrastructure, governance, or forge tooling.
 
-**Token cost**: ~300 tokens (this AGENTS.md). Individual records are ~200-400 tokens each.
+## Current Use Cases
+
+| File | Domain | Primary Pilot | Beneficiary | Status |
+|------|--------|---------------|-------------|--------|
+| `use_case_elder_medicare_enrollment.md` | Healthcare Navigation | GR | Elders (65+) navigating Medicare | Draft |
+| `use_case_immigration_paperwork_navigator.md` | Immigration Services | LA | Immigrant families | Draft |
+| `use_case_school_enrollment_iep.md` | Education Access | LA | LAUSD parents/guardians | Draft |
+| `use_case_congregational_care_coordinator.md` | Elder Care | GR | Peter's Church elders + volunteers | Draft |
+| `use_case_community_resource_matching.md` | Community Governance | Both | Community members + volunteers | Draft |
+| `use_case_multilingual_benefits_navigator.md` | Cross-domain | LA | Non-English-speaking families | Draft |
+
+**Token cost**: ~500 tokens (this AGENTS.md). Individual records are ~400-600 tokens each.
