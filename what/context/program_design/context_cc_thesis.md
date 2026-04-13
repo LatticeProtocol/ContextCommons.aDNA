@@ -3,9 +3,9 @@ type: context
 created: 2026-04-12
 updated: 2026-04-12
 status: active
-last_edited_by: agent_stanley
+last_edited_by: agent_gutenberg
 tags: [context, program_design, thesis, mission]
-token_estimate: ~2000
+token_estimate: ~3200
 ---
 
 # The Context Commons Thesis
@@ -42,3 +42,32 @@ Youth (Capability) ←→ Stewards (Governance)
 ```
 
 Knowledge flows in every direction. Lattice mentors learn community context they could never access from a lab. Stewards gain technical fluency. Youth gain agency and career-grade skills. Elders gain tools and dignity. The network is not extractive — it is mutualistic.
+
+## Why Context Graphs, Not Apps
+
+The typical approach to "tech for good" is to build an app. An app is a finished product: designed by outsiders, deployed to a community, maintained until the grant runs out, then abandoned. The community learns nothing. The developers learn nothing lasting. The elders are reduced to "users."
+
+Context graphs invert this. A context graph is a structured representation of a community's own knowledge — its people, needs, workflows, and governance — that AI agents can act on. When a youth builder creates a context graph for elder healthcare navigation at Peter's Church in Grand Rapids, that graph encodes:
+
+- **WHO**: which elders need help, which stewards coordinate, which health systems are involved
+- **WHAT**: what paperwork is required, what deadlines matter, what the rules are
+- **HOW**: what the process is, who does what, when to escalate
+
+The agent built on this graph is not a generic chatbot. It is a tool that understands *this community's* context and serves *this community's* people. When the community's needs change, the graph changes — and the agent changes with it. The community owns the knowledge. The youth maintain the system. The elders benefit. No one is a "user."
+
+## Why Two Pilots
+
+The program launches with two deliberately contrasting pilot sites:
+
+- **Pilot A: Peter's Church, Grand Rapids, MI** — a concentrated, faith-based community hub in a mid-sized Midwestern city. Single site, strong existing intergenerational infrastructure, relatively homogeneous governance through church leadership.
+- **Pilot B: LAUSD / Venice Beach Book Club / UCLA, Los Angeles, CA** — a distributed, multi-institutional constellation in a massive, diverse urban environment. Multiple sites, complex governance across institutions, extraordinary linguistic and cultural diversity.
+
+What works for one will not automatically work for the other. That is the point. The Context Commons must be adaptable — a framework, not a franchise. Grand Rapids tests depth; Los Angeles tests breadth. Together they prove (or disprove) the thesis that community-governed agentic systems can work across radically different contexts.
+
+## Related
+
+- [[what/context/program_design/context_cc_core_principles]] — operational principles
+- [[what/context/program_design/context_cc_program_architecture]] — curriculum and mentorship structure
+- [[what/context/program_design/context_cc_governance_model]] — partnership terms
+- [[who/communities/community_peters_church_grand_rapids]] — Pilot A
+- [[who/communities/community_lausd_venice_beach_la]] — Pilot B

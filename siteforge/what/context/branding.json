@@ -1,0 +1,26 @@
+{
+  "entity": "Context Commons",
+  "entityType": "organization",
+  "title": "Context Commons",
+  "subtitle": "Community-Driven Agentic Literacy",
+  "tagline": "Every community deserves its own printing press. We are here to help them build it.",
+  "voice_register": "measured_authority",
+  "archetype": "organization_landing",
+  "colors": {
+    "primary": "#2D5016",
+    "primary_dark": "#1A3009",
+    "primary_light": "#4A7A2E",
+    "accent": "#D4A843",
+    "accent_light": "#E8C96A"
+  },
+  "typography": {
+    "display": "Libre Baskerville",
+    "body": "Source Sans 3",
+    "mono": "JetBrains Mono"
+  },
+  "social": {
+    "github": "https://github.com/context-commons",
+    "email": "hello@contextcommons.org",
+    "twitter": "https://twitter.com/contextcommons"
+  }
+}

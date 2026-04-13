@@ -2,8 +2,8 @@
 type: campaign
 created: 2026-04-12
 updated: 2026-04-12
-status: planned
-last_edited_by: agent_stanley
+status: active
+last_edited_by: agent_gutenberg
 tags: [campaign, genesis, bootstrap]
 phase: 1
 phase_status: planned
@@ -40,12 +40,12 @@ Bootstrap the Context Commons from raw context dump to operational headquarters.
 
 | Mission | Title | Sessions | Status |
 |---------|-------|----------|--------|
-| M00 | Campaign Planning & Project Buildout | 2-3 | Planned |
+| M00 | Campaign Planning & Project Buildout | 2-3 (actual: 1) | **Completed** |
 | M01 | Context Ingestion: Program Design (deepen seeds) | 2 | Planned |
 | M02 | Context Ingestion: Curriculum Framework | 2 | Planned |
 | M03 | Context Ingestion: Community Engagement | 1 | Planned |
 
-**Phase gate**: All context files created, measured, III-reviewed. Context recipes validated. Governance files coherent. Token budgets within +/-15%.
+**Phase gate**: All context files created, measured, III-reviewed. Context recipes validated. Governance files coherent. Token budgets within +/-15%. Community and partner profiles populated. Curriculum Council charter drafted. M01-M06 mission stubs created with acceptance criteria.
 
 ### Phase 2: Pilots & Use Cases (M04-M06, ~5-7 sessions)
 
@@ -57,7 +57,7 @@ Bootstrap the Context Commons from raw context dump to operational headquarters.
 | M05 | Use Case Domain Library | 2-3 | M01 |
 | M06 | aDNA for Communities (translational layer) | 1-2 | M02 |
 
-**Phase gate**: Full context library complete. Pilot community profiles created. Use case library with 5+ documented cases. User approval on pilot designs.
+**Phase gate**: Full context library complete (6 CC topics, all III-reviewed). Pilot community profiles enriched with steward input. Use case library with 5+ documented cases. Pilot A and Pilot B designs drafted. User approval on pilot designs before proceeding.
 
 ### Phase 3: Infrastructure (M07-M10, ~8-10 sessions)
 

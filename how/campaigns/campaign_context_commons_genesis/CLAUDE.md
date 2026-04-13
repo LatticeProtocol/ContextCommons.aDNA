@@ -49,5 +49,11 @@ Phase gates are human gates (Standing Order #1). At each phase boundary:
 
 | Mission | File | Phase | Status |
 |---------|------|-------|--------|
-| M00 | `missions/mission_cc_m00_campaign_planning.md` | 1 | Planned |
-| M01-M14 | To be created during M00 | 1-4 | Planned |
+| M00 | `missions/mission_cc_m00_campaign_planning.md` | 1 | Completed |
+| M01 | `missions/mission_cc_m01_context_program_design.md` | 1 | Planned |
+| M02 | `missions/mission_cc_m02_context_curriculum_framework.md` | 1 | Planned |
+| M03 | `missions/mission_cc_m03_context_community_engagement.md` | 1 | Planned |
+| M04 | `missions/mission_cc_m04_pilot_program_design.md` | 2 | Planned |
+| M05 | `missions/mission_cc_m05_use_case_library.md` | 2 | Planned |
+| M06 | `missions/mission_cc_m06_adna_for_communities.md` | 2 | Planned |
+| M07-M14 | To be created during Phase 1-2 | 3-4 | Planned |

@@ -3,8 +3,8 @@ type: state
 created: 2026-04-12
 updated: 2026-04-12
 status: active
-last_edited_by: agent_stanley
-last_session: null
+last_edited_by: agent_gutenberg
+last_session: session_stanley_20260412_m00_full_sprint
 tags: [state, governance]
 ---
 
@@ -14,9 +14,9 @@ Dynamic operational snapshot for cold-start orientation. Updated each session.
 
 ## Current Phase
 
-**Phase 0 — Project scaffolded. Campaign Genesis M00 ready.**
+**Phase 1 — Foundation. M00 completed. M01 ready.**
 
-The Context Commons aDNA vault has been forked from the base template, customized with the Gutenberg persona, extended with 12 domain-specific entity types, and equipped with 3 forge wrappers (SiteForge, VideoForge, PresentationForge). The `program_design/` context topic has been seeded with 4 files from the founding context dump. The genesis campaign is planned with 15 missions across 4 phases.
+The Context Commons genesis campaign is active. M00 (Campaign Planning & Project Buildout) completed in a single session — all 8 objectives done. The vault now has community profiles, partner profiles, a Curriculum Council charter, deepened program_design context (~13.7K tokens), SiteForge branding, and 6 mission stubs (M01-M06) with clear objectives and acceptance criteria.
 
 ## What's Working
 
@@ -24,23 +24,38 @@ The Context Commons aDNA vault has been forked from the base template, customize
 - Gutenberg persona configured with 12 standing orders (6 base + 6 CC-specific)
 - 12 ontology extensions scaffolded (directories + AGENTS.md + templates)
 - 3 forge wrappers created (SiteForge, VideoForge, PresentationForge)
-- `program_design/` context topic seeded (4 files: thesis, principles, architecture, governance model)
+- `program_design/` context topic deepened (4 files, ~13.7K tokens — concrete examples, cross-refs, pilot connections)
+- `fundraising/` context topic active (6 files, ~14K tokens)
 - 5 CC-specific context recipes defined
-- Genesis campaign planned (4 phases, 15 missions, ~25-33 sessions)
-- M00 mission ready with 8 objectives
+- Genesis campaign active (4 phases, 15 missions, ~25-33 sessions)
+- **M00 completed** — 2 community profiles (DRAFT), 3 partner profiles (prospective), Curriculum Council charter, branding.json, 6 mission stubs
+- Campaign CLAUDE.md mission index populated (M00-M06 + M07-M14 placeholder)
 
 ## Active Campaigns
 
 | Campaign | Phase | Status | Priority |
 |----------|-------|--------|----------|
-| `campaign_context_commons_genesis` | Phase 1 | Planned | Primary |
+| `campaign_context_commons_genesis` | Phase 1 | **Active** | Primary |
+
+## Mission Status
+
+| Mission | Phase | Status | Sessions |
+|---------|-------|--------|----------|
+| M00 | 1 | **Completed** | 1 (est. 2-3) |
+| M01 | 1 | Planned | est. 2 |
+| M02 | 1 | Planned | est. 2 |
+| M03 | 1 | Planned | est. 1 |
+| M04 | 2 | Planned | est. 2 |
+| M05 | 2 | Planned | est. 2-3 |
+| M06 | 2 | Planned | est. 1-2 |
 
 ## Timeline
 
 | Milestone | Target | Status |
 |-----------|--------|--------|
 | Project scaffold complete | 2026-04-12 | Done |
-| Phase 1: Foundation (M00-M03) | Apr-May 2026 | Ready |
+| M00: Campaign Planning | 2026-04-12 | **Done** |
+| Phase 1: Foundation (M01-M03) | Apr-May 2026 | Ready |
 | Phase 2: Pilots & Use Cases (M04-M06) | May-Jun 2026 | Planned |
 | Phase 3: Infrastructure (M07-M10) | Jun-Jul 2026 | Planned |
 | Phase 4: Launch Preparation (M11-M14) | Jul-Aug 2026 | Planned |
@@ -53,13 +68,14 @@ None.
 
 ## Next Steps
 
-1. **Begin M00** — Campaign Planning & Project Buildout
-   - Review and refine genesis campaign plan
-   - Populate initial community profiles (Peter's Church, LAUSD)
-   - Create initial partner profiles
-   - Draft Curriculum Council charter
-   - Deepen program_design context files
-   - Create branding.json for SiteForge
-   - Plan M01-M06 in detail
-2. **Begin M01-M03** — Context ingestion (deepen program_design, create curriculum_framework, community_engagement topics)
-3. **Secure pilot community partnerships** — formalize relationships with Peter's Church (Grand Rapids) and LAUSD/Venice Beach Book Club/UCLA (Los Angeles)
+1. **Begin M01** — Context Ingestion: Program Design
+   - III review all 4 program_design files using formal 6-axis quality rubric
+   - Create `adna_for_communities` context topic (2 files, ~5K tokens)
+   - Measure actual token budgets
+2. **Begin M02** — Context Ingestion: Curriculum Framework
+   - Create 5 curriculum_framework context files (~10K tokens)
+   - Track structures, module template, competency milestones, pedagogy, assessment
+3. **Begin M03** — Context Ingestion: Community Engagement
+   - Create 3 community_engagement context files (~6K tokens)
+   - Partnership model, community requirements, mentor roles
+4. **Phase 1 gate** — All context topics created, measured, III-reviewed. Present to user for Phase 2 approval.

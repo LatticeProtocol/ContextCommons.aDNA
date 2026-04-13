@@ -3,9 +3,9 @@ type: context
 created: 2026-04-12
 updated: 2026-04-12
 status: active
-last_edited_by: agent_stanley
+last_edited_by: agent_gutenberg
 tags: [context, program_design, governance, partnerships]
-token_estimate: ~1500
+token_estimate: ~3000
 ---
 
 # Governance Model
@@ -46,3 +46,37 @@ We seek communities that have:
 - **Youth populations** who are underserved by existing technology education but hungry for capability and agency.
 
 We do not parachute in. We partner with communities that want this and are ready to govern it.
+
+## Governance in Practice: A Decision Scenario
+
+A technology partner proposes donating 50 tablets pre-loaded with a "community health assistant" app. The app uses a proprietary AI model and stores conversation data on the partner's cloud. Here is how the governance model handles this:
+
+1. **Stewards evaluate** — Community stewards at the pilot site review the offer against the three non-negotiables. The app stores data on external servers (violates #2: no data extraction) and uses a closed model (violates #3: open standards).
+
+2. **Council advises** — The Curriculum Council reviews the technical implications and confirms: the app cannot be adapted to serve community-specific context graphs, and the data governance terms are incompatible.
+
+3. **Community decides** — The stewards decline the tablets. Instead, they work with the program to propose a counter-offer: the partner donates the hardware (tablets), and the youth builders create a community-governed health navigation agent using the aDNA standard, Claude API, and community-owned context graphs. The partner gets credit for the hardware donation and an authentic impact story. The community keeps its sovereignty.
+
+This is what "contribute resources, not direction" means in practice.
+
+## Fiscal Sponsorship Path
+
+The Context Commons program operates under a fiscal sponsor until it achieves 501(c)(3) status. This enables:
+
+- **Grant eligibility** — most foundation and government grants require a 501(c)(3) or fiscal sponsor
+- **Tax-deductible donations** — individual donors can contribute
+- **Financial oversight** — professional accounting and compliance
+- **Reduced administrative burden** — the program team focuses on curriculum and community, not paperwork
+
+Recommended path: Start with a **Model C (Pre-Approved Grant)** fiscal sponsor — the program maintains operational autonomy while the sponsor provides the legal and financial infrastructure. Transition to independent 501(c)(3) when annual revenue exceeds $250K and the program has demonstrated sustainability.
+
+See [[what/context/fundraising/context_cc_fundraising_fiscal_sponsorship]] for detailed sponsor options.
+
+## Related
+
+- [[what/context/program_design/context_cc_thesis]] — the problem this governance protects against
+- [[what/context/program_design/context_cc_core_principles]] — the principles behind the non-negotiables
+- [[who/governance/governance_curriculum_council_charter]] — the Council's charter and decision-making process
+- [[who/partners/partner_apple]] — hardware partnership model
+- [[who/partners/partner_google]] — funding and compute partnership model
+- [[who/partners/partner_anthropic]] — technical partnership model
