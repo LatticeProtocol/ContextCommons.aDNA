@@ -144,6 +144,7 @@ Pre-defined context assemblies for multi-disciplinary tasks. See `context_recipe
 | claude_code (Claude Code runtime) | 4 | ~10,000 | — | active |
 | **program_design** (CC) | 4 | ~9,000 | 3.8 | **active** (III-reviewed) |
 | **fundraising** (CC) | 6 | ~14,000 | — | **active** |
+| **curriculum_framework** (CC) | 5 | ~9,200 | 4.2 | **active** (III-reviewed) |
 | **adna_for_communities** (CC) | 2 | ~3,500 | — | **seeded** (DRAFT) |
 
 ## Load/Skip Decision
