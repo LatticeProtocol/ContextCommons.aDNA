@@ -5,7 +5,15 @@ updated: 2026-04-12
 status: active
 last_edited_by: agent_gutenberg
 tags: [context, program_design, principles, values]
-token_estimate: ~3500
+token_estimate: ~2000
+quality_score: 3.8
+signal_density: 4
+actionability: 4
+coverage_uniformity: 4
+source_diversity: 3
+cross_topic_coherence: 4
+freshness_category: durable
+last_evaluated: 2026-04-12
 ---
 
 # Core Principles
@@ -44,14 +52,31 @@ Principles without examples are slogans. Here is what each principle means when 
 
 **No data extraction** — When a researcher at UCLA wants to study the context graphs built by youth in the LA pilot, they must go through the community governance process. The data stays on community-controlled infrastructure. Research access requires community consent, not just IRB approval.
 
-**Design for the margins** — The curriculum module on "setting up your agentic workstation" must include a path for participants with unreliable internet. If it requires a constant cloud connection, it fails this principle. This is why the aDNA standard supports local-first context graphs that sync when connectivity is available.
+**Design for the margins** — The curriculum module on "setting up your agentic workstation" must include a path for participants with unreliable internet. If it requires a constant cloud connection, it fails this principle. This is why the aDNA standard supports local-first context graphs that sync when connectivity is available. But connectivity is only one dimension. The LA pilot serves families speaking 100+ languages — curriculum materials and agent interfaces must support multilingual delivery, not as an afterthought translation layer but as a first-class design constraint. Elders with low literacy or vision impairments need voice-first and large-text interaction modes. A youth builder with a learning disability must have an accessible path through every module. If the system works only for the most capable, most connected, most literate participant, it has failed.
 
 **Bidirectional learning** — A Lattice mentor from the developer community spends time with elder members at Peter's Church learning about Medicare enrollment workflows. That conversation shapes the mentor's understanding of what "useful AI" means in a way that no internal product meeting ever could. The mentor doesn't just teach; they are changed.
 
 **Real problems, real systems** — A youth builder's capstone project at the Venice Beach Book Club is not a "demo healthcare chatbot." It is a working agent system that helps three specific elders navigate their actual Medicare Part D enrollment. If it doesn't work for those three people, it doesn't pass.
 
+## How Principles Are Enforced
+
+Principles without enforcement are aspirational. In the Context Commons, enforcement happens at three levels:
+
+1. **Curriculum Council** — reviews all curriculum modules and ethical guardrails against these principles. Supermajority (>66%) required to modify guardrails. Any single Council member can suspend a module or deployment pending review ([[who/governance/governance_curriculum_council_charter]]).
+2. **Community stewards** — hold veto power over any use case or agent deployment in their community (Standing Order #11). A technically elegant system that violates these principles does not ship.
+3. **Partnership terms** — the three non-negotiables in the [[what/context/program_design/context_cc_governance_model|governance model]] are contractual, not advisory. Partner violations trigger a formal escalation process.
+
+## Sources & Influences
+
+- **Freire, P. (1970). Pedagogy of the Oppressed** — the "people as partners" principle descends from Freire's critique of the banking model of education
+- **Costanza-Chock, S. (2020). Design Justice** — "design for the margins" draws directly from design justice principles: centering those most impacted by design decisions
+- **aDNA Context Graph Standard v2.2** — open standards principle grounded in the aDNA specification
+- Community profiles and pilot site research (Grand Rapids, Los Angeles)
+
 ## Related
 
 - [[what/context/program_design/context_cc_thesis]] — why these principles exist
+- [[what/context/program_design/context_cc_program_architecture]] — how these principles shape curriculum and mentorship structure
 - [[what/context/program_design/context_cc_governance_model]] — how non-negotiables apply to partners
+- [[what/context/adna_for_communities/context_adna_simplified]] — principles translated for non-technical readers
 - [[who/governance/governance_curriculum_council_charter]] — the body that enforces principles in curriculum

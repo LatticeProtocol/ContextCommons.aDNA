@@ -1,8 +1,8 @@
 ---
 type: directory_index
 created: 2026-02-17
-updated: 2026-03-28
-last_edited_by: agent_aria
+updated: 2026-04-12
+last_edited_by: agent_gutenberg
 tags: [directory_index, context]
 ---
 
@@ -142,6 +142,9 @@ Pre-defined context assemblies for multi-disciplinary tasks. See `context_recipe
 | lattice_basics | 2 | ~6,000 | 4.0 | active |
 | object_standards | 1 | ~3,200 | 3.8 | active |
 | claude_code (Claude Code runtime) | 4 | ~10,000 | — | active |
+| **program_design** (CC) | 4 | ~9,000 | 3.8 | **active** (III-reviewed) |
+| **fundraising** (CC) | 6 | ~14,000 | — | **active** |
+| **adna_for_communities** (CC) | 2 | ~3,500 | — | **seeded** (DRAFT) |
 
 ## Load/Skip Decision
 

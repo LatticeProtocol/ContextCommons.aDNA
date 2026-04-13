@@ -73,13 +73,13 @@ context_commons.aDNA/
 | Claude Code | 4 | ~12K | `what/context/claude_code/` | Inherited |
 | Lattice Basics | 2 | ~4.5K | `what/context/lattice_basics/` | Inherited |
 | Object Standards | 1 | ~3K | `what/context/object_standards/` | Inherited |
-| **Program Design** | 4 | ~8K | `what/context/program_design/` | **Seeded** |
+| **Program Design** | 4 | ~9K | `what/context/program_design/` | **Active** (III-reviewed, avg 3.8) |
 | **Fundraising** | 6 | ~14K | `what/context/fundraising/` | **Active** |
+| **aDNA for Communities** | 2 | ~3.5K | `what/context/adna_for_communities/` | **Seeded** (DRAFT) |
 | Curriculum Framework | 5 | ~10K | `what/context/curriculum_framework/` | Planned |
 | Community Engagement | 3 | ~6K | `what/context/community_engagement/` | Planned |
 | Pilot Programs | 3 | ~8K | `what/context/pilot_programs/` | Planned |
 | Use Case Domains | 5 | ~10K | `what/context/use_case_domains/` | Planned |
-| aDNA for Communities | 2 | ~5K | `what/context/adna_for_communities/` | Planned |
 
 Cross-topic recipes: `what/context/context_recipes.md` (6 inherited + 6 CC-specific recipes).
 
@@ -101,7 +101,7 @@ Cross-topic recipes: `what/context/context_recipes.md` (6 inherited + 6 CC-speci
 |-----------|--------|-------------|
 | aDNA Standard v2.2 | Inherited | Core specification — triad, ontology, sessions, missions, campaigns |
 | Context library (inherited) | Shipped | 5 topics, 27 subtopics, ~75K tokens |
-| Context library (CC) | In Progress | 2/7 topics active (program_design, fundraising), 5 planned |
+| Context library (CC) | In Progress | 3/7 topics active/seeded (program_design, fundraising, adna_for_communities), 4 planned |
 | Ontology extensions | Shipped | 12 CC-specific entity types scaffolded |
 | Forge wrappers | Shipped | SiteForge, VideoForge, PresentationForge shells created |
 | **campaign_context_commons_genesis** | **Active** | 4 phases, 15 missions — bootstrap to operational HQ |

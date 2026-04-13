@@ -14,14 +14,14 @@ Foundational context for the Context Commons program — the thesis, core princi
 
 ## Subtopics
 
-| File | Tokens | Purpose |
-|------|--------|---------|
-| `context_cc_thesis.md` | ~2K | The printing press thesis, two-part problem, circular knowledge economy |
-| `context_cc_core_principles.md` | ~2K | People as Partners, Agentic Printing Press, community ownership |
-| `context_cc_program_architecture.md` | ~2.5K | Curriculum Council, 4 tracks, 3-tier mentorship network |
-| `context_cc_governance_model.md` | ~1.5K | Community governance non-negotiable, no data extraction, open standards |
+| File | Tokens | Quality | Purpose |
+|------|--------|---------|---------|
+| `context_cc_thesis.md` | ~2K | 3.8 | The printing press thesis, two-part problem, circular knowledge economy |
+| `context_cc_core_principles.md` | ~2K | 3.8 | People as Partners, Agentic Printing Press, community ownership, enforcement |
+| `context_cc_program_architecture.md` | ~2.5K | 3.8 | Curriculum Council, 4 tracks, 3-tier mentorship, timelines, capstone rubric |
+| `context_cc_governance_model.md` | ~2.5K | 3.8 | Governance, dispute resolution, partner violation protocol, 3 decision scenarios |
 
-**Total**: ~8K tokens
+**Total**: ~9K tokens | **Average quality**: 3.8 (Good) | **Last evaluated**: 2026-04-12
 
 ## Load/Skip Decision
 
@@ -36,4 +36,4 @@ Foundational context for the Context Commons program — the thesis, core princi
 - Detailed curriculum module authoring (load `curriculum_framework/` instead)
 - Operational tasks within an established campaign
 
-**Token cost**: ~8K for full topic, ~2K per individual file.
+**Token cost**: ~9K for full topic, ~2-2.5K per individual file.

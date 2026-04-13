@@ -5,7 +5,15 @@ updated: 2026-04-12
 status: active
 last_edited_by: agent_gutenberg
 tags: [context, program_design, thesis, mission]
-token_estimate: ~3200
+token_estimate: ~2000
+quality_score: 3.8
+signal_density: 4
+actionability: 3
+coverage_uniformity: 4
+source_diversity: 3
+cross_topic_coherence: 5
+freshness_category: durable
+last_evaluated: 2026-04-12
 ---
 
 # The Context Commons Thesis
@@ -55,6 +63,10 @@ Context graphs invert this. A context graph is a structured representation of a 
 
 The agent built on this graph is not a generic chatbot. It is a tool that understands *this community's* context and serves *this community's* people. When the community's needs change, the graph changes — and the agent changes with it. The community owns the knowledge. The youth maintain the system. The elders benefit. No one is a "user."
 
+In Los Angeles, the same pattern works at different scale. A youth builder at a Venice Beach Book Club session creates a context graph for immigration paperwork navigation — encoding which forms a family needs, what the deadlines are, where to get notarized translations, and who in the LAUSD network can help. The graph is in Spanish and English. The agent it powers serves families across multiple neighborhoods. When immigration rules change, the community updates the graph — not some app company in another state.
+
+Two communities, two very different contexts, one standard. The context graph is the portable, community-owned unit that makes this possible.
+
 ## Why Two Pilots
 
 The program launches with two deliberately contrasting pilot sites:
@@ -64,10 +76,20 @@ The program launches with two deliberately contrasting pilot sites:
 
 What works for one will not automatically work for the other. That is the point. The Context Commons must be adaptable — a framework, not a franchise. Grand Rapids tests depth; Los Angeles tests breadth. Together they prove (or disprove) the thesis that community-governed agentic systems can work across radically different contexts.
 
+## Sources & Influences
+
+- **aDNA Context Graph Standard v2.2** — the open ontology standard underlying the program ([[what/context/adna_core/context_adna_core_paradigm_overview]])
+- **Ito, M. et al. (2013). Connected Learning** — framework for interest-driven, peer-supported, production-centered learning that bridges equity and participation gaps
+- **Eubanks, V. (2018). Automating Inequality** — documents how technology systems designed without community governance cause harm; the Context Commons thesis is a direct response
+- **Couldry, N. & Mejias, U. (2019). The Costs of Connection** — articulates data colonialism; the "no data extraction" principle draws from this critique
+- Community profiles from pilot site research (Peter's Church, Grand Rapids; LAUSD/Venice Beach/UCLA, Los Angeles)
+
 ## Related
 
+- [[what/context/adna_core/context_adna_core_paradigm_overview]] — aDNA standard technical specification
 - [[what/context/program_design/context_cc_core_principles]] — operational principles
-- [[what/context/program_design/context_cc_program_architecture]] — curriculum and mentorship structure
+- [[what/context/program_design/context_cc_program_architecture]] �� curriculum and mentorship structure
 - [[what/context/program_design/context_cc_governance_model]] — partnership terms
+- [[what/context/adna_for_communities/context_adna_simplified]] — aDNA explained for non-technical readers
 - [[who/communities/community_peters_church_grand_rapids]] — Pilot A
 - [[who/communities/community_lausd_venice_beach_la]] — Pilot B

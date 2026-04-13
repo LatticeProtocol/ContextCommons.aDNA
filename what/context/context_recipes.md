@@ -171,7 +171,7 @@ Recipes specific to the Context Commons program. These assemble CC-specific cont
 | `use_case_development` | relevant use_case file + adna_simplified | + lattice_for_communities + builder track | + all use_case_domains + all adna_for_communities + all curriculum_framework |
 | `grant_application` | thesis + fundraising_strategy | + grant_writing + relevant catalog (federal *or* foundation) | + all fundraising + grant_operations + fiscal_sponsorship + governance_model |
 
-> **Note**: Curriculum framework, community engagement, pilot programs, use case domains, and aDNA for communities topics are **planned** — they will be created during campaign_context_commons_genesis missions M01-M06. Until then, these recipes can only load program_design subtopics. The fundraising topic is **active** and fully loaded.
+> **Note**: Program design (~9K) is **active** and III-reviewed (avg quality 3.8). aDNA for communities (~3.5K) is **seeded** (DRAFT, pending community review). Fundraising (~14K) is **active** and fully loaded. Curriculum framework, community engagement, pilot programs, and use case domains are **planned** — they will be created during campaign_context_commons_genesis missions M02-M06.
 
 ## Sources
 

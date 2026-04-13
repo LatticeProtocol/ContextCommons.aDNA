@@ -41,7 +41,7 @@ Bootstrap the Context Commons from raw context dump to operational headquarters.
 | Mission | Title | Sessions | Status |
 |---------|-------|----------|--------|
 | M00 | Campaign Planning & Project Buildout | 2-3 (actual: 1) | **Completed** |
-| M01 | Context Ingestion: Program Design (deepen seeds) | 2 | Planned |
+| M01 | Context Ingestion: Program Design (deepen seeds) | 2 (actual: 1) | **Completed** |
 | M02 | Context Ingestion: Curriculum Framework | 2 | Planned |
 | M03 | Context Ingestion: Community Engagement | 1 | Planned |
 

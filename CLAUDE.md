@@ -286,12 +286,12 @@ Reusable agent recipes and documented procedures in `how/skills/`. Skills have t
 
 | Topic | Status | Subtopics | Est. Tokens | Purpose |
 |-------|--------|-----------|-------------|---------|
-| `program_design/` | Seeded | 4 | ~8K | Thesis, principles, architecture, governance model |
+| `program_design/` | **Active** (III-reviewed, avg 3.8) | 4 | ~9K | Thesis, principles, architecture, governance model |
 | `curriculum_framework/` | Planned | 5 | ~10K | Track structures, module template, pedagogy |
 | `community_engagement/` | Planned | 3 | ~6K | Partnership model, community reqs, mentor roles |
 | `pilot_programs/` | Planned | 3 | ~8K | Grand Rapids, LA pilot designs, evaluation |
 | `use_case_domains/` | Planned | 5 | ~10K | Healthcare, immigration, education, elder care, community gov |
-| `adna_for_communities/` | Planned | 2 | ~5K | aDNA simplified, lattice for communities |
+| `adna_for_communities/` | **Seeded** (DRAFT) | 2 | ~3.5K | aDNA simplified, lattice for communities |
 | `fundraising/` | Active | 6 | ~14K | Funding strategy, grant catalogs, operations, fiscal sponsorship |
 
 Plus 5 inherited topics (~75K tokens): prompt_engineering, adna_core, claude_code, lattice_basics, object_standards.
