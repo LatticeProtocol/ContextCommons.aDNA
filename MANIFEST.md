@@ -31,7 +31,7 @@ context_commons.aDNA/
 
 | Layer | Question | Contains |
 |-------|----------|----------|
-| **what/** | WHAT does this project know? | Context library (5 inherited + 6 CC topics), use cases, pilots, partnerships, decisions, lattice tools |
+| **what/** | WHAT does this project know? | Context library (5 inherited + 7 CC topics), use cases, pilots, partnerships, decisions, lattice tools |
 | **how/** | HOW does this project work? | Campaigns, missions, sessions, tracks, curriculum modules, editorial pipeline, 34 templates, 13 skills |
 | **who/** | WHO is involved? | Communities, mentors, stewards, builders, partners, Curriculum Council, governance |
 
@@ -74,13 +74,14 @@ context_commons.aDNA/
 | Lattice Basics | 2 | ~4.5K | `what/context/lattice_basics/` | Inherited |
 | Object Standards | 1 | ~3K | `what/context/object_standards/` | Inherited |
 | **Program Design** | 4 | ~8K | `what/context/program_design/` | **Seeded** |
+| **Fundraising** | 6 | ~14K | `what/context/fundraising/` | **Active** |
 | Curriculum Framework | 5 | ~10K | `what/context/curriculum_framework/` | Planned |
 | Community Engagement | 3 | ~6K | `what/context/community_engagement/` | Planned |
 | Pilot Programs | 3 | ~8K | `what/context/pilot_programs/` | Planned |
 | Use Case Domains | 5 | ~10K | `what/context/use_case_domains/` | Planned |
 | aDNA for Communities | 2 | ~5K | `what/context/adna_for_communities/` | Planned |
 
-Cross-topic recipes: `what/context/context_recipes.md` (6 inherited + 5 CC-specific recipes).
+Cross-topic recipes: `what/context/context_recipes.md` (6 inherited + 6 CC-specific recipes).
 
 ### Forge Federation
 
@@ -100,7 +101,7 @@ Cross-topic recipes: `what/context/context_recipes.md` (6 inherited + 5 CC-speci
 |-----------|--------|-------------|
 | aDNA Standard v2.2 | Inherited | Core specification — triad, ontology, sessions, missions, campaigns |
 | Context library (inherited) | Shipped | 5 topics, 27 subtopics, ~75K tokens |
-| Context library (CC) | Seeded | 1/6 topics seeded (program_design), 5 planned |
+| Context library (CC) | In Progress | 2/7 topics active (program_design, fundraising), 5 planned |
 | Ontology extensions | Shipped | 12 CC-specific entity types scaffolded |
 | Forge wrappers | Shipped | SiteForge, VideoForge, PresentationForge shells created |
 | **campaign_context_commons_genesis** | **Active** | 4 phases, 15 missions — bootstrap to operational HQ |

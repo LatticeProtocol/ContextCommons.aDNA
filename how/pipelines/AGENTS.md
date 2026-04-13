@@ -28,6 +28,7 @@ A file's location in the directory tree IS its pipeline state.
 | Pipeline | Stages | Purpose |
 |----------|--------|---------|
 | `prd_rfc/` | 4 (research → requirements → design → review) | R&D → PRD → RFC product planning |
+| `grant_pipeline/` | 7 (prospect → qualify → LOI → application → negotiate → implement → closeout) | Grant opportunity tracking and application workflow |
 
 ## Pipeline Index
 
@@ -51,6 +52,36 @@ how/pipelines/prd_rfc/
 ```
 
 **Output**: Approved PRD + RFC documents committed to campaign `planning/` dirs or `04_review/` committed
+
+### grant_pipeline/ — Grant Application Pipeline
+
+```
+how/pipelines/grant_pipeline/
+├── AGENTS.md              # Pipeline overview and entry point
+├── 01_prospect/           # Identified opportunities
+│   ├── AGENTS.md          # Stage instructions
+│   └── (grant files)
+├── 02_qualify/            # Fit assessment
+│   ├── AGENTS.md          # Stage instructions
+│   └── (qualified opportunities)
+├── 03_loi/                # Letter of Inquiry drafting
+│   ├── AGENTS.md          # Stage instructions
+│   └── (LOI drafts)
+├── 04_application/        # Full application drafting
+│   ├── AGENTS.md          # Stage instructions
+│   └── (application packages)
+├── 05_negotiate/          # Award negotiation
+│   ├── AGENTS.md          # Stage instructions
+│   └── (award terms)
+├── 06_implement/          # Active grant implementation
+│   ├── AGENTS.md          # Stage instructions
+│   └── (active grants)
+└── 07_closeout/           # Final reports and archive
+    ├── AGENTS.md          # Stage instructions
+    └── (completed/declined grants)
+```
+
+**Output**: Awarded grants with compliance infrastructure, or archived opportunity records.
 
 ## Creating New Pipelines
 
@@ -86,5 +117,7 @@ To add a new pipeline:
 ## Cross-References
 
 - [how/pipelines/prd_rfc/AGENTS](prd_rfc/AGENTS.md) — Product planning pipeline
+- [how/pipelines/grant_pipeline/AGENTS](grant_pipeline/AGENTS.md) — Grant application pipeline
+- [what/context/fundraising/AGENTS](../../what/context/fundraising/AGENTS.md) — Fundraising context topic
 - [how/missions/AGENTS](../missions/AGENTS.md) — Mission protocol (pipelines feed into missions)
 - [how/templates/AGENTS](../templates/AGENTS.md) — Templates used within pipeline stages

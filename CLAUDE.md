@@ -53,6 +53,7 @@ context_commons.aDNA/
 ├── what/                        # WHAT — Knowledge, context, curriculum
 │   ├── context/                 # Agent context library (inherited + CC topics)
 │   │   ├── program_design/      # Thesis, principles, architecture, governance model
+│   │   ├── fundraising/         # Funding strategy, grant catalogs, operations, fiscal sponsorship
 │   │   ├── curriculum_framework/# Track structures, module template (planned)
 │   │   ├── community_engagement/# Partnership model, community reqs (planned)
 │   │   ├── pilot_programs/      # Grand Rapids, LA pilot designs (planned)
@@ -291,6 +292,7 @@ Reusable agent recipes and documented procedures in `how/skills/`. Skills have t
 | `pilot_programs/` | Planned | 3 | ~8K | Grand Rapids, LA pilot designs, evaluation |
 | `use_case_domains/` | Planned | 5 | ~10K | Healthcare, immigration, education, elder care, community gov |
 | `adna_for_communities/` | Planned | 2 | ~5K | aDNA simplified, lattice for communities |
+| `fundraising/` | Active | 6 | ~14K | Funding strategy, grant catalogs, operations, fiscal sponsorship |
 
 Plus 5 inherited topics (~75K tokens): prompt_engineering, adna_core, claude_code, lattice_basics, object_standards.
 

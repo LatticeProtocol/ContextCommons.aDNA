@@ -147,6 +147,7 @@ Recipes specific to the Context Commons program. These assemble CC-specific cont
 | `partnership_outreach` | program_design + community_engagement + use_case_domains | thesis, core_principles, governance_model + partnership_model, community_requirements + top 2 use_case files | ~12K | Writing partnership proposals, partner-facing materials |
 | `website_content` | program_design + community_engagement + pilot_programs + use_case_domains | all program_design + partnership_model + pilot overviews + use_case overviews | ~18K | Generating website content via SiteForge |
 | `use_case_development` | use_case_domains + adna_for_communities + curriculum_framework | relevant use_case file + adna_simplified + lattice_for_communities + builder track | ~12K | Developing new community use case specifications |
+| `grant_application` | program_design + fundraising | thesis, core_principles + fundraising_strategy, grant_writing + relevant catalog (federal or foundation) | ~11K | Writing grant applications, LOIs, funding proposals |
 
 ### CC — Keyword Triggers
 
@@ -157,6 +158,7 @@ Recipes specific to the Context Commons program. These assemble CC-specific cont
 | partnership, partner, Apple, Google, Anthropic, sponsor, hardware grant | `partnership_outreach` |
 | website, homepage, landing page, about page, siteforge, web content | `website_content` |
 | use case, healthcare, immigration, elder care, education, community need | `use_case_development` |
+| grant, funding, fundraising, NSF, foundation, LOI, application, fiscal sponsor | `grant_application` |
 
 ### CC — Token Budget Tiers
 
@@ -167,8 +169,9 @@ Recipes specific to the Context Commons program. These assemble CC-specific cont
 | `partnership_outreach` | thesis + governance_model | + partnership_model + community_requirements + 2 use_cases | + all program_design + all community_engagement + all use_case_domains |
 | `website_content` | thesis + core_principles | + all program_design + partnership_model + pilot overviews | + all CC topics |
 | `use_case_development` | relevant use_case file + adna_simplified | + lattice_for_communities + builder track | + all use_case_domains + all adna_for_communities + all curriculum_framework |
+| `grant_application` | thesis + fundraising_strategy | + grant_writing + relevant catalog (federal *or* foundation) | + all fundraising + grant_operations + fiscal_sponsorship + governance_model |
 
-> **Note**: Curriculum framework, community engagement, pilot programs, use case domains, and aDNA for communities topics are **planned** — they will be created during campaign_context_commons_genesis missions M01-M06. Until then, these recipes can only load program_design subtopics.
+> **Note**: Curriculum framework, community engagement, pilot programs, use case domains, and aDNA for communities topics are **planned** — they will be created during campaign_context_commons_genesis missions M01-M06. Until then, these recipes can only load program_design subtopics. The fundraising topic is **active** and fully loaded.
 
 ## Sources
 
