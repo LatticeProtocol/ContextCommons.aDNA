@@ -76,8 +76,8 @@ context_commons.aDNA/
 | **Program Design** | 4 | ~9K | `what/context/program_design/` | **Active** (III-reviewed, avg 3.8) |
 | **Fundraising** | 6 | ~14K | `what/context/fundraising/` | **Active** |
 | **aDNA for Communities** | 2 | ~3.5K | `what/context/adna_for_communities/` | **Seeded** (DRAFT) |
-| Curriculum Framework | 5 | ~10K | `what/context/curriculum_framework/` | Planned |
-| Community Engagement | 3 | ~6K | `what/context/community_engagement/` | Planned |
+| Curriculum Framework | 5 | ~9.2K | `what/context/curriculum_framework/` | **Active** (III-reviewed, avg 4.2) |
+| Community Engagement | 3 | ~9.1K | `what/context/community_engagement/` | **Active** (III-reviewed, avg 4.37) |
 | Pilot Programs | 3 | ~8K | `what/context/pilot_programs/` | Planned |
 | Use Case Domains | 5 | ~10K | `what/context/use_case_domains/` | Planned |
 
@@ -101,7 +101,7 @@ Cross-topic recipes: `what/context/context_recipes.md` (6 inherited + 6 CC-speci
 |-----------|--------|-------------|
 | aDNA Standard v2.2 | Inherited | Core specification — triad, ontology, sessions, missions, campaigns |
 | Context library (inherited) | Shipped | 5 topics, 27 subtopics, ~75K tokens |
-| Context library (CC) | In Progress | 3/7 topics active/seeded (program_design, fundraising, adna_for_communities), 4 planned |
+| Context library (CC) | In Progress | 4/7 topics active/seeded (program_design, curriculum_framework, community_engagement, fundraising + adna_for_communities seeded), 3 planned |
 | Ontology extensions | Shipped | 12 CC-specific entity types scaffolded |
 | Forge wrappers | Shipped | SiteForge, VideoForge, PresentationForge shells created |
 | **campaign_context_commons_genesis** | **Active** | 4 phases, 15 missions — bootstrap to operational HQ |

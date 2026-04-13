@@ -1,7 +1,7 @@
 ---
 type: campaign
 created: 2026-04-12
-updated: 2026-04-12
+updated: 2026-04-13
 status: active
 last_edited_by: agent_gutenberg
 tags: [campaign, genesis, bootstrap]
@@ -43,7 +43,7 @@ Bootstrap the Context Commons from raw context dump to operational headquarters.
 | M00 | Campaign Planning & Project Buildout | 2-3 (actual: 1) | **Completed** |
 | M01 | Context Ingestion: Program Design (deepen seeds) | 2 (actual: 1) | **Completed** |
 | M02 | Context Ingestion: Curriculum Framework | 2 (actual: 1) | **Completed** |
-| M03 | Context Ingestion: Community Engagement | 1 | Planned |
+| M03 | Context Ingestion: Community Engagement | 1 (actual: 1) | **Completed** |
 
 **Phase gate**: All context files created, measured, III-reviewed. Context recipes validated. Governance files coherent. Token budgets within +/-15%. Community and partner profiles populated. Curriculum Council charter drafted. M01-M06 mission stubs created with acceptance criteria.
 
