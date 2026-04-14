@@ -4,7 +4,7 @@ created: 2026-04-12
 updated: 2026-04-13
 status: active
 last_edited_by: agent_gutenberg
-last_session: session_stanley_20260413_m05_use_case_library
+last_session: session_stanley_20260413_m06_adna_for_communities
 tags: [state, governance]
 ---
 
@@ -14,9 +14,9 @@ Dynamic operational snapshot for cold-start orientation. Updated each session.
 
 ## Current Phase
 
-**Phase 2 — Pilots & Use Cases. In progress. M05 completed 2026-04-13.**
+**Phase 2 — Pilots & Use Cases. Complete. Pending Phase 2 gate review.**
 
-Phase 2 is underway. M05 (Use Case Domain Library) completed in 1 session (est. 2-3). 20 CC context files across 5 III-reviewed topics (program_design avg 3.8, curriculum_framework avg 4.2, community_engagement avg 4.37, pilot_programs avg 4.43, use_case_domains avg 4.44). 6 use case specs created covering both pilots. Next mission: M06 (aDNA for Communities).
+Phase 2 is complete. All 3 missions (M04-M06) completed in 3 sessions (est. 5-7). 6 CC context topics authored, all III-reviewed. 23 CC context files totaling ~54K tokens. Next: Phase 2 gate review, then Phase 3 (Infrastructure).
 
 ## What's Working
 
@@ -29,9 +29,9 @@ Phase 2 is underway. M05 (Use Case Domain Library) completed in 1 session (est. 
 - `community_engagement/` context topic **III-reviewed** (3 files, ~9.1K tokens, avg quality 4.37)
 - `pilot_programs/` context topic **III-reviewed** (3 files, ~6.9K tokens, avg quality 4.43)
 - `use_case_domains/` context topic **III-reviewed** (5 files, ~11.5K tokens, avg quality 4.44)
+- `adna_for_communities/` context topic **III-reviewed** (3 files, ~8.5K tokens, avg quality 4.67)
 - 6 use case specs created in `what/use_cases/` (2 GR-primary, 3 LA-primary, 1 shared)
 - `fundraising/` context topic active (6 files, ~14K tokens)
-- `adna_for_communities/` context topic **seeded** (2 DRAFT files, ~3.5K tokens)
 - 5 CC-specific context recipes defined
 - Pilot A (Grand Rapids) and Pilot B (Los Angeles) plans drafted in `what/pilots/`
 - Genesis campaign active (4 phases, 15 missions, ~25-33 sessions)
@@ -41,12 +41,13 @@ Phase 2 is underway. M05 (Use Case Domain Library) completed in 1 session (est. 
 - **M03 completed** — community engagement authored and III-reviewed (3 files, avg 4.37)
 - **M04 completed** — pilot program design authored and III-reviewed (3 context files avg 4.43 + 2 pilot plans)
 - **M05 completed** — use case domain library authored and III-reviewed (5 context files avg 4.44 + 6 use case specs)
+- **M06 completed** — adna_for_communities translational layer deepened and III-reviewed (3 files avg 4.67 + explanation toolkit)
 
 ## Active Campaigns
 
 | Campaign | Phase | Status | Priority |
 |----------|-------|--------|----------|
-| `campaign_context_commons_genesis` | Phase 2 | **Active** | Primary |
+| `campaign_context_commons_genesis` | Phase 2 | **Complete — gate review pending** | Primary |
 
 ## Mission Status
 
@@ -58,7 +59,7 @@ Phase 2 is underway. M05 (Use Case Domain Library) completed in 1 session (est. 
 | M03 | 1 | **Completed** | 1 (est. 1) |
 | M04 | 2 | **Completed** | 1 (est. 2) |
 | M05 | 2 | **Completed** | 1 (est. 2-3) |
-| M06 | 2 | Planned | est. 1-2 |
+| M06 | 2 | **Completed** | 1 (est. 1-2) |
 
 ## Timeline
 
@@ -72,7 +73,8 @@ Phase 2 is underway. M05 (Use Case Domain Library) completed in 1 session (est. 
 | **Phase 1 Gate Review** | 2026-04-13 | **Passed** |
 | M04: Pilot Program Design | 2026-04-13 | **Done** |
 | M05: Use Case Domain Library | 2026-04-13 | **Done** |
-| Phase 2: Pilots & Use Cases (M06) | May-Jun 2026 | In progress |
+| M06: aDNA for Communities | 2026-04-13 | **Done** |
+| **Phase 2 Gate Review** | 2026-04-13 | **Pending** |
 | Phase 3: Infrastructure (M07-M10) | Jun-Jul 2026 | Planned |
 | Phase 4: Launch Preparation (M11-M14) | Jul-Aug 2026 | Planned |
 | **Pilot A Launch (Grand Rapids)** | **Q3 2026** | Planned |
@@ -82,25 +84,17 @@ Phase 2 is underway. M05 (Use Case Domain Library) completed in 1 session (est. 
 
 None.
 
-## Key Findings from M05
+## Key Findings from M06
 
-1. **Healthcare/elder care domain separation is structurally sound.** "Systems vs. people" boundary produced genuinely distinct context files with clear interoperation points. Escalation criteria tables make cross-domain handoffs explicit (e.g., "elder needs Medicare help → hand off to healthcare navigation agent").
-2. **Escalation criteria tables are a significant actionability driver.** Initial III review scored 4.04 without them; after adding escalation tables to all 5 domain files, actionability rose to 5 across the board, pushing average to 4.44. This pattern should be standard for domain-type context files.
-3. **Use case specs are more token-dense than context files.** 6 use case specs average ~500-600 tokens each (vs. ~2.3K for domain context files). The template_use_case.md structure is efficient — problem statement, proposed solution, context graph requirements, and governance status pack tightly.
-4. **Quality trend continues upward.** M01 avg 3.8 → M02 avg 4.2 → M03 avg 4.37 → M04 avg 4.43 → M05 avg 4.44.
-5. **Single-session pattern continues.** M05 (est 2-3, actual 1). Total across 6 missions: 6 sessions vs. 10-14 estimated (~50% of estimate).
-6. **Cross-domain use case (multilingual benefits navigator) validates the domain architecture.** A use case that spans healthcare navigation and immigration services demonstrates the value of separate-but-linked domain files with explicit handoff points.
-
-## Key Findings from M04
-
-1. **Table-heavy operational content is more token-efficient than expected.** M04 context files estimated ~8K, actual ~6.9K (87%). Concise prose between dense tables compresses well. Revised heuristic: table-heavy operational files ~2.3K per file.
-2. **Multi-institutional deliverables require ~60% more content.** Pilot B (LA, distributed) was ~3.6K tokens vs. Pilot A (GR, concentrated) ~2.3K tokens. Distributed governance, multi-site logistics, and comparison tables add structural overhead.
-3. **Quality trend continues upward.** M01 avg 3.8 → M02 avg 4.2 → M03 avg 4.37 → M04 avg 4.43. Actionability=5 across all 3 files — pre-launch checklists, budget templates, and evaluation metrics are directly usable.
-4. **Single-session pattern holds into Phase 2.** M04 (est 2, actual 1). Total across 5 missions: 5 sessions vs. 8-11 estimated (~55% of estimate).
-5. **Pilot sovereignty (Standing Order #9) produces genuinely different plans.** The Pilot A vs. Pilot B comparison table in pilot_b_los_angeles.md confirms the plans are structurally different across 13 dimensions, not parametric variations of one template.
+1. **Practice walkthrough and day-in-the-life narrative formats are highly effective for translational content.** Concrete scenes grounded in specific pilot communities (Pastor Williams, Mrs. Johnson, Maria, Sofia) make abstract concepts tangible. This format should be standard for any community-facing documentation.
+2. **The explanation toolkit is the highest-value artifact in the topic.** One-pagers, verbal scripts (2-min and 5-min), and cultural adaptation notes are directly deployable at community meetings. Future community-facing content should always include a verbal script variant.
+3. **Escalation criteria tables transfer well from technical to translational context.** The pattern that drove M05 actionability to 5 (domain escalation tables) also works in plain-language community guides — adapted as "What Happens If Something Goes Wrong?" with situation/action/handler columns.
+4. **Source diversity is structurally lower in translational content (3-4 vs. 4+ for technical).** This is acceptable — academic citations are less appropriate for 8th-grade reading level content. The sources that are included (Ostrom, Freire, Putnam) are explained in plain language.
+5. **Quality trend continues upward.** M01 avg 3.8 → M02 avg 4.2 → M03 avg 4.37 → M04 avg 4.43 → M05 avg 4.44 → M06 avg 4.67.
+6. **Single-session pattern holds.** M06 (est 1-2, actual 1). Total across 7 missions: 7 sessions vs. 12-16 estimated (~50% of estimate).
+7. **Verbal explanation test: "If you can't say it in 2 minutes, the explanation isn't ready."** The 2-minute script forced clarity on what the core message actually is. This constraint should be applied to future community-facing content as a quality gate.
 
 ## Next Steps
 
-1. **Continue Phase 2** — M06 remaining
-   - M06: aDNA for Communities translational layer (est 1-2 sessions, likely 1) — deepen seeded files + community explanation toolkit
-2. **Phase 2 gate review** after M06 — confirm all context topics III-reviewed before proceeding to Phase 3
+1. **Phase 2 gate review** — all 6 CC context topics III-reviewed, all Phase 2 missions complete. User approval needed before Phase 3.
+2. **Phase 3 planning** — if gate passes, begin M07 (SiteForge Wrapper Setup + Branding)

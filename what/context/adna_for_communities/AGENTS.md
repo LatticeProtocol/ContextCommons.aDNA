@@ -1,7 +1,7 @@
 ---
 type: directory_index
 created: 2026-04-12
-updated: 2026-04-12
+updated: 2026-04-13
 last_edited_by: agent_gutenberg
 tags: [directory_index, context, adna_for_communities]
 ---
@@ -14,16 +14,17 @@ The translational layer — aDNA and Lattice concepts explained in plain languag
 
 **Reading level target**: 8th grade. No jargon without immediate plain-language definition.
 
-**Status**: Seeded in M01, to be deepened and community-validated in M06.
+**Status**: Seeded in M01, deepened and III-reviewed in M06 (avg quality 4.67).
 
 ## Subtopics
 
 | File | Tokens | Purpose |
 |------|--------|---------|
-| `context_adna_simplified.md` | ~1,500 | aDNA explained without technical vocabulary — what it is, why it matters, how it's different |
-| `context_lattice_for_communities.md` | ~2,000 | What the Lattice network does for communities — practical benefits, community control, collaboration |
+| `context_adna_simplified.md` | ~2,900 | aDNA explained without technical vocabulary — what it is, why it matters, practice walkthrough (GR + LA), FAQ, source references |
+| `context_lattice_for_communities.md` | ~2,800 | What the Lattice network does for communities — day-in-the-life narrative, escalation criteria, federation walkthrough, source references |
+| `context_community_explanation_toolkit.md` | ~2,800 | 5 core analogies, 2 steward one-pagers, verbal scripts (2-min + 5-min), cultural adaptation notes for 3 settings |
 
-**Total**: ~3.5K tokens
+**Total**: ~8.5K tokens
 
 ## Load/Skip Decision
 
@@ -32,10 +33,11 @@ The translational layer — aDNA and Lattice concepts explained in plain languag
 - Writing or reviewing Core Track or Elder Track curriculum modules
 - Onboarding new community stewards or partners unfamiliar with aDNA
 - Testing whether technical content is accessible to non-technical readers
+- Preparing for community presentations or meetings
 
 **Skip when**:
 - Writing technical context files or doing aDNA standard work
 - Building forge wrappers, lattice YAML, or infrastructure
 - Working with audiences already familiar with the aDNA standard
 
-**Token cost**: ~3.5K for full topic, ~1.5-2K per individual file.
+**Token cost**: ~8.5K for full topic, ~2.8-2.9K per individual file.

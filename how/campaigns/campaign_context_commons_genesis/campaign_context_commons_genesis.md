@@ -5,8 +5,8 @@ updated: 2026-04-13
 status: active
 last_edited_by: agent_gutenberg
 tags: [campaign, genesis, bootstrap]
-phase: 1
-phase_status: planned
+phase: 2
+phase_status: complete_pending_gate
 mission_count: 15
 session_estimate: 25-33
 ---
@@ -53,9 +53,9 @@ Bootstrap the Context Commons from raw context dump to operational headquarters.
 
 | Mission | Title | Sessions | Dependencies |
 |---------|-------|----------|-------------|
-| M04 | Pilot Program Design | 2 | M01, M03 |
-| M05 | Use Case Domain Library | 2-3 | M01 |
-| M06 | aDNA for Communities (translational layer) | 1-2 | M02 |
+| M04 | Pilot Program Design | 2 (actual: 1) | **Completed** |
+| M05 | Use Case Domain Library | 2-3 (actual: 1) | **Completed** |
+| M06 | aDNA for Communities (translational layer) | 1-2 (actual: 1) | **Completed** |
 
 **Phase gate**: Full context library complete (6 CC topics, all III-reviewed). Pilot community profiles enriched with steward input. Use case library with 5+ documented cases. Pilot A and Pilot B designs drafted. User approval on pilot designs before proceeding.
 
