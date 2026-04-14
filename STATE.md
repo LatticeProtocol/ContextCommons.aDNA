@@ -14,9 +14,9 @@ Dynamic operational snapshot for cold-start orientation. Updated each session.
 
 ## Current Phase
 
-**Phase 2 — Pilots & Use Cases. Complete. Pending Phase 2 gate review.**
+**Phase 3 — Infrastructure. Starting. M07 next.**
 
-Phase 2 is complete. All 3 missions (M04-M06) completed in 3 sessions (est. 5-7). 6 CC context topics authored, all III-reviewed. 23 CC context files totaling ~54K tokens. Next: Phase 2 gate review, then Phase 3 (Infrastructure).
+Phase 2 gate passed (2026-04-13). All 6 CC context topics III-reviewed (avg 4.31 overall, Phase 2 avg 4.51). 23 CC context files totaling ~54K tokens. Phase 3 begins with M07 (SiteForge Wrapper Setup + Branding).
 
 ## What's Working
 
@@ -47,7 +47,7 @@ Phase 2 is complete. All 3 missions (M04-M06) completed in 3 sessions (est. 5-7)
 
 | Campaign | Phase | Status | Priority |
 |----------|-------|--------|----------|
-| `campaign_context_commons_genesis` | Phase 2 | **Complete — gate review pending** | Primary |
+| `campaign_context_commons_genesis` | Phase 3 | **Active** | Primary |
 
 ## Mission Status
 
@@ -74,7 +74,7 @@ Phase 2 is complete. All 3 missions (M04-M06) completed in 3 sessions (est. 5-7)
 | M04: Pilot Program Design | 2026-04-13 | **Done** |
 | M05: Use Case Domain Library | 2026-04-13 | **Done** |
 | M06: aDNA for Communities | 2026-04-13 | **Done** |
-| **Phase 2 Gate Review** | 2026-04-13 | **Pending** |
+| **Phase 2 Gate Review** | 2026-04-13 | **Passed** |
 | Phase 3: Infrastructure (M07-M10) | Jun-Jul 2026 | Planned |
 | Phase 4: Launch Preparation (M11-M14) | Jul-Aug 2026 | Planned |
 | **Pilot A Launch (Grand Rapids)** | **Q3 2026** | Planned |
@@ -96,5 +96,5 @@ None.
 
 ## Next Steps
 
-1. **Phase 2 gate review** — all 6 CC context topics III-reviewed, all Phase 2 missions complete. User approval needed before Phase 3.
-2. **Phase 3 planning** — if gate passes, begin M07 (SiteForge Wrapper Setup + Branding)
+1. **Begin Phase 3** — M07 (SiteForge Wrapper Setup + Branding), then M08 (Website Content + Deploy), M09 (VideoForge), M10 (PresentationForge)
+2. **Create M07-M10 mission stubs** if not already present
