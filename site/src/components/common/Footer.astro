@@ -1,0 +1,49 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-[var(--color-border)] bg-[var(--color-bg-alt)]">
+  <div class="max-w-[var(--content-width)] mx-auto px-[var(--space-4)] py-[var(--space-12)]">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-[var(--space-8)]">
+      <!-- Brand -->
+      <div>
+        <h3 class="font-display text-[var(--text-xl)] mb-[var(--space-3)]">Context Commons</h3>
+        <p class="text-[var(--text-sm)] text-[var(--color-text-muted)] max-w-xs">
+          Every community deserves its own printing press. We teach youth to build context-driven AI systems that serve their communities.
+        </p>
+      </div>
+
+      <!-- Quick links -->
+      <div>
+        <h4 class="font-semibold text-[var(--text-sm)] uppercase tracking-wider text-[var(--color-text-muted)] mb-[var(--space-3)]">Explore</h4>
+        <nav aria-label="Footer navigation" class="flex flex-col gap-[var(--space-2)]">
+          <a href="/about" class="text-[var(--text-sm)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors duration-[var(--transition-fast)]">About</a>
+          <a href="/curriculum" class="text-[var(--text-sm)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors duration-[var(--transition-fast)]">Curriculum</a>
+          <a href="/pilots" class="text-[var(--text-sm)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors duration-[var(--transition-fast)]">Pilots</a>
+          <a href="/get-involved" class="text-[var(--text-sm)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors duration-[var(--transition-fast)]">Get Involved</a>
+          <a href="/partners" class="text-[var(--text-sm)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors duration-[var(--transition-fast)]">Partners</a>
+        </nav>
+      </div>
+
+      <!-- Connect -->
+      <div>
+        <h4 class="font-semibold text-[var(--text-sm)] uppercase tracking-wider text-[var(--color-text-muted)] mb-[var(--space-3)]">Connect</h4>
+        <div class="flex flex-col gap-[var(--space-2)]">
+          <a href="https://github.com/context-commons" class="text-[var(--text-sm)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors duration-[var(--transition-fast)]" target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+          <a href="mailto:hello@contextcommons.org" class="text-[var(--text-sm)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors duration-[var(--transition-fast)]">
+            hello@contextcommons.org
+          </a>
+        </div>
+        <p class="text-[var(--text-xs)] text-[var(--color-text-muted)] mt-[var(--space-4)]">
+          Built on <a href="https://latticeprotocol.com" class="underline hover:text-[var(--color-text)] transition-colors duration-[var(--transition-fast)]">Lattice Protocol</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-[var(--space-8)] pt-[var(--space-6)] border-t border-[var(--color-border)] text-center text-[var(--text-xs)] text-[var(--color-text-muted)]">
+      &copy; {year} Context Commons. All rights reserved.
+    </div>
+  </div>
+</footer>

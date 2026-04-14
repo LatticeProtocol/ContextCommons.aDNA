@@ -1,0 +1,109 @@
+---
+const pathname = Astro.url.pathname;
+
+const navItems = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Curriculum', href: '/curriculum' },
+  { label: 'Pilots', href: '/pilots' },
+  { label: 'Get Involved', href: '/get-involved' },
+  { label: 'Partners', href: '/partners' },
+  { label: 'Resources', href: '/resources' },
+  { label: 'Contact', href: '/contact' },
+];
+---
+
+<header class="sticky top-0 z-40 bg-[var(--color-bg)]/95 backdrop-blur-sm border-b border-[var(--color-border)]">
+  <div class="max-w-[var(--content-width)] mx-auto px-[var(--space-4)] flex items-center justify-between h-16">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-[var(--space-3)]" aria-label="Context Commons home">
+      <span class="font-display text-[var(--text-lg)] tracking-wide text-[var(--color-text)]">Context Commons</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden lg:flex items-center gap-[var(--space-1)]" aria-label="Main navigation">
+      {navItems.map(({ label, href }) => (
+        <a
+          href={href}
+          class:list={[
+            'px-[var(--space-3)] py-[var(--space-2)] text-[var(--text-sm)] rounded-[var(--radius-md)] transition-colors duration-[var(--transition-fast)]',
+            pathname === href
+              ? 'text-[var(--brand-primary)] font-semibold'
+              : 'text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-surface)]',
+          ]}
+          aria-current={pathname === href ? 'page' : undefined}
+        >
+          {label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Mobile hamburger -->
+    <button
+      type="button"
+      class="lg:hidden p-[var(--space-2)] text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
+      aria-label="Open menu"
+      aria-expanded="false"
+      data-menu-toggle
+    >
+      <svg class="w-6 h-6" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <nav
+    class="lg:hidden grid grid-rows-[0fr] transition-[grid-template-rows] duration-[var(--transition-base)] border-t border-[var(--color-border)] bg-[var(--color-bg)]"
+    aria-label="Mobile navigation"
+    data-mobile-menu
+  >
+    <div class="overflow-hidden">
+    <div class="px-[var(--space-4)] py-[var(--space-4)] flex flex-col gap-[var(--space-1)]">
+      <div class="flex justify-end mb-[var(--space-1)]">
+        <button
+          type="button"
+          class="p-[var(--space-2)] text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
+          aria-label="Close menu"
+          data-menu-close
+        >
+          <svg class="w-6 h-6" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      {navItems.map(({ label, href }) => (
+        <a
+          href={href}
+          class:list={[
+            'px-[var(--space-3)] py-[var(--space-3)] text-[var(--text-base)] rounded-[var(--radius-md)] transition-colors duration-[var(--transition-fast)]',
+            pathname === href
+              ? 'text-[var(--brand-primary)] font-semibold bg-[var(--color-surface)]'
+              : 'text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-surface)]',
+          ]}
+          aria-current={pathname === href ? 'page' : undefined}
+        >
+          {label}
+        </a>
+      ))}
+    </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.querySelector('[data-menu-toggle]');
+  const close = document.querySelector('[data-menu-close]');
+  const menu = document.querySelector('[data-mobile-menu]') as HTMLElement | null;
+
+  function toggleMenu() {
+    const expanded = toggle?.getAttribute('aria-expanded') === 'true';
+    toggle?.setAttribute('aria-expanded', String(!expanded));
+    if (menu) {
+      menu.style.gridTemplateRows = expanded ? '0fr' : '1fr';
+    }
+  }
+
+  toggle?.addEventListener('click', toggleMenu);
+  close?.addEventListener('click', toggleMenu);
+</script>

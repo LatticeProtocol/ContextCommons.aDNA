@@ -11,7 +11,18 @@
     "primary_dark": "#1A3009",
     "primary_light": "#4A7A2E",
     "accent": "#D4A843",
-    "accent_light": "#E8C96A"
+    "accent_light": "#E8C96A",
+    "accent_dark": "#8B6914"
+  },
+  "contrast_notes": {
+    "primary_on_white": "9.25:1 — PASS AA normal+large",
+    "white_on_primary": "9.25:1 — PASS AA normal+large",
+    "white_on_primary_dark": "14.28:1 — PASS AA normal+large",
+    "white_on_primary_light": "5.10:1 — PASS AA normal+large",
+    "black_on_accent": "9.48:1 — PASS AA normal+large",
+    "accent_dark_on_white": "5.09:1 — PASS AA normal+large",
+    "accent_on_white": "2.21:1 — FAIL (decorative only, never as text on white)",
+    "accent_light_on_white": "1.62:1 — FAIL (decorative only)"
   },
   "typography": {
     "display": "Libre Baskerville",

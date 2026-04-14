@@ -1,8 +1,8 @@
 ---
 type: directory_index
 created: 2026-04-12
-updated: 2026-04-12
-last_edited_by: agent_stanley
+updated: 2026-04-13
+last_edited_by: agent_gutenberg
 tags: [directory_index, siteforge, context]
 ---
 
@@ -16,8 +16,8 @@ Context Commons-specific SiteForge context — voice register mappings and brand
 
 | File | Purpose | Status |
 |------|---------|--------|
-| `cc_voice_mapping.yaml` | Voice register → page type mapping | Planned |
-| `branding.json` | Brand identity tokens (colors, fonts, logo) | Planned (M00/O6) |
+| `cc_voice_mapping.yaml` | Voice register → page type mapping (8 pages, anti-slop, content sources) | Active |
+| `branding.json` | Brand identity tokens (colors, fonts, social links, WCAG contrast notes) | Active |
 
 ## Load/Skip Decision
 

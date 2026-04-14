@@ -1,0 +1,28 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+---
+
+<PageLayout
+  title="Home"
+  description="Context Commons — Community-driven agentic literacy. Every community deserves its own printing press."
+  fullWidth={true}
+  jsonLD={{
+    '@type': 'Organization',
+    name: 'Context Commons',
+    description: 'Community-driven agentic literacy, enablement, and support program.',
+    url: 'https://contextcommons.org',
+  }}
+>
+  <!-- Hero section — M08 will replace with full content -->
+  <section class="py-[var(--space-32)] px-[var(--space-4)] text-center bg-[var(--brand-primary)] text-white">
+    <div class="max-w-[var(--prose-width-wide)] mx-auto">
+      <h1 class="text-[var(--text-4xl)] mb-[var(--space-6)]">Every community deserves its own printing press.</h1>
+      <p class="text-[var(--text-xl)] opacity-90 mb-[var(--space-8)]">
+        We teach youth to build context-driven AI systems that serve their communities, while equipping elders and stewards to govern and benefit from those systems.
+      </p>
+      <a href="/get-involved" class="inline-block px-[var(--space-8)] py-[var(--space-4)] bg-[var(--brand-accent)] text-[var(--brand-primary-dark)] font-semibold rounded-[var(--radius-md)] text-[var(--text-lg)] hover:opacity-90 transition-opacity">
+        Join the Commons
+      </a>
+    </div>
+  </section>
+</PageLayout>

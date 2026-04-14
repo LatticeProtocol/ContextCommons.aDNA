@@ -1,0 +1,39 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  canonicalURL?: string;
+  jsonLD?: Record<string, unknown>;
+}
+
+const { title, description, ogImage, canonicalURL, jsonLD } = Astro.props;
+const siteName = 'Context Commons';
+const resolvedCanonical = canonicalURL ?? Astro.url.href;
+---
+
+<title>{title} | {siteName}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={resolvedCanonical} />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={resolvedCanonical} />
+{ogImage && <meta property="og:image" content={new URL(ogImage, Astro.site).href} />}
+<meta property="og:site_name" content={siteName} />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+{ogImage && <meta name="twitter:image" content={new URL(ogImage, Astro.site).href} />}
+
+<!-- JSON-LD Structured Data -->
+{jsonLD && (
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    ...jsonLD,
+  })} />
+)}

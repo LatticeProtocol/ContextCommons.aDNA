@@ -1,0 +1,23 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  jsonLD?: Record<string, unknown>;
+  fullWidth?: boolean;
+}
+
+const { title, description, ogImage, jsonLD, fullWidth = false } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} ogImage={ogImage} jsonLD={jsonLD}>
+  {fullWidth ? (
+    <slot />
+  ) : (
+    <div class="max-w-[var(--content-width)] mx-auto px-[var(--space-4)]">
+      <slot />
+    </div>
+  )}
+</BaseLayout>

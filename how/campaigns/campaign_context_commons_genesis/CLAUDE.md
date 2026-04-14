@@ -56,7 +56,7 @@ Phase gates are human gates (Standing Order #1). At each phase boundary:
 | M04 | `missions/mission_cc_m04_pilot_program_design.md` | 2 | **Completed** |
 | M05 | `missions/mission_cc_m05_use_case_library.md` | 2 | **Completed** |
 | M06 | `missions/mission_cc_m06_adna_for_communities.md` | 2 | **Completed** |
-| M07 | `missions/mission_cc_m07_siteforge_setup.md` | 3 | Planned |
+| M07 | `missions/mission_cc_m07_siteforge_setup.md` | 3 | **Completed** |
 | M08 | `missions/mission_cc_m08_website_content.md` | 3 | Planned |
 | M09 | `missions/mission_cc_m09_videoforge_setup.md` | 3 | Planned |
 | M10 | `missions/mission_cc_m10_presentationforge_setup.md` | 3 | Planned |

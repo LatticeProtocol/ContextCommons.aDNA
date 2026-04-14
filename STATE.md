@@ -4,7 +4,7 @@ created: 2026-04-12
 updated: 2026-04-13
 status: active
 last_edited_by: agent_gutenberg
-last_session: session_stanley_20260413_m06_adna_for_communities
+last_session: session_stanley_20260413_m07_siteforge_setup
 tags: [state, governance]
 ---
 
@@ -14,9 +14,9 @@ Dynamic operational snapshot for cold-start orientation. Updated each session.
 
 ## Current Phase
 
-**Phase 3 — Infrastructure. Starting. M07 next.**
+**Phase 3 — Infrastructure. In progress. M08 next.**
 
-Phase 2 gate passed (2026-04-13). All 6 CC context topics III-reviewed (avg 4.31 overall, Phase 2 avg 4.51). 23 CC context files totaling ~54K tokens. Phase 3 begins with M07 (SiteForge Wrapper Setup + Branding).
+Phase 2 gate passed (2026-04-13). All 6 CC context topics III-reviewed (avg 4.31 overall, Phase 2 avg 4.51). 23 CC context files totaling ~54K tokens. Phase 3 in progress — M07 (SiteForge Wrapper Setup + Branding) complete. Astro 6 site scaffolded, branding validated, voice mapping finalized.
 
 ## What's Working
 
@@ -42,6 +42,7 @@ Phase 2 gate passed (2026-04-13). All 6 CC context topics III-reviewed (avg 4.31
 - **M04 completed** — pilot program design authored and III-reviewed (3 context files avg 4.43 + 2 pilot plans)
 - **M05 completed** — use case domain library authored and III-reviewed (5 context files avg 4.44 + 6 use case specs)
 - **M06 completed** — adna_for_communities translational layer deepened and III-reviewed (3 files avg 4.67 + explanation toolkit)
+- **M07 completed** — SiteForge wrapper configured (branding validated, voice mapping finalized, federation verified, Astro 6 project scaffolded with build passing)
 
 ## Active Campaigns
 
@@ -60,6 +61,7 @@ Phase 2 gate passed (2026-04-13). All 6 CC context topics III-reviewed (avg 4.31
 | M04 | 2 | **Completed** | 1 (est. 2) |
 | M05 | 2 | **Completed** | 1 (est. 2-3) |
 | M06 | 2 | **Completed** | 1 (est. 1-2) |
+| M07 | 3 | **Completed** | 1 (est. 1) |
 
 ## Timeline
 
@@ -84,6 +86,14 @@ Phase 2 gate passed (2026-04-13). All 6 CC context topics III-reviewed (avg 4.31
 
 None.
 
+## Key Findings from M07
+
+1. **Accent gold (#D4A843) fails WCAG AA on white even for large text (2.21:1).** Added accent_dark (#8B6914, 5.09:1) as AA-safe text variant. Primary greens pass easily (9.25:1). Always check contrast before assuming a warm gold works for text.
+2. **Light-mode first is correct for community-facing sites.** WGA defaults to dark mode (research audience), but CC targets elders and youth on school devices — light default with dark mode opt-in.
+3. **Self-hosted fonts via @font-face > fontsource CSS imports for CWV.** Copying woff2 files to public/fonts/ gives full control over preload and display behavior.
+4. **Voice mapping as YAML with content source references is a powerful M08 input.** Each page knows exactly which context files to draw from, what voice to use, and what language to avoid. This should become a SiteForge pattern.
+5. **Single-session pattern continues.** M07 (est 1, actual 1). Total across 8 missions: 8 sessions vs. 13-18 estimated (~50% of estimate).
+
 ## Key Findings from M06
 
 1. **Practice walkthrough and day-in-the-life narrative formats are highly effective for translational content.** Concrete scenes grounded in specific pilot communities (Pastor Williams, Mrs. Johnson, Maria, Sofia) make abstract concepts tangible. This format should be standard for any community-facing documentation.
@@ -96,5 +106,6 @@ None.
 
 ## Next Steps
 
-1. **Begin Phase 3** — M07 (SiteForge Wrapper Setup + Branding), then M08 (Website Content + Deploy), M09 (VideoForge), M10 (PresentationForge)
-2. **Create M07-M10 mission stubs** if not already present
+1. **Continue Phase 3** — M08 (Website Content Generation + Deploy) is next. 3-4 sessions estimated.
+2. Then M09 (VideoForge Wrapper Setup) and M10 (PresentationForge Wrapper Setup), 1 session each.
+3. Phase 3 gate: website deployed to staging with 10/10 quality gates, all three forge wrappers operational.

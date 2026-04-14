@@ -1,0 +1,83 @@
+/* src/styles/global.css — Tailwind v4 entry + base styles */
+@import 'tailwindcss';
+@import './tokens.css';
+@import './branding.css';
+
+@theme {
+  --color-primary: var(--color-primary);
+  --color-primary-hover: var(--color-primary-hover);
+  --color-accent: var(--brand-accent, var(--color-accent));
+  --color-surface: var(--color-surface);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+/* Global base styles */
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+  transition: background-color var(--transition-slow), color var(--transition-slow);
+}
+
+/* Smooth transitions on key surfaces */
+header, footer, section, nav {
+  transition: background-color var(--transition-slow), color var(--transition-slow), border-color var(--transition-slow);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+/* Prose container */
+.prose {
+  max-width: var(--prose-width);
+}
+
+/* Focus visible styles */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.focus\:not-sr-only:focus {
+  position: absolute;
+  width: auto;
+  height: auto;
+  padding: var(--space-4);
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  z-index: 50;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Button press feedback */
+button:active,
+[role="button"]:active,
+a[class*="bg-[var(--brand"]:active {
+  transform: scale(0.98);
+}

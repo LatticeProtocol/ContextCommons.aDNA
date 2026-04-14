@@ -1,0 +1,92 @@
+/* src/styles/branding.css — Context Commons branding overlay (from branding.json)
+ *
+ * Color palette: forest green + warm gold
+ * Primary #2D5016 on white: 9.25:1 (AA pass)
+ * Accent #D4A843 — decorative only, use accent-dark #8B6914 for text (5.09:1)
+ * Light-mode first — community-facing, accessible, warm
+ */
+
+@font-face {
+  font-family: 'Libre Baskerville';
+  src: url('/fonts/libre-baskerville-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Libre Baskerville';
+  src: url('/fonts/libre-baskerville-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Sans 3';
+  src: url('/fonts/source-sans-3-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Sans 3';
+  src: url('/fonts/source-sans-3-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Sans 3';
+  src: url('/fonts/source-sans-3-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* CC brand colors — canonical values from branding.json */
+  --brand-primary: #2D5016;
+  --brand-primary-dark: #1A3009;
+  --brand-primary-light: #4A7A2E;
+  --brand-accent: #D4A843;
+  --brand-accent-light: #E8C96A;
+  --brand-accent-dark: #8B6914;
+
+  /* Override font tokens */
+  --font-display: 'Libre Baskerville', Georgia, serif;
+  --font-body: 'Source Sans 3', system-ui, sans-serif;
+}
+
+/* CC is light-mode first: warm, accessible, community-facing.
+   #2D5016 on white is 9.25:1 (passes AA easily).
+   #8B6914 on white is 5.09:1 (passes AA for accent text). */
+:root:not(.dark) {
+  --color-primary: #2D5016;
+  --color-primary-hover: #1A3009;
+  --color-accent: #D4A843;
+  --color-accent-text: #8B6914;
+  --brand-bg: #2D5016;
+}
+
+/* Dark mode: lighten primary for readability on dark backgrounds.
+   #4A7A2E on #141414 is ~4.2:1 — bump to #5A8A3E for AA. */
+.dark {
+  --color-bg: #0f1a0c;
+  --color-bg-alt: #1a2a14;
+  --color-surface: #152211;
+  --color-border: #2D4A22;
+  --color-text: #E8F0E4;
+  --color-text-muted: #8BA880;
+  --brand-primary: #5A8A3E;
+  --color-primary: #5A8A3E;
+  --color-primary-hover: #4A7A2E;
+  --color-accent: #E8C96A;
+  --color-accent-text: #E8C96A;
+
+  --shadow-sm: 0 1px 2px hsl(100 30% 5% / 0.3);
+  --shadow-md: 0 4px 6px hsl(100 30% 5% / 0.4);
+  --shadow-lg: 0 10px 15px hsl(100 30% 5% / 0.5);
+}

@@ -1,0 +1,193 @@
+# cc_voice_mapping.yaml — Context Commons voice register → page type mappings
+# Used by SiteForge content pipeline to enforce consistent tone across all 8 pages.
+#
+# Anti-slop keywords (global): revolutionizing, cutting-edge, synergy, leverage,
+#   empower (overused), game-changing, unlock, seamless, harness, next-generation,
+#   ecosystem (when used as buzzword), stakeholder (prefer "community member")
+#
+# The "would a community steward say this?" test applies to every page.
+
+voice_mapping:
+  global:
+    voice_register: measured_authority
+    reading_level: 8th_grade
+    anti_slop:
+      - revolutionizing
+      - cutting-edge
+      - synergy
+      - leverage
+      - empower
+      - game-changing
+      - unlock
+      - seamless
+      - harness
+      - next-generation
+      - stakeholder
+      - disruptive
+      - innovative solution
+      - scalable
+    prefer:
+      - instead of "stakeholder" use "community member" or "partner"
+      - instead of "empower" use "equip" or "support"
+      - instead of "leverage" use "use" or "build on"
+      - instead of "ecosystem" (buzzword) use "community" or "network"
+      - instead of "innovative solution" use the specific thing it does
+
+  pages:
+    - page: home
+      slug: /
+      primary_voice: declarative_inviting
+      secondary_voice: visionary
+      tone_notes: >
+        Mission statement, printing press thesis, call to action.
+        Open with the Gutenberg metaphor — concrete, historical, grounding.
+        Avoid corporate landing page patterns. This is a community invitation,
+        not a product pitch. The hero should feel like a letter to the community,
+        not a billboard.
+      key_messages:
+        - Every community deserves its own printing press
+        - Youth build, elders guide, stewards govern
+        - Real AI systems for real community needs
+      content_sources:
+        - what/context/program_design/context_cc_thesis.md
+        - what/context/program_design/context_cc_principles.md
+
+    - page: about
+      slug: /about
+      primary_voice: explanatory_accessible
+      secondary_voice: warm
+      tone_notes: >
+        What is Context Commons? Program architecture explained for a general
+        audience. Use the printing press analogy throughout. Show the three-role
+        model (mentors, stewards, builders) with concrete examples. Explain aDNA
+        and Lattice Protocol in plain language — what they do, not how they work.
+      key_messages:
+        - Context graphs are knowledge structures your community owns
+        - Three roles, one loop — intergenerational knowledge transfer
+        - Built on open standards, governed by communities
+      content_sources:
+        - what/context/program_design/context_cc_architecture.md
+        - what/context/adna_for_communities/
+
+    - page: curriculum
+      slug: /curriculum
+      primary_voice: educational_rigorous
+      secondary_voice: encouraging
+      tone_notes: >
+        Track overview, module previews, competency milestones. This page speaks
+        to youth considering joining, parents evaluating the program, and stewards
+        assessing fit. Balance rigor (this is real computer science) with
+        accessibility (you don't need prior experience). Show the progression
+        clearly — what you'll learn, what you'll build, what you'll be able to do.
+      key_messages:
+        - Four tracks for different roles and goals
+        - Learn by building real systems for your community
+        - No prerequisites — we start where you are
+      content_sources:
+        - what/context/curriculum_framework/
+
+    - page: pilots
+      slug: /pilots
+      primary_voice: storytelling_concrete
+      secondary_voice: community_centered
+      tone_notes: >
+        Grand Rapids and LA pilot stories, community profiles, timeline.
+        This is the most community-specific page — ground every claim in a
+        real place, real person, real need. Use future-tense storytelling
+        ("When Sofia opens her laptop...") to make the vision tangible.
+        Mark all community-specific content DRAFT until community review.
+      key_messages:
+        - Two communities, two contexts, one shared mission
+        - Designed with communities, not for them
+        - Starting Q3 2026 (Grand Rapids) and Q4 2026 (Los Angeles)
+      content_sources:
+        - what/context/pilot_programs/
+        - what/pilots/
+        - who/communities/
+      community_review_required: true
+
+    - page: get_involved
+      slug: /get-involved
+      primary_voice: action_oriented
+      secondary_voice: persona_based
+      tone_notes: >
+        Persona-based CTAs — "I'm a young person who wants to build",
+        "I'm a community leader", "I'm a technology partner". Each persona
+        gets a clear path: what you'll do, what you'll need, how to start.
+        This is the conversion page — warm but direct. No friction.
+        Large tap targets, clear next steps.
+      key_messages:
+        - There's a place for you regardless of technical background
+        - Builders build, stewards govern, elders guide
+        - Start by telling us about your community
+      personas:
+        - id: builder
+          label: "I'm a young person who wants to build"
+          cta: Apply as a Builder
+        - id: steward
+          label: "I'm a community leader"
+          cta: Become a Steward
+        - id: partner
+          label: "I represent an organization"
+          cta: Explore Partnership
+        - id: mentor
+          label: "I'm a developer who wants to teach"
+          cta: Volunteer as a Mentor
+      content_sources:
+        - what/context/community_engagement/
+
+    - page: partners
+      slug: /partners
+      primary_voice: professional_transparent
+      secondary_voice: honest
+      tone_notes: >
+        Partner directory, partnership model, non-negotiables. This page speaks
+        to organizations considering partnership — CSR teams, community orgs,
+        technology companies. Be professional but not corporate. Lead with
+        shared values, not capabilities. The non-negotiables section is key:
+        community governance, data sovereignty, youth voice. Show existing
+        partners if available, otherwise explain what partnership looks like.
+      key_messages:
+        - Partnerships are governed by community priorities
+        - Three non-negotiables: community governance, data sovereignty, youth voice
+        - Partners contribute resources, not direction
+      content_sources:
+        - what/context/community_engagement/context_cc_partnership_model.md
+        - what/partnerships/
+
+    - page: resources
+      slug: /resources
+      primary_voice: reference
+      secondary_voice: practical
+      tone_notes: >
+        Documentation, curriculum materials, community toolkit links.
+        This is a utility page — organized, scannable, no prose-heavy blocks.
+        Group by audience (builders, stewards, partners). Link to external
+        resources (aDNA docs, Lattice Protocol, GitHub repos) with brief
+        plain-language descriptions of what each resource is and who it's for.
+      key_messages:
+        - Everything you need to get started
+        - Organized by role — find what's relevant to you
+        - Open source, open access, community-governed
+      content_sources:
+        - what/context/adna_for_communities/
+
+    - page: contact
+      slug: /contact
+      primary_voice: functional
+      secondary_voice: welcoming
+      tone_notes: >
+        Application forms for communities, mentors, partners. Keep it simple
+        and warm. Don't ask for more information than needed at first contact.
+        Three paths: "My community wants to participate", "I want to mentor",
+        "My organization wants to partner". Each leads to a brief form.
+        Include a general inquiry option. Response time expectation.
+      key_messages:
+        - We'd love to hear from you
+        - Tell us about your community and we'll find the right fit
+        - Expect a response within one week
+      form_types:
+        - community_application
+        - mentor_application
+        - partner_inquiry
+        - general_contact
