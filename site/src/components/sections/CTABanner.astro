@@ -1,0 +1,56 @@
+---
+interface Props {
+  heading: string;
+  description?: string;
+  ctaText: string;
+  ctaHref: string;
+  variant?: 'brand' | 'accent' | 'light';
+}
+
+const { heading, description, ctaText, ctaHref, variant = 'brand' } = Astro.props;
+
+const variantStyles = {
+  brand: {
+    bg: 'bg-[var(--brand-primary)]',
+    text: 'text-white',
+    muted: 'text-white/80',
+    btn: 'bg-[var(--brand-accent)] text-[var(--brand-primary-dark)] hover:bg-[var(--brand-accent-light)] shadow-[var(--shadow-md)] hover:shadow-[var(--shadow-lg)]',
+    section: 'py-[var(--space-24)] md:py-[var(--space-32)]',
+  },
+  accent: {
+    bg: 'bg-[var(--brand-accent)]/10',
+    text: 'text-[var(--color-text)]',
+    muted: 'text-[var(--color-text-muted)]',
+    btn: 'bg-[var(--brand-primary)] text-white hover:bg-[var(--brand-primary-dark)] shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:scale-[1.02]',
+    section: 'py-[var(--space-16)] md:py-[var(--space-24)]',
+  },
+  light: {
+    bg: 'bg-[var(--color-bg-alt)]',
+    text: 'text-[var(--color-text)]',
+    muted: 'text-[var(--color-text-muted)]',
+    btn: 'bg-[var(--brand-primary)] text-white hover:bg-[var(--brand-primary-dark)] shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)]',
+    section: 'py-[var(--space-16)] md:py-[var(--space-24)]',
+  },
+};
+
+const styles = variantStyles[variant];
+---
+
+<section class={`${styles.section} ${styles.bg}`}>
+  <div class="max-w-[var(--prose-width-wide)] mx-auto px-[var(--space-4)] text-center">
+    <h2 class={`font-display text-[var(--text-3xl)] mb-[var(--space-4)] ${styles.text}`}>
+      {heading}
+    </h2>
+    {description && (
+      <p class={`text-[var(--text-lg)] mb-[var(--space-8)] ${styles.muted}`}>
+        {description}
+      </p>
+    )}
+    <a
+      href={ctaHref}
+      class={`inline-block px-[var(--space-8)] py-[var(--space-4)] font-semibold rounded-[var(--radius-md)] text-[length:var(--text-lg)] transition-all duration-[var(--transition-base)] ${styles.btn}`}
+    >
+      {ctaText}
+    </a>
+  </div>
+</section>

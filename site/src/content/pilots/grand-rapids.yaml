@@ -1,0 +1,14 @@
+name: "Pilot A: Grand Rapids"
+slug: grand-rapids
+location: "Grand Rapids, MI"
+community: "Peter's Church"
+status: planning
+launch_target: "Q3 2026"
+description: "A concentrated, faith-based pilot at Peter's Church. Single site, 8-12 youth builders, 3-5 stewards, 20+ elders. Testing depth — what happens when an entire community invests in one shared knowledge system. Use cases: elder Medicare navigation, congregational care coordination, healthcare navigation."
+highlights:
+  - "Single-site, faith-based community hub"
+  - "8-12 youth builders, 3-5 stewards, 20+ elders"
+  - "Focus: elder care, healthcare navigation, community coordination"
+  - "Academic partner: Grand Valley State University (prospective)"
+  - "16-week program, July-November 2026"
+order: 1

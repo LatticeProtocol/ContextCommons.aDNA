@@ -1,15 +1,266 @@
 ---
+import { getCollection } from 'astro:content';
 import PageLayout from '../layouts/PageLayout.astro';
+import PageHeader from '../components/sections/PageHeader.astro';
+import TrackCard from '../components/sections/TrackCard.astro';
+import CTABanner from '../components/sections/CTABanner.astro';
+import StyledTable from '../components/sections/StyledTable.astro';
+import KnowledgeEconomyCycle from '../components/diagrams/KnowledgeEconomyCycle.astro';
+
+const tracks = (await getCollection('tracks')).sort((a, b) => a.data.order - b.data.order);
+
+const trackColors: Record<string, string> = {
+  core: 'var(--brand-primary)',
+  builder: 'var(--brand-accent-dark)',
+  steward: 'var(--brand-primary-dark)',
+  'elder-community': 'var(--brand-primary-light)',
+};
 ---
 
 <PageLayout
   title="Curriculum"
-  description="Four tracks for builders, stewards, and community members. Learn by building real AI systems for real communities."
+  description="Four curriculum tracks for builders, stewards, and community members. Learn by building real AI systems for real communities. No prior experience required."
+  fullWidth={true}
+  jsonLD={{
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: 'Context Commons Curriculum',
+    description: 'Four curriculum tracks teaching youth to build AI tools for their communities, stewards to govern them, and elders to co-design and benefit from them.',
+    provider: { '@type': 'Organization', name: 'Context Commons' },
+    hasCourseInstance: [
+      { '@type': 'CourseInstance', name: 'Core Track', courseWorkload: 'PT20H' },
+      { '@type': 'CourseInstance', name: 'Builder Track', courseWorkload: 'PT80H' },
+      { '@type': 'CourseInstance', name: 'Steward Track', courseWorkload: 'PT40H' },
+      { '@type': 'CourseInstance', name: 'Elder & Community Track', courseWorkload: 'PT15H' },
+    ],
+  }}
 >
-  <section class="py-[var(--space-16)]">
-    <h1 class="text-[var(--text-3xl)] mb-[var(--space-6)]">Curriculum</h1>
-    <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] max-w-[var(--prose-width)]">
-      Content will be generated in M08 using the curriculum framework context.
-    </p>
+  <!-- Page Header -->
+  <PageHeader
+    title="Curriculum"
+    subtitle="Four tracks. Real projects. No prior experience required."
+    align="center"
+  />
+
+  <!-- Philosophy -->
+  <section class="pb-[var(--space-16)] px-[var(--space-4)]">
+    <div class="max-w-[var(--prose-width)] mx-auto text-center">
+      <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed">
+        The Context Commons curriculum is built on a simple idea: people learn best by building real things for real purposes. Every module connects to a community need. Every capstone project serves a real person. The curriculum itself is a context graph &mdash; what we teach is what students learn to build.
+      </p>
+    </div>
   </section>
+
+  <!-- Track Grid -->
+  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)] bg-[var(--color-bg-alt)]">
+    <div class="max-w-[var(--content-width)] mx-auto">
+      <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] text-center mb-[var(--space-12)]">
+        Choose your track
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-[var(--space-6)]">
+        {tracks.map((track) => (
+          <TrackCard
+            name={track.data.name}
+            tagline={track.data.tagline}
+            audience={track.data.audience}
+            duration_weeks={track.data.duration_weeks}
+            description={track.data.description}
+            icon={track.data.icon}
+            slug={track.data.slug}
+            accentColor={trackColors[track.data.slug]}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Track Details -->
+  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)]">
+    <div class="max-w-[var(--content-width)] mx-auto space-y-[var(--space-24)]">
+
+      <!-- Core Track Detail -->
+      <div id="track-core">
+        <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-2)]">Core Track</h2>
+        <p class="text-[var(--text-lg)] text-[var(--color-accent-text,var(--brand-accent-dark))] font-semibold mb-[var(--space-6)]">4 weeks &middot; 8 sessions &middot; ~20 hours &middot; All participants</p>
+        <p class="text-[var(--text-base)] text-[var(--color-text-muted)] leading-relaxed max-w-[var(--prose-width)] mb-[var(--space-8)]">
+          Everyone starts here &mdash; builders, stewards, elders, and mentors. The Core Track builds shared vocabulary and foundational understanding across all roles. No prerequisites. No prior technical experience.
+        </p>
+        <StyledTable>
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="border-b-2 border-[var(--brand-primary)] bg-[var(--brand-primary)]/[0.03]">
+                <th scope="col" class="py-[var(--space-4)] px-[var(--space-4)] text-[var(--text-sm)] font-display text-[var(--color-text)]">Week</th>
+                <th scope="col" class="py-[var(--space-4)] px-[var(--space-4)] text-[var(--text-sm)] font-display text-[var(--color-text)]">Topics</th>
+              </tr>
+            </thead>
+            <tbody class="text-[var(--text-base)] text-[var(--color-text-muted)] [&>tr:nth-child(even)]:bg-[var(--color-bg-alt)] [&>tr]:transition-colors [&>tr]:duration-[var(--transition-fast)]">
+              <tr class="hover:bg-[var(--brand-primary)]/[0.04]">
+                <td class="py-[var(--space-4)] px-[var(--space-4)] font-semibold text-[var(--color-text)] whitespace-nowrap align-top">Week 1</td>
+                <td class="py-[var(--space-4)] px-[var(--space-4)]">What is a context graph? What is an agent? Using AI vs. directing AI.</td>
+              </tr>
+              <tr class="hover:bg-[var(--brand-primary)]/[0.04]">
+                <td class="py-[var(--space-4)] px-[var(--space-4)] font-semibold text-[var(--color-text)] whitespace-nowrap align-top">Week 2</td>
+                <td class="py-[var(--space-4)] px-[var(--space-4)]">The WHO / WHAT / HOW triad. Identifying each element in your own community.</td>
+              </tr>
+              <tr class="hover:bg-[var(--brand-primary)]/[0.04]">
+                <td class="py-[var(--space-4)] px-[var(--space-4)] font-semibold text-[var(--color-text)] whitespace-nowrap align-top">Week 3</td>
+                <td class="py-[var(--space-4)] px-[var(--space-4)]">Privacy, consent, and data sovereignty. Your context belongs to your community.</td>
+              </tr>
+              <tr class="hover:bg-[var(--brand-primary)]/[0.04]">
+                <td class="py-[var(--space-4)] px-[var(--space-4)] font-semibold text-[var(--color-text)] whitespace-nowrap align-top">Week 4</td>
+                <td class="py-[var(--space-4)] px-[var(--space-4)]">Build your first personal context graph. Reflection and track selection.</td>
+              </tr>
+            </tbody>
+          </table>
+        </StyledTable>
+      </div>
+
+      <!-- Builder Track Detail -->
+      <div id="track-builder">
+        <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-2)]">Builder Track</h2>
+        <p class="text-[var(--text-lg)] text-[var(--color-accent-text,var(--brand-accent-dark))] font-semibold mb-[var(--space-6)]">12 weeks &middot; 24 sessions &middot; ~80 hours &middot; Youth ages 14&ndash;24</p>
+        <p class="text-[var(--text-base)] text-[var(--color-text-muted)] leading-relaxed max-w-[var(--prose-width)] mb-[var(--space-8)]">
+          A rigorous, project-based track. Set up your own AI-ready computer, learn how to direct AI tools using your community's knowledge, and build a capstone project that serves your community. Builders who complete all milestones and capstone earn a MacBook Neo &mdash; their own computer, set up and ready to keep building.
+        </p>
+        <StyledTable class="mb-[var(--space-8)]">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="border-b-2 border-[var(--brand-primary)] bg-[var(--brand-primary)]/[0.03]">
+                <th scope="col" class="py-[var(--space-4)] px-[var(--space-4)] text-[var(--text-sm)] font-display text-[var(--color-text)]">Phase</th>
+                <th scope="col" class="py-[var(--space-4)] px-[var(--space-4)] text-[var(--text-sm)] font-display text-[var(--color-text)]">Weeks</th>
+                <th scope="col" class="py-[var(--space-4)] px-[var(--space-4)] text-[var(--text-sm)] font-display text-[var(--color-text)]">Focus</th>
+              </tr>
+            </thead>
+            <tbody class="text-[var(--text-base)] text-[var(--color-text-muted)] [&>tr:nth-child(even)]:bg-[var(--color-bg-alt)] [&>tr]:transition-colors [&>tr]:duration-[var(--transition-fast)]">
+              <tr class="hover:bg-[var(--brand-primary)]/[0.04]">
+                <td class="py-[var(--space-4)] px-[var(--space-4)] font-semibold text-[var(--color-text)] whitespace-nowrap align-top">Foundation</td>
+                <td class="py-[var(--space-4)] px-[var(--space-4)] whitespace-nowrap align-top">1&ndash;4</td>
+                <td class="py-[var(--space-4)] px-[var(--space-4)]">Workstation setup, CLI basics, first guided agent deployment.</td>
+              </tr>
+              <tr class="hover:bg-[var(--brand-primary)]/[0.04]">
+                <td class="py-[var(--space-4)] px-[var(--space-4)] font-semibold text-[var(--color-text)] whitespace-nowrap align-top">Craft</td>
+                <td class="py-[var(--space-4)] px-[var(--space-4)] whitespace-nowrap align-top">5&ndash;8</td>
+                <td class="py-[var(--space-4)] px-[var(--space-4)]">Directing AI tools with community knowledge, building knowledge maps for real community needs.</td>
+              </tr>
+              <tr class="hover:bg-[var(--brand-primary)]/[0.04]">
+                <td class="py-[var(--space-4)] px-[var(--space-4)] font-semibold text-[var(--color-text)] whitespace-nowrap align-top">Capstone</td>
+                <td class="py-[var(--space-4)] px-[var(--space-4)] whitespace-nowrap align-top">9&ndash;12</td>
+                <td class="py-[var(--space-4)] px-[var(--space-4)]">Scope a capstone project with your steward, build the system, deploy it, and present to the community.</td>
+              </tr>
+            </tbody>
+          </table>
+        </StyledTable>
+        <h3 class="font-display text-[var(--text-xl)] text-[var(--color-text)] mb-[var(--space-4)]">Milestones</h3>
+        <ul class="space-y-[var(--space-3)] text-[var(--text-base)] text-[var(--color-text-muted)] list-none">
+          <li class="flex gap-[var(--space-3)]"><span class="font-semibold text-[var(--color-text)] shrink-0">B1</span> Workstation operational &mdash; Claude Code installed, personal context graph active.</li>
+          <li class="flex gap-[var(--space-3)]"><span class="font-semibold text-[var(--color-text)] shrink-0">B2</span> Independent context graph &mdash; build a graph for a community use case without mentor scaffolding.</li>
+          <li class="flex gap-[var(--space-3)]"><span class="font-semibold text-[var(--color-text)] shrink-0">B3</span> Capstone scoped &mdash; community need identified, steward-approved, mentor-reviewed plan.</li>
+          <li class="flex gap-[var(--space-3)]"><span class="font-semibold text-[var(--color-text)] shrink-0">B4</span> Capstone deployed &mdash; working agent system serving at least one community member.</li>
+        </ul>
+      </div>
+
+      <!-- Steward Track Detail -->
+      <div id="track-steward">
+        <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-2)]">Steward Track</h2>
+        <p class="text-[var(--text-lg)] text-[var(--color-accent-text,var(--brand-accent-dark))] font-semibold mb-[var(--space-6)]">8 weeks &middot; 8 sessions &middot; ~40 hours &middot; Community leaders</p>
+        <p class="text-[var(--text-base)] text-[var(--color-text-muted)] leading-relaxed max-w-[var(--prose-width)] mb-[var(--space-8)]">
+          You know your community better than any technologist. The Steward Track gives you the understanding to govern how AI tools operate in your community. You will conduct a needs assessment, co-facilitate builder sessions, develop a sustainability plan, and hold veto power over any agent deployment.
+        </p>
+        <StyledTable class="mb-[var(--space-8)]">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="border-b-2 border-[var(--brand-primary)] bg-[var(--brand-primary)]/[0.03]">
+                <th scope="col" class="py-[var(--space-4)] px-[var(--space-4)] text-[var(--text-sm)] font-display text-[var(--color-text)]">Phase</th>
+                <th scope="col" class="py-[var(--space-4)] px-[var(--space-4)] text-[var(--text-sm)] font-display text-[var(--color-text)]">Weeks</th>
+                <th scope="col" class="py-[var(--space-4)] px-[var(--space-4)] text-[var(--text-sm)] font-display text-[var(--color-text)]">Focus</th>
+              </tr>
+            </thead>
+            <tbody class="text-[var(--text-base)] text-[var(--color-text-muted)] [&>tr:nth-child(even)]:bg-[var(--color-bg-alt)] [&>tr]:transition-colors [&>tr]:duration-[var(--transition-fast)]">
+              <tr class="hover:bg-[var(--brand-primary)]/[0.04]">
+                <td class="py-[var(--space-4)] px-[var(--space-4)] font-semibold text-[var(--color-text)] whitespace-nowrap align-top">Governance</td>
+                <td class="py-[var(--space-4)] px-[var(--space-4)] whitespace-nowrap align-top">1&ndash;4</td>
+                <td class="py-[var(--space-4)] px-[var(--space-4)]">Governance fundamentals, needs assessment methods, community audit techniques.</td>
+              </tr>
+              <tr class="hover:bg-[var(--brand-primary)]/[0.04]">
+                <td class="py-[var(--space-4)] px-[var(--space-4)] font-semibold text-[var(--color-text)] whitespace-nowrap align-top">Practice</td>
+                <td class="py-[var(--space-4)] px-[var(--space-4)] whitespace-nowrap align-top">5&ndash;8</td>
+                <td class="py-[var(--space-4)] px-[var(--space-4)]">Co-facilitate a Builder session, practicum with Lattice mentor, sustainability planning.</td>
+              </tr>
+            </tbody>
+          </table>
+        </StyledTable>
+        <h3 class="font-display text-[var(--text-xl)] text-[var(--color-text)] mb-[var(--space-4)]">Milestones</h3>
+        <ul class="space-y-[var(--space-3)] text-[var(--text-base)] text-[var(--color-text-muted)] list-none">
+          <li class="flex gap-[var(--space-3)]"><span class="font-semibold text-[var(--color-text)] shrink-0">S1</span> Needs assessment complete &mdash; community needs documented with elder and builder input.</li>
+          <li class="flex gap-[var(--space-3)]"><span class="font-semibold text-[var(--color-text)] shrink-0">S2</span> Co-facilitation demonstrated &mdash; led or co-led at least two builder sessions.</li>
+          <li class="flex gap-[var(--space-3)]"><span class="font-semibold text-[var(--color-text)] shrink-0">S3</span> Sustainability plan &mdash; written plan for maintaining systems after the pilot ends.</li>
+        </ul>
+      </div>
+
+      <!-- Elder & Community Track Detail -->
+      <div id="track-elder-community">
+        <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-2)]">Elder &amp; Community Track</h2>
+        <p class="text-[var(--text-lg)] text-[var(--color-accent-text,var(--brand-accent-dark))] font-semibold mb-[var(--space-6)]">6 weeks &middot; 6 sessions &middot; ~15 hours &middot; Elders, families, community members</p>
+        <p class="text-[var(--text-base)] text-[var(--color-text-muted)] leading-relaxed max-w-[var(--prose-width)] mb-[var(--space-8)]">
+          Your knowledge is what makes these tools useful. This track focuses on co-design &mdash; telling builders what you need, reviewing what they build, and confirming it actually helps. No technical skills required. Assessment is participation-based with dignity. No formal testing.
+        </p>
+        <StyledTable class="mb-[var(--space-8)]">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="border-b-2 border-[var(--brand-primary)] bg-[var(--brand-primary)]/[0.03]">
+                <th scope="col" class="py-[var(--space-4)] px-[var(--space-4)] text-[var(--text-sm)] font-display text-[var(--color-text)]">Weeks</th>
+                <th scope="col" class="py-[var(--space-4)] px-[var(--space-4)] text-[var(--text-sm)] font-display text-[var(--color-text)]">Focus</th>
+              </tr>
+            </thead>
+            <tbody class="text-[var(--text-base)] text-[var(--color-text-muted)] [&>tr:nth-child(even)]:bg-[var(--color-bg-alt)] [&>tr]:transition-colors [&>tr]:duration-[var(--transition-fast)]">
+              <tr class="hover:bg-[var(--brand-primary)]/[0.04]">
+                <td class="py-[var(--space-4)] px-[var(--space-4)] font-semibold text-[var(--color-text)] whitespace-nowrap align-top">1&ndash;2</td>
+                <td class="py-[var(--space-4)] px-[var(--space-4)]">What AI tools can do for you &mdash; practical demonstrations in your language and domain.</td>
+              </tr>
+              <tr class="hover:bg-[var(--brand-primary)]/[0.04]">
+                <td class="py-[var(--space-4)] px-[var(--space-4)] font-semibold text-[var(--color-text)] whitespace-nowrap align-top">3&ndash;4</td>
+                <td class="py-[var(--space-4)] px-[var(--space-4)]">Co-design workshops &mdash; tell builders what you need, review prototypes, provide feedback.</td>
+              </tr>
+              <tr class="hover:bg-[var(--brand-primary)]/[0.04]">
+                <td class="py-[var(--space-4)] px-[var(--space-4)] font-semibold text-[var(--color-text)] whitespace-nowrap align-top">5&ndash;6</td>
+                <td class="py-[var(--space-4)] px-[var(--space-4)]">Ongoing access &mdash; using the systems built for you, requesting changes, reflection.</td>
+              </tr>
+            </tbody>
+          </table>
+        </StyledTable>
+        <h3 class="font-display text-[var(--text-xl)] text-[var(--color-text)] mb-[var(--space-4)]">Milestones</h3>
+        <ul class="space-y-[var(--space-3)] text-[var(--text-base)] text-[var(--color-text-muted)] list-none">
+          <li class="flex gap-[var(--space-3)]"><span class="font-semibold text-[var(--color-text)] shrink-0">E1</span> Can describe what an agent does in your own words.</li>
+          <li class="flex gap-[var(--space-3)]"><span class="font-semibold text-[var(--color-text)] shrink-0">E2</span> Contributed knowledge to at least one capstone project.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- How Tracks Connect -->
+  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)] bg-[var(--color-bg-alt)]">
+    <div class="max-w-[var(--prose-width-wide)] mx-auto text-center">
+      <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-4)]">
+        How the tracks connect
+      </h2>
+      <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] mb-[var(--space-12)]">
+        Each track is incomplete without the others. This is by design.
+      </p>
+
+      <KnowledgeEconomyCycle class="py-[var(--space-8)]" />
+
+      <p class="text-[var(--text-base)] text-[var(--color-text-muted)] leading-relaxed max-w-[var(--prose-width)] mx-auto mt-[var(--space-6)]">
+        Elders provide problems and domain knowledge. Builders create solutions. Stewards govern the process. Builders teach elders to use systems. Elders validate community value. Stewards ensure governance compliance. Mentors support everyone. Knowledge flows in every direction.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CTABanner
+    heading="Ready to start? Find your role."
+    description="Whether you're a builder, a steward, or an elder who wants to participate — there's a path for you."
+    ctaText="Get Involved"
+    ctaHref="/get-involved"
+    variant="brand"
+  />
 </PageLayout>

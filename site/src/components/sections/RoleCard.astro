@@ -1,0 +1,27 @@
+---
+interface Props {
+  title: string;
+  who: string;
+  description: string;
+}
+
+const { title, who, description } = Astro.props;
+const hasIcon = Astro.slots.has('icon');
+---
+
+<div class="border border-[var(--color-border)] border-t-2 border-t-[var(--brand-primary)] rounded-[var(--radius-lg)] p-[var(--space-6)] md:p-[var(--space-8)] bg-[var(--color-surface)] shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-[var(--transition-base)]">
+  {hasIcon && (
+    <div class="text-[var(--brand-primary)] mb-[var(--space-4)]" aria-hidden="true">
+      <slot name="icon" />
+    </div>
+  )}
+  <h3 class="font-display text-[var(--text-xl)] text-[var(--color-text)] mb-[var(--space-2)]">
+    {title}
+  </h3>
+  <p class="text-[var(--text-sm)] font-semibold text-[var(--color-accent-text,var(--brand-accent-dark))] mb-[var(--space-3)]">
+    {who}
+  </p>
+  <p class="text-[var(--text-base)] text-[var(--color-text-muted)] leading-relaxed">
+    {description}
+  </p>
+</div>

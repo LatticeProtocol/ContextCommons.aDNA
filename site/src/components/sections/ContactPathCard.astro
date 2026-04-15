@@ -1,0 +1,36 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  ctaText: string;
+  ctaHref: string;
+  accentColor?: string;
+}
+
+const { title, description, ctaText, ctaHref, accentColor } = Astro.props;
+const hasIcon = Astro.slots.has('icon');
+const borderStyle = accentColor ? `border-top-color: ${accentColor}` : 'border-top-color: var(--brand-primary)';
+---
+
+<div
+  class="border border-[var(--color-border)] border-t-2 rounded-[var(--radius-lg)] p-[var(--space-6)] md:p-[var(--space-8)] bg-[var(--color-surface)] flex flex-col h-full shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-[var(--transition-base)]"
+  style={borderStyle}
+>
+  {hasIcon && (
+    <div class="text-[var(--brand-primary)] mb-[var(--space-4)] w-[var(--space-12)] h-[var(--space-12)] flex items-center justify-center rounded-[var(--radius-lg)] bg-[var(--brand-primary)]/5" aria-hidden="true">
+      <slot name="icon" />
+    </div>
+  )}
+  <h2 class="font-display text-[var(--text-xl)] text-[var(--color-text)] mb-[var(--space-3)]">
+    {title}
+  </h2>
+  <p class="text-[var(--text-base)] text-[var(--color-text-muted)] leading-relaxed flex-1 mb-[var(--space-6)]">
+    {description}
+  </p>
+  <a
+    href={ctaHref}
+    class="inline-block text-center w-full px-[var(--space-6)] py-[var(--space-3)] bg-[var(--brand-primary)] text-white font-semibold rounded-[var(--radius-lg)] text-[length:var(--text-base)] hover:bg-[var(--brand-primary-dark)] shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] transition-all duration-[var(--transition-base)]"
+  >
+    {ctaText}
+  </a>
+</div>

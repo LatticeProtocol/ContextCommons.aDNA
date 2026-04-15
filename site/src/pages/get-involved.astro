@@ -1,15 +1,232 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
+import PageHeader from '../components/sections/PageHeader.astro';
+import PersonaCard from '../components/sections/PersonaCard.astro';
+import CTABanner from '../components/sections/CTABanner.astro';
+import DetailSection from '../components/sections/DetailSection.astro';
+import IconHammer from '../components/icons/IconHammer.astro';
+import IconShield from '../components/icons/IconShield.astro';
+import IconHandshake from '../components/icons/IconHandshake.astro';
+import IconCompass from '../components/icons/IconCompass.astro';
 ---
 
 <PageLayout
   title="Get Involved"
-  description="There's a place for you in the Context Commons. Whether you build, govern, guide, or teach — start here."
+  description="There's a place for you in the Context Commons. Whether you build, govern, guide, or teach — find your role and start here."
+  fullWidth={true}
+  jsonLD={{
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Get Involved — Context Commons',
+    description: 'Four paths to join the Context Commons: builder, steward, partner, or mentor.',
+    potentialAction: {
+      '@type': 'JoinAction',
+      target: 'https://contextcommons.org/contact',
+    },
+  }}
 >
-  <section class="py-[var(--space-16)]">
-    <h1 class="text-[var(--text-3xl)] mb-[var(--space-6)]">Get Involved</h1>
-    <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] max-w-[var(--prose-width)]">
-      Content will be generated in M08 using the community engagement context.
-    </p>
+  <PageHeader
+    title="Get Involved"
+    subtitle="There's a place for you in the Context Commons."
+    align="center"
+  />
+
+  <!-- Persona Cards -->
+  <section class="pb-[var(--space-16)] md:pb-[var(--space-24)] px-[var(--space-4)]">
+    <div class="max-w-[var(--content-width)] mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-[var(--space-6)]">
+        <PersonaCard
+          id="builder"
+          label="I'm a young person who wants to build"
+          description="Ages 14-24. No coding experience required. You will learn to build AI tools for your community through a 12-week project-based curriculum. Your capstone project addresses a real need where you live. Complete the program and earn your own MacBook Neo, set up and ready to keep building."
+          ctaText="Apply as a Builder"
+          ctaHref="/contact?role=builder"
+          detailHref="#builder-detail"
+          detailText="See what you'll do"
+        >
+          <IconHammer slot="icon" />
+        </PersonaCard>
+        <PersonaCard
+          id="steward"
+          label="I'm a community leader"
+          description="Pastors, teachers, organizers. You know your community. The 8-week Steward Track teaches you how AI tools work so you can govern how they operate. You hold veto power over any agent deployment. Technology partners contribute resources, not direction."
+          ctaText="Become a Steward"
+          ctaHref="/contact?role=steward"
+          detailHref="#steward-detail"
+          detailText="See the full role"
+        >
+          <IconShield slot="icon" />
+        </PersonaCard>
+        <PersonaCard
+          id="partner"
+          label="I represent an organization"
+          description="Technology companies, academic institutions, community organizations, fiscal sponsors. Partnerships are governed by community priorities. Three non-negotiables: community governance, no data extraction, open standards. Partners contribute resources, not direction."
+          ctaText="Explore Partnership"
+          ctaHref="/contact?role=partner"
+          detailHref="#partner-detail"
+          detailText="See partnership details"
+        >
+          <IconHandshake slot="icon" />
+        </PersonaCard>
+        <PersonaCard
+          id="mentor"
+          label="I'm a developer who wants to teach"
+          description="4-6 hours per week for 16 weeks. You teach technical foundations to stewards and support youth builders. Prerequisites: experience with the aDNA standard and Claude Code, plus cultural humility. You will learn as much from communities as you teach."
+          ctaText="Volunteer as a Mentor"
+          ctaHref="/contact?role=mentor"
+          detailHref="#mentor-detail"
+          detailText="See requirements"
+        >
+          <IconCompass slot="icon" />
+        </PersonaCard>
+      </div>
+    </div>
   </section>
+
+  <!-- Details by Persona -->
+  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)] bg-[var(--color-bg-alt)]">
+    <div class="max-w-[var(--content-width)] mx-auto space-y-[var(--space-16)]">
+
+      <!-- Builder Detail -->
+      <DetailSection id="builder-detail" title="For Builders" accentColor="var(--brand-accent)">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-[var(--space-4)] md:gap-[var(--space-6)]">
+          <div class="p-[var(--space-4)] rounded-[var(--radius-md)] bg-[var(--color-bg-alt)] border border-[var(--color-border)]/50">
+            <h3 class="font-semibold text-[var(--color-text)] mb-[var(--space-2)]">What you&rsquo;ll do</h3>
+            <ul class="space-y-[var(--space-2)] text-[var(--text-base)] text-[var(--color-text-muted)]">
+              <li>Complete the 4-week Core Track with all participants</li>
+              <li>Enter the 12-week Builder Track</li>
+              <li>Set up your own AI-ready computer</li>
+              <li>Build a capstone project for your community</li>
+              <li>Present your work to elders and stewards</li>
+            </ul>
+          </div>
+          <div class="p-[var(--space-4)] rounded-[var(--radius-md)] bg-[var(--color-bg-alt)] border border-[var(--color-border)]/50">
+            <h3 class="font-semibold text-[var(--color-text)] mb-[var(--space-2)]">What you&rsquo;ll need</h3>
+            <ul class="space-y-[var(--space-2)] text-[var(--text-base)] text-[var(--color-text-muted)]">
+              <li>Ages 14&ndash;24</li>
+              <li>No prior coding experience required</li>
+              <li>Attend sessions 2&times; per week for 16 weeks</li>
+              <li>80% attendance to earn your MacBook Neo</li>
+            </ul>
+          </div>
+          <div class="p-[var(--space-4)] rounded-[var(--radius-md)] bg-[var(--color-bg-alt)] border border-[var(--color-border)]/50">
+            <h3 class="font-semibold text-[var(--color-text)] mb-[var(--space-2)]">What you&rsquo;ll earn</h3>
+            <ul class="space-y-[var(--space-2)] text-[var(--text-base)] text-[var(--color-text-muted)]">
+              <li>MacBook Neo &mdash; your own computer, yours to keep</li>
+              <li>Career-grade AI development skills</li>
+              <li>A deployed project serving your community</li>
+              <li>A peer network of builders and mentors</li>
+            </ul>
+          </div>
+        </div>
+      </DetailSection>
+
+      <!-- Steward Detail -->
+      <DetailSection id="steward-detail" title="For Stewards" accentColor="var(--brand-primary)">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-[var(--space-4)] md:gap-[var(--space-6)]">
+          <div class="p-[var(--space-4)] rounded-[var(--radius-md)] bg-[var(--color-bg-alt)] border border-[var(--color-border)]/50">
+            <h3 class="font-semibold text-[var(--color-text)] mb-[var(--space-2)]">What you&rsquo;ll do</h3>
+            <ul class="space-y-[var(--space-2)] text-[var(--text-base)] text-[var(--color-text-muted)]">
+              <li>Complete the Core Track, then the 8-week Steward Track</li>
+              <li>Conduct a community needs assessment</li>
+              <li>Co-facilitate builder sessions</li>
+              <li>Approve or veto any agent deployment &mdash; your decision is final</li>
+              <li>Develop a sustainability plan for after the pilot</li>
+            </ul>
+          </div>
+          <div class="p-[var(--space-4)] rounded-[var(--radius-md)] bg-[var(--color-bg-alt)] border border-[var(--color-border)]/50">
+            <h3 class="font-semibold text-[var(--color-text)] mb-[var(--space-2)]">Time commitment</h3>
+            <ul class="space-y-[var(--space-2)] text-[var(--text-base)] text-[var(--color-text-muted)]">
+              <li>6&ndash;8 hours per week during pilot</li>
+              <li>2&ndash;4 hours per week ongoing</li>
+              <li>Weekly sessions for 12 weeks</li>
+            </ul>
+          </div>
+          <div class="p-[var(--space-4)] rounded-[var(--radius-md)] bg-[var(--color-bg-alt)] border border-[var(--color-border)]/50">
+            <h3 class="font-semibold text-[var(--color-text)] mb-[var(--space-2)]">Who this is for</h3>
+            <ul class="space-y-[var(--space-2)] text-[var(--text-base)] text-[var(--color-text-muted)]">
+              <li>Pastors and faith community leaders</li>
+              <li>Teachers and school administrators</li>
+              <li>Community organizers</li>
+              <li>Anyone trusted by their community to govern on its behalf</li>
+            </ul>
+          </div>
+        </div>
+      </DetailSection>
+
+      <!-- Partner Detail -->
+      <DetailSection id="partner-detail" title="For Partners" accentColor="var(--brand-primary-light)">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-[var(--space-4)] md:gap-[var(--space-6)]">
+          <div class="p-[var(--space-4)] rounded-[var(--radius-md)] bg-[var(--color-bg-alt)] border border-[var(--color-border)]/50">
+            <h3 class="font-semibold text-[var(--color-text)] mb-[var(--space-2)]">Partnership types</h3>
+            <ul class="space-y-[var(--space-2)] text-[var(--text-base)] text-[var(--color-text-muted)]">
+              <li><strong>Technology</strong> &mdash; hardware, API access, mentorship</li>
+              <li><strong>Academic</strong> &mdash; research, evaluation, co-PIs</li>
+              <li><strong>Community</strong> &mdash; space, participants, stewards</li>
+              <li><strong>Fiscal</strong> &mdash; 501(c)(3) umbrella, financial admin</li>
+            </ul>
+          </div>
+          <div class="p-[var(--space-4)] rounded-[var(--radius-md)] bg-[var(--color-bg-alt)] border border-[var(--color-border)]/50">
+            <h3 class="font-semibold text-[var(--color-text)] mb-[var(--space-2)]">Non-negotiables</h3>
+            <ul class="space-y-[var(--space-2)] text-[var(--text-base)] text-[var(--color-text-muted)]">
+              <li>Community governance over all deployments</li>
+              <li>No extraction of community data</li>
+              <li>Open standards &mdash; no lock-in</li>
+            </ul>
+          </div>
+          <div class="p-[var(--space-4)] rounded-[var(--radius-md)] bg-[var(--color-bg-alt)] border border-[var(--color-border)]/50">
+            <h3 class="font-semibold text-[var(--color-text)] mb-[var(--space-2)]">What partners receive</h3>
+            <ul class="space-y-[var(--space-2)] text-[var(--text-base)] text-[var(--color-text-muted)]">
+              <li>Impact stories and edge deployment feedback</li>
+              <li>Co-authorship and research opportunities</li>
+              <li>A responsible AI model in community settings</li>
+              <li>Quarterly reviews and annual renewal &mdash; exit is not failure</li>
+            </ul>
+          </div>
+        </div>
+      </DetailSection>
+
+      <!-- Mentor Detail -->
+      <DetailSection id="mentor-detail" title="For Mentors" accentColor="var(--brand-accent)">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-[var(--space-4)] md:gap-[var(--space-6)]">
+          <div class="p-[var(--space-4)] rounded-[var(--radius-md)] bg-[var(--color-bg-alt)] border border-[var(--color-border)]/50">
+            <h3 class="font-semibold text-[var(--color-text)] mb-[var(--space-2)]">What you&rsquo;ll do</h3>
+            <ul class="space-y-[var(--space-2)] text-[var(--text-base)] text-[var(--color-text-muted)]">
+              <li>Co-facilitate Builder Track sessions 2&times; per week</li>
+              <li>Teach technical foundations to stewards</li>
+              <li>Review context graphs and capstone projects</li>
+              <li>Participate in the Curriculum Council</li>
+              <li>Document lessons for the community</li>
+            </ul>
+          </div>
+          <div class="p-[var(--space-4)] rounded-[var(--radius-md)] bg-[var(--color-bg-alt)] border border-[var(--color-border)]/50">
+            <h3 class="font-semibold text-[var(--color-text)] mb-[var(--space-2)]">Prerequisites</h3>
+            <ul class="space-y-[var(--space-2)] text-[var(--text-base)] text-[var(--color-text-muted)]">
+              <li>Fluency with the aDNA Context Graph standard</li>
+              <li>Experience with Claude Code development tools</li>
+              <li>Comfort with non-technical learners</li>
+              <li>Cultural humility and patience</li>
+            </ul>
+          </div>
+          <div class="p-[var(--space-4)] rounded-[var(--radius-md)] bg-[var(--color-bg-alt)] border border-[var(--color-border)]/50">
+            <h3 class="font-semibold text-[var(--color-text)] mb-[var(--space-2)]">What you get</h3>
+            <ul class="space-y-[var(--space-2)] text-[var(--text-base)] text-[var(--color-text-muted)]">
+              <li>4&ndash;6 hours per week for 16 weeks</li>
+              <li>Peer cohort with other mentors across pilot sites</li>
+              <li>Community engagement and pedagogy experience</li>
+              <li>1&ndash;2 shadow sessions before active mentoring</li>
+            </ul>
+          </div>
+        </div>
+      </DetailSection>
+    </div>
+  </section>
+
+  <CTABanner
+    heading="Ready? Tell us about yourself."
+    description="Every conversation starts with understanding your community. We will find the right fit together."
+    ctaText="Contact Us"
+    ctaHref="/contact"
+    variant="brand"
+  />
 </PageLayout>

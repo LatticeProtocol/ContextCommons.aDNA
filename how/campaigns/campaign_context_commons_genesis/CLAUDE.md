@@ -57,7 +57,8 @@ Phase gates are human gates (Standing Order #1). At each phase boundary:
 | M05 | `missions/mission_cc_m05_use_case_library.md` | 2 | **Completed** |
 | M06 | `missions/mission_cc_m06_adna_for_communities.md` | 2 | **Completed** |
 | M07 | `missions/mission_cc_m07_siteforge_setup.md` | 3 | **Completed** |
-| M08 | `missions/mission_cc_m08_website_content.md` | 3 | Planned |
+| M08 | `missions/mission_cc_m08_website_content.md` | 3 | **Completed** |
+| M08-R | `missions/mission_cc_m08r_website_refinement.md` | 3 | **In Progress** (R8/10 complete) |
 | M09 | `missions/mission_cc_m09_videoforge_setup.md` | 3 | Planned |
 | M10 | `missions/mission_cc_m10_presentationforge_setup.md` | 3 | Planned |
 | M11-M14 | To be created during Phase 3 | 4 | Planned |

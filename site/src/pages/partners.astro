@@ -1,15 +1,148 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
+import PageHeader from '../components/sections/PageHeader.astro';
+import ValueCard from '../components/sections/ValueCard.astro';
+import PartnershipTypeCard from '../components/sections/PartnershipTypeCard.astro';
+import Accordion from '../components/sections/Accordion.astro';
+import CTABanner from '../components/sections/CTABanner.astro';
+import EngagementLifecycle from '../components/diagrams/EngagementLifecycle.astro';
+
+const faqItems = [
+  {
+    question: 'Who controls how AI tools are used?',
+    answer: 'Community leaders, not technology partners. Your community\u2019s stewards decide how AI tools are used. Partners contribute resources \u2014 computers, mentorship, research support \u2014 but community priorities come first. If stewards say a tool should not be used, it is not used.',
+  },
+  {
+    question: 'What happens to data generated during the partnership?',
+    answer: 'Your community\u2019s organized knowledge belongs to your community. No partner gets rights to it \u2014 not to use it, not to sell it, not to train their own products with it. If a research partner wants to study how things are going, they need your community\u2019s permission first. This is a written commitment, not a guideline.',
+  },
+  {
+    question: 'Can we use our own tools or platform?',
+    answer: 'The Context Commons uses open standards. Your tools need to work with those standards. We do not require any specific brand or platform, but we do not accept anything that locks your community into one company\u2019s product.',
+  },
+  {
+    question: 'What does working together look like?',
+    answer: 'It starts with a conversation \u2014 we learn about each other. Then we work out the details together. Once everyone agrees, your team meets the community. From there, you contribute and collaborate. And when the time comes \u2014 whether you renew or move on \u2014 either direction is dignified. Each step has clear expectations so nobody is guessing.',
+  },
+  {
+    question: 'What if we disagree with a community decision?',
+    answer: 'First, you talk it out directly. If that does not resolve it, a community steward helps mediate. If it is still unresolved, the program\u2019s leadership reviews it. But here is the key: if the community says no, the answer is no. A good idea that the community does not support does not move forward.',
+  },
+];
 ---
 
 <PageLayout
   title="Partners"
-  description="Partnerships governed by community priorities. Three non-negotiables: community governance, data sovereignty, youth voice."
+  description="Partnerships governed by community priorities. Three non-negotiables: community governance, no data extraction, open standards."
+  fullWidth={true}
+  jsonLD={{
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Partners \u2014 Context Commons',
+    description: 'Partnership model for the Context Commons. Community governance, data sovereignty, and open standards.',
+  }}
 >
-  <section class="py-[var(--space-16)]">
-    <h1 class="text-[var(--text-3xl)] mb-[var(--space-6)]">Partners</h1>
-    <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] max-w-[var(--prose-width)]">
-      Content will be generated in M08 using the partnership model context.
-    </p>
+  <PageHeader
+    title="Partners"
+    subtitle="Partnerships governed by community priorities."
+  />
+
+  <!-- Partnership Philosophy -->
+  <section class="pb-[var(--space-16)] md:pb-[var(--space-24)] px-[var(--space-4)]">
+    <div class="max-w-[var(--prose-width)] mx-auto">
+      <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed mb-[var(--space-4)]">
+        Partnership in the Context Commons is mutual engagement, not a transaction. Both parties contribute resources and governance. Both parties learn. The relationship flows both ways &mdash; and either party can exit with dignity at any time.
+      </p>
+      <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed">
+        We are not looking for sponsors. We are looking for organizations that share our values and want to contribute to communities that are building their own AI capacity &mdash; on their own terms.
+      </p>
+    </div>
   </section>
+
+  <!-- Three Non-Negotiables -->
+  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)] bg-[var(--color-bg-alt)]">
+    <div class="max-w-[var(--content-width)] mx-auto">
+      <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] text-center mb-[var(--space-12)]">
+        Three non-negotiables
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-[var(--space-6)]">
+        <ValueCard
+          title="Community governance"
+          description="Your community's leaders decide how AI tools are used. Partners can offer resources and advice, but your leaders have the final say. If they say no, the answer is no."
+        />
+        <ValueCard
+          title="No data extraction"
+          description="The knowledge your community organizes belongs to your community. No partner can take it, sell it, or use it for their own purposes. This is a written promise, not a handshake."
+        />
+        <ValueCard
+          title="Open standards"
+          description="The tools and standards we use are open &mdash; no single company owns them. If you ever want to use different tools, you can, and you keep everything you built. You are never locked in."
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Partnership Types -->
+  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)]">
+    <div class="max-w-[var(--content-width)] mx-auto">
+      <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-8)]">
+        Partnership types
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-[var(--space-6)]">
+        <PartnershipTypeCard
+          title="Technology Partners"
+          contribution="Computers, cloud services, and developers who can teach alongside our mentors"
+          receipt="real impact stories and firsthand understanding of what communities actually need from AI tools"
+        />
+        <PartnershipTypeCard
+          title="Academic Partners"
+          contribution="Research guidance, program evaluation, and student mentors who learn alongside our builders"
+          receipt="a real research partnership with communities, co-authorship, and a model others can follow"
+        />
+        <PartnershipTypeCard
+          title="Community Partners"
+          contribution="A meeting place, willing participants, trusted leaders, and local decision-making"
+          receipt="the full program: curriculum, computers, mentors, working tools, and ongoing support"
+        />
+        <PartnershipTypeCard
+          title="Fiscal Partners"
+          contribution="Nonprofit structure, financial oversight, and grant administration"
+          receipt="a program that matches your mission, with clear accountability and a path to independence"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Engagement Lifecycle -->
+  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)] bg-[var(--color-bg-alt)]">
+    <div class="max-w-[var(--content-width)] mx-auto">
+      <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] text-center mb-[var(--space-12)]">
+        Engagement lifecycle
+      </h2>
+      <EngagementLifecycle />
+      <p class="text-center text-[var(--text-base)] text-[var(--color-text-muted)] mt-[var(--space-8)] max-w-[var(--prose-width)] mx-auto">
+        Each phase has explicit criteria for moving forward. Exit is dignified, not failure. Communities keep everything they built. Partners receive clear feedback on what worked.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)]">
+    <div class="max-w-[var(--content-width)] mx-auto">
+      <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-8)]">
+        Common questions
+      </h2>
+      <div class="max-w-[var(--prose-width)]">
+        <Accordion items={faqItems} />
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    heading="Interested in partnering?"
+    description="Tell us about your organization and what you would like to contribute. We will find the right fit."
+    ctaText="Start a Conversation"
+    ctaHref="/contact?role=partner"
+    variant="light"
+  />
 </PageLayout>

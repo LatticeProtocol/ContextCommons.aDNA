@@ -1,15 +1,176 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
+import PageHeader from '../components/sections/PageHeader.astro';
+import DraftBadge from '../components/sections/DraftBadge.astro';
+import CTABanner from '../components/sections/CTABanner.astro';
+import StyledTable from '../components/sections/StyledTable.astro';
+import PilotTimeline from '../components/diagrams/PilotTimeline.astro';
+import PilotGlanceCard from '../components/sections/PilotGlanceCard.astro';
 ---
 
 <PageLayout
-  title="Pilots"
-  description="Two communities, two contexts, one shared mission. Grand Rapids (Q3 2026) and Los Angeles (Q4 2026)."
+  title="Pilot Programs"
+  description="Two pilot communities — Grand Rapids, MI and Los Angeles, CA. Two contexts, one shared mission. Launching Q3 and Q4 2026."
+  fullWidth={true}
+  jsonLD={{
+    '@context': 'https://schema.org',
+    '@type': 'Event',
+    name: 'Context Commons Pilot Programs',
+    description: 'Two pilot programs launching in Grand Rapids (Q3 2026) and Los Angeles (Q4 2026).',
+    organizer: { '@type': 'Organization', name: 'Context Commons' },
+    subEvent: [
+      { '@type': 'Event', name: 'Pilot A: Grand Rapids', startDate: '2026-07', location: { '@type': 'Place', name: "Peter's Church, Grand Rapids, MI" } },
+      { '@type': 'Event', name: 'Pilot B: Los Angeles', startDate: '2026-10', location: { '@type': 'Place', name: 'Los Angeles, CA' } },
+    ],
+  }}
 >
-  <section class="py-[var(--space-16)]">
-    <h1 class="text-[var(--text-3xl)] mb-[var(--space-6)]">Pilot Programs</h1>
-    <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] max-w-[var(--prose-width)]">
-      Content will be generated in M08 using the pilot programs context. Community-specific content will be marked DRAFT.
-    </p>
+  <PageHeader
+    title="Pilot Programs"
+    subtitle="Two communities, two contexts, one shared mission."
+    align="center"
+  />
+
+  <section class="pb-[var(--space-8)] px-[var(--space-4)]">
+    <div class="max-w-[var(--content-width)] mx-auto text-center">
+      <DraftBadge />
+    </div>
   </section>
+
+  <section class="pb-[var(--space-16)] md:pb-[var(--space-24)] px-[var(--space-4)]">
+    <div class="max-w-[var(--prose-width)] mx-auto text-center">
+      <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed">
+        The Context Commons launches with two deliberately contrasting pilots. Grand Rapids tests depth &mdash; what happens when an entire community invests in one shared knowledge system. Los Angeles tests breadth &mdash; can the same standard work across radically different institutions and cultural contexts. What works for one will not automatically work for the other. That is the point.
+      </p>
+    </div>
+  </section>
+
+  <!-- Pilot A: Grand Rapids -->
+  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)] bg-[var(--color-bg-alt)]">
+    <div class="max-w-[var(--content-width)] mx-auto">
+      <div class="flex flex-wrap items-center gap-[var(--space-3)] mb-[var(--space-2)]">
+        <p class="text-[var(--text-sm)] font-semibold text-[var(--color-accent-text,var(--brand-accent-dark))]">Pilot A &middot; Q3 2026</p>
+        <DraftBadge label="DRAFT" />
+      </div>
+      <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-6)]">Grand Rapids, Michigan</h2>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-[var(--space-8)]">
+        <div class="lg:col-span-2 space-y-[var(--space-4)]">
+          <p class="text-[var(--text-lg)] text-[var(--color-text)] font-semibold leading-relaxed">
+            A church in Grand Rapids. Eight to twelve young people. Twenty or more elders who need help navigating Medicare, coordinating care, and staying connected.
+          </p>
+          <p class="text-[var(--text-base)] text-[var(--color-text-muted)] leading-relaxed">
+            Peter&rsquo;s Church has been a community hub for decades. The congregation knows its members &mdash; who needs a ride to the doctor, who has a grandchild who could help, who speaks Karen, Swahili, or Arabic and needs translated materials. This knowledge lives in Pastor Williams&rsquo;s head and in a phone tree that runs through Deacon Harris.
+          </p>
+          <p class="text-[var(--text-base)] text-[var(--color-text-muted)] leading-relaxed">
+            The pilot will structure that knowledge into context graphs &mdash; not to replace the phone tree, but to help it work better. Youth builders will create agent systems for elder Medicare enrollment, congregational care coordination, and healthcare navigation. Every system will be governed by church leadership and validated by the elders it serves.
+          </p>
+        </div>
+
+        <PilotGlanceCard items={[
+          { label: 'Anchor', value: "Peter\u2019s Church" },
+          { label: 'Cohort', value: '8\u201312 builders, 3\u20135 stewards, 20+ elders' },
+          { label: 'Timeline', value: 'July\u2013November 2026 (16 weeks)' },
+          { label: 'Use cases', value: 'Medicare navigation, care coordination, healthcare access' },
+          { label: 'Academic partner', value: 'Grand Valley State University (prospective)' },
+          { label: 'Model', value: 'Concentrated, single-site, faith-based' },
+        ]} />
+      </div>
+    </div>
+  </section>
+
+  <!-- Pilot B: Los Angeles -->
+  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)]">
+    <div class="max-w-[var(--content-width)] mx-auto">
+      <div class="flex flex-wrap items-center gap-[var(--space-3)] mb-[var(--space-2)]">
+        <p class="text-[var(--text-sm)] font-semibold text-[var(--color-accent-text,var(--brand-accent-dark))]">Pilot B &middot; Q4 2026</p>
+        <DraftBadge label="DRAFT" />
+      </div>
+      <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-6)]">Los Angeles, California</h2>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-[var(--space-8)]">
+        <div class="lg:col-span-2 space-y-[var(--space-4)]">
+          <p class="text-[var(--text-lg)] text-[var(--color-text)] font-semibold leading-relaxed">
+            Three institutions. Twelve to sixteen builders. One hundred languages.
+          </p>
+          <p class="text-[var(--text-base)] text-[var(--color-text-muted)] leading-relaxed">
+            The LA pilot is a constellation &mdash; LAUSD, the Venice Beach Book Club, and UCLA. Youth builders come from LAUSD classrooms. A mother walks into the Venice Beach Book Club with a folder of immigration documents she cannot read &mdash; she comes here because the people know her name, not because it is a government office. UCLA provides research support and mentorship.
+          </p>
+          <p class="text-[var(--text-base)] text-[var(--color-text-muted)] leading-relaxed">
+            Where Grand Rapids tests depth at a single site, Los Angeles tests breadth. Immigration paperwork that varies by country of origin. Benefits enrollment that requires navigating state-specific rules. School enrollment for families who speak Spanish, Korean, Armenian, Tagalog, and dozens of other languages that LAUSD cannot always accommodate. The pilot will prove whether community-governed AI systems can work across radically different institutions and cultural contexts.
+          </p>
+        </div>
+
+        <PilotGlanceCard items={[
+          { label: 'Anchor', value: 'LAUSD, Venice Beach Book Club, UCLA' },
+          { label: 'Cohort', value: '12\u201316 builders, multi-institutional stewards' },
+          { label: 'Timeline', value: 'October 2026\u2013February 2027 (16 weeks)' },
+          { label: 'Use cases', value: 'Immigration paperwork, education access, multilingual benefits' },
+          { label: 'Academic partner', value: 'UCLA (prospective co-PI)' },
+          { label: 'Model', value: 'Distributed, multi-institutional, multilingual' },
+        ]} />
+      </div>
+    </div>
+  </section>
+
+  <!-- Side-by-Side Comparison -->
+  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)] bg-[var(--color-bg-alt)]">
+    <div class="max-w-[var(--content-width)] mx-auto">
+      <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] text-center mb-[var(--space-8)]">Two models, by design</h2>
+      <!-- Desktop table -->
+      <StyledTable class="hidden md:block">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b-2 border-[var(--brand-primary)] bg-[var(--brand-primary)]/[0.03]">
+              <th scope="col" class="py-[var(--space-4)] px-[var(--space-4)] text-[var(--text-sm)] font-display text-[var(--color-text)]">Dimension</th>
+              <th scope="col" class="py-[var(--space-4)] px-[var(--space-4)] text-[var(--text-sm)] font-display text-[var(--color-text)]">Grand Rapids</th>
+              <th scope="col" class="py-[var(--space-4)] px-[var(--space-4)] text-[var(--text-sm)] font-display text-[var(--color-text)]">Los Angeles</th>
+            </tr>
+          </thead>
+          <tbody class="text-[var(--text-base)] text-[var(--color-text-muted)] [&>tr:nth-child(even)]:bg-[var(--color-bg-alt)] [&>tr]:transition-colors [&>tr]:duration-[var(--transition-fast)]">
+            <tr class="hover:bg-[var(--brand-primary)]/[0.04]"><td class="py-[var(--space-4)] px-[var(--space-4)] font-semibold text-[var(--color-text)] align-top">Structure</td><td class="py-[var(--space-4)] px-[var(--space-4)] align-top">Single site, concentrated</td><td class="py-[var(--space-4)] px-[var(--space-4)] align-top">Multi-site, distributed</td></tr>
+            <tr class="hover:bg-[var(--brand-primary)]/[0.04]"><td class="py-[var(--space-4)] px-[var(--space-4)] font-semibold text-[var(--color-text)] align-top">Governance</td><td class="py-[var(--space-4)] px-[var(--space-4)] align-top">Church leadership (homogeneous)</td><td class="py-[var(--space-4)] px-[var(--space-4)] align-top">Multi-institutional stewards (heterogeneous)</td></tr>
+            <tr class="hover:bg-[var(--brand-primary)]/[0.04]"><td class="py-[var(--space-4)] px-[var(--space-4)] font-semibold text-[var(--color-text)] align-top">Languages</td><td class="py-[var(--space-4)] px-[var(--space-4)] align-top">English primary; Swahili, Karen, Arabic present</td><td class="py-[var(--space-4)] px-[var(--space-4)] align-top">100+ languages; Spanish primary</td></tr>
+            <tr class="hover:bg-[var(--brand-primary)]/[0.04]"><td class="py-[var(--space-4)] px-[var(--space-4)] font-semibold text-[var(--color-text)] align-top">Core use cases</td><td class="py-[var(--space-4)] px-[var(--space-4)] align-top">Elder care, Medicare, healthcare access</td><td class="py-[var(--space-4)] px-[var(--space-4)] align-top">Immigration, education, multilingual navigation</td></tr>
+            <tr class="hover:bg-[var(--brand-primary)]/[0.04]"><td class="py-[var(--space-4)] px-[var(--space-4)] font-semibold text-[var(--color-text)] align-top">Schedule</td><td class="py-[var(--space-4)] px-[var(--space-4)] align-top">Evenings at church</td><td class="py-[var(--space-4)] px-[var(--space-4)] align-top">Distributed across multiple time slots</td></tr>
+            <tr class="hover:bg-[var(--brand-primary)]/[0.04]"><td class="py-[var(--space-4)] px-[var(--space-4)] font-semibold text-[var(--color-text)] align-top">Tests</td><td class="py-[var(--space-4)] px-[var(--space-4)] align-top">Depth &mdash; full community investment</td><td class="py-[var(--space-4)] px-[var(--space-4)] align-top">Breadth &mdash; cross-institutional coordination</td></tr>
+          </tbody>
+        </table>
+      </StyledTable>
+      <!-- Mobile card stack -->
+      <div class="md:hidden space-y-[var(--space-4)]">
+        {[
+          { dimension: "Structure", gr: "Single site, concentrated", la: "Multi-site, distributed" },
+          { dimension: "Governance", gr: "Church leadership (homogeneous)", la: "Multi-institutional stewards (heterogeneous)" },
+          { dimension: "Languages", gr: "English primary; Swahili, Karen, Arabic present", la: "100+ languages; Spanish primary" },
+          { dimension: "Core use cases", gr: "Elder care, Medicare, healthcare access", la: "Immigration, education, multilingual navigation" },
+          { dimension: "Schedule", gr: "Evenings at church", la: "Distributed across multiple time slots" },
+          { dimension: "Tests", gr: "Depth \u2014 full community investment", la: "Breadth \u2014 cross-institutional coordination" },
+        ].map((row) => (
+          <div class="rounded-[var(--radius-lg)] shadow-[var(--shadow-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] p-[var(--space-4)]">
+            <p class="font-semibold text-[var(--color-text)] mb-[var(--space-3)]">{row.dimension}</p>
+            <div class="space-y-[var(--space-2)] text-[var(--text-sm)]">
+              <p class="text-[var(--color-text-muted)]"><span class="font-semibold text-[var(--color-text)]">Grand Rapids:</span> {row.gr}</p>
+              <p class="text-[var(--color-text-muted)]"><span class="font-semibold text-[var(--color-text)]">Los Angeles:</span> {row.la}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)]">
+    <div class="max-w-[var(--prose-width-wide)] mx-auto">
+      <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] text-center mb-[var(--space-12)]">Timeline</h2>
+      <PilotTimeline />
+    </div>
+  </section>
+
+  <CTABanner
+    heading="Want to bring the Context Commons to your community?"
+    description="We are looking for communities ready to participate. Tell us about yours."
+    ctaText="Contact Us"
+    ctaHref="/contact"
+    variant="accent"
+  />
 </PageLayout>

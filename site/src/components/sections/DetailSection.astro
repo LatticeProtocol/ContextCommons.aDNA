@@ -1,0 +1,19 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  accentColor?: string;
+}
+
+const { id, title, accentColor } = Astro.props;
+const borderStyle = accentColor ? `border-top-color: ${accentColor}` : 'border-top-color: var(--brand-primary)';
+---
+
+<div
+  id={id}
+  class="border border-[var(--color-border)] border-t-2 rounded-[var(--radius-lg)] p-[var(--space-6)] md:p-[var(--space-8)] bg-[var(--color-surface)] shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] transition-shadow duration-[var(--transition-base)]"
+  style={borderStyle}
+>
+  <h2 class="font-display text-[var(--text-2xl)] text-[var(--color-text)] mb-[var(--space-6)]">{title}</h2>
+  <slot />
+</div>

@@ -1,0 +1,28 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  align?: 'left' | 'center';
+}
+
+const { title, subtitle, align = 'left' } = Astro.props;
+---
+
+<section class:list={[
+  'py-[var(--space-16)] md:py-[var(--space-24)] pb-[var(--space-12)] md:pb-[var(--space-16)] border-b border-[var(--brand-primary)]/10',
+  align === 'center' && 'text-center',
+]}>
+  <div class="max-w-[var(--content-width)] mx-auto px-[var(--space-4)]">
+    <h1 class="font-display text-[var(--text-4xl)] text-[var(--color-text)] mb-[var(--space-4)]">
+      {title}
+    </h1>
+    {subtitle && (
+      <p class:list={[
+        'text-[var(--text-xl)] text-[var(--color-text-muted)] max-w-[var(--prose-width)]',
+        align === 'center' && 'mx-auto',
+      ]}>
+        {subtitle}
+      </p>
+    )}
+  </div>
+</section>

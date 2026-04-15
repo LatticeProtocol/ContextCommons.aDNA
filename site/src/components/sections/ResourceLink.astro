@@ -1,0 +1,26 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  href: string;
+  external?: boolean;
+}
+
+const { title, description, href, external = false } = Astro.props;
+---
+
+<a
+  href={href}
+  class="block p-[var(--space-4)] rounded-[var(--radius-md)] border border-[var(--color-border)] border-l-2 border-l-[var(--brand-primary)]/30 bg-[var(--color-surface)] hover:border-[var(--brand-primary)] hover:border-l-[var(--brand-primary)] hover:shadow-[var(--shadow-sm)] transition-all duration-[var(--transition-base)] group"
+  {...external ? { target: '_blank', rel: 'noopener noreferrer' } : {}}
+>
+  <div class="flex items-start justify-between gap-[var(--space-3)]">
+    <div>
+      <p class="font-semibold text-[var(--color-text)] group-hover:text-[var(--brand-primary)] transition-colors duration-[var(--transition-fast)]">
+        {title}
+        {external && <span class="inline-block text-[var(--text-xs)] text-[var(--color-text-muted)] ml-[var(--space-1)] transition-transform duration-[var(--transition-fast)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-label="opens in new tab">&#x2197;</span>}
+      </p>
+      <p class="text-[var(--text-sm)] text-[var(--color-text-muted)] mt-[var(--space-1)]">{description}</p>
+    </div>
+  </div>
+</a>

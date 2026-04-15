@@ -1,0 +1,22 @@
+---
+interface Props {
+  title?: string;
+  items: Array<{ label: string; value: string }>;
+}
+
+const { title = 'At a glance', items } = Astro.props;
+---
+
+<div class="border border-[var(--color-border)] rounded-[var(--radius-lg)] p-[var(--space-6)] bg-[var(--color-surface)] shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] transition-shadow duration-[var(--transition-base)]">
+  <h3 class="font-display text-[var(--text-lg)] text-[var(--color-text)] mb-[var(--space-4)]">
+    {title}
+  </h3>
+  <dl class="space-y-[var(--space-3)] text-[var(--text-sm)]">
+    {items.map(({ label, value }) => (
+      <div>
+        <dt class="font-semibold text-[var(--color-text)]">{label}</dt>
+        <dd class="text-[var(--color-text-muted)]">{value}</dd>
+      </div>
+    ))}
+  </dl>
+</div>

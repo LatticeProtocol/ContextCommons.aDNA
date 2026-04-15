@@ -1,0 +1,66 @@
+---
+interface Props { class?: string; }
+const { class: className } = Astro.props;
+
+/*
+  Triangle layout: Elders at top, Builders bottom-left, Stewards bottom-right.
+  Curved bidirectional arrows form the visible cycle.
+  Mentors as a dashed ring segment around the triangle.
+  Edge labels describe the relationship flow.
+*/
+const roles = [
+  { label: 'Elders', sub: 'Wisdom & needs', cx: 200, cy: 45 },
+  { label: 'Builders', sub: 'Build & teach', cx: 65, cy: 260 },
+  { label: 'Stewards', sub: 'Govern & guide', cx: 335, cy: 260 },
+];
+---
+
+<div class:list={["diagram-wrapper", className]}>
+  <svg
+    role="img"
+    aria-label="Three-role knowledge loop: Elders share wisdom, Youth Builders create and teach, Community Stewards govern and guide, with Lattice Mentors supporting all three"
+    viewBox="0 0 400 330"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    class="w-full h-auto max-w-md mx-auto"
+  >
+    <defs>
+      <marker id="role-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--brand-primary)" />
+      </marker>
+    </defs>
+
+    {/* Mentor scaffold — dashed arc around the triangle */}
+    <circle cx={200} cy={170} r="155" stroke="var(--brand-accent)" stroke-width="1.5" stroke-dasharray="8 6" fill="none" opacity="0.5" />
+    <text x={200} y={320} text-anchor="middle" fill="var(--brand-accent-dark)" font-size="11" font-weight="500">Lattice Mentors support all three roles</text>
+
+    {/* Curved arrows: Elders -> Builders (left side, clockwise) */}
+    <path d="M 165 75 Q 60 150 85 230" stroke="var(--brand-primary)" stroke-width="2.5" fill="none" marker-end="url(#role-arrow)" />
+    {/* Builders -> Elders (left side, counter-clockwise) */}
+    <path d="M 105 225 Q 85 140 175 70" stroke="var(--brand-primary)" stroke-width="2.5" fill="none" marker-end="url(#role-arrow)" />
+
+    {/* Builders -> Stewards (bottom) */}
+    <path d="M 120 275 Q 200 310 280 275" stroke="var(--brand-primary)" stroke-width="2.5" fill="none" marker-end="url(#role-arrow)" />
+    {/* Stewards -> Builders (bottom) */}
+    <path d="M 280 260 Q 200 225 120 260" stroke="var(--brand-primary)" stroke-width="2.5" fill="none" marker-end="url(#role-arrow)" />
+
+    {/* Stewards -> Elders (right side) */}
+    <path d="M 315 230 Q 340 140 235 70" stroke="var(--brand-primary)" stroke-width="2.5" fill="none" marker-end="url(#role-arrow)" />
+    {/* Elders -> Stewards (right side) */}
+    <path d="M 225 75 Q 335 150 295 230" stroke="var(--brand-primary)" stroke-width="2.5" fill="none" marker-end="url(#role-arrow)" />
+
+    {/* Edge labels */}
+    <text x={70} y={160} text-anchor="middle" fill="var(--color-text-muted)" font-size="10" transform="rotate(-55 70 160)">share needs</text>
+    <text x={200} y={305} text-anchor="middle" fill="var(--color-text-muted)" font-size="10">build & teach</text>
+    <text x={338} y={160} text-anchor="middle" fill="var(--color-text-muted)" font-size="10" transform="rotate(55 338 160)">approve & fund</text>
+
+    {/* Role nodes — drawn last so they sit on top */}
+    {roles.map((r) => (
+      <g>
+        <rect x={r.cx - 58} y={r.cy - 22} width={116} height={44} rx="10" fill="var(--color-surface)" stroke="var(--brand-primary)" stroke-width="2.5" />
+        <text x={r.cx} y={r.cy - 4} text-anchor="middle" fill="var(--color-text)" font-size="14" font-weight="700">{r.label}</text>
+        <text x={r.cx} y={r.cy + 12} text-anchor="middle" fill="var(--color-text-muted)" font-size="10">{r.sub}</text>
+      </g>
+    ))}
+  </svg>
+</div>

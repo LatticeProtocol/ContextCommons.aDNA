@@ -1,0 +1,18 @@
+name: Core Track
+slug: core
+tagline: "The foundation for every role in the Context Commons."
+description: "All participants start here. Four weeks of shared context: what aDNA is, how context graphs work, how governance protects your community, and how to build your first graph. No prerequisites. No prior technical experience required."
+icon: "books"
+audience: "All participants (builders, stewards, elders, mentors)"
+prerequisites: []
+duration_weeks: 4
+modules:
+  - "Week 1: WHO / WHAT / HOW — the three questions"
+  - "Week 2: Building your first context graph"
+  - "Week 3: Data sovereignty and community governance"
+  - "Week 4: How agents read context and when to escalate"
+competencies:
+  - "C1: Describe the WHO / WHAT / HOW triad and identify each in a community scenario"
+  - "C2: Build a personal context graph with at least 5 nodes and 3 relationships"
+  - "C3: Explain data sovereignty in your own words and identify one risk in a case study"
+order: 1

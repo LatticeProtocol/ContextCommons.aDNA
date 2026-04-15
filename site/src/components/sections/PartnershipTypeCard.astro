@@ -1,0 +1,21 @@
+---
+interface Props {
+  title: string;
+  contribution: string;
+  receipt: string;
+}
+
+const { title, contribution, receipt } = Astro.props;
+---
+
+<div class="border border-[var(--color-border)] rounded-[var(--radius-lg)] p-[var(--space-6)] bg-[var(--color-surface)] shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-[var(--transition-base)]">
+  <h3 class="font-display text-[var(--text-lg)] text-[var(--color-text)] mb-[var(--space-3)]">
+    {title}
+  </h3>
+  <p class="text-[var(--text-sm)] text-[var(--color-text-muted)] mb-[var(--space-4)]">
+    {contribution}
+  </p>
+  <p class="text-[var(--text-sm)] text-[var(--color-accent-text,var(--brand-accent-dark))] font-semibold">
+    You receive: {receipt}
+  </p>
+</div>

@@ -1,0 +1,56 @@
+---
+import IconHammer from '../icons/IconHammer.astro';
+import IconShield from '../icons/IconShield.astro';
+import IconBook from '../icons/IconBook.astro';
+import IconBooks from '../icons/IconBooks.astro';
+
+interface Props {
+  name: string;
+  tagline: string;
+  audience: string;
+  duration_weeks?: number;
+  description: string;
+  icon?: string;
+  slug: string;
+  accentColor?: string;
+}
+
+const { name, tagline, audience, duration_weeks, description, icon, slug, accentColor } = Astro.props;
+
+const iconComponents: Record<string, any> = { hammer: IconHammer, shield: IconShield, book: IconBook, books: IconBooks };
+const IconComponent = icon ? iconComponents[icon] : null;
+---
+
+<div
+  class="border border-[var(--color-border)] border-l-[3px] rounded-[var(--radius-lg)] p-[var(--space-6)] md:p-[var(--space-8)] bg-[var(--color-surface)] flex flex-col h-full shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-[var(--transition-base)]"
+  style={accentColor ? `border-left-color: ${accentColor}` : `border-left-color: var(--brand-primary)`}
+>
+  {IconComponent && (
+    <div class="text-[var(--brand-primary)] mb-[var(--space-3)]" aria-hidden="true">
+      <IconComponent />
+    </div>
+  )}
+  <h3 class="font-display text-[var(--text-xl)] text-[var(--color-text)] mb-[var(--space-2)]">
+    {name}
+  </h3>
+  <p class="text-[var(--text-sm)] font-semibold text-[var(--color-accent-text,var(--brand-accent-dark))] mb-[var(--space-1)]">
+    {audience}
+  </p>
+  {duration_weeks && (
+    <p class="text-[var(--text-sm)] text-[var(--color-text-muted)] mb-[var(--space-3)]">
+      {duration_weeks} weeks
+    </p>
+  )}
+  <p class="text-[var(--text-sm)] text-[var(--color-text-muted)] italic mb-[var(--space-4)]">
+    {tagline}
+  </p>
+  <p class="text-[var(--text-base)] text-[var(--color-text-muted)] leading-relaxed flex-1">
+    {description}
+  </p>
+  <a
+    href={`#track-${slug}`}
+    class="mt-[var(--space-4)] inline-flex items-center gap-[var(--space-1)] text-[var(--brand-primary)] font-semibold text-[var(--text-sm)] hover:underline transition-colors duration-[var(--transition-fast)] group/link"
+  >
+    See details <span class="inline-block transition-transform duration-[var(--transition-fast)] group-hover/link:translate-y-0.5">&darr;</span>
+  </a>
+</div>

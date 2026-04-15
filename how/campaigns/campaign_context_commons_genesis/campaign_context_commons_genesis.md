@@ -1,13 +1,13 @@
 ---
 type: campaign
 created: 2026-04-12
-updated: 2026-04-13
+updated: 2026-04-14
 status: active
 last_edited_by: agent_gutenberg
 tags: [campaign, genesis, bootstrap]
 phase: 3
 phase_status: active
-mission_count: 15
+mission_count: 16
 session_estimate: 25-33
 ---
 
@@ -59,18 +59,33 @@ Bootstrap the Context Commons from raw context dump to operational headquarters.
 
 **Phase gate**: Full context library complete (6 CC topics, all III-reviewed). Pilot community profiles enriched with steward input. Use case library with 5+ documented cases. Pilot A and Pilot B designs drafted. User approval on pilot designs before proceeding.
 
-### Phase 3: Infrastructure (M07-M10, ~8-10 sessions)
+### Phase 3: Infrastructure (M07-M10 + M08-R, ~18-20 sessions)
 
-**Objective**: Build the public-facing infrastructure — website and forge integrations.
+**Objective**: Build the public-facing infrastructure — website, forge integrations, and visual refinement.
 
-| Mission | Title | Sessions | Dependencies |
-|---------|-------|----------|-------------|
-| M07 | SiteForge Wrapper Setup + Branding | 1 | M01 |
-| M08 | Website Content Generation + Deploy | 3-4 | M07, Phase 2 complete |
-| M09 | VideoForge Wrapper Setup | 1 | M01 |
-| M10 | PresentationForge Wrapper Setup | 1 | M01 |
+| Mission | Title | Sessions | Dependencies | Status |
+|---------|-------|----------|-------------|--------|
+| M07 | SiteForge Wrapper Setup + Branding | 1 (actual: 1) | M01 | **Completed** |
+| M08 | Website Content Generation + Deploy | 3-4 (actual: 1) | M07, Phase 2 | **Completed** |
+| M08-R | Website Refinement — 100 III Loops | 10 (actual: 8/10) | M08 | **In Progress** (R1-R8 complete) |
+| M09 | VideoForge Wrapper Setup | 1 | M01 | Planned |
+| M10 | PresentationForge Wrapper Setup | 1 | M01 | Planned |
 
-**Phase gate**: Website deployed to staging with 10/10 quality gates. All three forge wrappers operational. Branding.json finalized.
+**Phase gate**: Website deployed to staging with 10/10 quality gates passing. 100 III loops complete with persona walkthroughs validated. All three forge wrappers operational. Branding.json finalized.
+
+**R1 finding**: ~40% of site content lives in inline sections (tables, pilot cards, vignettes) outside shared components. Remaining batches must address this two-tier quality gap. See mission file gap register.
+
+**R2 finding**: Voice alignment removed 14 jargon phrases from HOME/ABOUT/PARTNERS/Footer. Two new components extracted (ValueCard, PartnershipTypeCard). Shared components must be audited in every voice batch. Residual jargon on curriculum/get-involved/resources deferred to R3+.
+
+**R3 finding**: 5 SVG diagram components introduced (EngagementLifecycle, PilotTimeline, KnowledgeEconomyCycle, WhoWhatHowTriad, ThreeRoleLoop). Full-site jargon clearance completed (11 additional instances across curriculum/get-involved/resources). Wide SVGs (>500px viewBox) need mobile-specific layouts. 3 gap register items closed (knowledge economy, pilot timeline, engagement lifecycle).
+
+**R4 finding**: 6 SVG icon components (IconHammer, IconShield, IconBook, IconBooks, IconHandshake, IconCompass) replaced 14 emoji instances across 4 pages + 4 YAML data files. RoleCard/PersonaCard use Astro named slots; TrackCard uses string-to-component mapping for YAML-driven data. Gap register undercounted emoji (7 vs 14) — always grep before batches.
+
+**R5 finding**: 7 tables styled with StyledTable.astro wrapper (card-wrap + zebra + hover + scope="col"). Glossary restyled with border-l accent. Mobile card-stacks for comparison tables. Persuasion tint on App vs. Agent "Community Agent System" column. 8 of 13 original gap register items now closed. 212 Playwright tests passing.
+
+**R7 finding**: 2 new components (PilotCard, PilotGlanceCard) componentized the last inline pilot cards. Journalist persona added human anchors (Mrs. Johnson, Venice Beach Book Club mother, Mrs. Chen/Mr. Davis) across 5 content blocks. Cross-page fact consistency verified — all numbers, names, and dates agree across all pages. 250 Playwright tests passing. 10 of 13 original R1 gap items closed (3 remain: contact boxes R8, detail sections R8, header R9).
+
+**R8 finding**: ContactPathCard.astro + DetailSection.astro + IconEnvelope.astro created. 4 contact path boxes replaced with audience-specific accent borders and icons (green=community, gold=mentor, light green=partner, neutral=general). 4 detail sections wrapped with card treatment and column containment. PersonaCard extended with optional anchor links to detail sections. Voice refinement from context files: mentor card describes concrete responsibilities and peer cohort; partner card names four types; community card includes youth pathfinding note. 298 Playwright tests passing. 12 of 13 original R1 gap items closed (1 remains: header R9).
 
 ### Phase 4: Launch Preparation (M11-M14, ~6-8 sessions)
 
@@ -113,9 +128,9 @@ M00 ──→ M01 ──→ M04 ──→ M13
   │       │       │
   │       ├──→ M05 │
   │       │       │
-  │       └──→ M07 ──→ M08 ──→ M11
-  │                           ──→ M12 ──→ M13
-  ├──→ M02 ──→ M06 ──────────────→ M12
+  │       └──→ M07 ──→ M08 ──→ M08-R ──→ M11
+  │                                    ──→ M12 ──→ M13
+  ├──→ M02 ──→ M06 ────────────────────────→ M12
   │
   ├──→ M03 ──→ M04
   │

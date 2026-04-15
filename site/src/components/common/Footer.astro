@@ -2,14 +2,14 @@
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-[var(--color-border)] bg-[var(--color-bg-alt)]">
+<footer class="bg-[var(--color-bg-alt)]" style="box-shadow: 0 -2px 8px hsl(0 0% 0% / 0.04);">
   <div class="max-w-[var(--content-width)] mx-auto px-[var(--space-4)] py-[var(--space-12)]">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-[var(--space-8)]">
       <!-- Brand -->
       <div>
-        <h3 class="font-display text-[var(--text-xl)] mb-[var(--space-3)]">Context Commons</h3>
+        <h3 class="font-display text-[var(--text-xl)] text-[var(--color-text)] mb-[var(--space-3)]">Context Commons</h3>
         <p class="text-[var(--text-sm)] text-[var(--color-text-muted)] max-w-xs">
-          Every community deserves its own printing press. We teach youth to build context-driven AI systems that serve their communities.
+          Every community deserves its own printing press. Young people build AI tools. Elders share wisdom. Community leaders govern.
         </p>
       </div>
 
@@ -17,11 +17,13 @@ const year = new Date().getFullYear();
       <div>
         <h4 class="font-semibold text-[var(--text-sm)] uppercase tracking-wider text-[var(--color-text-muted)] mb-[var(--space-3)]">Explore</h4>
         <nav aria-label="Footer navigation" class="flex flex-col gap-[var(--space-2)]">
-          <a href="/about" class="text-[var(--text-sm)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors duration-[var(--transition-fast)]">About</a>
-          <a href="/curriculum" class="text-[var(--text-sm)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors duration-[var(--transition-fast)]">Curriculum</a>
-          <a href="/pilots" class="text-[var(--text-sm)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors duration-[var(--transition-fast)]">Pilots</a>
-          <a href="/get-involved" class="text-[var(--text-sm)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors duration-[var(--transition-fast)]">Get Involved</a>
-          <a href="/partners" class="text-[var(--text-sm)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors duration-[var(--transition-fast)]">Partners</a>
+          <a href="/about" class="text-[var(--text-sm)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:underline transition-colors duration-[var(--transition-fast)]">About</a>
+          <a href="/curriculum" class="text-[var(--text-sm)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:underline transition-colors duration-[var(--transition-fast)]">Curriculum</a>
+          <a href="/pilots" class="text-[var(--text-sm)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:underline transition-colors duration-[var(--transition-fast)]">Pilots</a>
+          <a href="/get-involved" class="text-[var(--text-sm)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:underline transition-colors duration-[var(--transition-fast)]">Get Involved</a>
+          <a href="/partners" class="text-[var(--text-sm)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:underline transition-colors duration-[var(--transition-fast)]">Partners</a>
+          <a href="/resources" class="text-[var(--text-sm)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:underline transition-colors duration-[var(--transition-fast)]">Resources</a>
+          <a href="/contact" class="text-[var(--text-sm)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:underline transition-colors duration-[var(--transition-fast)]">Contact</a>
         </nav>
       </div>
 
@@ -29,10 +31,10 @@ const year = new Date().getFullYear();
       <div>
         <h4 class="font-semibold text-[var(--text-sm)] uppercase tracking-wider text-[var(--color-text-muted)] mb-[var(--space-3)]">Connect</h4>
         <div class="flex flex-col gap-[var(--space-2)]">
-          <a href="https://github.com/context-commons" class="text-[var(--text-sm)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors duration-[var(--transition-fast)]" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/context-commons" class="text-[var(--text-sm)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:underline transition-colors duration-[var(--transition-fast)]" target="_blank" rel="noopener noreferrer">
             GitHub
           </a>
-          <a href="mailto:hello@contextcommons.org" class="text-[var(--text-sm)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors duration-[var(--transition-fast)]">
+          <a href="mailto:hello@contextcommons.org" class="text-[var(--text-sm)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:underline transition-colors duration-[var(--transition-fast)]">
             hello@contextcommons.org
           </a>
         </div>

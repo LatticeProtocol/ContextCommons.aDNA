@@ -1,0 +1,27 @@
+---
+interface Props {
+  title: string;
+  location: string;
+  description: string;
+  outcome: string;
+}
+
+const { title, location, description, outcome } = Astro.props;
+---
+
+<div class="border border-[var(--color-border)] border-t-2 border-t-[var(--brand-accent)] rounded-[var(--radius-lg)] p-[var(--space-6)] md:p-[var(--space-8)] bg-[var(--color-surface)] shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-[var(--transition-base)] flex flex-col">
+  <h3 class="font-display text-[var(--text-xl)] text-[var(--color-text)] mb-[var(--space-2)]">
+    {title}
+  </h3>
+  <p class="text-[var(--text-sm)] font-semibold text-[var(--color-accent-text,var(--brand-accent-dark))] mb-[var(--space-3)]">
+    {location}
+  </p>
+  <p class="text-[var(--text-base)] text-[var(--color-text-muted)] leading-relaxed mb-[var(--space-4)] flex-1">
+    {description}
+  </p>
+  <div class="border-t border-[var(--color-border)] pt-[var(--space-4)]">
+    <p class="text-[var(--text-sm)] text-[var(--color-text)] font-semibold leading-relaxed">
+      {outcome}
+    </p>
+  </div>
+</div>

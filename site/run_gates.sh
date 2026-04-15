@@ -35,14 +35,14 @@ gate 1 "Build succeeds" "npm run build 2>&1 | tail -1 | grep -v error"
 # Gate 2: All pages render (check dist output)
 gate 2 "All pages render" "ls dist/index.html dist/about/index.html dist/curriculum/index.html dist/pilots/index.html dist/get-involved/index.html dist/partners/index.html dist/resources/index.html dist/contact/index.html"
 
-# Gate 3: No broken links (requires Playwright)
-skip 3 "No broken links" "requires Playwright tests"
+# Gate 3: No broken links (Playwright)
+gate 3 "No broken links" "npx playwright test tests/links.spec.ts --project=desktop"
 
-# Gate 4: No missing images
-skip 4 "No missing images" "no images yet"
+# Gate 4: All images have src and alt (Playwright)
+gate 4 "All images valid" "npx playwright test tests/images.spec.ts --project=desktop"
 
-# Gate 5: WCAG 2.1 AA accessibility (requires axe-core)
-skip 5 "WCAG 2.1 AA accessibility" "requires Playwright + axe-core"
+# Gate 5: WCAG 2.1 AA accessibility (axe-core + Playwright)
+gate 5 "WCAG 2.1 AA accessibility" "npx playwright test tests/a11y.spec.ts --project=desktop"
 
 # Gate 6: Core Web Vitals
 skip 6 "Core Web Vitals" "requires deployed site"
@@ -56,8 +56,8 @@ skip 8 "Community voice compliance" "manual review"
 # Gate 9: Content collection schemas validate
 gate 9 "Content schemas validate" "npm run check 2>&1 | tail -1"
 
-# Gate 10: No console errors
-skip 10 "No console errors" "requires browser runtime"
+# Gate 10: No console errors (Playwright)
+gate 10 "No console errors" "npx playwright test tests/console.spec.ts --project=desktop"
 
 echo ""
 echo "Results: ${PASS} pass, ${FAIL} fail, ${SKIP} skip"

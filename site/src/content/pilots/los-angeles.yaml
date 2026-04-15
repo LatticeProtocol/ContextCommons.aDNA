@@ -1,0 +1,14 @@
+name: "Pilot B: Los Angeles"
+slug: los-angeles
+location: "Los Angeles, CA"
+community: "LAUSD / Venice Beach Book Club / UCLA"
+status: planning
+launch_target: "Q4 2026"
+description: "A distributed, multi-institutional pilot across three sites. LAUSD, Venice Beach Book Club, and UCLA. 12-16 youth builders, 100+ languages in the community. Testing breadth — can the same standard work across radically different institutions and cultural contexts? Use cases: immigration paperwork, education access, multilingual benefits navigation."
+highlights:
+  - "Multi-institutional constellation across three sites"
+  - "12-16 youth builders, 100+ languages in community"
+  - "Focus: immigration, education access, multilingual navigation"
+  - "Academic partner: UCLA (prospective co-PI)"
+  - "16-week program, October 2026-February 2027"
+order: 2

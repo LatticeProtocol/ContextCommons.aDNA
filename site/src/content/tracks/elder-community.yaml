@@ -1,0 +1,16 @@
+name: Elder & Community Track
+slug: elder-community
+tagline: "Your knowledge is what makes these tools useful."
+description: "A 6-week track for elders, family members, and community participants. Learn what AI tools can do, co-design the systems youth builders create, and validate that the tools actually help. No technical skills required. Dignity and accessibility are first-class priorities."
+icon: "book"
+audience: "Elders, family members, community participants"
+prerequisites: []
+duration_weeks: 6
+modules:
+  - "Weeks 1-2: What AI tools can do — demonstrations and conversations"
+  - "Weeks 3-4: Co-design sessions — tell builders what you need"
+  - "Weeks 5-6: Validation and ongoing access — does this actually help?"
+competencies:
+  - "E1: Can describe what an agent does in your own words"
+  - "E2: Contributed knowledge to at least one capstone project"
+order: 4

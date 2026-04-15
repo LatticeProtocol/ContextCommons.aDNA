@@ -1,15 +1,91 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
+import PageHeader from '../components/sections/PageHeader.astro';
+import ContactPathCard from '../components/sections/ContactPathCard.astro';
+import IconHandshake from '../components/icons/IconHandshake.astro';
+import IconCompass from '../components/icons/IconCompass.astro';
+import IconEnvelope from '../components/icons/IconEnvelope.astro';
 ---
 
 <PageLayout
   title="Contact"
-  description="Tell us about your community. We'd love to hear from you — communities, mentors, and partners welcome."
+  description="Tell us about your community. We'd love to hear from builders, stewards, mentors, and partners. We respond within one week."
+  jsonLD={{
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Contact \u2014 Context Commons',
+    description: 'Get in touch with the Context Commons team.',
+    mainEntity: {
+      '@type': 'Organization',
+      name: 'Context Commons',
+      email: 'hello@contextcommons.org',
+    },
+  }}
 >
-  <section class="py-[var(--space-16)]">
-    <h1 class="text-[var(--text-3xl)] mb-[var(--space-6)]">Contact</h1>
-    <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] max-w-[var(--prose-width)]">
-      Content will be generated in M08 with application forms for communities, mentors, and partners.
-    </p>
-  </section>
+  <PageHeader
+    title="Contact"
+    subtitle="We'd love to hear from you."
+  />
+
+  <div class="space-y-[var(--space-12)] pb-[var(--space-16)]">
+
+    <!-- Contact Paths -->
+    <section>
+      <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] mb-[var(--space-8)] max-w-[var(--prose-width)]">
+        Every conversation starts with understanding your community. Tell us who you are and what you are interested in, and we will find the right fit together.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-[var(--space-6)]">
+        <ContactPathCard
+          title="My community wants to participate"
+          description="Tell us about your community — where you are, what you need, and who your stewards might be. We will schedule a conversation to explore fit. If you are a young person interested in joining, ask a trusted adult in your community to reach out on your behalf."
+          ctaText="Apply as a Community"
+          ctaHref="mailto:hello@contextcommons.org?subject=Community%20Application%20%E2%80%94%20Context%20Commons&body=Community%20name%3A%0ALocation%3A%0AYour%20role%3A%0AWhat%20does%20your%20community%20need%20help%20with%3F%0A"
+          accentColor="var(--brand-primary)"
+        >
+          <IconHandshake slot="icon" />
+        </ContactPathCard>
+
+        <ContactPathCard
+          title="I want to mentor"
+          description="You co-facilitate sessions, review capstone projects, and help stewards build technical confidence. 4–6 hours per week for 16 weeks. You will join a peer cohort of mentors across pilot sites. Tell us about your background and what draws you to community work."
+          ctaText="Apply as a Mentor"
+          ctaHref="mailto:hello@contextcommons.org?subject=Mentor%20Application%20%E2%80%94%20Context%20Commons&body=Your%20name%3A%0ATechnical%20background%3A%0AHours%20available%20per%20week%3A%0AWhy%20do%20you%20want%20to%20mentor%3F%0A"
+          accentColor="var(--brand-accent)"
+        >
+          <IconCompass slot="icon" />
+        </ContactPathCard>
+
+        <ContactPathCard
+          title="My organization wants to partner"
+          description="Technology, academic, community, or fiscal sponsor — four partnership types, each with clear mutual expectations. It starts with a conversation. Tell us about your organization and what you would like to contribute."
+          ctaText="Explore Partnership"
+          ctaHref="mailto:hello@contextcommons.org?subject=Partner%20Inquiry%20%E2%80%94%20Context%20Commons&body=Organization%20name%3A%0AOrganization%20type%3A%0AWhat%20interests%20you%20about%20partnering%3F%0A"
+          accentColor="var(--brand-primary-light)"
+        >
+          <IconHandshake slot="icon" />
+        </ContactPathCard>
+
+        <ContactPathCard
+          title="General inquiry"
+          description="Questions, press inquiries, or anything else. We are happy to hear from you."
+          ctaText="Send a Message"
+          ctaHref="mailto:hello@contextcommons.org?subject=General%20Inquiry%20%E2%80%94%20Context%20Commons"
+          accentColor="var(--color-border)"
+        >
+          <IconEnvelope slot="icon" />
+        </ContactPathCard>
+      </div>
+    </section>
+
+    <!-- Response Expectation -->
+    <section class="border-t border-[var(--color-border)] pt-[var(--space-8)]">
+      <p class="text-[var(--text-lg)] text-[var(--color-text)] font-semibold mb-[var(--space-2)]">
+        We respond to every message within one week.
+      </p>
+      <p class="text-[var(--text-base)] text-[var(--color-text-muted)]">
+        You can also reach us directly at <a href="mailto:hello@contextcommons.org" class="text-[var(--brand-primary)] underline hover:no-underline transition-colors duration-[var(--transition-fast)]">hello@contextcommons.org</a>.
+      </p>
+    </section>
+  </div>
 </PageLayout>

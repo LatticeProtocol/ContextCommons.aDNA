@@ -4,12 +4,20 @@ import PageLayout from '../layouts/PageLayout.astro';
 
 <PageLayout title="Page Not Found" description="The page you're looking for doesn't exist.">
   <section class="py-[var(--space-32)] text-center">
-    <h1 class="text-[var(--text-4xl)] mb-[var(--space-4)]">404</h1>
-    <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] mb-[var(--space-8)]">
-      This page doesn't exist yet. The commons is still being built.
+    <h1 class="font-display text-[var(--text-4xl)] text-[var(--color-text)] mb-[var(--space-4)]">404</h1>
+    <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] mb-[var(--space-8)] max-w-[var(--prose-width)] mx-auto">
+      This page does not exist. The commons is still being built &mdash; but there is plenty to explore.
     </p>
-    <a href="/" class="inline-block px-[var(--space-6)] py-[var(--space-3)] bg-[var(--brand-primary)] text-white font-semibold rounded-[var(--radius-md)] hover:opacity-90 transition-opacity">
-      Back to Home
-    </a>
+    <nav class="flex flex-wrap justify-center gap-[var(--space-4)]" aria-label="Suggested pages">
+      <a href="/" class="inline-block px-[var(--space-6)] py-[var(--space-3)] bg-[var(--brand-primary)] text-white font-semibold rounded-[var(--radius-md)] hover:bg-[var(--brand-primary-dark)] transition-colors duration-[var(--transition-fast)]">
+        Home
+      </a>
+      <a href="/about" class="inline-block px-[var(--space-6)] py-[var(--space-3)] border border-[var(--color-border)] text-[var(--color-text)] font-semibold rounded-[var(--radius-md)] hover:border-[var(--brand-primary)] hover:text-[var(--brand-primary)] transition-colors duration-[var(--transition-fast)]">
+        About
+      </a>
+      <a href="/get-involved" class="inline-block px-[var(--space-6)] py-[var(--space-3)] border border-[var(--color-border)] text-[var(--color-text)] font-semibold rounded-[var(--radius-md)] hover:border-[var(--brand-primary)] hover:text-[var(--brand-primary)] transition-colors duration-[var(--transition-fast)]">
+        Get Involved
+      </a>
+    </nav>
   </section>
 </PageLayout>

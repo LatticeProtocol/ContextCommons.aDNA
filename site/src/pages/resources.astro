@@ -1,15 +1,173 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
+import PageHeader from '../components/sections/PageHeader.astro';
+import ResourceLink from '../components/sections/ResourceLink.astro';
 ---
 
 <PageLayout
   title="Resources"
-  description="Documentation, curriculum materials, and community toolkit. Everything you need to get started, organized by role."
+  description="Documentation, curriculum materials, and community toolkit. Everything you need to get started with the Context Commons, organized by role."
+  jsonLD={{
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Resources \u2014 Context Commons',
+    description: 'Open-source documentation, curriculum materials, and community toolkits for the Context Commons.',
+  }}
 >
-  <section class="py-[var(--space-16)]">
-    <h1 class="text-[var(--text-3xl)] mb-[var(--space-6)]">Resources</h1>
-    <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] max-w-[var(--prose-width)]">
-      Content will be generated in M08 using the aDNA for communities context.
-    </p>
-  </section>
+  <PageHeader
+    title="Resources"
+    subtitle="Everything you need, organized by role."
+  />
+
+  <div class="space-y-[var(--space-16)] pb-[var(--space-16)]">
+
+    <!-- For Builders -->
+    <section>
+      <h2 class="font-display text-[var(--text-2xl)] text-[var(--color-text)] mb-[var(--space-6)]">For Builders</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-[var(--space-4)]">
+        <ResourceLink
+          title="aDNA Context Graph Standard"
+          description="The open standard for organizing community knowledge. Learn how WHO, WHAT, and HOW connect."
+          href="https://github.com/context-commons/adna"
+          external={true}
+        />
+        <ResourceLink
+          title="Lattice Protocol Documentation"
+          description="Open network for connecting AI tools and communities. How communities share knowledge systems with each other."
+          href="https://latticeprotocol.com/docs"
+          external={true}
+        />
+        <ResourceLink
+          title="Claude Code Getting Started"
+          description="Set up your AI-ready computer. Claude Code is the primary development tool for the Builder Track."
+          href="https://docs.anthropic.com/en/docs/claude-code"
+          external={true}
+        />
+        <ResourceLink
+          title="Curriculum Overview"
+          description="The four-track curriculum: Core, Builder, Steward, and Elder & Community. See what you will learn."
+          href="/curriculum"
+        />
+      </div>
+    </section>
+
+    <!-- For Stewards -->
+    <section>
+      <h2 class="font-display text-[var(--text-2xl)] text-[var(--color-text)] mb-[var(--space-6)]">For Stewards</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-[var(--space-4)]">
+        <ResourceLink
+          title="Community Requirements Checklist"
+          description="What your community needs before launching: named stewards, youth cohort, physical space, connectivity, governance."
+          href="/get-involved#steward-detail"
+        />
+        <ResourceLink
+          title="Governance Model"
+          description="How decisions are made: three non-negotiables, steward veto power, escalation protocol, partnership terms."
+          href="/partners"
+        />
+        <ResourceLink
+          title="Explanation Toolkit"
+          description="Analogies, one-pagers, and verbal scripts for introducing the Context Commons to your community."
+          href="/about"
+        />
+        <ResourceLink
+          title="Pilot Program Details"
+          description="See how Grand Rapids and Los Angeles are structuring their pilots. Adapt what works for your context."
+          href="/pilots"
+        />
+      </div>
+    </section>
+
+    <!-- For Partners -->
+    <section>
+      <h2 class="font-display text-[var(--text-2xl)] text-[var(--color-text)] mb-[var(--space-6)]">For Partners</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-[var(--space-4)]">
+        <ResourceLink
+          title="Partnership Model"
+          description="Four partnership types, mutual expectations, engagement lifecycle, and the three non-negotiables."
+          href="/partners"
+        />
+        <ResourceLink
+          title="Context Commons on GitHub"
+          description="Open-source repositories for the aDNA standard, Lattice Protocol, and community tools."
+          href="https://github.com/context-commons"
+          external={true}
+        />
+      </div>
+    </section>
+
+    <!-- For Everyone -->
+    <section>
+      <h2 class="font-display text-[var(--text-2xl)] text-[var(--color-text)] mb-[var(--space-6)]">For Everyone</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-[var(--space-4)]">
+        <ResourceLink
+          title="What Is aDNA? (Plain Language)"
+          description="A guide for non-technical readers. No jargon. Explains context graphs using the printing press, recipe book, and church directory analogies."
+          href="/about"
+        />
+        <ResourceLink
+          title="How Is This Different from an App?"
+          description="A comparison table showing why community-owned agent systems are not the same as apps built by outside companies."
+          href="/about#how-its-different"
+        />
+        <ResourceLink
+          title="Get Involved"
+          description="Four paths: builder, steward, partner, or mentor. Find the right fit for you."
+          href="/get-involved"
+        />
+        <ResourceLink
+          title="Contact Us"
+          description="Tell us about your community. We respond to every message within one week."
+          href="/contact"
+        />
+      </div>
+    </section>
+
+    <!-- Glossary -->
+    <section>
+      <h2 class="font-display text-[var(--text-2xl)] text-[var(--color-text)] mb-[var(--space-6)]">Glossary</h2>
+      <dl class="grid grid-cols-1 md:grid-cols-2 gap-x-[var(--space-8)] gap-y-[var(--space-6)]">
+        <div class="border-l-2 border-[var(--brand-primary)]/30 pl-[var(--space-4)] py-[var(--space-3)] rounded-r-[var(--radius-sm)] hover:border-[var(--brand-primary)]/60 hover:bg-[var(--brand-primary)]/[0.02] transition-all duration-[var(--transition-fast)]">
+          <dt class="font-semibold text-[var(--color-text)]">aDNA</dt>
+          <dd class="text-[var(--text-sm)] text-[var(--color-text-muted)]">A standard way to organize community knowledge so AI tools can understand and use it.</dd>
+        </div>
+        <div class="border-l-2 border-[var(--brand-primary)]/30 pl-[var(--space-4)] py-[var(--space-3)] rounded-r-[var(--radius-sm)] hover:border-[var(--brand-primary)]/60 hover:bg-[var(--brand-primary)]/[0.02] transition-all duration-[var(--transition-fast)]">
+          <dt class="font-semibold text-[var(--color-text)]">Context graph</dt>
+          <dd class="text-[var(--text-sm)] text-[var(--color-text-muted)]">A structured picture of your community &mdash; who the people are, what they need, how things work &mdash; connected together.</dd>
+        </div>
+        <div class="border-l-2 border-[var(--brand-primary)]/30 pl-[var(--space-4)] py-[var(--space-3)] rounded-r-[var(--radius-sm)] hover:border-[var(--brand-primary)]/60 hover:bg-[var(--brand-primary)]/[0.02] transition-all duration-[var(--transition-fast)]">
+          <dt class="font-semibold text-[var(--color-text)]">Agent</dt>
+          <dd class="text-[var(--text-sm)] text-[var(--color-text-muted)]">An AI tool that reads your context graph and helps with specific tasks, following your community&rsquo;s rules.</dd>
+        </div>
+        <div class="border-l-2 border-[var(--brand-primary)]/30 pl-[var(--space-4)] py-[var(--space-3)] rounded-r-[var(--radius-sm)] hover:border-[var(--brand-primary)]/60 hover:bg-[var(--brand-primary)]/[0.02] transition-all duration-[var(--transition-fast)]">
+          <dt class="font-semibold text-[var(--color-text)]">Steward</dt>
+          <dd class="text-[var(--text-sm)] text-[var(--color-text-muted)]">A trusted community leader who governs how AI tools are used in their community.</dd>
+        </div>
+        <div class="border-l-2 border-[var(--brand-primary)]/30 pl-[var(--space-4)] py-[var(--space-3)] rounded-r-[var(--radius-sm)] hover:border-[var(--brand-primary)]/60 hover:bg-[var(--brand-primary)]/[0.02] transition-all duration-[var(--transition-fast)]">
+          <dt class="font-semibold text-[var(--color-text)]">Builder</dt>
+          <dd class="text-[var(--text-sm)] text-[var(--color-text-muted)]">A young person (ages 14&ndash;24) who creates and manages context graphs and agents for their community.</dd>
+        </div>
+        <div class="border-l-2 border-[var(--brand-primary)]/30 pl-[var(--space-4)] py-[var(--space-3)] rounded-r-[var(--radius-sm)] hover:border-[var(--brand-primary)]/60 hover:bg-[var(--brand-primary)]/[0.02] transition-all duration-[var(--transition-fast)]">
+          <dt class="font-semibold text-[var(--color-text)]">Mentor</dt>
+          <dd class="text-[var(--text-sm)] text-[var(--color-text-muted)]">An experienced developer who teaches stewards and supports builders.</dd>
+        </div>
+        <div class="border-l-2 border-[var(--brand-primary)]/30 pl-[var(--space-4)] py-[var(--space-3)] rounded-r-[var(--radius-sm)] hover:border-[var(--brand-primary)]/60 hover:bg-[var(--brand-primary)]/[0.02] transition-all duration-[var(--transition-fast)]">
+          <dt class="font-semibold text-[var(--color-text)]">Federation</dt>
+          <dd class="text-[var(--text-sm)] text-[var(--color-text-muted)]">Communities sharing knowledge and tools with each other without giving up control &mdash; like a lending library.</dd>
+        </div>
+        <div class="border-l-2 border-[var(--brand-primary)]/30 pl-[var(--space-4)] py-[var(--space-3)] rounded-r-[var(--radius-sm)] hover:border-[var(--brand-primary)]/60 hover:bg-[var(--brand-primary)]/[0.02] transition-all duration-[var(--transition-fast)]">
+          <dt class="font-semibold text-[var(--color-text)]">Escalation</dt>
+          <dd class="text-[var(--text-sm)] text-[var(--color-text-muted)]">What happens when the first plan does not work &mdash; the backup steps, the person to call next.</dd>
+        </div>
+        <div class="border-l-2 border-[var(--brand-primary)]/30 pl-[var(--space-4)] py-[var(--space-3)] rounded-r-[var(--radius-sm)] hover:border-[var(--brand-primary)]/60 hover:bg-[var(--brand-primary)]/[0.02] transition-all duration-[var(--transition-fast)]">
+          <dt class="font-semibold text-[var(--color-text)]">WHO / WHAT / HOW</dt>
+          <dd class="text-[var(--text-sm)] text-[var(--color-text-muted)]">The three categories for organizing community knowledge: people, knowledge, and processes.</dd>
+        </div>
+        <div class="border-l-2 border-[var(--brand-primary)]/30 pl-[var(--space-4)] py-[var(--space-3)] rounded-r-[var(--radius-sm)] hover:border-[var(--brand-primary)]/60 hover:bg-[var(--brand-primary)]/[0.02] transition-all duration-[var(--transition-fast)]">
+          <dt class="font-semibold text-[var(--color-text)]">Open standard</dt>
+          <dd class="text-[var(--text-sm)] text-[var(--color-text-muted)]">A shared set of rules that anyone can use &mdash; no single company owns it or controls it.</dd>
+        </div>
+      </dl>
+    </section>
+  </div>
 </PageLayout>

@@ -4,11 +4,11 @@ export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  retries: 1,
+  workers: 4,
   reporter: 'html',
   use: {
-    baseURL: 'http://localhost:4321',
+    baseURL: 'http://localhost:4399',
     trace: 'on-first-retry',
   },
   projects: [
@@ -17,8 +17,9 @@ export default defineConfig({
     { name: 'tablet', use: { ...devices['iPad (gen 7)'] } },
   ],
   webServer: {
-    command: 'npm run preview',
-    port: 4321,
-    reuseExistingServer: !process.env.CI,
+    command: 'npx astro preview --port 4399',
+    port: 4399,
+    reuseExistingServer: false,
+    timeout: 15_000,
   },
 });

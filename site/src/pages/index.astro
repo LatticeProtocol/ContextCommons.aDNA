@@ -1,28 +1,165 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
+import RoleCard from '../components/sections/RoleCard.astro';
+import CTABanner from '../components/sections/CTABanner.astro';
+import VignetteCard from '../components/sections/VignetteCard.astro';
+import ThreeRoleLoop from '../components/diagrams/ThreeRoleLoop.astro';
+import IconHammer from '../components/icons/IconHammer.astro';
+import IconShield from '../components/icons/IconShield.astro';
+import IconBook from '../components/icons/IconBook.astro';
+import PilotCard from '../components/sections/PilotCard.astro';
 ---
 
 <PageLayout
   title="Home"
-  description="Context Commons — Community-driven agentic literacy. Every community deserves its own printing press."
+  description="Context Commons — Young people learn to build AI tools that help their neighbors. Elders share the wisdom that makes those tools useful. Community leaders govern how it all works."
   fullWidth={true}
   jsonLD={{
+    '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Context Commons',
-    description: 'Community-driven agentic literacy, enablement, and support program.',
+    description: 'A community program where young people learn to build AI tools, elders share the knowledge that makes them useful, and community leaders govern how they work.',
     url: 'https://contextcommons.org',
+    foundingDate: '2026',
+    areaServed: ['Grand Rapids, MI', 'Los Angeles, CA'],
   }}
 >
-  <!-- Hero section — M08 will replace with full content -->
-  <section class="py-[var(--space-32)] px-[var(--space-4)] text-center bg-[var(--brand-primary)] text-white">
-    <div class="max-w-[var(--prose-width-wide)] mx-auto">
-      <h1 class="text-[var(--text-4xl)] mb-[var(--space-6)]">Every community deserves its own printing press.</h1>
-      <p class="text-[var(--text-xl)] opacity-90 mb-[var(--space-8)]">
-        We teach youth to build context-driven AI systems that serve their communities, while equipping elders and stewards to govern and benefit from those systems.
+  <!-- Hero -->
+  <section class="relative py-[var(--space-24)] md:py-[var(--space-32)] px-[var(--space-4)] text-center text-white overflow-hidden" style="background: linear-gradient(to bottom, var(--brand-primary), var(--brand-primary-dark)); box-shadow: 0 4px 20px hsl(0 0% 0% / 0.15);">
+    <div class="relative max-w-[var(--prose-width-wide)] mx-auto">
+      <h1 class="font-display text-[var(--text-4xl)] mb-[var(--space-6)]">
+        Every community deserves its own printing press.
+      </h1>
+      <p class="text-[var(--text-xl)] opacity-90 mb-[var(--space-8)] max-w-[var(--prose-width)] mx-auto">
+        Young people learn to build AI tools that help their neighbors. Elders share the wisdom that makes those tools useful. Community leaders govern how it all works.
       </p>
-      <a href="/get-involved" class="inline-block px-[var(--space-8)] py-[var(--space-4)] bg-[var(--brand-accent)] text-[var(--brand-primary-dark)] font-semibold rounded-[var(--radius-md)] text-[var(--text-lg)] hover:opacity-90 transition-opacity">
+      <a
+        href="/get-involved"
+        class="inline-block px-[var(--space-8)] py-[var(--space-4)] bg-[var(--brand-accent)] font-semibold rounded-[var(--radius-md)] text-[length:var(--text-lg)] hover:bg-[var(--brand-accent-light)] shadow-[var(--shadow-lg)] hover:shadow-[0_12px_24px_hsl(0_0%_0%/0.2)] transition-all duration-[var(--transition-base)]"
+        style="color: var(--brand-primary-dark);"
+      >
         Join the Commons
       </a>
     </div>
   </section>
+
+  <!-- The Problem -->
+  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)]">
+    <div class="max-w-[var(--prose-width)] mx-auto text-center">
+      <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-6)]">
+        One problem. One solution.
+      </h2>
+      <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] mb-[var(--space-4)] leading-relaxed">
+        AI tools are reshaping how people work, learn, and get things done &mdash; but the communities that need them most have the least access. Navigating Medicare, immigration paperwork, and school enrollment gets harder every year. The families left behind are not lacking intelligence. They are lacking tools built for their reality.
+      </p>
+      <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] mb-[var(--space-4)] leading-relaxed">
+        At the same time, young people in these communities are ready to build &mdash; if someone shows them how. The gap is not talent. It is opportunity.
+      </p>
+      <p class="text-[var(--text-xl)] text-[var(--color-text)] font-semibold">
+        Context Commons closes both gaps at once. Young people learn to build AI tools that serve their elders, and elders share the knowledge that makes those tools work. The result is a community that owns its own technology &mdash; not one that rents it.
+      </p>
+    </div>
+  </section>
+
+  <!-- Three Roles -->
+  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)] bg-[var(--color-bg-alt)]">
+    <div class="max-w-[var(--content-width)] mx-auto">
+      <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] text-center mb-[var(--space-4)]">
+        Three roles, one loop
+      </h2>
+      <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] text-center max-w-[var(--prose-width)] mx-auto mb-[var(--space-8)]">
+        Knowledge flows in every direction. No one is a "user." Everyone contributes. Everyone benefits.
+      </p>
+      <ThreeRoleLoop class="mb-[var(--space-12)]" />
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-[var(--space-6)]">
+        <RoleCard
+          title="Youth Builders"
+          who="Ages 14&ndash;24"
+          description="Learn to build AI tools that solve real problems in your community. Your final project helps a real person &mdash; an elder navigating Medicare, a family sorting out immigration paperwork. Complete the program and earn your own computer, set up and ready to keep building."
+        >
+          <IconHammer slot="icon" />
+        </RoleCard>
+        <RoleCard
+          title="Community Stewards"
+          who="Pastors, teachers, organizers"
+          description="You know your community. You know who needs help and what matters most. This program teaches you how AI tools work so you can decide how they are used here. You have the final say. If a tool does not serve your people, it does not get used."
+        >
+          <IconShield slot="icon" />
+        </RoleCard>
+        <RoleCard
+          title="Elders &amp; Community"
+          who="Beneficiaries and co-designers"
+          description="You know things no computer can guess &mdash; which neighbors need help, how things really work around here, what has been tried before. That knowledge is what makes these tools useful. You help decide what gets built, and you are the first to say whether it actually works."
+        >
+          <IconBook slot="icon" />
+        </RoleCard>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Communities Build -->
+  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)]">
+    <div class="max-w-[var(--content-width)] mx-auto">
+      <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] text-center mb-[var(--space-4)]">
+        Real AI for real communities
+      </h2>
+      <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] text-center max-w-[var(--prose-width)] mx-auto mb-[var(--space-12)]">
+        Every capstone project addresses a community-identified need. No toy problems. No simulations.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-[var(--space-8)]">
+        <VignetteCard
+          title="Elder Medicare Navigation"
+          location="Grand Rapids"
+          description="Mrs. Johnson at Peter's Church needs to enroll in Medicare Part D. The paperwork is confusing and the deadlines are strict. A youth builder in her own congregation creates an agent that walks her through it step by step — comparing plans in plain language, tracking deadlines, and assembling documents. It works because the knowledge comes from her community's elders, not a product team in another state."
+          outcome="Pilot target: 20+ elders guided through enrollment. Community-owned and updated each enrollment season."
+        />
+        <VignetteCard
+          title="Immigration Paperwork Navigator"
+          location="Los Angeles"
+          description="A mother walks into the Venice Beach Book Club with a folder of documents she cannot read. A youth builder at LAUSD creates an agent that tells her which forms she needs, tracks deadlines across concurrent processes, and finds translation services in Spanish, Korean, and Armenian. When immigration rules change, the community updates it — not a company."
+          outcome="Pilot target: families across 100+ language communities served. Bilingual from day one."
+        />
+        <VignetteCard
+          title="Community Care Coordination"
+          location="Both pilots"
+          description="Mrs. Chen needs a ride to her doctor on Wednesday. Mr. Davis drives that route. An agent matches community needs with available volunteers — transportation, meal delivery, medication reminders, social visits. The steward reviews weekly summaries. The elder never touches a screen unless they want to."
+          outcome="Built to last: community-maintained after the pilot ends because the community owns the system."
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Two Pilots -->
+  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)] bg-[var(--color-bg-alt)]">
+    <div class="max-w-[var(--content-width)] mx-auto">
+      <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] text-center mb-[var(--space-12)]">
+        Launching in two communities
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-[var(--space-8)]">
+        <PilotCard
+          label="Pilot A &middot; Q3 2026"
+          title="Grand Rapids, MI"
+          description="Peter's Church has been a community hub for decades. 8&ndash;12 youth builders will create AI tools for the 20+ elders who need help navigating Medicare, coordinating care, and staying connected &mdash; in English, Swahili, Karen, and Arabic. Every graduate earns their own computer and a working capstone project."
+          href="/pilots"
+          outcome="Testing depth &mdash; what happens when an entire community invests in one shared knowledge system."
+        />
+        <PilotCard
+          label="Pilot B &middot; Q4 2026"
+          title="Los Angeles, CA"
+          description="Three institutions, 12&ndash;16 youth builders, 100+ languages. Families walk into the Venice Beach Book Club with immigration paperwork they cannot read. Students at LAUSD navigate school enrollment in languages the system was not built for. UCLA researchers study what works. The builders connect them all."
+          href="/pilots"
+          outcome="Testing breadth &mdash; can community-governed AI work across languages, institutions, and cultures."
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CTABanner
+    heading="There's a place for you in the commons."
+    description="Whether you're a young person who wants to build, a community leader, a developer who wants to mentor, or a funder who wants to invest in community-owned technology &mdash; we'd like to hear from you."
+    ctaText="Get Involved"
+    ctaHref="/get-involved"
+    variant="accent"
+  />
 </PageLayout>

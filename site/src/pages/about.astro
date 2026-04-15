@@ -1,15 +1,274 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
+import PageHeader from '../components/sections/PageHeader.astro';
+import RoleCard from '../components/sections/RoleCard.astro';
+import Accordion from '../components/sections/Accordion.astro';
+import CTABanner from '../components/sections/CTABanner.astro';
+import StyledTable from '../components/sections/StyledTable.astro';
+import WhoWhatHowTriad from '../components/diagrams/WhoWhatHowTriad.astro';
+import IconHammer from '../components/icons/IconHammer.astro';
+import IconShield from '../components/icons/IconShield.astro';
+import IconBook from '../components/icons/IconBook.astro';
+
+const faqItems = [
+  {
+    question: 'Is this replacing people?',
+    answer: 'No. The AI tools do not replace caregivers, volunteers, or community leaders. They help people coordinate. When the volunteer schedule is complicated and the phone tree is long, the agent keeps track so people can focus on caring for each other instead of juggling spreadsheets.',
+  },
+  {
+    question: 'Do I need to be technical to participate?',
+    answer: 'No. Stewards and elders do not write code. They share their knowledge \u2014 who needs help, what the community\u2019s rules are, how things work. Youth builders handle the technical side with mentor support. The Elder & Community Member Track has no prerequisites.',
+  },
+  {
+    question: 'What if we don\u2019t have good internet?',
+    answer: 'We built this for the community with spotty church Wi-Fi, not the one with fiber. Everything works offline. When internet is available, it syncs up. When it is not, it keeps working on its own.',
+  },
+  {
+    question: 'Who sees our information?',
+    answer: 'Only the people your community says can see it. The organized knowledge your community builds \u2014 your context graph \u2014 belongs to your community. No tech company can look at it, sell it, or use it to train their products. Your community\u2019s leaders set the rules about who sees what. That is not a suggestion. It is a guarantee.',
+  },
+  {
+    question: 'What if we want to stop?',
+    answer: 'You keep everything. The organized knowledge your community put together does not disappear. You can stop using the AI tools and still have a clear picture of your community\u2019s knowledge \u2014 which is valuable on its own.',
+  },
+];
 ---
 
 <PageLayout
   title="About"
-  description="What is Context Commons? An intergenerational mentorship network teaching youth to build AI systems that serve their communities."
+  description="What is Context Commons? A community program where young people learn to build AI tools, elders share the knowledge that makes them useful, and community leaders govern how they work."
+  fullWidth={true}
+  jsonLD={{
+    '@context': 'https://schema.org',
+    '@type': 'EducationalOrganization',
+    name: 'Context Commons',
+    description: 'A community program where young people learn to build AI tools, elders share the knowledge that makes them useful, and community leaders govern how they work.',
+    url: 'https://contextcommons.org/about',
+    educationalCredentialAwarded: 'Personal computer configured with AI development tools upon program completion',
+  }}
 >
-  <section class="py-[var(--space-16)]">
-    <h1 class="text-[var(--text-3xl)] mb-[var(--space-6)]">About Context Commons</h1>
-    <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] max-w-[var(--prose-width)]">
-      Content will be generated in M08 using the program design and aDNA for communities context.
-    </p>
+  <!-- Page Header -->
+  <PageHeader
+    title="About Context Commons"
+    subtitle="We are building a network where youth learn to create AI systems that serve their communities, elders guide what those systems should do, and stewards govern how they operate."
+  />
+
+  <!-- The Printing Press -->
+  <section class="pb-[var(--space-16)] md:pb-[var(--space-24)] px-[var(--space-4)]">
+    <div class="max-w-[var(--prose-width)] mx-auto">
+      <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-6)]">
+        The printing press for the AI age
+      </h2>
+      <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed mb-[var(--space-4)]">
+        When Gutenberg&rsquo;s press arrived, the power was not in any single book. It was that communities &mdash; churches, universities, guilds &mdash; could produce and share their own knowledge on their own terms. Churches printed their own Bibles. Guilds published their own manuals. Universities created their own textbooks.
+      </p>
+      <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed mb-[var(--space-4)]">
+        The AI tools now arriving are this generation&rsquo;s printing press. The Context Commons exists to make sure this press belongs to communities &mdash; not just to the companies that built it.
+      </p>
+      <p class="text-[var(--text-lg)] text-[var(--color-text)] leading-relaxed font-semibold">
+        Each young person who completes the program earns their own computer &mdash; their own printing press. It comes set up with the tools, training, and knowledge to build AI systems for their family, their elders, and their community.
+      </p>
+    </div>
   </section>
+
+  <!-- Three Roles -->
+  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)] bg-[var(--color-bg-alt)]">
+    <div class="max-w-[var(--content-width)] mx-auto">
+      <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] text-center mb-[var(--space-4)]">
+        Three roles, one knowledge loop
+      </h2>
+      <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] text-center max-w-[var(--prose-width)] mx-auto mb-[var(--space-12)]">
+        Knowledge flows in every direction. Mentors learn community context they could never access from a lab. Stewards gain technical fluency. Youth gain agency and career-grade skills. Elders gain tools and dignity.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-[var(--space-6)]">
+        <RoleCard
+          title="Youth Builders"
+          who="Ages 14&ndash;24 &middot; 12-week Builder Track"
+          description="Learn to build AI tools through a rigorous, project-based curriculum. Your capstone project addresses a real need identified by your community &mdash; like helping elders navigate Medicare or organizing immigration paperwork for families. Complete the program and earn your own computer, set up with everything you need to keep building."
+        >
+          <IconHammer slot="icon" />
+        </RoleCard>
+        <RoleCard
+          title="Community Stewards"
+          who="Pastors, teachers, organizers &middot; 8-week Steward Track"
+          description="You know your community. You know who needs help and what the priorities are. The Steward Track teaches you how AI tools work so you can decide how they are used in your community. You have the final say. If a tool does not serve your people, it does not get used."
+        >
+          <IconShield slot="icon" />
+        </RoleCard>
+        <RoleCard
+          title="Elders &amp; Community Members"
+          who="Beneficiaries and co-designers &middot; 6-week Elder Track"
+          description="Your knowledge of Medicare, immigration, caregiving, and community life is what makes these systems useful. You define the problems worth solving. You validate whether the tools actually help. You co-design the systems alongside youth builders and stewards &mdash; as peers, not as &ldquo;users.&rdquo;"
+        >
+          <IconBook slot="icon" />
+        </RoleCard>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Is a Context Graph? -->
+  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)]">
+    <div class="max-w-[var(--content-width)] mx-auto">
+      <div class="max-w-[var(--prose-width)] mx-auto mb-[var(--space-12)]">
+        <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-6)]">
+          What is a context graph?
+        </h2>
+        <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed mb-[var(--space-4)]">
+          A context graph is a structured picture of your community &mdash; who the people are, what they need, and how things work &mdash; connected together so AI tools can understand and act on it.
+        </p>
+        <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed mb-[var(--space-4)]">
+          Think of it like a church directory, but richer. A church directory tells you who people are. A context graph also tells you what they need and how things get done. It is the directory, the policy manual, and the operations guide &mdash; all connected.
+        </p>
+        <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed">
+          When an AI tool reads this graph, it knows who needs help, what the problem is, and how to approach it &mdash; because your community told it. The AI is not guessing. It is reading your community&rsquo;s organized knowledge.
+        </p>
+      </div>
+
+      <WhoWhatHowTriad class="mb-[var(--space-12)]" />
+
+      <!-- WHO / WHAT / HOW table -->
+      <StyledTable class="max-w-[var(--content-width)] mx-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b-2 border-[var(--brand-primary)] bg-[var(--brand-primary)]/[0.03]">
+              <th scope="col" class="py-[var(--space-4)] px-[var(--space-4)] text-[var(--text-base)] font-display text-[var(--color-text)]">Question</th>
+              <th scope="col" class="py-[var(--space-4)] px-[var(--space-4)] text-[var(--text-base)] font-display text-[var(--color-text)]">What Goes Here</th>
+              <th scope="col" class="py-[var(--space-4)] px-[var(--space-4)] text-[var(--text-base)] font-display text-[var(--color-text)]">Example</th>
+            </tr>
+          </thead>
+          <tbody class="text-[var(--text-base)] text-[var(--color-text-muted)] [&>tr:nth-child(even)]:bg-[var(--color-bg-alt)] [&>tr]:transition-colors [&>tr]:duration-[var(--transition-fast)]">
+            <tr class="hover:bg-[var(--brand-primary)]/[0.04]">
+              <td class="py-[var(--space-4)] px-[var(--space-4)] font-semibold text-[var(--brand-primary)] align-top whitespace-nowrap">WHO?</td>
+              <td class="py-[var(--space-4)] px-[var(--space-4)] align-top">People, roles, organizations</td>
+              <td class="py-[var(--space-4)] px-[var(--space-4)] align-top">&ldquo;Mrs. Johnson is an elder who needs help with Medicare. Pastor Williams is the steward. Maria is the youth builder assigned to help.&rdquo;</td>
+            </tr>
+            <tr class="hover:bg-[var(--brand-primary)]/[0.04]">
+              <td class="py-[var(--space-4)] px-[var(--space-4)] font-semibold text-[var(--brand-primary)] align-top whitespace-nowrap">WHAT?</td>
+              <td class="py-[var(--space-4)] px-[var(--space-4)] align-top">Knowledge, documents, rules, needs</td>
+              <td class="py-[var(--space-4)] px-[var(--space-4)] align-top">&ldquo;Medicare Part D enrollment deadline is December 7. Mrs. Johnson prefers Spanish-language materials.&rdquo;</td>
+            </tr>
+            <tr class="hover:bg-[var(--brand-primary)]/[0.04]">
+              <td class="py-[var(--space-4)] px-[var(--space-4)] font-semibold text-[var(--brand-primary)] align-top whitespace-nowrap">HOW?</td>
+              <td class="py-[var(--space-4)] px-[var(--space-4)] align-top">Processes, steps, workflows</td>
+              <td class="py-[var(--space-4)] px-[var(--space-4)] align-top">&ldquo;Step 1: Review current coverage. Step 2: Compare plans. Step 3: Enroll by deadline. If stuck, escalate to Pastor Williams.&rdquo;</td>
+            </tr>
+          </tbody>
+        </table>
+      </StyledTable>
+    </div>
+  </section>
+
+  <!-- How It's Different from an App -->
+  <section id="how-its-different" class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)] bg-[var(--color-bg-alt)]">
+    <div class="max-w-[var(--content-width)] mx-auto">
+      <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-4)]">
+        How this is different from an app
+      </h2>
+      <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] max-w-[var(--prose-width)] mb-[var(--space-8)]">
+        The typical approach to &ldquo;tech for good&rdquo; is to build an app &mdash; designed by outsiders, deployed to a community, maintained until the grant runs out, then abandoned. Context graphs invert this.
+      </p>
+      <!-- Desktop table -->
+      <StyledTable class="hidden md:block">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b-2 border-[var(--brand-primary)] bg-[var(--brand-primary)]/[0.03]">
+              <th scope="col" class="py-[var(--space-4)] px-[var(--space-4)] text-[var(--text-base)] font-display text-[var(--color-text)]"></th>
+              <th scope="col" class="py-[var(--space-4)] px-[var(--space-4)] text-[var(--text-base)] font-display text-[var(--color-text)]">A Typical App</th>
+              <th scope="col" class="py-[var(--space-4)] px-[var(--space-4)] text-[var(--text-base)] font-display text-[var(--color-text)]">A Community Agent System</th>
+            </tr>
+          </thead>
+          <tbody class="text-[var(--text-base)] text-[var(--color-text-muted)] [&>tr:nth-child(even)]:bg-[var(--color-bg-alt)] [&>tr]:transition-colors [&>tr]:duration-[var(--transition-fast)]">
+            <tr class="hover:bg-[var(--brand-primary)]/[0.04]">
+              <td class="py-[var(--space-4)] px-[var(--space-4)] font-semibold text-[var(--color-text)] align-top">Who built it?</td>
+              <td class="py-[var(--space-4)] px-[var(--space-4)] align-top">A company, for profit</td>
+              <td class="py-[var(--space-4)] px-[var(--space-4)] align-top bg-[var(--brand-primary)]/[0.04]">Youth builders in your community, with mentors</td>
+            </tr>
+            <tr class="hover:bg-[var(--brand-primary)]/[0.04]">
+              <td class="py-[var(--space-4)] px-[var(--space-4)] font-semibold text-[var(--color-text)] align-top">Who controls it?</td>
+              <td class="py-[var(--space-4)] px-[var(--space-4)] align-top">The company</td>
+              <td class="py-[var(--space-4)] px-[var(--space-4)] align-top bg-[var(--brand-primary)]/[0.04]">Your community&rsquo;s stewards</td>
+            </tr>
+            <tr class="hover:bg-[var(--brand-primary)]/[0.04]">
+              <td class="py-[var(--space-4)] px-[var(--space-4)] font-semibold text-[var(--color-text)] align-top">What does it know?</td>
+              <td class="py-[var(--space-4)] px-[var(--space-4)] align-top">Whatever the company trained it on</td>
+              <td class="py-[var(--space-4)] px-[var(--space-4)] align-top bg-[var(--brand-primary)]/[0.04]">Whatever your community puts in the context graph</td>
+            </tr>
+            <tr class="hover:bg-[var(--brand-primary)]/[0.04]">
+              <td class="py-[var(--space-4)] px-[var(--space-4)] font-semibold text-[var(--color-text)] align-top">When needs change?</td>
+              <td class="py-[var(--space-4)] px-[var(--space-4)] align-top">You wait for the company to update</td>
+              <td class="py-[var(--space-4)] px-[var(--space-4)] align-top bg-[var(--brand-primary)]/[0.04]">Your community updates the context graph</td>
+            </tr>
+            <tr class="hover:bg-[var(--brand-primary)]/[0.04]">
+              <td class="py-[var(--space-4)] px-[var(--space-4)] font-semibold text-[var(--color-text)] align-top">When funding runs out?</td>
+              <td class="py-[var(--space-4)] px-[var(--space-4)] align-top">The app shuts down</td>
+              <td class="py-[var(--space-4)] px-[var(--space-4)] align-top bg-[var(--brand-primary)]/[0.04]">The knowledge stays with your community</td>
+            </tr>
+            <tr class="hover:bg-[var(--brand-primary)]/[0.04]">
+              <td class="py-[var(--space-4)] px-[var(--space-4)] font-semibold text-[var(--color-text)] align-top">Who owns the data?</td>
+              <td class="py-[var(--space-4)] px-[var(--space-4)] align-top">Usually the company</td>
+              <td class="py-[var(--space-4)] px-[var(--space-4)] align-top bg-[var(--brand-primary)]/[0.04]">Your community &mdash; always</td>
+            </tr>
+          </tbody>
+        </table>
+      </StyledTable>
+      <!-- Mobile card stack -->
+      <div class="md:hidden space-y-[var(--space-4)]">
+        {[
+          { question: "Who built it?", app: "A company, for profit", community: "Youth builders in your community, with mentors" },
+          { question: "Who controls it?", app: "The company", community: "Your community\u2019s stewards" },
+          { question: "What does it know?", app: "Whatever the company trained it on", community: "Whatever your community puts in the context graph" },
+          { question: "When needs change?", app: "You wait for the company to update", community: "Your community updates the context graph" },
+          { question: "When funding runs out?", app: "The app shuts down", community: "The knowledge stays with your community" },
+          { question: "Who owns the data?", app: "Usually the company", community: "Your community \u2014 always" },
+        ].map((row) => (
+          <div class="rounded-[var(--radius-lg)] shadow-[var(--shadow-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] p-[var(--space-4)]">
+            <p class="font-semibold text-[var(--color-text)] mb-[var(--space-3)]">{row.question}</p>
+            <div class="space-y-[var(--space-2)] text-[var(--text-sm)]">
+              <p class="text-[var(--color-text-muted)]"><span class="font-semibold text-[var(--color-text)]">Typical app:</span> {row.app}</p>
+              <p class="text-[var(--brand-primary)]"><span class="font-semibold">Community agent:</span> {row.community}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Built on Open Standards -->
+  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)]">
+    <div class="max-w-[var(--prose-width)] mx-auto">
+      <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-6)]">
+        Built on open standards, governed by communities
+      </h2>
+      <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed mb-[var(--space-4)]">
+        Everything your community builds here sits on open ground. The way you organize your knowledge (we call it the <strong>aDNA standard</strong>) and the way communities connect with each other (the <strong>Lattice Protocol</strong>) are both open &mdash; meaning no single company owns them, controls them, or can take them away.
+      </p>
+      <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed mb-[var(--space-4)]">
+        Think of it like a lending library. If Grand Rapids builds a healthcare navigation template that works, they can share it with a church in Detroit. Detroit copies it, adapts it for their own people, and uses it. Grand Rapids still has their original. Neither community controls the other&rsquo;s.
+      </p>
+      <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed">
+        Three things are non-negotiable: <strong>your community governs</strong> how AI tools are used here, <strong>no one takes your community&rsquo;s knowledge</strong>, and <strong>the standards stay open</strong> so you are never locked in. These are written promises, not just good intentions.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)] bg-[var(--color-bg-alt)]">
+    <div class="max-w-[var(--content-width)] mx-auto">
+      <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-8)]">
+        Common questions
+      </h2>
+      <div class="max-w-[var(--prose-width)]">
+        <Accordion items={faqItems} />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CTABanner
+    heading="Ready to see the curriculum?"
+    description="Four tracks for builders, stewards, and community members. No prior experience required."
+    ctaText="Explore the Curriculum"
+    ctaHref="/curriculum"
+    variant="brand"
+  />
 </PageLayout>

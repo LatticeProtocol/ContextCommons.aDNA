@@ -1,0 +1,42 @@
+---
+interface Props {
+  id: string;
+  label: string;
+  description: string;
+  ctaText: string;
+  ctaHref: string;
+  detailHref?: string;
+  detailText?: string;
+}
+
+const { id, label, description, ctaText, ctaHref, detailHref, detailText = 'Learn more' } = Astro.props;
+const hasIcon = Astro.slots.has('icon');
+---
+
+<div class="border border-[var(--color-border)] rounded-[var(--radius-lg)] p-[var(--space-6)] md:p-[var(--space-8)] bg-[var(--color-surface)] flex flex-col h-full shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-[var(--transition-base)]">
+  {hasIcon && (
+    <div class="text-[var(--brand-primary)] mb-[var(--space-4)] w-[var(--space-12)] h-[var(--space-12)] flex items-center justify-center rounded-[var(--radius-lg)] bg-[var(--brand-primary)]/5" aria-hidden="true">
+      <slot name="icon" />
+    </div>
+  )}
+  <p class="text-[var(--text-lg)] font-display text-[var(--color-text)] mb-[var(--space-3)]">
+    &ldquo;{label}&rdquo;
+  </p>
+  <p class="text-[var(--text-base)] text-[var(--color-text-muted)] leading-relaxed flex-1 mb-[var(--space-6)]">
+    {description}
+  </p>
+  <a
+    href={ctaHref}
+    class="inline-block text-center w-full px-[var(--space-6)] py-[var(--space-3)] bg-[var(--brand-primary)] text-white font-semibold rounded-[var(--radius-lg)] text-[length:var(--text-base)] hover:bg-[var(--brand-primary-dark)] shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] transition-all duration-[var(--transition-base)]"
+  >
+    {ctaText}
+  </a>
+  {detailHref && (
+    <a
+      href={detailHref}
+      class="mt-[var(--space-3)] inline-flex items-center gap-[var(--space-1)] text-[var(--brand-primary)] font-semibold text-[length:var(--text-sm)] hover:underline transition-colors duration-[var(--transition-fast)] group/detail"
+    >
+      {detailText} <span class="inline-block transition-transform duration-[var(--transition-fast)] group-hover/detail:translate-y-0.5">&darr;</span>
+    </a>
+  )}
+</div>

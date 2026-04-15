@@ -1,0 +1,33 @@
+---
+interface Props {
+  label: string;
+  title: string;
+  description: string;
+  href: string;
+  outcome?: string;
+}
+
+const { label, title, description, href, outcome } = Astro.props;
+---
+
+<div class="border border-[var(--color-border)] border-t-2 border-t-[var(--brand-accent)] rounded-[var(--radius-lg)] p-[var(--space-6)] md:p-[var(--space-8)] bg-[var(--color-surface)] shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-[var(--transition-base)] flex flex-col">
+  <p class="text-[var(--text-sm)] font-semibold text-[var(--color-accent-text,var(--brand-accent-dark))] mb-[var(--space-2)]">
+    {label}
+  </p>
+  <h3 class="font-display text-[var(--text-2xl)] text-[var(--color-text)] mb-[var(--space-3)]">
+    {title}
+  </h3>
+  <p class="text-[var(--text-base)] text-[var(--color-text-muted)] leading-relaxed mb-[var(--space-4)] flex-1">
+    {description}
+  </p>
+  {outcome && (
+    <div class="border-t border-[var(--color-border)] pt-[var(--space-4)] mb-[var(--space-4)]">
+      <p class="text-[var(--text-sm)] text-[var(--color-text)] font-semibold leading-relaxed">
+        {outcome}
+      </p>
+    </div>
+  )}
+  <a href={href} class="text-[var(--brand-primary)] font-semibold text-[var(--text-sm)] hover:underline transition-colors duration-[var(--transition-fast)]">
+    Read the full pilot plan &rarr;
+  </a>
+</div>

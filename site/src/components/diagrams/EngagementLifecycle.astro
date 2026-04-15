@@ -1,0 +1,65 @@
+---
+interface Props { class?: string; }
+const { class: className } = Astro.props;
+const phases = ['Discovery', 'Scoping', 'Onboarding', 'Active', 'Renewal / Exit'];
+---
+
+<div class:list={["diagram-wrapper", className]}>
+  {/* Desktop: horizontal layout */}
+  <svg
+    role="img"
+    aria-label="Engagement lifecycle: five phases from Discovery through Scoping, Onboarding, Active partnership, to Renewal or Exit"
+    viewBox="0 0 560 100"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    class="w-full h-auto max-w-2xl mx-auto hidden md:block"
+  >
+    {phases.map((phase, i) => {
+      const cx = 50 + i * 120;
+      return (
+        <g>
+          {i > 0 && (
+            <line x1={cx - 120 + 24} y1={38} x2={cx - 24} y2={38} stroke="var(--color-text-muted)" stroke-width="2" marker-end="url(#arrow-h)" />
+          )}
+          <circle cx={cx} cy={38} r="22" fill="var(--brand-primary)" />
+          <text x={cx} y={43} text-anchor="middle" fill="white" font-size="14" font-weight="600">{i + 1}</text>
+          <text x={cx} y={78} text-anchor="middle" fill="var(--color-text)" font-size="12" font-weight="500">{phase}</text>
+        </g>
+      );
+    })}
+    <defs>
+      <marker id="arrow-h" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--color-text-muted)" />
+      </marker>
+    </defs>
+  </svg>
+
+  {/* Mobile: vertical layout */}
+  <svg
+    role="img"
+    aria-label="Engagement lifecycle: five phases from Discovery through Scoping, Onboarding, Active partnership, to Renewal or Exit"
+    viewBox="0 0 200 340"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    class="w-full h-auto max-w-[12rem] mx-auto md:hidden"
+  >
+    {phases.map((phase, i) => {
+      const cy = 30 + i * 75;
+      return (
+        <g>
+          {i > 0 && (
+            <line x1={40} y1={cy - 75 + 24} x2={40} y2={cy - 24} stroke="var(--color-text-muted)" stroke-width="2" marker-end="url(#arrow-v)" />
+          )}
+          <circle cx={40} cy={cy} r="20" fill="var(--brand-primary)" />
+          <text x={40} y={35 + i * 75} text-anchor="middle" fill="white" font-size="13" font-weight="600">{i + 1}</text>
+          <text x={72} y={35 + i * 75} text-anchor="start" fill="var(--color-text)" font-size="13" font-weight="500">{phase}</text>
+        </g>
+      );
+    })}
+    <defs>
+      <marker id="arrow-v" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--color-text-muted)" />
+      </marker>
+    </defs>
+  </svg>
+</div>

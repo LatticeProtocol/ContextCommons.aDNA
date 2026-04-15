@@ -1,0 +1,24 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class:list={["w-8 h-8", className]}
+  aria-hidden="true"
+>
+  <!-- Open book -->
+  <path d="M2 4c2-1 4-1 6 0s4 1 6 0v16c-2-1-4-1-6 0s-4 1-6 0V4z" />
+  <path d="M14 4c2-1 4-1 6 0s2 1 4 0v16c-2 1-2 1-4 0s-4-1-6 0" />
+  <path d="M14 4v16" />
+</svg>

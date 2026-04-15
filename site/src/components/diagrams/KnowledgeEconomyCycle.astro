@@ -1,0 +1,69 @@
+---
+interface Props { class?: string; }
+const { class: className } = Astro.props;
+
+/* Triangle node positions */
+const nodes = [
+  { label: 'Elders', sub: 'Context & use cases', cx: 200, cy: 40 },
+  { label: 'Stewards', sub: 'Governance', cx: 60, cy: 280 },
+  { label: 'Youth Builders', sub: 'Capability', cx: 340, cy: 280 },
+];
+const mentor = { label: 'Lattice Mentors', sub: 'Technical support', cx: 200, cy: 190 };
+---
+
+<div class:list={["diagram-wrapper", className]}>
+  <svg
+    role="img"
+    aria-label="Knowledge economy cycle: Elders provide context, Youth Builders create solutions, Stewards govern the process, with Lattice Mentors supporting all three roles"
+    viewBox="0 0 400 340"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    class="w-full h-auto max-w-md mx-auto"
+  >
+    <defs>
+      <marker id="kec-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--brand-primary)" />
+      </marker>
+    </defs>
+
+    {/* Bidirectional arrows between primary nodes */}
+    {/* Elders <-> Stewards */}
+    <line x1={140} y1={80} x2={85} y2={240} stroke="var(--brand-primary)" stroke-width="2" marker-end="url(#kec-arrow)" />
+    <line x1={100} y1={240} x2={155} y2={80} stroke="var(--brand-primary)" stroke-width="2" marker-end="url(#kec-arrow)" />
+
+    {/* Elders <-> Youth Builders */}
+    <line x1={260} y1={80} x2={315} y2={240} stroke="var(--brand-primary)" stroke-width="2" marker-end="url(#kec-arrow)" />
+    <line x1={300} y1={240} x2={245} y2={80} stroke="var(--brand-primary)" stroke-width="2" marker-end="url(#kec-arrow)" />
+
+    {/* Stewards <-> Youth Builders */}
+    <line x1={115} y1={290} x2={285} y2={290} stroke="var(--brand-primary)" stroke-width="2" marker-end="url(#kec-arrow)" />
+    <line x1={285} y1={278} x2={115} y2={278} stroke="var(--brand-primary)" stroke-width="2" marker-end="url(#kec-arrow)" />
+
+    {/* Mentor dashed connections */}
+    {nodes.map((n) => (
+      <line
+        x1={mentor.cx}
+        y1={mentor.cy}
+        x2={n.cx}
+        y2={n.cy + (n.cy < mentor.cy ? 30 : -30)}
+        stroke="var(--brand-accent)"
+        stroke-width="1.5"
+        stroke-dasharray="6 4"
+      />
+    ))}
+
+    {/* Primary nodes */}
+    {nodes.map((n) => (
+      <g>
+        <rect x={n.cx - 60} y={n.cy - 22} width={120} height={44} rx="8" fill="var(--color-surface)" stroke="var(--brand-primary)" stroke-width="2" />
+        <text x={n.cx} y={n.cy - 4} text-anchor="middle" fill="var(--color-text)" font-size="13" font-weight="600">{n.label}</text>
+        <text x={n.cx} y={n.cy + 12} text-anchor="middle" fill="var(--color-text-muted)" font-size="10">{n.sub}</text>
+      </g>
+    ))}
+
+    {/* Mentor node */}
+    <rect x={mentor.cx - 55} y={mentor.cy - 18} width={110} height={36} rx="8" fill="var(--brand-accent)" fill-opacity="0.1" stroke="var(--brand-accent)" stroke-width="2" />
+    <text x={mentor.cx} y={mentor.cy - 2} text-anchor="middle" fill="var(--color-text)" font-size="12" font-weight="600">{mentor.label}</text>
+    <text x={mentor.cx} y={mentor.cy + 12} text-anchor="middle" fill="var(--color-text-muted)" font-size="10">{mentor.sub}</text>
+  </svg>
+</div>

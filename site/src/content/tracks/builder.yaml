@@ -1,0 +1,19 @@
+name: Builder Track
+slug: builder
+tagline: "Learn to build real AI systems for real community needs."
+description: "A rigorous, 12-week project-based track for youth ages 14-24. Set up your agentic workstation, learn prompt and context engineering, build a capstone project that serves your community, and earn a MacBook Neo. No prior coding experience required."
+icon: "hammer"
+audience: "Youth builders (ages 14-24)"
+prerequisites:
+  - "Core Track completion"
+duration_weeks: 12
+modules:
+  - "Phase 1 — Foundation (Weeks 1-4): Workstation setup, CLI basics, first agent"
+  - "Phase 2 — Craft (Weeks 5-8): Context engineering, prompt patterns, community graph building"
+  - "Phase 3 — Capstone (Weeks 9-12): Community project scoping, build, deploy, present"
+competencies:
+  - "B1: Workstation operational — Claude Code installed, personal context graph active"
+  - "B2: Independent context graph — build a graph for a community use case without mentor scaffolding"
+  - "B3: Capstone scoped — community need identified, steward-approved, mentor-reviewed plan"
+  - "B4: Capstone deployed — working agent system serving at least one community member"
+order: 2
