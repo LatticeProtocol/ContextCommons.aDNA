@@ -27,19 +27,21 @@ import PilotCard from '../components/sections/PilotCard.astro';
   <!-- Hero -->
   <section class="bg-[var(--color-bg-alt)]">
     <!-- Inline hero image -->
-    <picture>
-      <source srcset="/images/hero/hero_community_480.webp" media="(max-width: 480px)" type="image/webp" />
-      <source srcset="/images/hero/hero_community_768.webp" media="(max-width: 768px)" type="image/webp" />
-      <source srcset="/images/hero/hero_community_1268.webp" type="image/webp" />
-      <img
-        src="/images/hero/hero_community_1268.jpg"
-        alt="Pixel art illustration of an intergenerational community: young people, elders, and mentors working together at computers in a warm community center beneath a wooden Context Commons sign"
-        class="w-full h-auto"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-      />
-    </picture>
+    <div class="max-w-[66%] mx-auto pt-[var(--space-8)] md:pt-[var(--space-12)]">
+      <picture>
+        <source srcset="/images/hero/hero_community_480.webp" media="(max-width: 480px)" type="image/webp" />
+        <source srcset="/images/hero/hero_community_768.webp" media="(max-width: 768px)" type="image/webp" />
+        <source srcset="/images/hero/hero_community_1268.webp" type="image/webp" />
+        <img
+          src="/images/hero/hero_community_1268.jpg"
+          alt="Pixel art illustration of an intergenerational community: young people, elders, and mentors working together at computers in a warm community center beneath a wooden Context Commons sign"
+          class="w-full h-auto rounded-[var(--radius-lg)]"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
+    </div>
     <!-- Tagline below image -->
     <div class="py-[var(--space-12)] md:py-[var(--space-16)] px-[var(--space-4)] text-center max-w-[var(--prose-width-wide)] mx-auto">
       <h1 class="font-display text-[var(--text-4xl)] text-[var(--color-text)] mb-[var(--space-4)]">
