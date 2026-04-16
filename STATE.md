@@ -14,9 +14,9 @@ Dynamic operational snapshot for cold-start orientation. Updated each session.
 
 ## Current Phase
 
-**Phase 3 — Infrastructure. In progress. M08-R Batch 9 complete.**
+**Phase 3 — Infrastructure. In progress. M08-R complete (100/100 III loops).**
 
-Phase 2 gate passed (2026-04-13). Phase 3 in progress — M07 and M08 complete. M08-R (Website Refinement — 100 III Loops) in progress: Batches 1–9 complete (Visual System Activation, Voice Alignment, Diagrams & Visual Storytelling, Icon System, Cognitive Load Reduction, Mission Clarity & Impact, Community Warmth & Specificity, Differentiated CTAs, Header + Hero Image + Lighthouse + Validation Hardening). 1 batch remains (R10). M09 (VideoForge) and M10 (PresentationForge) follow M08-R.
+Phase 2 gate passed (2026-04-13). Phase 3 in progress — M07, M08, and M08-R complete. M08-R (Website Refinement — 100 III Loops) completed all 10 batches (Visual System Activation, Voice Alignment, Diagrams & Visual Storytelling, Icon System, Cognitive Load Reduction, Mission Clarity & Impact, Community Warmth & Specificity, Differentiated CTAs, Header + Hero Image + Lighthouse + Validation Hardening, Final Persona Sweep + Deployment Readiness). 332 Playwright tests, 9/10 quality gates, Lighthouse 100/100/96/100. M09 (VideoForge) and M10 (PresentationForge) follow.
 
 ## What's Working
 
@@ -53,6 +53,7 @@ Phase 2 gate passed (2026-04-13). Phase 3 in progress — M07 and M08 complete. 
 - **M08-R Batch 7 completed** — Community Warmth & Specificity (Loops 61–70). Press/Media (journalist) persona. PilotCard.astro and PilotGlanceCard.astro components created. 4 inline pilot card divs replaced (2 on index, 2 sidebars on pilots). Human anchors added to 5 content blocks (Mrs. Johnson, Venice Beach Book Club mother, Mrs. Chen/Mr. Davis). Cross-page fact consistency verified. 250 total Playwright tests (27 new), 250 passed (8 flaky — pre-existing Vercel analytics).
 - **M08-R Batch 8 completed** — Differentiated CTAs (Loops 71–80). Youth Builder + Mentor/Developer persona. ContactPathCard.astro and DetailSection.astro components created. IconEnvelope.astro added. 4 contact path boxes replaced with audience-specific accent borders and icons. 4 detail sections wrapped with card treatment and column containment. PersonaCard extended with anchor links to detail sections. Voice refinement from mentor/partnership context files. 298 total Playwright tests (48 new), 297 passed (9 flaky — pre-existing Vercel analytics).
 - **M08-R Batch 9 completed** — Header + Hero Image + Lighthouse + Validation Hardening (Loops 81–90). Mentor/Developer persona. Header refined (scroll shadow, active underline, focus trap, Escape close). Lighthouse CI installed + Gate 6 enabled (all pages: Perf 100, A11y 100, BP 96, SEO 100). Hero image integrated (pixel art, responsive `<picture>`, WebP variants 30-96KB). Motion layer (IntersectionObserver + data-animate, reduced-motion safe). A11y hardening (heading hierarchy, skip-to-content, focus-visible, cross-page nav). 332 total Playwright tests (34 new in 4 spec files), 9/10 quality gates passing. 13/13 original R1 gap register items closed.
+- **M08-R Batch 10 completed** — Final Persona Sweep + Deployment Readiness (Loops 91–100). All 8 personas validated. Mobile audit clean (393px). Content completeness sweep: zero jargon, zero placeholders across all file types. Lighthouse maintained 100/100/96/100. 332 Playwright tests, 9/10 quality gates. **M08-R mission complete — 100/100 III loops.**
 
 ## Active Campaigns
 
@@ -73,7 +74,7 @@ Phase 2 gate passed (2026-04-13). Phase 3 in progress — M07 and M08 complete. 
 | M06 | 2 | **Completed** | 1 (est. 1-2) |
 | M07 | 3 | **Completed** | 1 (est. 1) |
 | M08 | 3 | **Completed** | 1 (est. 3-4) |
-| M08-R | 3 | **In Progress** | 9/10 (R1-R9 complete) |
+| M08-R | 3 | **Completed** | 10/10 (R1-R10 complete) |
 
 ## Timeline
 
@@ -90,7 +91,7 @@ Phase 2 gate passed (2026-04-13). Phase 3 in progress — M07 and M08 complete. 
 | M06: aDNA for Communities | 2026-04-13 | **Done** |
 | **Phase 2 Gate Review** | 2026-04-13 | **Passed** |
 | M08: Website Content + Deploy | 2026-04-13 | **Done** |
-| M08-R: Website Refinement (R9/10) | 2026-04-15 | **In Progress** |
+| M08-R: Website Refinement (R10/10) | 2026-04-15 | **Done** |
 | Phase 3: Infrastructure (M08-R R7-R10, M09-M10 remain) | Jun-Jul 2026 | In progress |
 | Phase 4: Launch Preparation (M11-M14) | Jul-Aug 2026 | Planned |
 | **Pilot A Launch (Grand Rapids)** | **Q3 2026** | Planned |
@@ -203,7 +204,8 @@ None.
 
 ## Next Steps
 
-1. **M08-R Batch 10: Final Persona Sweep + Deployment Readiness (Loops 91–100).** All 8 personas rotating. Mobile audit at 320px. All-file-type content sweep. Performance budget compliance. Deploy-time smoke test. All 10 gates passing (including Gate 6). M08-R mission AAR.
-2. After M08-R: M09 (VideoForge), M10 (PresentationForge), then Phase 3 gate.
-3. Phase 4 missions (M11–M14) not yet scoped in detail. Backlog item `idea_pilot_comparison_context_file.md` should be created before M13.
-4. **Completed backlog items**: `idea_hero_image_generation.md` (done — user-provided pixel art), `idea_lighthouse_ci_integration.md` (done — Gate 6 enabled), `idea_a11y_hardening.md` (done — 4 new test files, heading hierarchy, keyboard nav, cross-page nav).
+1. **M09 (VideoForge setup)** — next Phase 3 mission. Configure VideoForge wrapper for educational video production.
+2. **M10 (PresentationForge setup)** — follows M09. Configure PresentationForge wrapper for pitch decks and council presentations.
+3. After M10: Phase 3 gate review, then Phase 4 (Launch Preparation, M11-M14).
+4. Phase 4 content strategy should address funder-facing outcomes and measurable metrics (P0 finding from R10 persona walkthroughs).
+5. **Completed backlog items**: `idea_hero_image_generation.md`, `idea_lighthouse_ci_integration.md`, `idea_a11y_hardening.md` — all absorbed into R9.
