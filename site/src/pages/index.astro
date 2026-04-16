@@ -25,28 +25,27 @@ import PilotCard from '../components/sections/PilotCard.astro';
   }}
 >
   <!-- Hero -->
-  <section class="relative py-[var(--space-24)] md:py-[var(--space-32)] px-[var(--space-4)] text-center text-white overflow-hidden" style="box-shadow: 0 4px 20px hsl(0 0% 0% / 0.15);">
-    <!-- Hero background image -->
-    <picture class="absolute inset-0 w-full h-full">
+  <section class="bg-[var(--color-bg-alt)]">
+    <!-- Inline hero image -->
+    <picture>
       <source srcset="/images/hero/hero_community_480.webp" media="(max-width: 480px)" type="image/webp" />
       <source srcset="/images/hero/hero_community_768.webp" media="(max-width: 768px)" type="image/webp" />
       <source srcset="/images/hero/hero_community_1268.webp" type="image/webp" />
       <img
         src="/images/hero/hero_community_1268.jpg"
         alt="Pixel art illustration of an intergenerational community: young people, elders, and mentors working together at computers in a warm community center beneath a wooden Context Commons sign"
-        class="w-full h-full object-cover"
+        class="w-full h-auto"
         loading="eager"
         fetchpriority="high"
         decoding="async"
       />
     </picture>
-    <!-- Gradient overlay for text readability -->
-    <div class="absolute inset-0 bg-[var(--brand-primary-dark)]/70"></div>
-    <div class="relative z-10 max-w-[var(--prose-width-wide)] mx-auto">
-      <h1 class="font-display text-[var(--text-4xl)] mb-[var(--space-6)] drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
+    <!-- Tagline below image -->
+    <div class="py-[var(--space-12)] md:py-[var(--space-16)] px-[var(--space-4)] text-center max-w-[var(--prose-width-wide)] mx-auto">
+      <h1 class="font-display text-[var(--text-4xl)] text-[var(--color-text)] mb-[var(--space-4)]">
         Every community deserves its own printing press.
       </h1>
-      <p class="text-[var(--text-xl)] opacity-90 mb-[var(--space-8)] max-w-[var(--prose-width)] mx-auto drop-shadow-[0_1px_2px_rgba(0,0,0,0.2)]">
+      <p class="text-[var(--text-xl)] text-[var(--color-text-muted)] mb-[var(--space-8)] max-w-[var(--prose-width)] mx-auto">
         Young people learn to build AI tools that help their neighbors. Elders share the wisdom that makes those tools useful. Community leaders govern how it all works.
       </p>
       <a
