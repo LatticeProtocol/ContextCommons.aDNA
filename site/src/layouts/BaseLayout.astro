@@ -47,6 +47,9 @@ const {
     <link rel="preload" href="/fonts/libre-baskerville-400.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/source-sans-3-400.woff2" as="font" type="font/woff2" crossorigin />
 
+    <!-- Preload hero image for LCP -->
+    <link rel="preload" href="/images/hero/hero_community_1268.webp" as="image" type="image/webp" />
+
     <!-- Remove no-js class -->
     <script is:inline>
       document.documentElement.classList.remove('no-js');
@@ -66,5 +69,32 @@ const {
     </main>
 
     <Footer />
+
+    <!-- Scroll-triggered entrance animations -->
+    <script is:inline>
+      function initAnimations() {
+        var targets = document.querySelectorAll('[data-animate]');
+        if (!targets.length) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          targets.forEach(function (el) { el.classList.add('is-visible'); });
+          return;
+        }
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        targets.forEach(function (el) { observer.observe(el); });
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAnimations);
+      } else {
+        initAnimations();
+      }
+      document.addEventListener('astro:page-load', initAnimations);
+    </script>
   </body>
 </html>

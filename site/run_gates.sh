@@ -44,8 +44,8 @@ gate 4 "All images valid" "npx playwright test tests/images.spec.ts --project=de
 # Gate 5: WCAG 2.1 AA accessibility (axe-core + Playwright)
 gate 5 "WCAG 2.1 AA accessibility" "npx playwright test tests/a11y.spec.ts --project=desktop"
 
-# Gate 6: Core Web Vitals
-skip 6 "Core Web Vitals" "requires deployed site"
+# Gate 6: Core Web Vitals (Lighthouse CI)
+gate 6 "Core Web Vitals" "npx lhci autorun"
 
 # Gate 7: SEO elements present
 gate 7 "SEO elements present" "grep -q 'og:title' dist/index.html && grep -q 'description' dist/index.html"

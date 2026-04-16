@@ -1,7 +1,7 @@
 ---
 type: campaign
 created: 2026-04-12
-updated: 2026-04-14
+updated: 2026-04-15
 status: active
 last_edited_by: agent_gutenberg
 tags: [campaign, genesis, bootstrap]
@@ -67,7 +67,7 @@ Bootstrap the Context Commons from raw context dump to operational headquarters.
 |---------|-------|----------|-------------|--------|
 | M07 | SiteForge Wrapper Setup + Branding | 1 (actual: 1) | M01 | **Completed** |
 | M08 | Website Content Generation + Deploy | 3-4 (actual: 1) | M07, Phase 2 | **Completed** |
-| M08-R | Website Refinement — 100 III Loops | 10 (actual: 8/10) | M08 | **In Progress** (R1-R8 complete) |
+| M08-R | Website Refinement — 100 III Loops | 10 (actual: 9/10) | M08 | **In Progress** (R1-R9 complete) |
 | M09 | VideoForge Wrapper Setup | 1 | M01 | Planned |
 | M10 | PresentationForge Wrapper Setup | 1 | M01 | Planned |
 
@@ -86,6 +86,8 @@ Bootstrap the Context Commons from raw context dump to operational headquarters.
 **R7 finding**: 2 new components (PilotCard, PilotGlanceCard) componentized the last inline pilot cards. Journalist persona added human anchors (Mrs. Johnson, Venice Beach Book Club mother, Mrs. Chen/Mr. Davis) across 5 content blocks. Cross-page fact consistency verified — all numbers, names, and dates agree across all pages. 250 Playwright tests passing. 10 of 13 original R1 gap items closed (3 remain: contact boxes R8, detail sections R8, header R9).
 
 **R8 finding**: ContactPathCard.astro + DetailSection.astro + IconEnvelope.astro created. 4 contact path boxes replaced with audience-specific accent borders and icons (green=community, gold=mentor, light green=partner, neutral=general). 4 detail sections wrapped with card treatment and column containment. PersonaCard extended with optional anchor links to detail sections. Voice refinement from context files: mentor card describes concrete responsibilities and peer cohort; partner card names four types; community card includes youth pathfinding note. 298 Playwright tests passing. 12 of 13 original R1 gap items closed (1 remains: header R9).
+
+**Live III audit (2026-04-15)**: Site deployed to Vercel production (`https://site-nu-lovat.vercel.app`). 10-cycle III audit on live site found 2 jargon violations in YAML data files (fixed). Cross-page fact consistency verified. Meta-III of the refinement process identified 8 methodology gaps: no Lighthouse CI, no performance budgets, limited a11y testing, no hero imagery, YAML content blind spot, no cross-page link crawl, uneven persona coverage, no deploy-time validation. R9 expanded to absorb hero image (P0), Lighthouse CI (P1), a11y hardening (P1). R10 expanded for deployment readiness.
 
 ### Phase 4: Launch Preparation (M11-M14, ~6-8 sessions)
 

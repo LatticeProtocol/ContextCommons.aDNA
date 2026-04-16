@@ -1,10 +1,10 @@
 ---
 type: state
 created: 2026-04-12
-updated: 2026-04-14
+updated: 2026-04-15
 status: active
 last_edited_by: agent_gutenberg
-last_session: session_stanley_20260415_m08r_batch8
+last_session: session_stanley_20260415_live_iii_audit
 tags: [state, governance]
 ---
 
@@ -14,9 +14,9 @@ Dynamic operational snapshot for cold-start orientation. Updated each session.
 
 ## Current Phase
 
-**Phase 3 — Infrastructure. In progress. M08-R Batch 8 complete.**
+**Phase 3 — Infrastructure. In progress. M08-R Batch 9 complete.**
 
-Phase 2 gate passed (2026-04-13). Phase 3 in progress — M07 and M08 complete. M08-R (Website Refinement — 100 III Loops) in progress: Batches 1–8 complete (Visual System Activation, Voice Alignment, Diagrams & Visual Storytelling, Icon System, Cognitive Load Reduction, Mission Clarity & Impact, Community Warmth & Specificity, Differentiated CTAs). 2 batches remain (R9–R10). M09 (VideoForge) and M10 (PresentationForge) follow M08-R.
+Phase 2 gate passed (2026-04-13). Phase 3 in progress — M07 and M08 complete. M08-R (Website Refinement — 100 III Loops) in progress: Batches 1–9 complete (Visual System Activation, Voice Alignment, Diagrams & Visual Storytelling, Icon System, Cognitive Load Reduction, Mission Clarity & Impact, Community Warmth & Specificity, Differentiated CTAs, Header + Hero Image + Lighthouse + Validation Hardening). 1 batch remains (R10). M09 (VideoForge) and M10 (PresentationForge) follow M08-R.
 
 ## What's Working
 
@@ -52,6 +52,7 @@ Phase 2 gate passed (2026-04-13). Phase 3 in progress — M07 and M08 complete. 
 - **M08-R Batch 6 completed** — Mission Clarity & Impact (Loops 51–60). Partner/Funder (program officer) persona. VignetteCard.astro component created with outcome prop (measurable impact statements). 3 inline vignette divs replaced on index page. Problem section reframed with equity/urgency language. CTA refined for funders. Pilot cards sharpened with outcome-specific text. 231 total Playwright tests (19 new), 223 passed (8 flaky — pre-existing Vercel analytics).
 - **M08-R Batch 7 completed** — Community Warmth & Specificity (Loops 61–70). Press/Media (journalist) persona. PilotCard.astro and PilotGlanceCard.astro components created. 4 inline pilot card divs replaced (2 on index, 2 sidebars on pilots). Human anchors added to 5 content blocks (Mrs. Johnson, Venice Beach Book Club mother, Mrs. Chen/Mr. Davis). Cross-page fact consistency verified. 250 total Playwright tests (27 new), 250 passed (8 flaky — pre-existing Vercel analytics).
 - **M08-R Batch 8 completed** — Differentiated CTAs (Loops 71–80). Youth Builder + Mentor/Developer persona. ContactPathCard.astro and DetailSection.astro components created. IconEnvelope.astro added. 4 contact path boxes replaced with audience-specific accent borders and icons. 4 detail sections wrapped with card treatment and column containment. PersonaCard extended with anchor links to detail sections. Voice refinement from mentor/partnership context files. 298 total Playwright tests (48 new), 297 passed (9 flaky — pre-existing Vercel analytics).
+- **M08-R Batch 9 completed** — Header + Hero Image + Lighthouse + Validation Hardening (Loops 81–90). Mentor/Developer persona. Header refined (scroll shadow, active underline, focus trap, Escape close). Lighthouse CI installed + Gate 6 enabled (all pages: Perf 100, A11y 100, BP 96, SEO 100). Hero image integrated (pixel art, responsive `<picture>`, WebP variants 30-96KB). Motion layer (IntersectionObserver + data-animate, reduced-motion safe). A11y hardening (heading hierarchy, skip-to-content, focus-visible, cross-page nav). 332 total Playwright tests (34 new in 4 spec files), 9/10 quality gates passing. 13/13 original R1 gap register items closed.
 
 ## Active Campaigns
 
@@ -72,7 +73,7 @@ Phase 2 gate passed (2026-04-13). Phase 3 in progress — M07 and M08 complete. 
 | M06 | 2 | **Completed** | 1 (est. 1-2) |
 | M07 | 3 | **Completed** | 1 (est. 1) |
 | M08 | 3 | **Completed** | 1 (est. 3-4) |
-| M08-R | 3 | **In Progress** | 8/10 (R1-R8 complete) |
+| M08-R | 3 | **In Progress** | 9/10 (R1-R9 complete) |
 
 ## Timeline
 
@@ -89,7 +90,7 @@ Phase 2 gate passed (2026-04-13). Phase 3 in progress — M07 and M08 complete. 
 | M06: aDNA for Communities | 2026-04-13 | **Done** |
 | **Phase 2 Gate Review** | 2026-04-13 | **Passed** |
 | M08: Website Content + Deploy | 2026-04-13 | **Done** |
-| M08-R: Website Refinement (R8/10) | 2026-04-15 | **In Progress** |
+| M08-R: Website Refinement (R9/10) | 2026-04-15 | **In Progress** |
 | Phase 3: Infrastructure (M08-R R7-R10, M09-M10 remain) | Jun-Jul 2026 | In progress |
 | Phase 4: Launch Preparation (M11-M14) | Jul-Aug 2026 | Planned |
 | **Pilot A Launch (Grand Rapids)** | **Q3 2026** | Planned |
@@ -125,6 +126,15 @@ None.
 5. **Quality trend continues upward.** M01 avg 3.8 → M02 avg 4.2 → M03 avg 4.37 → M04 avg 4.43 → M05 avg 4.44 → M06 avg 4.67.
 6. **Single-session pattern holds.** M06 (est 1-2, actual 1). Total across 7 missions: 7 sessions vs. 12-16 estimated (~50% of estimate).
 7. **Verbal explanation test: "If you can't say it in 2 minutes, the explanation isn't ready."** The 2-minute script forced clarity on what the core message actually is. This constraint should be applied to future community-facing content as a quality gate.
+
+## Key Findings from Live III Audit (2026-04-15)
+
+1. **YAML data files are a blind spot for content sweeps.** R3 jargon clearance only targeted `.astro` files, leaving "agentic workstation" in `builder.yaml` and "context-driven AI" in `steward.yaml`. Fixed. Any future content sweep must grep across all content file types (`.astro`, `.yaml`, `.md`, `.json`).
+2. **WebFetch produces false positives for visual elements.** HTML→markdown conversion strips SVGs, CSS classes, and visual styling. Reports of "missing SVG diagrams" were false. Live-site III audits should use tools that preserve HTML structure, or supplement with `curl | grep` verification.
+3. **Gate 6 (Core Web Vitals) has been skipped for all 8 batches.** No Lighthouse CI, no performance budgets, no CWV baseline. Cannot claim "10/10 quality gates" while 2 gates are skipped. Lighthouse CI integration planned for R9.
+4. **The site has zero photography or illustration.** SVG diagrams are effective for concepts but the homepage lacks an emotional anchor image. AI-generated hero image (intergenerational learning scene) is P0 for R9.
+5. **axe-core catches ~30% of real a11y issues.** Missing: keyboard navigation, focus trap in mobile menu, `prefers-reduced-motion` validation, heading hierarchy tests. A11y hardening planned for R9.
+6. **Meta-III of the III process identified 8 methodology gaps and 8 planned improvements.** R9 and R10 expanded to absorb hero image, Lighthouse, a11y hardening, and deployment readiness.
 
 ## Key Findings from M08-R Batch 8
 
@@ -182,9 +192,18 @@ None.
 4. **Component extraction should happen during the batch that touches the pattern.** Deferring extraction to a later batch creates debt. If R2 touches partner voice and finds 3 partner type boxes without a component, extract the component in R2, not later.
 5. **Single-session pattern holds for M08-R batches.** R1 (10 loops, est 1 session, actual 1). Campaign total: 10 sessions actual vs. 16-22 estimated.
 
+## Key Findings from M08-R Batch 9
+
+1. **Lighthouse baseline was exceptional before any optimization.** All 8 pages scored 100/100/96/100 (Perf/A11y/BP/SEO). The Astro static site + Tailwind v4 + self-hosted fonts + no third-party JS is inherently fast. Best Practices docked 4 points for Vercel analytics console errors — not actionable. Lesson: measure before optimizing.
+2. **Gemini image generation is blocked on current API key.** Imagen requires a paid plan. Gemini Flash Image exhausted free-tier quota. User-provided pixel art image was the effective fallback. The backlog item for image generation should track API key upgrade.
+3. **IntersectionObserver + Astro view transitions require dual event listeners.** `DOMContentLoaded` fires on initial load but client-side navigation triggers `astro:page-load`. Both must be registered for animations to work across navigations.
+4. **Playwright iPad emulation doesn't reliably support keyboard Tab testing.** The `isMobile: true` flag changes keyboard behavior. Focus trap and keyboard tests should only run on desktop and phone-sized viewports, not tablet. Tests use viewport width guards (skip if 500-1024px).
+5. **Pathname matching in Astro requires trailing-slash normalization.** `Astro.url.pathname` may return `/about/` while nav items use `/about`. The comparison must strip trailing slashes, or active states won't match. This was a pre-existing bug that only surfaced when the active underline made it visible.
+6. **Single-session pattern holds for R9.** Batch 9 (10 loops, est 1 session, actual 1). Campaign total: 18 sessions actual vs. 16-22 estimated.
+
 ## Next Steps
 
-1. **M08-R Batch 9: Motion, Depth & Delight (Loops 81–90).** Mentor/Developer persona. Address header component (last remaining R1 gap). CSS-only motion/depth enhancements across the site. Must respect `prefers-reduced-motion`.
-2. **M08-R Batch 10: Final Persona Sweep (Loops 91–100).** All 8 personas rotating. Mobile audit at 320px. Final staging deployment with Lighthouse score.
-3. After M08-R: M09 (VideoForge), M10 (PresentationForge), then Phase 3 gate.
-4. Phase 4 missions (M11–M14) not yet scoped in detail. Backlog item `idea_pilot_comparison_context_file.md` should be created before M13.
+1. **M08-R Batch 10: Final Persona Sweep + Deployment Readiness (Loops 91–100).** All 8 personas rotating. Mobile audit at 320px. All-file-type content sweep. Performance budget compliance. Deploy-time smoke test. All 10 gates passing (including Gate 6). M08-R mission AAR.
+2. After M08-R: M09 (VideoForge), M10 (PresentationForge), then Phase 3 gate.
+3. Phase 4 missions (M11–M14) not yet scoped in detail. Backlog item `idea_pilot_comparison_context_file.md` should be created before M13.
+4. **Completed backlog items**: `idea_hero_image_generation.md` (done — user-provided pixel art), `idea_lighthouse_ci_integration.md` (done — Gate 6 enabled), `idea_a11y_hardening.md` (done — 4 new test files, heading hierarchy, keyboard nav, cross-page nav).

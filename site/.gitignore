@@ -4,4 +4,5 @@ dist/
 .astro/
 test-results/
 playwright-report/
+.lighthouseci/
 .vercel

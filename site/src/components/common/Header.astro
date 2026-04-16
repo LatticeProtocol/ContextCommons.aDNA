@@ -1,5 +1,6 @@
 ---
-const pathname = Astro.url.pathname;
+const rawPath = Astro.url.pathname;
+const pathname = rawPath === '/' ? '/' : rawPath.replace(/\/$/, '');
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -13,7 +14,7 @@ const navItems = [
 ];
 ---
 
-<header class="sticky top-0 z-40 bg-[var(--color-bg)]/95 backdrop-blur-sm border-b border-[var(--color-border)]">
+<header class="sticky top-0 z-40 bg-[var(--color-bg)]/95 backdrop-blur-sm border-b border-[var(--color-border)] transition-shadow duration-[var(--transition-base)]" data-header>
   <div class="max-w-[var(--content-width)] mx-auto px-[var(--space-4)] flex items-center justify-between h-16">
     <!-- Logo -->
     <a href="/" class="flex items-center gap-[var(--space-3)]" aria-label="Context Commons home">
@@ -28,7 +29,7 @@ const navItems = [
           class:list={[
             'px-[var(--space-3)] py-[var(--space-2)] text-[var(--text-sm)] rounded-[var(--radius-md)] transition-colors duration-[var(--transition-fast)]',
             pathname === href
-              ? 'text-[var(--brand-primary)] font-semibold'
+              ? 'text-[var(--brand-primary)] font-semibold border-b-2 border-[var(--brand-primary)] pb-0.5'
               : 'text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-surface)]',
           ]}
           aria-current={pathname === href ? 'page' : undefined}
@@ -92,18 +93,59 @@ const navItems = [
 </header>
 
 <script>
-  const toggle = document.querySelector('[data-menu-toggle]');
-  const close = document.querySelector('[data-menu-close]');
+  const header = document.querySelector('[data-header]') as HTMLElement | null;
+  const toggle = document.querySelector('[data-menu-toggle]') as HTMLElement | null;
+  const close = document.querySelector('[data-menu-close]') as HTMLElement | null;
   const menu = document.querySelector('[data-mobile-menu]') as HTMLElement | null;
 
-  function toggleMenu() {
-    const expanded = toggle?.getAttribute('aria-expanded') === 'true';
-    toggle?.setAttribute('aria-expanded', String(!expanded));
-    if (menu) {
-      menu.style.gridTemplateRows = expanded ? '0fr' : '1fr';
-    }
+  function isMenuOpen() {
+    return toggle?.getAttribute('aria-expanded') === 'true';
   }
 
-  toggle?.addEventListener('click', toggleMenu);
-  close?.addEventListener('click', toggleMenu);
+  function openMenu() {
+    toggle?.setAttribute('aria-expanded', 'true');
+    if (menu) menu.style.gridTemplateRows = '1fr';
+    close?.focus();
+  }
+
+  function closeMenu() {
+    toggle?.setAttribute('aria-expanded', 'false');
+    if (menu) menu.style.gridTemplateRows = '0fr';
+    toggle?.focus();
+  }
+
+  toggle?.addEventListener('click', () => {
+    isMenuOpen() ? closeMenu() : openMenu();
+  });
+  close?.addEventListener('click', closeMenu);
+
+  // Escape key closes mobile menu
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isMenuOpen()) {
+      closeMenu();
+    }
+  });
+
+  // Focus trap inside mobile menu
+  menu?.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab') return;
+    const focusable = menu.querySelectorAll<HTMLElement>('a, button');
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  });
+
+  // Scroll shadow
+  window.addEventListener('scroll', () => {
+    if (header) {
+      header.classList.toggle('shadow-md', window.scrollY > 8);
+    }
+  }, { passive: true });
 </script>

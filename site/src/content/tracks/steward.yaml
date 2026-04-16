@@ -1,7 +1,7 @@
 name: Steward Track
 slug: steward
 tagline: "Govern how AI tools operate in your community."
-description: "An 8-week track for community leaders — pastors, teachers, organizers. Learn how context-driven AI works, conduct a community needs assessment, co-facilitate builder sessions, and develop a sustainability plan. You hold veto power over agent deployments."
+description: "An 8-week track for community leaders — pastors, teachers, organizers. Learn how AI tools guided by community knowledge work, conduct a community needs assessment, co-facilitate builder sessions, and develop a sustainability plan. You hold veto power over agent deployments."
 icon: "shield"
 audience: "Community stewards (pastors, teachers, organizers)"
 prerequisites:
