@@ -1,0 +1,130 @@
+lattice:
+  name: cc_presentation
+  version: "1.0.0"
+  application: deck
+  extends: canvasforge
+  lattice_type: workflow
+  description: >
+    Context Commons deck wrapper. Extends CanvasForge canonical lattice_presentation_canvas
+    via federation. Overrides: CC 6-register voice mapping (R1, R4, R7, R8, R9, R10 — no R11
+    on decks), plain-language community-facing tone, green accent design overlay, 5 reviewer
+    voices including Community-Consent-Critic with community_consent_gate enforcement,
+    smaller token tiers reflecting community-facing scope. Used for partnership pitches,
+    Curriculum Council reports, community introductions, curriculum overviews, pilot results.
+
+  federation_ref:
+    source_vault: CanvasForge.aDNA
+    source_lattice: what/lattices/lattice_presentation_canvas.lattice.yaml
+    version: "~1.0"
+    version_policy: minor
+    description: "7-stage deck lattice — canvas-substrate authoritative (M-R1-01b first-time CC authoring 2026-04-29)"
+
+  execution:
+    mode: hybrid
+    runtime: local
+    tier: L1
+
+  voice_registers: [R1, R4, R7, R8, R9, R10]
+  r11_gated_nodes: []
+
+  node_overrides:
+    topic_loader:
+      config:
+        required_fields: [topic, audience, duration, arc_preference]
+        slide_types: [title, content, quote, story_narrative, community, cta_closing]
+        narrative_arcs: [community_impact, problem_solution, story_first, partnership_pitch]
+
+    context_assembler:
+      config:
+        recipe: cc_presentation_deck
+        recipe_source: what/context/context_recipes.md
+        token_tiers: {minimal: 8000, standard: 18000, full: 30000}
+        cc_context_paths:
+          mission: what/context/mission/
+          community: what/context/community/
+          curriculum: what/context/curriculum/
+          partners: what/context/partners/
+        design_context:
+          presentation_design: presentationforge/what/context/
+
+    outline_architect:
+      config:
+        model: claude-opus-4-7
+        narrative_arcs: [community_impact, problem_solution, story_first, partnership_pitch]
+        arc_source: presentationforge/what/context/cc_presentation_voice_mapping.yaml
+        register_arc_mapping: true
+        note: "CC arcs prioritize community-impact framing and intergenerational knowledge loop visibility (CLAUDE.md Standing Order 2)."
+
+    content_composer:
+      config:
+        model: claude-opus-4-7
+        voice_mapping: presentationforge/what/context/cc_presentation_voice_mapping.yaml
+        density_profiles: [sparse, balanced]
+        design_system:
+          theme: cc_community
+          base: light
+          accent: green
+          color_ref: what/context/visual/cc_color_system.md
+          plain_language_priority: true
+          plain_language_note: "CLAUDE.md Standing Order 1 — if a pastor in Grand Rapids wouldn't understand it, simplify."
+
+    voice_critic:
+      config:
+        model: claude-opus-4-7
+        reviewer_config: presentationforge/what/context/cc_presentation_reviewers.yaml
+        voice_mapping: presentationforge/what/context/cc_presentation_voice_mapping.yaml
+        pass_threshold: 0.75
+        community_consent_gate: true
+        reviewers:
+          - id: voice_critic_cc
+            voice: "Plain-language critic — flags jargon, technical assumptions, abstract framings"
+            weight: 1.0
+          - id: narrative_critic
+            voice: "Narrative coherence — ensures intergenerational knowledge loop visible (CLAUDE.md Standing Order 2)"
+            weight: 1.0
+          - id: accessibility_critic
+            voice: "Accessibility — reading level, color contrast, audience altitude"
+            weight: 1.0
+          - id: brand_critic
+            voice: "CC brand — community-led tone, consent language, partnership respect"
+            weight: 1.0
+          - id: community_consent_critic
+            voice: "Community Consent — flags any community-specific content lacking documented consent (CLAUDE.md Standing Order 4)"
+            weight: 2.0
+            gate: hard
+            gate_type: community_review_required
+        auto_fail_patterns: []
+
+    content_refiner:
+      config:
+        model: claude-opus-4-7
+        max_revisions: 2
+
+    presentation_assembler:
+      config:
+        human_gate: true
+        output_format: PresentationBuilder
+        theme: cc_community
+        layout_strategy:
+          title: "centered, plain, accessible"
+          content: "left-aligned body, ample whitespace"
+          quote: "centered, attributed, plain"
+          story_narrative: "image-led, plain caption"
+          community: "grid layout for stewards/partners"
+          cta_closing: "centered, action-oriented, plain"
+
+  fair:
+    license: CC-BY-SA-4.0
+    keywords:
+      - context commons
+      - presentation
+      - community
+      - plain language
+      - canvasforge
+      - community consent
+      - intergenerational
+    provenance: "M-R1-01b first-time CC presentationforge wrapper authoring 2026-04-29 — federated to CanvasForge canonical"
+
+  federation:
+    discoverable: true
+    source_instance: context_commons.aDNA
