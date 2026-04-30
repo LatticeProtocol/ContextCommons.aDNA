@@ -3,7 +3,7 @@ type: governance
 version: "1.0"
 token_estimate: ~800
 created: 2026-04-12
-updated: 2026-04-12
+updated: 2026-04-30
 last_edited_by: agent_stanley
 tags: [presentationforge, forge, governance]
 ---
@@ -14,9 +14,9 @@ tags: [presentationforge, forge, governance]
 
 This is the **PresentationForge lightweight wrapper** for the Context Commons aDNA vault. It provides CC-specific deck types, voice guidelines, and content structures for partnership pitches, Curriculum Council presentations, and community introductions.
 
-**This is NOT the PresentationForge implementation.** The forge references:
-- Canvas extensions: `lattice-protocol/extensions/canvas/`
-- Presentation lattice: `lattice_presentation_content` v1.0
+**This is NOT the PresentationForge implementation.** The implementation lives in:
+- Source lattice: `~/lattice/CanvasForge.aDNA/what/lattices/lattice_presentation_canvas.lattice.yaml` (canonical, v1.0)
+- Code: `~/lattice/CanvasForge.aDNA/what/code/canvas_core/` (substrate) + `canvas_presentation/` (deck application)
 
 Do not copy implementation details here. Reference via federation.
 
@@ -24,10 +24,12 @@ Do not copy implementation details here. Reference via federation.
 
 ```yaml
 federation_ref:
-  source_vault: lattice-protocol
-  source_path: extensions/canvas/
+  source_vault: CanvasForge.aDNA
+  source_lattice: what/lattices/lattice_presentation_canvas.lattice.yaml
+  version: "~1.0"
   version_policy: minor
-  description: "Canvas-based presentation generation with aDNA content pipeline"
+  lattice_type: workflow
+  description: "7-stage deck lattice — canvas-substrate authoritative (M-R1-01b first-time CC authoring 2026-04-29)"
 ```
 
 ## Deck Types
