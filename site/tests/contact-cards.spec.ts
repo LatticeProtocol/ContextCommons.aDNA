@@ -97,19 +97,20 @@ test.describe('DetailSection components on get-involved page', () => {
 
   test('steward veto power language is present', async ({ page }) => {
     await page.goto('/get-involved');
-
+    // DetailSection is now <details>; open it before asserting visibility.
+    await page.locator('#steward-detail').evaluate((el) => el.setAttribute('open', ''));
     await expect(page.getByText('your decision is final')).toBeVisible();
   });
 
   test('partner exit language is present', async ({ page }) => {
     await page.goto('/get-involved');
-
+    await page.locator('#partner-detail').evaluate((el) => el.setAttribute('open', ''));
     await expect(page.getByText('exit is not failure')).toBeVisible();
   });
 
   test('mentor support structures are described', async ({ page }) => {
     await page.goto('/get-involved');
-
+    await page.locator('#mentor-detail').evaluate((el) => el.setAttribute('open', ''));
     await expect(page.getByText('Peer cohort with other mentors')).toBeVisible();
   });
 });
