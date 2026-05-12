@@ -94,4 +94,21 @@ Follow-up to M08-R (which closed at 100/100 loops on 2026-04-16 with visual + vo
 
 ## Batch AARs
 
-(Populated at phase boundaries.)
+### Phase 1: Homepage (Loops 1–10) — 2026-05-12
+
+- **Worked**: The Playwright screenshot harness (L1) was the right infrastructure investment — every later loop has hard before/after numbers. Hero refactor (L2-L4) successfully addressed all three of Stanley's hero concerns: image proportion (now 42% desktop / 80% mobile), title legibility (text-5xl @ 48-72px), thesis clarity ("intergenerational program: youth build / elders teach / community owns"). L8 (vignettes+pilots merge) was the single biggest compression win — -849px desktop (-17.6%), -1752px mobile (-26%).
+- **Didn't**: The user's stretch target of "≤2× viewport" on the homepage (desktop ≤1440px) was not achievable without removing the Three Roles signature section. Final desktop is 5.51× viewport (3966px), down from 6.69× (4815px). Hero typography enlargement (L3) cost ~340px back; honored as Stanley's explicit ask for readable titles.
+- **Finding**: The `/pilots#use-cases` anchor I initially scoped didn't exist on /pilots — moved link to plain `/pilots` with text "See what youth will build →". Reminder for Phase 2: when L15 light-passes /pilots, check whether adding a proper use-cases anchor lands cleanly with the homepage funnel. Also: the data-animate motion layer was making axe-core catch h2 elements mid-fade-in on the tablet viewport. Fixed by `test.use({ reducedMotion: 'reduce' })` in a11y.spec.ts — tests now check the settled-state colors (which is what users actually see ≥250ms after page load).
+- **Change**: Future loop AARs should report viewport-ratio not just pixel-scroll — the ratio is what reflects "how many pageful's of scrolling" users feel. Also: don't propose anchor links without first grepping the target page for the anchor id.
+- **Follow-up**: Stanley reviews live at https://site-nu-lovat.vercel.app/ before Phase 2 begins. Possible Phase 2 absorptions: (a) section-end font-size bump for h2's on home if Stanley feels Three Roles + Where We're Working headings still feel small; (b) if Stanley wants ≤2× desktop, the only realistic move is collapsing Three Roles to a single sentence with diagram-only (lose the 3 RoleCards) — flag for decision.
+
+**Quality gates at L10**:
+- Build: clean (9 pages, 803ms)
+- Gate 2 (pages-render): 24/24 pass
+- Gate 3 (links): 24/24 pass
+- Gate 5 (a11y / axe-core WCAG AA): 24/24 pass (reduced-motion stabilized)
+- Gate 6 (Lighthouse): Perf 100 / A11y 100 / BP 96 / SEO 100 — matches M08-R baseline
+- Gate 10 (console): 24/24 pass
+- Gate 8 (community voice): manual, intentionally deferred per M08-R protocol
+
+**Per-loop commits**: 42b392f (L1) → f23c9f7 (L2) → 663471a (L3) → c3cad25 (L4) → be59afb (L6) → 21fb747 (L7) → e2cff47 (L8) → 5374afb (L9). L5 was decision-only, no code commit (documented in session file).
