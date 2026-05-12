@@ -1,14 +1,10 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import PageHeader from '../components/sections/PageHeader.astro';
-import RoleCard from '../components/sections/RoleCard.astro';
 import Accordion from '../components/sections/Accordion.astro';
 import CTABanner from '../components/sections/CTABanner.astro';
 import StyledTable from '../components/sections/StyledTable.astro';
 import WhoWhatHowTriad from '../components/diagrams/WhoWhatHowTriad.astro';
-import IconHammer from '../components/icons/IconHammer.astro';
-import IconShield from '../components/icons/IconShield.astro';
-import IconBook from '../components/icons/IconBook.astro';
 
 const faqItems = [
   {
@@ -54,77 +50,36 @@ const faqItems = [
   />
 
   <!-- The Printing Press -->
-  <section class="pb-[var(--space-16)] md:pb-[var(--space-24)] px-[var(--space-4)]">
+  <section class="pb-[var(--space-12)] md:pb-[var(--space-16)] px-[var(--space-4)]">
     <div class="max-w-[var(--prose-width)] mx-auto">
-      <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-6)]">
+      <h2 class="font-display text-[length:var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-4)]">
         The printing press for the AI age
       </h2>
-      <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed mb-[var(--space-4)]">
-        When Gutenberg&rsquo;s press arrived, the power was not in any single book. It was that communities &mdash; churches, universities, guilds &mdash; could produce and share their own knowledge on their own terms. Churches printed their own Bibles. Guilds published their own manuals. Universities created their own textbooks.
+      <p class="text-[length:var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed mb-[var(--space-4)]">
+        When Gutenberg&rsquo;s press arrived, the power was not in any single book &mdash; it was that communities could produce and share their own knowledge on their own terms. AI is this generation&rsquo;s printing press. Context Commons exists so this press belongs to communities, not only to the companies that built it.
       </p>
-      <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed mb-[var(--space-4)]">
-        The AI tools now arriving are this generation&rsquo;s printing press. The Context Commons exists to make sure this press belongs to communities &mdash; not just to the companies that built it.
+      <p class="text-[length:var(--text-lg)] text-[var(--color-text)] leading-relaxed font-semibold">
+        Every young person who completes the program earns their own computer &mdash; their own printing press, set up to build AI systems for their family, elders, and community.
       </p>
-      <p class="text-[var(--text-lg)] text-[var(--color-text)] leading-relaxed font-semibold">
-        Each young person who completes the program earns their own computer &mdash; their own printing press. It comes set up with the tools, training, and knowledge to build AI systems for their family, their elders, and their community.
-      </p>
-    </div>
-  </section>
-
-  <!-- Three Roles -->
-  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)] bg-[var(--color-bg-alt)]">
-    <div class="max-w-[var(--content-width)] mx-auto">
-      <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] text-center mb-[var(--space-4)]">
-        Three roles, one knowledge loop
-      </h2>
-      <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] text-center max-w-[var(--prose-width)] mx-auto mb-[var(--space-12)]">
-        Knowledge flows in every direction. Mentors learn community context they could never access from a lab. Stewards gain technical fluency. Youth gain agency and career-grade skills. Elders gain tools and dignity.
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-[var(--space-6)]">
-        <RoleCard
-          title="Youth Builders"
-          who="Ages 14&ndash;24 &middot; 12-week Builder Track"
-          description="Learn to build AI tools through a rigorous, project-based curriculum. Your capstone project addresses a real need identified by your community &mdash; like helping elders navigate Medicare or organizing immigration paperwork for families. Complete the program and earn your own computer, set up with everything you need to keep building."
-        >
-          <IconHammer slot="icon" />
-        </RoleCard>
-        <RoleCard
-          title="Community Stewards"
-          who="Pastors, teachers, organizers &middot; 8-week Steward Track"
-          description="You know your community. You know who needs help and what the priorities are. The Steward Track teaches you how AI tools work so you can decide how they are used in your community. You have the final say. If a tool does not serve your people, it does not get used."
-        >
-          <IconShield slot="icon" />
-        </RoleCard>
-        <RoleCard
-          title="Elders &amp; Community Members"
-          who="Beneficiaries and co-designers &middot; 6-week Elder Track"
-          description="Your knowledge of Medicare, immigration, caregiving, and community life is what makes these systems useful. You define the problems worth solving. You validate whether the tools actually help. You co-design the systems alongside youth builders and stewards &mdash; as peers, not as &ldquo;users.&rdquo;"
-        >
-          <IconBook slot="icon" />
-        </RoleCard>
-      </div>
     </div>
   </section>
 
   <!-- What Is a Context Graph? -->
-  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)]">
+  <section class="py-[var(--space-12)] md:py-[var(--space-16)] px-[var(--space-4)] bg-[var(--color-bg-alt)]">
     <div class="max-w-[var(--content-width)] mx-auto">
-      <div class="max-w-[var(--prose-width)] mx-auto mb-[var(--space-12)]">
-        <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-6)]">
+      <div class="max-w-[var(--prose-width)] mx-auto mb-[var(--space-8)]">
+        <h2 class="font-display text-[length:var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-4)]">
           What is a context graph?
         </h2>
-        <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed mb-[var(--space-4)]">
-          A context graph is a structured picture of your community &mdash; who the people are, what they need, and how things work &mdash; connected together so AI tools can understand and act on it.
+        <p class="text-[length:var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed mb-[var(--space-4)]">
+          A structured picture of your community &mdash; who the people are, what they need, and how things work &mdash; connected so AI tools can understand and act on it. Think of it as a church directory plus a policy manual plus an operations guide, all linked together.
         </p>
-        <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed mb-[var(--space-4)]">
-          Think of it like a church directory, but richer. A church directory tells you who people are. A context graph also tells you what they need and how things get done. It is the directory, the policy manual, and the operations guide &mdash; all connected.
-        </p>
-        <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed">
-          When an AI tool reads this graph, it knows who needs help, what the problem is, and how to approach it &mdash; because your community told it. The AI is not guessing. It is reading your community&rsquo;s organized knowledge.
+        <p class="text-[length:var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed">
+          When an AI tool reads this graph, it knows who needs help and how to approach it &mdash; because your community told it. The AI is not guessing; it is reading your community&rsquo;s organized knowledge.
         </p>
       </div>
 
-      <WhoWhatHowTriad class="mb-[var(--space-12)]" />
+      <WhoWhatHowTriad class="mb-[var(--space-8)]" />
 
       <!-- WHO / WHAT / HOW table -->
       <StyledTable class="max-w-[var(--content-width)] mx-auto">
@@ -159,13 +114,13 @@ const faqItems = [
   </section>
 
   <!-- How It's Different from an App -->
-  <section id="how-its-different" class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)] bg-[var(--color-bg-alt)]">
+  <section id="how-its-different" class="py-[var(--space-12)] md:py-[var(--space-16)] px-[var(--space-4)]">
     <div class="max-w-[var(--content-width)] mx-auto">
-      <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-4)]">
+      <h2 class="font-display text-[length:var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-3)]">
         How this is different from an app
       </h2>
-      <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] max-w-[var(--prose-width)] mb-[var(--space-8)]">
-        The typical approach to &ldquo;tech for good&rdquo; is to build an app &mdash; designed by outsiders, deployed to a community, maintained until the grant runs out, then abandoned. Context graphs invert this.
+      <p class="text-[length:var(--text-lg)] text-[var(--color-text-muted)] max-w-[var(--prose-width)] mb-[var(--space-6)]">
+        The typical &ldquo;tech for good&rdquo; pattern: outsiders build an app, deploy it, maintain it until the grant runs out, then abandon it. Context graphs invert this.
       </p>
       <!-- Desktop table -->
       <StyledTable class="hidden md:block">
@@ -234,27 +189,24 @@ const faqItems = [
   </section>
 
   <!-- Built on Open Standards -->
-  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)]">
+  <section class="py-[var(--space-12)] md:py-[var(--space-16)] px-[var(--space-4)] bg-[var(--color-bg-alt)]">
     <div class="max-w-[var(--prose-width)] mx-auto">
-      <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-6)]">
+      <h2 class="font-display text-[length:var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-4)]">
         Built on open standards, governed by communities
       </h2>
-      <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed mb-[var(--space-4)]">
-        Everything your community builds here sits on open ground. The way you organize your knowledge (we call it the <strong>aDNA standard</strong>) and the way communities connect with each other (the <strong>Lattice Protocol</strong>) are both open &mdash; meaning no single company owns them, controls them, or can take them away.
+      <p class="text-[length:var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed mb-[var(--space-4)]">
+        How you organize knowledge (the <strong>aDNA standard</strong>) and how communities connect (the <strong>Lattice Protocol</strong>) are both open &mdash; no single company owns or controls them. Like a lending library: if Grand Rapids builds a healthcare-navigation template that works, a church in Detroit can copy it, adapt it, and use it. Neither community controls the other&rsquo;s.
       </p>
-      <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed mb-[var(--space-4)]">
-        Think of it like a lending library. If Grand Rapids builds a healthcare navigation template that works, they can share it with a church in Detroit. Detroit copies it, adapts it for their own people, and uses it. Grand Rapids still has their original. Neither community controls the other&rsquo;s.
-      </p>
-      <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed">
-        Three things are non-negotiable: <strong>your community governs</strong> how AI tools are used here, <strong>no one takes your community&rsquo;s knowledge</strong>, and <strong>the standards stay open</strong> so you are never locked in. These are written promises, not just good intentions.
+      <p class="text-[length:var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed">
+        Three things are non-negotiable: <strong>your community governs</strong> how AI tools are used here, <strong>no one takes your community&rsquo;s knowledge</strong>, and <strong>the standards stay open</strong>. Written promises, not good intentions.
       </p>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)] bg-[var(--color-bg-alt)]">
+  <section class="py-[var(--space-12)] md:py-[var(--space-16)] px-[var(--space-4)]">
     <div class="max-w-[var(--content-width)] mx-auto">
-      <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-8)]">
+      <h2 class="font-display text-[length:var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-6)]">
         Common questions
       </h2>
       <div class="max-w-[var(--prose-width)]">
