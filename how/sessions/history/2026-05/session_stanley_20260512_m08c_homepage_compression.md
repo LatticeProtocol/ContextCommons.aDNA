@@ -7,8 +7,8 @@ tags: [session, m08-c, compression, iii, homepage, playwright]
 session_id: session_stanley_20260512_m08c_homepage_compression
 user: stanley
 started: 2026-05-12T20:30:00Z
-status: active
-intent: "Mission M08-C Phase 1 (Loops 1–10) — homepage compression: hero refactor, message rewrite, section compression, cross-page linking. Pause at L10 for user review."
+status: completed
+intent: "Mission M08-C — full 25-loop III compression cycle + Vercel vanity alias. Phase 1 (L1-L10) homepage, Phase 2 (L11-L22) other pages, Phase 3 (L23-L25) deploy + alias + AAR."
 files_modified: []
 files_created: []
 completed:
@@ -57,15 +57,13 @@ Result will be: Hero → Problem (slim) → Three Roles → Where we're working 
 
 ## SITREP
 
-**Completed**: Phase 1 — Loops 1 through 10. Hero refactored (image, typography, message); 5 post-hero sections compressed to 4; cross-page links audited; a11y test stabilized; Lighthouse re-baselined at 100/100/96/100; live at https://site-nu-lovat.vercel.app/.
+**Completed**: Mission M08-C — all 25 III loops across 3 phases. Hero refactored (image 42%/80%, new --text-5xl token, new thesis copy); all 8 pages reviewed for length with `<details>` patterns applied where supporting detail dominated scroll height; cross-page link discipline pass; brandable URL **https://contextcommons.vercel.app/** claimed and public (required `vercel api PATCH ssoProtection: null` to surface past team SSO default); 346 Playwright tests / 17 skipped / 0 failed; Lighthouse on / 100/100/96/100 parity with M08-R. AAR at `how/missions/artifacts/aar_m08c_compression.md`.
 
-**In progress**: L10 — awaiting user review of live homepage.
+**In progress**: none — mission complete.
 
-**Next up (Phase 2, blocked on user gate)**: L11-L12 /about compression, L13-L14 /curriculum, L15 /pilots, L16-L17 /get-involved, L18 /partners, L19 /resources, L20 /contact, L21 link audit, L22 voice + after-shot capture.
+**Next up**: M09 (VideoForge setup) → M10 (PresentationForge setup) → Phase 3 close.
 
-**Phase 3 (after Phase 2)**: L23 full gate, L24 prod deploy + `contextcommons.vercel.app` alias, L25 walkthrough + mission AAR.
-
-**Blockers**: None — Phase 1 gate is a *planned* user pause, not a blocker.
+**Blockers**: none.
 
 **Files touched**:
 - `site/tests/visual-inspection.spec.ts` (new — screenshot harness)
@@ -86,4 +84,4 @@ Result will be: Hero → Problem (slim) → Three Roles → Where we're working 
 
 ## Next Session Prompt
 
-In-flight Phase 1 of M08-C. If interrupted, the plan is at `/Users/stanley/.claude/plans/please-read-the-claude-md-cozy-token.md`. Mission file at `how/campaigns/campaign_context_commons_genesis/missions/mission_cc_m08c_compression.md`. Resume at the loop indicated above. Phase 1 ends with a hard user gate at L10 — do NOT proceed to L11 without explicit user approval after they review the live homepage.
+M08-C closed 2026-05-12. Context Commons website is live at **https://contextcommons.vercel.app/** for partner sharing. Visual inspection harness (`site/tests/visual-inspection.spec.ts`) is the new canonical way to capture before/after screenshots for any future III batch — use `SCREENSHOT_LABEL=<name> npx playwright test tests/visual-inspection.spec.ts` from `site/`. Phase 3 next missions: M09 (VideoForge wrapper setup), M10 (PresentationForge wrapper setup). Vercel team SSO is currently DISABLED on this project (set via `vercel api PATCH /v9/projects/<id>` with `ssoProtection: null`); re-enable if Stanley wants new preview deployments to require team login.

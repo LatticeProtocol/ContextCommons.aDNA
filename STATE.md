@@ -4,7 +4,7 @@ created: 2026-04-12
 updated: 2026-05-12
 status: active
 last_edited_by: agent_gutenberg
-last_session: session_stanley_20260512_website_vercel_deploy
+last_session: session_stanley_20260512_m08c_homepage_compression
 tags: [state, governance]
 ---
 
@@ -55,6 +55,7 @@ Phase 2 gate passed (2026-04-13). Phase 3 in progress — M07, M08, and M08-R co
 - **M08-R Batch 9 completed** — Header + Hero Image + Lighthouse + Validation Hardening (Loops 81–90). Mentor/Developer persona. Header refined (scroll shadow, active underline, focus trap, Escape close). Lighthouse CI installed + Gate 6 enabled (all pages: Perf 100, A11y 100, BP 96, SEO 100). Hero image integrated (pixel art, responsive `<picture>`, WebP variants 30-96KB). Motion layer (IntersectionObserver + data-animate, reduced-motion safe). A11y hardening (heading hierarchy, skip-to-content, focus-visible, cross-page nav). 332 total Playwright tests (34 new in 4 spec files), 9/10 quality gates passing. 13/13 original R1 gap register items closed.
 - **M08-R Batch 10 completed** — Final Persona Sweep + Deployment Readiness (Loops 91–100). All 8 personas validated. Mobile audit clean (393px). Content completeness sweep: zero jargon, zero placeholders across all file types. Lighthouse maintained 100/100/96/100. 332 Playwright tests, 9/10 quality gates. **M08-R mission complete — 100/100 III loops.**
 - **Production deploy completed 2026-05-12** — `vercel --prod` deploy of M08-R website. Live at **https://site-nu-lovat.vercel.app** (deployment id `dpl_FEEyyTcXsRQ8PVX5UZS96DyGdnJ9`). All 8 routes return 200 with byte-for-byte parity vs. local `dist/`. `contextcommons.org` not yet pointed at Vercel (0 custom domains under team scope) — separate task when partner branding warrants. Session: `session_stanley_20260512_website_vercel_deploy`.
+- **M08-C completed 2026-05-12** — 25 III loops of homepage + site-wide compression. Hero refactored (image 42% desktop / 80% mobile; new `--text-5xl` token; thesis rewritten as "intergenerational program: youth build / elders teach / community owns"). Site-wide compression: home -18% desktop / -26% mobile, curriculum -29% / -32% (via `<details>` collapse), get-involved -29% / -45% (DetailSection → `<details>`), about -12% / -21%. New Playwright visual-inspection harness captures 24 screenshots + DOM scrollHeight per labeled run. Brandable URL **https://contextcommons.vercel.app/** claimed and public (required `vercel api PATCH ssoProtection: null` to disable team SSO on the alias). 346 tests passing / 17 skipped / 0 failed. Lighthouse on `/` 100/100/96/100 (parity). AAR: `how/missions/artifacts/aar_m08c_compression.md`.
 
 ## Active Campaigns
 

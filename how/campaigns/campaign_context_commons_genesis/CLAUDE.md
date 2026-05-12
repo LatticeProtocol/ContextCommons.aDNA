@@ -59,7 +59,7 @@ Phase gates are human gates (Standing Order #1). At each phase boundary:
 | M07 | `missions/mission_cc_m07_siteforge_setup.md` | 3 | **Completed** |
 | M08 | `missions/mission_cc_m08_website_content.md` | 3 | **Completed** |
 | M08-R | `missions/mission_cc_m08r_website_refinement.md` | 3 | **Completed** (100/100 loops) |
-| M08-C | `missions/mission_cc_m08c_compression.md` | 3 | **In progress** (25-loop compression + Vercel alias) |
+| M08-C | `missions/mission_cc_m08c_compression.md` | 3 | **Completed** (25/25 loops; live at contextcommons.vercel.app) |
 | M09 | `missions/mission_cc_m09_videoforge_setup.md` | 3 | Planned |
 | M10 | `missions/mission_cc_m10_presentationforge_setup.md` | 3 | Planned |
 | M11-M14 | To be created during Phase 3 | 4 | Planned |
