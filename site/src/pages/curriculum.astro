@@ -43,18 +43,18 @@ const trackColors: Record<string, string> = {
   />
 
   <!-- Philosophy -->
-  <section class="pb-[var(--space-16)] px-[var(--space-4)]">
+  <section class="pb-[var(--space-10)] px-[var(--space-4)]">
     <div class="max-w-[var(--prose-width)] mx-auto text-center">
-      <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed">
-        The Context Commons curriculum is built on a simple idea: people learn best by building real things for real purposes. Every module connects to a community need. Every capstone project serves a real person. The curriculum itself is a context graph &mdash; what we teach is what students learn to build.
+      <p class="text-[length:var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed">
+        People learn best by building real things for real purposes. Every module connects to a community need. Every capstone project serves a real person. The curriculum itself is a context graph &mdash; what we teach is what students learn to build.
       </p>
     </div>
   </section>
 
   <!-- Track Grid -->
-  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)] bg-[var(--color-bg-alt)]">
+  <section class="py-[var(--space-12)] md:py-[var(--space-16)] px-[var(--space-4)] bg-[var(--color-bg-alt)]">
     <div class="max-w-[var(--content-width)] mx-auto">
-      <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] text-center mb-[var(--space-12)]">
+      <h2 class="font-display text-[length:var(--text-3xl)] text-[var(--color-text)] text-center mb-[var(--space-8)]">
         Choose your track
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-[var(--space-6)]">
@@ -75,16 +75,30 @@ const trackColors: Record<string, string> = {
   </section>
 
   <!-- Track Details -->
-  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)]">
-    <div class="max-w-[var(--content-width)] mx-auto space-y-[var(--space-24)]">
+  <section class="py-[var(--space-12)] md:py-[var(--space-16)] px-[var(--space-4)]">
+    <h2 class="font-display text-[length:var(--text-3xl)] text-[var(--color-text)] text-center max-w-[var(--content-width)] mx-auto mb-[var(--space-3)]">
+      Track details
+    </h2>
+    <p class="text-[length:var(--text-base)] text-[var(--color-text-muted)] text-center max-w-[var(--prose-width)] mx-auto mb-[var(--space-10)]">
+      Click any track to see its weekly schedule and milestones.
+    </p>
+    <div class="max-w-[var(--content-width)] mx-auto space-y-[var(--space-8)]">
 
       <!-- Core Track Detail -->
-      <div id="track-core">
-        <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-2)]">Core Track</h2>
-        <p class="text-[var(--text-lg)] text-[var(--color-accent-text,var(--brand-accent-dark))] font-semibold mb-[var(--space-6)]">4 weeks &middot; 8 sessions &middot; ~20 hours &middot; All participants</p>
-        <p class="text-[var(--text-base)] text-[var(--color-text-muted)] leading-relaxed max-w-[var(--prose-width)] mb-[var(--space-8)]">
-          Everyone starts here &mdash; builders, stewards, elders, and mentors. The Core Track builds shared vocabulary and foundational understanding across all roles. No prerequisites. No prior technical experience.
-        </p>
+      <details id="track-core" class="group border border-[var(--color-border)] rounded-[var(--radius-lg)] bg-[var(--color-surface)] open:shadow-[var(--shadow-sm)] transition-shadow duration-[var(--transition-base)]">
+        <summary class="cursor-pointer list-none p-[var(--space-6)] [&::-webkit-details-marker]:hidden">
+          <div class="flex items-start justify-between gap-[var(--space-4)]">
+            <div>
+              <h3 class="font-display text-[length:var(--text-2xl)] text-[var(--color-text)] mb-[var(--space-2)]">Core Track</h3>
+              <p class="text-[length:var(--text-base)] text-[var(--color-accent-text,var(--brand-accent-dark))] font-semibold mb-[var(--space-3)]">4 weeks &middot; 8 sessions &middot; ~20 hours &middot; All participants</p>
+              <p class="text-[length:var(--text-base)] text-[var(--color-text-muted)] leading-relaxed max-w-[var(--prose-width)]">
+                Everyone starts here &mdash; builders, stewards, elders, and mentors. Shared vocabulary, foundational understanding, no prerequisites.
+              </p>
+            </div>
+            <svg class="w-5 h-5 shrink-0 mt-1 text-[var(--color-text-muted)] transition-transform duration-[var(--transition-base)] group-open:rotate-180" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+          </div>
+        </summary>
+        <div class="px-[var(--space-6)] pb-[var(--space-6)]">
         <StyledTable>
           <table class="w-full text-left border-collapse">
             <thead>
@@ -113,16 +127,25 @@ const trackColors: Record<string, string> = {
             </tbody>
           </table>
         </StyledTable>
-      </div>
+        </div>
+      </details>
 
       <!-- Builder Track Detail -->
-      <div id="track-builder">
-        <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-2)]">Builder Track</h2>
-        <p class="text-[var(--text-lg)] text-[var(--color-accent-text,var(--brand-accent-dark))] font-semibold mb-[var(--space-6)]">12 weeks &middot; 24 sessions &middot; ~80 hours &middot; Youth ages 14&ndash;24</p>
-        <p class="text-[var(--text-base)] text-[var(--color-text-muted)] leading-relaxed max-w-[var(--prose-width)] mb-[var(--space-8)]">
-          A rigorous, project-based track. Set up your own AI-ready computer, learn how to direct AI tools using your community's knowledge, and build a capstone project that serves your community. Builders who complete all milestones and capstone earn a MacBook Neo &mdash; their own computer, set up and ready to keep building.
-        </p>
-        <StyledTable class="mb-[var(--space-8)]">
+      <details id="track-builder" class="group border border-[var(--color-border)] rounded-[var(--radius-lg)] bg-[var(--color-surface)] open:shadow-[var(--shadow-sm)] transition-shadow duration-[var(--transition-base)]">
+        <summary class="cursor-pointer list-none p-[var(--space-6)] [&::-webkit-details-marker]:hidden">
+          <div class="flex items-start justify-between gap-[var(--space-4)]">
+            <div>
+              <h3 class="font-display text-[length:var(--text-2xl)] text-[var(--color-text)] mb-[var(--space-2)]">Builder Track</h3>
+              <p class="text-[length:var(--text-base)] text-[var(--color-accent-text,var(--brand-accent-dark))] font-semibold mb-[var(--space-3)]">12 weeks &middot; 24 sessions &middot; ~80 hours &middot; Youth ages 14&ndash;24</p>
+              <p class="text-[length:var(--text-base)] text-[var(--color-text-muted)] leading-relaxed max-w-[var(--prose-width)]">
+                Rigorous, project-based. Set up your own AI-ready computer, direct AI tools with community knowledge, build a capstone that serves your community. Complete the milestones and capstone &rarr; earn your own computer.
+              </p>
+            </div>
+            <svg class="w-5 h-5 shrink-0 mt-1 text-[var(--color-text-muted)] transition-transform duration-[var(--transition-base)] group-open:rotate-180" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+          </div>
+        </summary>
+        <div class="px-[var(--space-6)] pb-[var(--space-6)]">
+        <StyledTable class="mb-[var(--space-6)]">
           <table class="w-full text-left border-collapse">
             <thead>
               <tr class="border-b-2 border-[var(--brand-primary)] bg-[var(--brand-primary)]/[0.03]">
@@ -157,16 +180,25 @@ const trackColors: Record<string, string> = {
           <li class="flex gap-[var(--space-3)]"><span class="font-semibold text-[var(--color-text)] shrink-0">B3</span> Capstone scoped &mdash; community need identified, steward-approved, mentor-reviewed plan.</li>
           <li class="flex gap-[var(--space-3)]"><span class="font-semibold text-[var(--color-text)] shrink-0">B4</span> Capstone deployed &mdash; working agent system serving at least one community member.</li>
         </ul>
-      </div>
+        </div>
+      </details>
 
       <!-- Steward Track Detail -->
-      <div id="track-steward">
-        <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-2)]">Steward Track</h2>
-        <p class="text-[var(--text-lg)] text-[var(--color-accent-text,var(--brand-accent-dark))] font-semibold mb-[var(--space-6)]">8 weeks &middot; 8 sessions &middot; ~40 hours &middot; Community leaders</p>
-        <p class="text-[var(--text-base)] text-[var(--color-text-muted)] leading-relaxed max-w-[var(--prose-width)] mb-[var(--space-8)]">
-          You know your community better than any technologist. The Steward Track gives you the understanding to govern how AI tools operate in your community. You will conduct a needs assessment, co-facilitate builder sessions, develop a sustainability plan, and hold veto power over any agent deployment.
-        </p>
-        <StyledTable class="mb-[var(--space-8)]">
+      <details id="track-steward" class="group border border-[var(--color-border)] rounded-[var(--radius-lg)] bg-[var(--color-surface)] open:shadow-[var(--shadow-sm)] transition-shadow duration-[var(--transition-base)]">
+        <summary class="cursor-pointer list-none p-[var(--space-6)] [&::-webkit-details-marker]:hidden">
+          <div class="flex items-start justify-between gap-[var(--space-4)]">
+            <div>
+              <h3 class="font-display text-[length:var(--text-2xl)] text-[var(--color-text)] mb-[var(--space-2)]">Steward Track</h3>
+              <p class="text-[length:var(--text-base)] text-[var(--color-accent-text,var(--brand-accent-dark))] font-semibold mb-[var(--space-3)]">8 weeks &middot; 8 sessions &middot; ~40 hours &middot; Community leaders</p>
+              <p class="text-[length:var(--text-base)] text-[var(--color-text-muted)] leading-relaxed max-w-[var(--prose-width)]">
+                You know your community better than any technologist. Learn to govern AI tools here. Conduct a needs assessment, co-facilitate builder sessions, develop a sustainability plan, hold veto on any deployment.
+              </p>
+            </div>
+            <svg class="w-5 h-5 shrink-0 mt-1 text-[var(--color-text-muted)] transition-transform duration-[var(--transition-base)] group-open:rotate-180" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+          </div>
+        </summary>
+        <div class="px-[var(--space-6)] pb-[var(--space-6)]">
+        <StyledTable class="mb-[var(--space-6)]">
           <table class="w-full text-left border-collapse">
             <thead>
               <tr class="border-b-2 border-[var(--brand-primary)] bg-[var(--brand-primary)]/[0.03]">
@@ -195,16 +227,25 @@ const trackColors: Record<string, string> = {
           <li class="flex gap-[var(--space-3)]"><span class="font-semibold text-[var(--color-text)] shrink-0">S2</span> Co-facilitation demonstrated &mdash; led or co-led at least two builder sessions.</li>
           <li class="flex gap-[var(--space-3)]"><span class="font-semibold text-[var(--color-text)] shrink-0">S3</span> Sustainability plan &mdash; written plan for maintaining systems after the pilot ends.</li>
         </ul>
-      </div>
+        </div>
+      </details>
 
       <!-- Elder & Community Track Detail -->
-      <div id="track-elder-community">
-        <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-2)]">Elder &amp; Community Track</h2>
-        <p class="text-[var(--text-lg)] text-[var(--color-accent-text,var(--brand-accent-dark))] font-semibold mb-[var(--space-6)]">6 weeks &middot; 6 sessions &middot; ~15 hours &middot; Elders, families, community members</p>
-        <p class="text-[var(--text-base)] text-[var(--color-text-muted)] leading-relaxed max-w-[var(--prose-width)] mb-[var(--space-8)]">
-          Your knowledge is what makes these tools useful. This track focuses on co-design &mdash; telling builders what you need, reviewing what they build, and confirming it actually helps. No technical skills required. Assessment is participation-based with dignity. No formal testing.
-        </p>
-        <StyledTable class="mb-[var(--space-8)]">
+      <details id="track-elder-community" class="group border border-[var(--color-border)] rounded-[var(--radius-lg)] bg-[var(--color-surface)] open:shadow-[var(--shadow-sm)] transition-shadow duration-[var(--transition-base)]">
+        <summary class="cursor-pointer list-none p-[var(--space-6)] [&::-webkit-details-marker]:hidden">
+          <div class="flex items-start justify-between gap-[var(--space-4)]">
+            <div>
+              <h3 class="font-display text-[length:var(--text-2xl)] text-[var(--color-text)] mb-[var(--space-2)]">Elder &amp; Community Track</h3>
+              <p class="text-[length:var(--text-base)] text-[var(--color-accent-text,var(--brand-accent-dark))] font-semibold mb-[var(--space-3)]">6 weeks &middot; 6 sessions &middot; ~15 hours &middot; Elders, families, community members</p>
+              <p class="text-[length:var(--text-base)] text-[var(--color-text-muted)] leading-relaxed max-w-[var(--prose-width)]">
+                Your knowledge makes these tools useful. Co-design &mdash; tell builders what you need, review prototypes, confirm they actually help. No technical skills required. Participation-based assessment, no formal testing.
+              </p>
+            </div>
+            <svg class="w-5 h-5 shrink-0 mt-1 text-[var(--color-text-muted)] transition-transform duration-[var(--transition-base)] group-open:rotate-180" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+          </div>
+        </summary>
+        <div class="px-[var(--space-6)] pb-[var(--space-6)]">
+        <StyledTable class="mb-[var(--space-6)]">
           <table class="w-full text-left border-collapse">
             <thead>
               <tr class="border-b-2 border-[var(--brand-primary)] bg-[var(--brand-primary)]/[0.03]">
@@ -233,24 +274,25 @@ const trackColors: Record<string, string> = {
           <li class="flex gap-[var(--space-3)]"><span class="font-semibold text-[var(--color-text)] shrink-0">E1</span> Can describe what an agent does in your own words.</li>
           <li class="flex gap-[var(--space-3)]"><span class="font-semibold text-[var(--color-text)] shrink-0">E2</span> Contributed knowledge to at least one capstone project.</li>
         </ul>
-      </div>
+        </div>
+      </details>
     </div>
   </section>
 
   <!-- How Tracks Connect -->
-  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)] bg-[var(--color-bg-alt)]">
+  <section class="py-[var(--space-12)] md:py-[var(--space-16)] px-[var(--space-4)] bg-[var(--color-bg-alt)]">
     <div class="max-w-[var(--prose-width-wide)] mx-auto text-center">
-      <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-4)]">
+      <h2 class="font-display text-[length:var(--text-3xl)] text-[var(--color-text)] mb-[var(--space-3)]">
         How the tracks connect
       </h2>
-      <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] mb-[var(--space-12)]">
+      <p class="text-[length:var(--text-lg)] text-[var(--color-text-muted)] mb-[var(--space-6)]">
         Each track is incomplete without the others. This is by design.
       </p>
 
-      <KnowledgeEconomyCycle class="py-[var(--space-8)]" />
+      <KnowledgeEconomyCycle class="py-[var(--space-4)]" />
 
-      <p class="text-[var(--text-base)] text-[var(--color-text-muted)] leading-relaxed max-w-[var(--prose-width)] mx-auto mt-[var(--space-6)]">
-        Elders provide problems and domain knowledge. Builders create solutions. Stewards govern the process. Builders teach elders to use systems. Elders validate community value. Stewards ensure governance compliance. Mentors support everyone. Knowledge flows in every direction.
+      <p class="text-[length:var(--text-base)] text-[var(--color-text-muted)] leading-relaxed max-w-[var(--prose-width)] mx-auto mt-[var(--space-4)]">
+        Elders provide problems and knowledge. Builders create solutions. Stewards govern. Builders teach elders to use systems. Elders validate value. Stewards ensure governance. Mentors support everyone.
       </p>
     </div>
   </section>
