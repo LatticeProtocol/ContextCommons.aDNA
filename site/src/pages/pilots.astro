@@ -36,16 +36,16 @@ import PilotGlanceCard from '../components/sections/PilotGlanceCard.astro';
     </div>
   </section>
 
-  <section class="pb-[var(--space-16)] md:pb-[var(--space-24)] px-[var(--space-4)]">
+  <section class="pb-[var(--space-12)] px-[var(--space-4)]">
     <div class="max-w-[var(--prose-width)] mx-auto text-center">
-      <p class="text-[var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed">
-        The Context Commons launches with two deliberately contrasting pilots. Grand Rapids tests depth &mdash; what happens when an entire community invests in one shared knowledge system. Los Angeles tests breadth &mdash; can the same standard work across radically different institutions and cultural contexts. What works for one will not automatically work for the other. That is the point.
+      <p class="text-[length:var(--text-lg)] text-[var(--color-text-muted)] leading-relaxed">
+        Two deliberately contrasting pilots. Grand Rapids tests <strong>depth</strong> &mdash; what happens when a whole community invests in one shared knowledge system. Los Angeles tests <strong>breadth</strong> &mdash; can the same standard work across radically different institutions and cultures. What works for one will not automatically work for the other. That is the point.
       </p>
     </div>
   </section>
 
   <!-- Pilot A: Grand Rapids -->
-  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)] bg-[var(--color-bg-alt)]">
+  <section class="py-[var(--space-12)] md:py-[var(--space-16)] px-[var(--space-4)] bg-[var(--color-bg-alt)]">
     <div class="max-w-[var(--content-width)] mx-auto">
       <div class="flex flex-wrap items-center gap-[var(--space-3)] mb-[var(--space-2)]">
         <p class="text-[var(--text-sm)] font-semibold text-[var(--color-accent-text,var(--brand-accent-dark))]">Pilot A &middot; Q3 2026</p>
@@ -55,14 +55,14 @@ import PilotGlanceCard from '../components/sections/PilotGlanceCard.astro';
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-[var(--space-8)]">
         <div class="lg:col-span-2 space-y-[var(--space-4)]">
-          <p class="text-[var(--text-lg)] text-[var(--color-text)] font-semibold leading-relaxed">
-            A church in Grand Rapids. Eight to twelve young people. Twenty or more elders who need help navigating Medicare, coordinating care, and staying connected.
+          <p class="text-[length:var(--text-lg)] text-[var(--color-text)] font-semibold leading-relaxed">
+            A church in Grand Rapids. 8&ndash;12 young people. 20+ elders who need help navigating Medicare, coordinating care, staying connected.
           </p>
-          <p class="text-[var(--text-base)] text-[var(--color-text-muted)] leading-relaxed">
-            Peter&rsquo;s Church has been a community hub for decades. The congregation knows its members &mdash; who needs a ride to the doctor, who has a grandchild who could help, who speaks Karen, Swahili, or Arabic and needs translated materials. This knowledge lives in Pastor Williams&rsquo;s head and in a phone tree that runs through Deacon Harris.
+          <p class="text-[length:var(--text-base)] text-[var(--color-text-muted)] leading-relaxed">
+            Peter&rsquo;s Church knows its members &mdash; who needs a ride, who has a grandchild who could help, who speaks Karen, Swahili, or Arabic. This knowledge lives in Pastor Williams&rsquo;s head and in a phone tree through Deacon Harris.
           </p>
-          <p class="text-[var(--text-base)] text-[var(--color-text-muted)] leading-relaxed">
-            The pilot will structure that knowledge into context graphs &mdash; not to replace the phone tree, but to help it work better. Youth builders will create agent systems for elder Medicare enrollment, congregational care coordination, and healthcare navigation. Every system will be governed by church leadership and validated by the elders it serves.
+          <p class="text-[length:var(--text-base)] text-[var(--color-text-muted)] leading-relaxed">
+            The pilot structures that knowledge into context graphs &mdash; not to replace the phone tree, but to help it work better. Youth builders create agent systems for Medicare enrollment, care coordination, and healthcare navigation. Every system is governed by church leadership and validated by the elders it serves.
           </p>
         </div>
 
@@ -79,7 +79,7 @@ import PilotGlanceCard from '../components/sections/PilotGlanceCard.astro';
   </section>
 
   <!-- Pilot B: Los Angeles -->
-  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)]">
+  <section class="py-[var(--space-12)] md:py-[var(--space-16)] px-[var(--space-4)]">
     <div class="max-w-[var(--content-width)] mx-auto">
       <div class="flex flex-wrap items-center gap-[var(--space-3)] mb-[var(--space-2)]">
         <p class="text-[var(--text-sm)] font-semibold text-[var(--color-accent-text,var(--brand-accent-dark))]">Pilot B &middot; Q4 2026</p>
@@ -89,14 +89,14 @@ import PilotGlanceCard from '../components/sections/PilotGlanceCard.astro';
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-[var(--space-8)]">
         <div class="lg:col-span-2 space-y-[var(--space-4)]">
-          <p class="text-[var(--text-lg)] text-[var(--color-text)] font-semibold leading-relaxed">
-            Three institutions. Twelve to sixteen builders. One hundred languages.
+          <p class="text-[length:var(--text-lg)] text-[var(--color-text)] font-semibold leading-relaxed">
+            Three institutions. 12&ndash;16 builders. 100+ languages.
           </p>
-          <p class="text-[var(--text-base)] text-[var(--color-text-muted)] leading-relaxed">
-            The LA pilot is a constellation &mdash; LAUSD, the Venice Beach Book Club, and UCLA. Youth builders come from LAUSD classrooms. A mother walks into the Venice Beach Book Club with a folder of immigration documents she cannot read &mdash; she comes here because the people know her name, not because it is a government office. UCLA provides research support and mentorship.
+          <p class="text-[length:var(--text-base)] text-[var(--color-text-muted)] leading-relaxed">
+            A constellation: LAUSD, the Venice Beach Book Club, and UCLA. Youth builders come from LAUSD classrooms. A mother walks into the Book Club with a folder of immigration documents she cannot read &mdash; she comes here because the people know her name, not because it is a government office. UCLA provides research and mentorship.
           </p>
-          <p class="text-[var(--text-base)] text-[var(--color-text-muted)] leading-relaxed">
-            Where Grand Rapids tests depth at a single site, Los Angeles tests breadth. Immigration paperwork that varies by country of origin. Benefits enrollment that requires navigating state-specific rules. School enrollment for families who speak Spanish, Korean, Armenian, Tagalog, and dozens of other languages that LAUSD cannot always accommodate. The pilot will prove whether community-governed AI systems can work across radically different institutions and cultural contexts.
+          <p class="text-[length:var(--text-base)] text-[var(--color-text-muted)] leading-relaxed">
+            Where Grand Rapids tests depth at a single site, Los Angeles tests breadth. Immigration paperwork that varies by country of origin. Benefits enrollment with state-specific rules. School enrollment for families who speak Spanish, Korean, Armenian, Tagalog &mdash; languages LAUSD cannot always accommodate. The pilot proves whether community-governed AI can work across institutions and cultures.
           </p>
         </div>
 
@@ -113,7 +113,7 @@ import PilotGlanceCard from '../components/sections/PilotGlanceCard.astro';
   </section>
 
   <!-- Side-by-Side Comparison -->
-  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)] bg-[var(--color-bg-alt)]">
+  <section class="py-[var(--space-12)] md:py-[var(--space-16)] px-[var(--space-4)] bg-[var(--color-bg-alt)]">
     <div class="max-w-[var(--content-width)] mx-auto">
       <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] text-center mb-[var(--space-8)]">Two models, by design</h2>
       <!-- Desktop table -->
@@ -159,7 +159,7 @@ import PilotGlanceCard from '../components/sections/PilotGlanceCard.astro';
   </section>
 
   <!-- Timeline -->
-  <section class="py-[var(--space-16)] md:py-[var(--space-24)] px-[var(--space-4)]">
+  <section class="py-[var(--space-12)] md:py-[var(--space-16)] px-[var(--space-4)]">
     <div class="max-w-[var(--prose-width-wide)] mx-auto">
       <h2 class="font-display text-[var(--text-3xl)] text-[var(--color-text)] text-center mb-[var(--space-12)]">Timeline</h2>
       <PilotTimeline />
