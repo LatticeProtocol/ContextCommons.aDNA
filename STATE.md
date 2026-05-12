@@ -1,10 +1,10 @@
 ---
 type: state
 created: 2026-04-12
-updated: 2026-04-15
+updated: 2026-05-12
 status: active
 last_edited_by: agent_gutenberg
-last_session: session_stanley_20260415_live_iii_audit
+last_session: session_stanley_20260512_website_vercel_deploy
 tags: [state, governance]
 ---
 
@@ -54,6 +54,7 @@ Phase 2 gate passed (2026-04-13). Phase 3 in progress — M07, M08, and M08-R co
 - **M08-R Batch 8 completed** — Differentiated CTAs (Loops 71–80). Youth Builder + Mentor/Developer persona. ContactPathCard.astro and DetailSection.astro components created. IconEnvelope.astro added. 4 contact path boxes replaced with audience-specific accent borders and icons. 4 detail sections wrapped with card treatment and column containment. PersonaCard extended with anchor links to detail sections. Voice refinement from mentor/partnership context files. 298 total Playwright tests (48 new), 297 passed (9 flaky — pre-existing Vercel analytics).
 - **M08-R Batch 9 completed** — Header + Hero Image + Lighthouse + Validation Hardening (Loops 81–90). Mentor/Developer persona. Header refined (scroll shadow, active underline, focus trap, Escape close). Lighthouse CI installed + Gate 6 enabled (all pages: Perf 100, A11y 100, BP 96, SEO 100). Hero image integrated (pixel art, responsive `<picture>`, WebP variants 30-96KB). Motion layer (IntersectionObserver + data-animate, reduced-motion safe). A11y hardening (heading hierarchy, skip-to-content, focus-visible, cross-page nav). 332 total Playwright tests (34 new in 4 spec files), 9/10 quality gates passing. 13/13 original R1 gap register items closed.
 - **M08-R Batch 10 completed** — Final Persona Sweep + Deployment Readiness (Loops 91–100). All 8 personas validated. Mobile audit clean (393px). Content completeness sweep: zero jargon, zero placeholders across all file types. Lighthouse maintained 100/100/96/100. 332 Playwright tests, 9/10 quality gates. **M08-R mission complete — 100/100 III loops.**
+- **Production deploy completed 2026-05-12** — `vercel --prod` deploy of M08-R website. Live at **https://site-nu-lovat.vercel.app** (deployment id `dpl_FEEyyTcXsRQ8PVX5UZS96DyGdnJ9`). All 8 routes return 200 with byte-for-byte parity vs. local `dist/`. `contextcommons.org` not yet pointed at Vercel (0 custom domains under team scope) — separate task when partner branding warrants. Session: `session_stanley_20260512_website_vercel_deploy`.
 
 ## Active Campaigns
 
