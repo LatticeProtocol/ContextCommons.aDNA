@@ -1,13 +1,13 @@
 ---
 type: governance
-version: "6.0"
-token_estimate: ~4500
-updated: 2026-04-12
-last_edited_by: agent_stanley
+version: "7.0"
+token_estimate: ~3200
+updated: 2026-05-14
+last_edited_by: agent_gutenberg
 ---
 
 # CLAUDE.md — Context Commons
-<!-- v6.0 | 2026-04-12 -->
+<!-- v7.0 | 2026-05-14 — aggressive trim: reference content moved to what/context/ -->
 
 ## Identity & Personality
 
@@ -29,14 +29,12 @@ This vault is the **operational headquarters** for the Context Commons — a com
 
 On startup, determine whether this is an **uncustomized project** (freshly forked from the base template):
 
-1. Check `how/sessions/history/` — if empty (no session files in any subdirectory), this is likely a first run
-2. Check `MANIFEST.md` frontmatter — if `last_edited_by: agent_init`, it has never been customized
+1. Check `how/sessions/history/` — if empty (no session files in any subdirectory), this is likely a first run.
+2. Check `MANIFEST.md` frontmatter — if `last_edited_by: agent_init`, it has never been customized.
 
-If BOTH indicate first-run: load and follow `how/skills/skill_onboarding.md`. Do not proceed with normal session protocol until onboarding completes or the user explicitly skips it.
+If BOTH indicate first-run: load and follow `how/skills/skill_onboarding.md`. Do not proceed with normal session protocol until onboarding completes or the user explicitly skips it. If only ONE indicates first-run (partial onboarding), read the skill file and resume from the first incomplete step.
 
-If only ONE indicates first-run (partial onboarding), read the skill file and resume from the first incomplete step.
-
-> **Note**: If `MANIFEST.md` contains `role: template`, this is the base template inside `.adna/` — do NOT run onboarding here. The root-level `CLAUDE.md` (one directory up) handles template detection and project creation.
+If `MANIFEST.md` contains `role: template`, this is the base template inside `.adna/` — do NOT run onboarding here; the workspace-router CLAUDE.md one directory up handles template detection and project creation.
 
 ---
 
@@ -52,23 +50,25 @@ ContextCommons.aDNA/
 │
 ├── what/                        # WHAT — Knowledge, context, curriculum
 │   ├── context/                 # Agent context library (inherited + CC topics)
-│   │   ├── program_design/      # Thesis, principles, architecture, governance model
+│   │   ├── program_design/      # Thesis, principles, architecture, governance, standing orders, domain knowledge
 │   │   ├── fundraising/         # Funding strategy, grant catalogs, operations, fiscal sponsorship
-│   │   ├── curriculum_framework/# Track structures, module template (planned)
-│   │   ├── community_engagement/# Partnership model, community reqs (planned)
-│   │   ├── pilot_programs/      # Grand Rapids, LA pilot designs (planned)
-│   │   ├── use_case_domains/    # Healthcare, immigration, education (planned)
-│   │   └── adna_for_communities/# aDNA simplified for non-technical audience (planned)
+│   │   ├── curriculum_framework/# Track structures, module template
+│   │   ├── community_engagement/# Partnership model, community reqs
+│   │   ├── pilot_programs/      # Grand Rapids, LA pilot designs
+│   │   ├── use_case_domains/    # Healthcare, immigration, education
+│   │   ├── adna_for_communities/# aDNA simplified for non-technical audience
+│   │   ├── object_standards/    # Module/dataset/lattice standards + compliance dimensions
+│   │   └── about_forges.md      # Forge federation reference
 │   ├── use_cases/               # Community use case specifications
 │   ├── pilots/                  # Pilot program designs and evaluation
 │   ├── partnerships/            # Partnership proposals and agreements
 │   ├── decisions/               # Architecture Decision Records
 │   ├── docs/                    # aDNA specification documents
+│   ├── pixel_prompts/           # Image-generation prompt packs (cross-machine dispatch)
 │   └── lattices/                # Lattice YAML tools, schema, examples
 │
 ├── how/                         # HOW — Operations
 │   ├── campaigns/               # Multi-mission strategic initiatives
-│   │   └── campaign_context_commons_genesis/
 │   ├── missions/                # Standalone missions
 │   ├── sessions/                # Session tracking (active/ + history/)
 │   ├── templates/               # 22 inherited + 12 CC-specific templates
@@ -88,25 +88,18 @@ ContextCommons.aDNA/
 │   ├── partners/                # Technology & community partners
 │   ├── council/                 # Curriculum Council members
 │   ├── governance/              # Roles, policies, charter
-│   └── coordination/            # Cross-agent notes
+│   └── coordination/            # Cross-agent / cross-machine notes
 │
+├── iii/                         # III framework consumer wrapper (federation_ref → III.aDNA)
 ├── siteforge/                   # Forge wrapper — Context Commons website
 ├── videoforge/                  # Forge wrapper — educational videos
 ├── presentationforge/           # Forge wrapper — pitch decks, council presentations
 └── site/                        # Generated Astro 6 website (SiteForge output)
 ```
 
-### Forge Federation
+**Forge federation** — three wrappers (`siteforge/`, `videoforge/`, `presentationforge/`) federate to source forges via `federation_ref:` with `version_policy: minor`. Never copy forge implementation into wrappers. Full reference: `what/context/about_forges.md`.
 
-Content generation is powered by **three lightweight forge wrappers** inside this vault, each referencing shared implementations via federation:
-
-| Forge | Wrapper | Source Implementation | Purpose |
-|-------|---------|----------------------|---------|
-| SiteForge | `siteforge/` | `SiteForge.aDNA` + `lattice_website_builder` v2.0 | Context Commons website (organization_landing archetype) |
-| VideoForge | `videoforge/` | `~/lattice/lattice-video-forge/` package | Educational videos, community stories, curriculum previews |
-| PresentationForge | `presentationforge/` | `lattice-protocol/extensions/canvas/` + `lattice_presentation_content` v1.0 | Partnership pitches, Curriculum Council decks |
-
-Each wrapper has CLAUDE.md + MANIFEST.md + STATE.md + context. CC-specific lattice YAML files use `federation_ref:` with `version_policy: minor` to track forge updates. Never copy forge implementation into the wrappers.
+**III framework** — `iii/` wrapper federates to `III.aDNA` for the Inspect/Introspect/Improve quality loop. See `iii/CLAUDE.md` for packs declared and persona registry.
 
 ---
 
@@ -124,11 +117,7 @@ Each wrapper has CLAUDE.md + MANIFEST.md + STATE.md + context. CC-specific latti
 
 1. **Read before write.** Always read current content immediately before writing.
 2. **Check `updated` field.** If `updated` is today and you didn't make the last edit, confirm with the user.
-3. **Set `last_edited_by` and `updated`.** When modifying any content file, update frontmatter:
-   ```yaml
-   updated: 2026-04-12
-   last_edited_by: agent_{username}
-   ```
+3. **Set `last_edited_by` and `updated`.** When modifying any content file, update frontmatter with `updated: YYYY-MM-DD` and `last_edited_by: agent_{username}`.
 4. **One shared config at a time.** Edit one config, verify the write, then move to the next.
 5. **New files are safe.** Creating a new file has no collision risk.
 
@@ -143,36 +132,33 @@ Anomalies and blockers propagate upward through the execution hierarchy:
 | Campaign | Flag in campaign doc → STATE.md with `#needs-human` |
 
 **Rules**:
-- Stop if uncertain about destructive or irreversible actions
-- Flag blockers with `#needs-human`
-- Do not proceed with ambiguous scope — ask the user
-- A session discovery that affects the campaign must propagate upward — never bury findings
+- Stop if uncertain about destructive or irreversible actions.
+- Flag blockers with `#needs-human`.
+- Do not proceed with ambiguous scope — ask the user.
+- A session discovery that affects the campaign must propagate upward — never bury findings.
 
 ### Priority Hierarchy
 
-1. **Data integrity** — never corrupt or lose existing data
-2. **User-requested tasks** — explicit instructions from current user
-3. **Operational maintenance** — session tracking, plan updates
-4. **Exploration** — research, audits, improvements
+1. **Data integrity** — never corrupt or lose existing data.
+2. **User-requested tasks** — explicit instructions from current user.
+3. **Operational maintenance** — session tracking, plan updates.
+4. **Exploration** — research, audits, improvements.
 
 ---
 
 ## Standing Orders
 
-These rules apply to every session, mission, and campaign.
+Five **procedural** orders apply to every session, mission, and campaign:
 
 1. **Phase gates are human gates.** Never auto-advance between campaign phases without explicit user approval.
 2. **Destructive actions require confirmation.** Deleting files, overwriting shared configs, or abandoning missions — ask first.
 3. **Context budget is doctrine.** Design objectives to fit within a single session's effective context window.
 4. **Local context over global context.** Read the AGENTS.md in the directory you're working in before loading broader context. The local file is authoritative for that space.
 5. **Every mission gets an AAR.** Before setting any mission to `status: completed`, append a 5-line AAR (Worked/Didn't/Finding/Change/Follow-up). Template: `how/templates/template_aar_lightweight.md`. No exceptions.
-6. **Archive, never delete.** Campaign docs, mission files, session records — permanent audit trail. Set `status: abandoned` or `status: completed`, never remove.
-7. **Community voices are constitutional.** Every piece of content about a community must be reviewed for accuracy and representation by someone from that community. Never publish community content without confirming the community recognizes itself in it.
-8. **The curriculum IS a context graph.** Curriculum modules are aDNA context files. When creating curriculum, you are also modeling what the students will learn to build. Self-referentiality is a feature, not a bug.
-9. **Pilots are sovereign.** Each pilot community adapts the curriculum to its own context. Grand Rapids is not LA. Do not assume what works for one works for the other. Localization is a first-class design concern.
-10. **Youth builders are peers, not students.** They are building real systems for real communities. Never condescend. The curriculum is rigorous; the relationship is collaborative.
-11. **Elders and stewards have veto power on community use cases.** A technically elegant use case that the community stewards do not endorse does not ship. Community governance is a hard gate, not a soft signal.
-12. **Hardware and logistics are first-class concerns.** Budget, internet connectivity, physical space, device availability — these are not implementation details. They are design constraints that shape curriculum and pilot design. Track them explicitly.
+
+**Seven program-level orders** (archive-never-delete, community-voices-constitutional, curriculum-IS-context-graph, pilots-sovereign, youth-as-peers, elder/steward-veto, hardware/logistics-first-class) govern any curriculum, pilot, or community-facing work. Load `what/context/program_design/context_cc_standing_orders_program.md` for the full set when a session touches those domains.
+
+---
 
 ## Git Coordination
 
@@ -191,15 +177,15 @@ Git is the coordination bus for multi-user and multi-agent projects.
 ### Startup Checklist
 
 Every session, in order:
-1. **CLAUDE.md** — auto-loaded; confirms project structure and rules
-2. **First-run check** — if uncustomized project (`agent_init` + empty session history), invoke onboarding skill (`how/skills/skill_onboarding.md`) and STOP
-3. **STATE.md** — operational snapshot: current phase, blockers, next steps
-4. **`how/sessions/active/`** — check for conflicting sessions
-5. **`who/coordination/`** — read any urgent cross-agent notes
-6. **`how/backlog/`** — quick scan for ideas relevant to current session
-7. **`how/campaigns/`** — check for active campaigns
-8. **`how/missions/`** — check for active missions
-9. **Create session file** in `how/sessions/active/` and begin work
+1. **CLAUDE.md** — auto-loaded; confirms project structure and rules.
+2. **First-run check** — if uncustomized project (`agent_init` + empty session history), invoke `how/skills/skill_onboarding.md` and STOP.
+3. **STATE.md** — operational snapshot: current phase, blockers, next steps.
+4. **`how/sessions/active/`** — check for conflicting sessions.
+5. **`who/coordination/`** — read any urgent cross-agent or cross-machine notes.
+6. **`how/backlog/`** — quick scan for ideas relevant to current session.
+7. **`how/campaigns/`** — check for active campaigns.
+8. **`how/missions/`** — check for active missions.
+9. **Create session file** in `how/sessions/active/` and begin work.
 
 ### Session Greeting
 
@@ -209,12 +195,7 @@ Every session, in order:
 
 ### Session Tracking
 
-Every session creates a file in `how/sessions/active/` before modifying project files. On completion, set `status: completed` and move to `sessions/history/YYYY-MM/`.
-
-- **Tier 1** (default): Lightweight audit trail — session ID, intent, files touched.
-- **Tier 2** (shared config edits): Adds scope declaration, conflict scan, heartbeat.
-
-Full protocol: `how/sessions/AGENTS.md`
+Every session creates a file in `how/sessions/active/` before modifying project files. On completion, set `status: completed` and move to `sessions/history/YYYY-MM/`. Tier 1 (default, lightweight) vs Tier 2 (shared-config edits, adds scope declaration + heartbeat) — full protocol in `how/sessions/AGENTS.md`.
 
 ### Session Closure (SITREP)
 
@@ -236,13 +217,13 @@ Every session MUST include a **Next Session Prompt** — a self-contained paragr
 Campaign → Mission → Objective
 ```
 
-**Campaigns** (`how/campaigns/`) coordinate multiple missions toward a strategic goal. Campaign missions live inside their campaign directory at `how/campaigns/campaign_<name>/missions/`. Phased execution with user gates between phases. Protocol: `how/campaigns/AGENTS.md`
+**Campaigns** (`how/campaigns/`) coordinate multiple missions toward a strategic goal. Campaign missions live inside their campaign directory at `how/campaigns/campaign_<name>/missions/`. Phased execution with user gates between phases. Protocol: `how/campaigns/AGENTS.md`.
 
-**Missions** (`how/missions/` for standalone, `how/campaigns/*/missions/` for campaign-linked) decompose tasks too large for one session into objectives. Agents claim objectives by session, track progress, and hand off. Protocol: `how/missions/AGENTS.md`
+**Missions** (`how/missions/` for standalone, `how/campaigns/*/missions/` for campaign-linked) decompose tasks too large for one session into objectives. Agents claim objectives by session, track progress, and hand off. Protocol: `how/missions/AGENTS.md`.
 
 **Objectives** are the atomic work units tracked within mission documents.
 
-**OODA Cascade** (opt-in): Each level runs an Observe-Orient-Decide-Act loop. Session OODA is continuous; Mission OODA runs at session close (SITREP) and mission close (AAR); Campaign OODA runs at phase gates. Anomalies propagate upward; restructuring flows downward. Context: `context_adna_core_ooda_cascade.md`
+**OODA Cascade** (opt-in): each level runs an Observe-Orient-Decide-Act loop. Session OODA is continuous; Mission OODA runs at session close (SITREP) and mission close (AAR); Campaign OODA runs at phase gates. Anomalies propagate upward; restructuring flows downward. Full context: `context_adna_core_ooda_cascade.md`.
 
 ### Context Recipes
 
@@ -250,117 +231,30 @@ Cross-topic context assemblies for multi-disciplinary tasks. Recipe index: `what
 
 ### Skills
 
-Reusable agent recipes and documented procedures in `how/skills/`. Skills have two types: `agent` (automated recipes) and `process` (human/hybrid procedures). Protocol: `how/skills/AGENTS.md`
+Reusable agent recipes and documented procedures in `how/skills/`. Two types: `agent` (automated recipes) and `process` (human/hybrid procedures). Full triggers + protocol: `how/skills/AGENTS.md`.
 
-**Skills inventory**:
-
-| Skill | Type | Trigger |
-|-------|------|---------|
-| `skill_onboarding` | agent | First-run detection in forked project (uncustomized, no `role: template`) |
-| `skill_project_fork` | agent | User wants to create a new project (called from root CLAUDE.md) |
-| `skill_workspace_init` | agent | *Deprecated* — root CLAUDE.md now ships pre-authored |
-| `skill_l1_upgrade` | agent | User asks about L1/compute/JupyterHub |
-| `skill_lattice_publish` | agent | User wants to publish a lattice to registry |
-| `skill_new_entity_type` | agent | User wants to extend the ontology |
-| `skill_context_quality_audit` | agent | Audit request for context files |
-| `skill_context_graduation` | process | Context promotion to higher quality tier |
-| `skill_vault_review` | agent | Governance audit of vault structure |
-| `skill_upstream_contribution` | process | Agent notices framework-level gap |
-| `skill_version_migration` | process | CLAUDE.md version upgrade |
-| `skill_sqlite_persistence` | process | Multiple agents, sessions hard to query, learnings accumulating without validation signal |
-| `skill_orchestration_tiers` | process | Multi-file tasks, tier classification, agent spawning, model routing decisions |
+| Skill | Purpose |
+|-------|---------|
+| `skill_onboarding` | First-run setup for a forked CC vault |
+| `skill_project_fork` | Create a new project (called from root CLAUDE.md) |
+| `skill_l1_upgrade` | L1/compute/JupyterHub setup |
+| `skill_lattice_publish` | Publish a lattice to the registry |
+| `skill_new_entity_type` | Extend the ontology |
+| `skill_context_quality_audit` | Audit context files (10-dim compliance) |
+| `skill_context_graduation` | Promote context to higher quality tier |
+| `skill_vault_review` | Governance audit of vault structure |
+| `skill_upstream_contribution` | Framework-level gap → backlog idea |
+| `skill_version_migration` | CLAUDE.md version upgrade |
+| `skill_sqlite_persistence` | Multi-agent session indexing |
+| `skill_orchestration_tiers` | Multi-file task tiering + agent spawning |
 
 ---
 
 ## Domain Knowledge
 
-### Ontology (14 base + 12 CC extensions)
+Reference tables for ontology, context library, program structure, lattice types, execution modes, compute tiers, and the convergence model — all previously inline here — now live in `what/context/program_design/context_cc_domain_knowledge.md`. Load when navigating ontology, picking a lattice type, reasoning about compute placement, or describing decomposition.
 
-| Triad Leg | Base Entities | CC Extensions |
-|-----------|---------------|---------------|
-| **WHO** (3+6) | `governance`, `team`, `coordination` | `communities/` (pilot communities), `mentors/` (Lattice dev mentors), `stewards/` (community stewards), `builders/` (youth 14-24), `partners/` (tech & community orgs), `council/` (Curriculum Council) |
-| **WHAT** (4+3) | `context`, `decisions`, `modules`, `lattices` | `use_cases/` (community use case specs), `pilots/` (pilot program designs), `partnerships/` (proposals & agreements) |
-| **HOW** (7+3) | `campaigns`, `missions`, `sessions`, `templates`, `skills`, `pipelines`, `backlog` | `tracks/` (Builder/Steward/Elder progression), `curriculum/` (module tracking), `editorial/` (content pipeline, Phase 2) |
-
-### Context Library (CC Topics)
-
-| Topic | Status | Subtopics | Est. Tokens | Purpose |
-|-------|--------|-----------|-------------|---------|
-| `program_design/` | **Active** (III-reviewed, avg 3.8) | 4 | ~9K | Thesis, principles, architecture, governance model |
-| `curriculum_framework/` | Planned | 5 | ~10K | Track structures, module template, pedagogy |
-| `community_engagement/` | **Active** (III-reviewed, avg 4.37) | 3 | ~9.1K | Partnership model, community reqs, mentor roles |
-| `pilot_programs/` | Planned | 3 | ~8K | Grand Rapids, LA pilot designs, evaluation |
-| `use_case_domains/` | Planned | 5 | ~10K | Healthcare, immigration, education, elder care, community gov |
-| `adna_for_communities/` | **Seeded** (DRAFT) | 2 | ~3.5K | aDNA simplified, lattice for communities |
-| `fundraising/` | Active | 6 | ~14K | Funding strategy, grant catalogs, operations, fiscal sponsorship |
-
-Plus 5 inherited topics (~75K tokens): prompt_engineering, adna_core, claude_code, lattice_basics, object_standards.
-
-### Program Structure
-
-**Three-tier mentorship model:**
-
-| Role | Who | Function |
-|------|-----|----------|
-| **Lattice Mentors** | Developers from aDNA/Lattice community | Teach stewards technical foundations; support youth builders |
-| **Community Stewards** | Local leaders (pastors, teachers, organizers) | Bridge between mentors and community; govern local priorities |
-| **Youth Builders** | Young people (ages 14-24) | Learn, build, deploy, maintain agentic systems; teach elders |
-
-**Four curriculum tracks:** Core (all participants), Builder (youth, technical), Steward (community leaders), Elder & Community Member (beneficiaries, co-designers).
-
-**Two pilot programs:**
-- **Pilot A**: Peter's Church, Grand Rapids, MI — target Q3 2026
-- **Pilot B**: LAUSD / Venice Beach Book Club / UCLA, Los Angeles, CA — target Q4 2026
-
-### Lattice Types
-
-| Type | Description | Execution Mode |
-|------|-------------|---------------|
-| `pipeline` | Deterministic DAG of modules | `workflow` |
-| `agent` | LLM-driven reasoning | `reasoning` |
-| `context_graph` | Knowledge structure | varies |
-| `workflow` | Operational process | `workflow` |
-| `infrastructure` | Physical/network topology (nodes, edges, services) | varies |
-| `context_set` | Disease/domain-specific overlay inheriting from a base lattice | varies |
-| `skill` | Claude Skill promoted to lattice registry | varies |
-
-### Execution Modes
-
-| Mode | Description |
-|------|-------------|
-| `workflow` | Deterministic DAG — fixed sequence of steps |
-| `reasoning` | LLM-driven — model decides next steps |
-| `hybrid` | Mixed — workflow structure with reasoning at decision points |
-
-### Object Standards
-
-Three core object types have type-standard docs, YAML schemas, and FAIR metadata requirements. Targets are a dataset subtype (`dataset_class: target`).
-
-| Object | Context Reference | Schema |
-|--------|------------------|--------|
-| Module | `what/context/object_standards/` | — |
-| Dataset | `what/context/object_standards/` | — |
-| Lattice | `what/context/object_standards/` | `what/lattices/lattice_yaml_schema.json` |
-
-### Compute Tiers
-
-| Tier | Scope | Example |
-|------|-------|---------|
-| **L0** (Local) | Knowledge architecture only — Obsidian + Claude Code, no compute services | Fresh `~/lattice/` workspace |
-| **L1** (Edge) | Local/edge compute, lightweight inference — JupyterHub + Lattice network | Laptop GPU, edge device |
-| **L2** (Regional) | Institutional clusters, moderate training | University cluster, on-prem HPC |
-| **L3** (Cloud/HPC) | Large-scale data centers, heavy training | Cloud GPU fleet |
-
-### Convergence Model
-
-The execution hierarchy (Campaign → Mission → Objective) is a convergent decomposition: each level narrows context, reducing token count while increasing signal density.
-
-| Level | Structural Parallel (informal) | Effect |
-|-------|-------------------------------|--------|
-| **Vault** | Finite collection | Total knowledge — full token count |
-| **Campaign** | Subset selection | Strategic initiative — hundreds of files → tens |
-| **Mission** | Narrower subset selection | Decomposed task — tens of files → handful |
-| **Objective** | Exact file selection | Session work — the exact files needed |
+**Quick summary**: three-tier mentorship (Lattice Mentors / Community Stewards / Youth Builders 14–24) across four curriculum tracks (Core / Builder / Steward / Elder & Community) running two pilots (Pilot A Grand Rapids Q3 2026, Pilot B Los Angeles Q4 2026).
 
 ---
 
@@ -368,36 +262,15 @@ The execution hierarchy (Campaign → Mission → Objective) is a convergent dec
 
 ### Naming
 
-**Always underscores, never hyphens.** Pattern: `type_descriptive_name.md`
+**Always underscores, never hyphens.** Pattern: `type_descriptive_name.md`.
 
 ### Metadata
 
-All content files require YAML frontmatter:
-```yaml
----
-type: {entity_type}
-created: YYYY-MM-DD
-updated: YYYY-MM-DD
-status: active
-last_edited_by: agent_{username}
-tags: []
----
-```
+All content files require YAML frontmatter. Required fields: `type`, `created`, `updated`, `status`, `last_edited_by`, `tags`. See `how/templates/` for the canonical frontmatter examples by entity type.
 
 ### Compliance Dimensions
 
-Object quality is measured across 10 dimensions (scored 0-5 each, 50 max):
-
-1. **Triad structure** — correct directory placement
-2. **Governance** — CLAUDE.md, MANIFEST.md, STATE.md coherence
-3. **Frontmatter** — required fields present and valid
-4. **FAIR metadata** — keywords, license, identifier, provenance
-5. **Type vocabulary** — canonical I/O types on module inputs/outputs
-6. **Versioning** — semver in frontmatter, CHANGELOG entries
-7. **Federation** — discoverable flag, federation block
-8. **Registration** — lattice registry readiness
-9. **Companions** — YAML companion files for non-YAML objects
-10. **Reproducibility** — clear inputs, outputs, and execution context
+Object quality is measured across 10 dimensions (scored 0-5 each, 50 max) — full reference at `what/context/object_standards/context_object_standards_compliance.md`. Run `skill_context_quality_audit` to score a topic; `skill_vault_review` to score the vault.
 
 ### Linking
 
@@ -405,9 +278,7 @@ Use bidirectional wikilinks when adding relationships between entities.
 
 ### Upstream Contribution Awareness
 
-While working in any aDNA vault, stay alert for **framework-level** improvement opportunities — missing template fields, undocumented patterns, naming inconsistencies, or gaps you had to work around. These are improvements that would help *all* aDNA users, not just the current project.
-
-When you notice one, mention it to the user at a **natural pause point** (end of task, SITREP). If approved, create a backlog idea file with the `idea_upstream_` prefix. Full protocol: `how/skills/skill_upstream_contribution.md`.
+While working in any aDNA vault, stay alert for **framework-level** improvement opportunities — missing template fields, undocumented patterns, naming inconsistencies, or gaps you had to work around. When you notice one, mention it to the user at a natural pause point (end of task, SITREP). If approved, create a backlog idea file with the `idea_upstream_` prefix. Full protocol: `how/skills/skill_upstream_contribution.md`.
 
 ---
-<!-- v6.0 | 2026-04-12 -->
+<!-- v7.0 | 2026-05-14 -->
