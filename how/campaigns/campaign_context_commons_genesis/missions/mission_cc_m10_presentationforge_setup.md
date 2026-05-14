@@ -1,17 +1,21 @@
 ---
 type: campaign_mission
 created: 2026-04-13
-updated: 2026-04-13
-status: planned
+updated: 2026-05-14
+status: paused
 last_edited_by: agent_gutenberg
 campaign: campaign_context_commons_genesis
 phase: 3
 mission_id: M10
 session_estimate: 1
-tags: [mission, genesis, presentationforge, M10]
+paused_at: 2026-05-14
+paused_reason: campaign_civic_press_redesign in flight; resume after MCP-7 ships
+tags: [mission, genesis, presentationforge, M10, paused]
 ---
 
 # Mission M10: PresentationForge Wrapper Setup
+
+> **PAUSED 2026-05-14.** Same reason as M09 — the Civic Press redesign campaign (`campaign_civic_press_redesign`) is locking a new visual doctrine (editorial broadsheet × 16-bit pixel art + Fraunces/Source Serif 4/JetBrains Mono FOSS type system) that PresentationForge will inherit. Resume after the home page lands at MCP-3 (P1 gate) so the deck system adopts the same tokens, type, and voice without retrofit.
 
 ## Goal
 

@@ -1,11 +1,11 @@
 ---
 type: state
 created: 2026-04-12
-updated: 2026-05-12
+updated: 2026-05-14
 status: active
 last_edited_by: agent_gutenberg
-last_session: session_stanley_20260512_m08c_homepage_compression
-tags: [state, governance]
+last_session: session_stanley_20260514_civic_press_workstream_a
+tags: [state, governance, civic_press]
 ---
 
 # Operational State
@@ -14,9 +14,11 @@ Dynamic operational snapshot for cold-start orientation. Updated each session.
 
 ## Current Phase
 
-**Phase 3 — Infrastructure. In progress. M08-R complete (100/100 III loops).**
+**Genesis Phase 3 — Infrastructure (M09/M10 PAUSED). Civic Press redesign campaign opening; Workstream A complete 2026-05-14.**
 
-Phase 2 gate passed (2026-04-13). Phase 3 in progress — M07, M08, and M08-R complete. M08-R (Website Refinement — 100 III Loops) completed all 10 batches (Visual System Activation, Voice Alignment, Diagrams & Visual Storytelling, Icon System, Cognitive Load Reduction, Mission Clarity & Impact, Community Warmth & Specificity, Differentiated CTAs, Header + Hero Image + Lighthouse + Validation Hardening, Final Persona Sweep + Deployment Readiness). 332 Playwright tests, 9/10 quality gates, Lighthouse 100/100/96/100. M09 (VideoForge) and M10 (PresentationForge) follow.
+Genesis campaign Phase 2 gate passed (2026-04-13). Phase 3 partially complete — M07, M08, M08-R, M08-C all closed; M09 (VideoForge) and M10 (PresentationForge) **paused 2026-05-14** so the Civic Press redesign can land a new visual doctrine before forge-wrapper configuration commits to it. New campaign `campaign_civic_press_redesign` (peer to genesis) opens at B1 of the plan; Workstream A (vault hygiene + III bootstrap + GitHub public remote) ✓ complete this session. Plan: `~/.claude/plans/please-read-the-claude-md-glittery-waterfall.md`.
+
+**GitHub remote**: https://github.com/LatticeProtocol/ContextCommons.aDNA (PUBLIC, renamed from `context-commons-adna` 2026-05-14). Cross-machine dispatch pattern (Stanley pushes → Herb's agent pulls + generates → Herb commits + pushes → Stanley pulls) wired for MCP-2 pixel-art generation.
 
 ## What's Working
 
@@ -55,28 +57,42 @@ Phase 2 gate passed (2026-04-13). Phase 3 in progress — M07, M08, and M08-R co
 - **M08-R Batch 9 completed** — Header + Hero Image + Lighthouse + Validation Hardening (Loops 81–90). Mentor/Developer persona. Header refined (scroll shadow, active underline, focus trap, Escape close). Lighthouse CI installed + Gate 6 enabled (all pages: Perf 100, A11y 100, BP 96, SEO 100). Hero image integrated (pixel art, responsive `<picture>`, WebP variants 30-96KB). Motion layer (IntersectionObserver + data-animate, reduced-motion safe). A11y hardening (heading hierarchy, skip-to-content, focus-visible, cross-page nav). 332 total Playwright tests (34 new in 4 spec files), 9/10 quality gates passing. 13/13 original R1 gap register items closed.
 - **M08-R Batch 10 completed** — Final Persona Sweep + Deployment Readiness (Loops 91–100). All 8 personas validated. Mobile audit clean (393px). Content completeness sweep: zero jargon, zero placeholders across all file types. Lighthouse maintained 100/100/96/100. 332 Playwright tests, 9/10 quality gates. **M08-R mission complete — 100/100 III loops.**
 - **Production deploy completed 2026-05-12** — `vercel --prod` deploy of M08-R website. Live at **https://site-nu-lovat.vercel.app** (deployment id `dpl_FEEyyTcXsRQ8PVX5UZS96DyGdnJ9`). All 8 routes return 200 with byte-for-byte parity vs. local `dist/`. `contextcommons.org` not yet pointed at Vercel (0 custom domains under team scope) — separate task when partner branding warrants. Session: `session_stanley_20260512_website_vercel_deploy`.
-- **M08-C completed 2026-05-12** — 25 III loops of homepage + site-wide compression. Hero refactored (image 42% desktop / 80% mobile; new `--text-5xl` token; thesis rewritten as "intergenerational program: youth build / elders teach / community owns"). Site-wide compression: home -18% desktop / -26% mobile, curriculum -29% / -32% (via `<details>` collapse), get-involved -29% / -45% (DetailSection → `<details>`), about -12% / -21%. New Playwright visual-inspection harness captures 24 screenshots + DOM scrollHeight per labeled run. Brandable URL **https://contextcommons.vercel.app/** claimed and public (required `vercel api PATCH ssoProtection: null` to disable team SSO on the alias). 346 tests passing / 17 skipped / 0 failed. Lighthouse on `/` 100/100/96/100 (parity). AAR: `how/missions/artifacts/aar_m08c_compression.md`.
+- **M08-C completed 2026-05-12** — 25 III loops of homepage + site-wide compression. Hero refactored (image 42% desktop / 80% mobile; new `--text-5xl` token; thesis rewritten as "intergenerational program: youth build / elders teach / community owns"). Site-wide compression: home -18% desktop / -26% mobile, curriculum -29% / -32% (via `<details>` collapse), get-involved -29% / -45% (DetailSection → `<details>`), about -12% / -21%. New Playwright visual-inspection harness captures 24 screenshots + DOM scrollHeight per labeled run. Brandable URL **https://contextcommons.vercel.app/** claimed and public. 346 tests passing / 17 skipped / 0 failed. Lighthouse on `/` 100/100/96/100 (parity). AAR: `how/missions/artifacts/aar_m08c_compression.md`.
+- **Civic Press Workstream A completed 2026-05-14** — vault rename `context_commons.aDNA` → `ContextCommons.aDNA` (commit `a7dbbd2`; workspace router + 21 sibling-vault live refs + auto-memory dir all migrated; sibling-vault edits left uncommitted in those repos for Stanley to batch-review). CLAUDE.md aggressive trim 413 → 284 lines (commit `6068924`; v6.0 → v7.0; 4 companion context files created: `about_forges.md`, `context_cc_standing_orders_program.md`, `context_cc_domain_knowledge.md`, `context_object_standards_compliance.md`). `iii/` consumer wrapper bootstrapped (commit `fb3df49`; federation_ref pinned to III.aDNA v0.2.0 / commit `5cd210e`; 6 packs declared incl. `whitepaper_communication` for editorial copy; 8-persona registry extracted from M08-R batches; empty learning store JSONL initialized). GitHub repo renamed `context-commons-adna` → `ContextCommons.aDNA` and visibility flipped PRIVATE → PUBLIC. M09 + M10 status `planned` → `paused` with resume condition "after MCP-7 ships."
 
 ## Active Campaigns
 
 | Campaign | Phase | Status | Priority |
 |----------|-------|--------|----------|
-| `campaign_context_commons_genesis` | Phase 3 | **Active** | Primary |
+| `campaign_context_commons_genesis` | Phase 3 (M09/M10 paused) | **Suspended** | Resumes after Civic Press |
+| `campaign_civic_press_redesign` | Workstream A ✓ → B (pending) | **Active** | Primary |
 
 ## Mission Status
 
-| Mission | Phase | Status | Sessions |
-|---------|-------|--------|----------|
-| M00 | 1 | **Completed** | 1 (est. 2-3) |
-| M01 | 1 | **Completed** | 1 (est. 2) |
-| M02 | 1 | **Completed** | 1 (est. 2) |
-| M03 | 1 | **Completed** | 1 (est. 1) |
-| M04 | 2 | **Completed** | 1 (est. 2) |
-| M05 | 2 | **Completed** | 1 (est. 2-3) |
-| M06 | 2 | **Completed** | 1 (est. 1-2) |
-| M07 | 3 | **Completed** | 1 (est. 1) |
-| M08 | 3 | **Completed** | 1 (est. 3-4) |
-| M08-R | 3 | **Completed** | 10/10 (R1-R10 complete) |
+| Mission | Campaign | Phase | Status | Sessions |
+|---------|----------|-------|--------|----------|
+| M00 | genesis | 1 | **Completed** | 1 (est. 2-3) |
+| M01 | genesis | 1 | **Completed** | 1 (est. 2) |
+| M02 | genesis | 1 | **Completed** | 1 (est. 2) |
+| M03 | genesis | 1 | **Completed** | 1 (est. 1) |
+| M04 | genesis | 2 | **Completed** | 1 (est. 2) |
+| M05 | genesis | 2 | **Completed** | 1 (est. 2-3) |
+| M06 | genesis | 2 | **Completed** | 1 (est. 1-2) |
+| M07 | genesis | 3 | **Completed** | 1 (est. 1) |
+| M08 | genesis | 3 | **Completed** | 1 (est. 3-4) |
+| M08-R | genesis | 3 | **Completed** | 10/10 (R1-R10 complete) |
+| M08-C | genesis | 3 | **Completed** | 1 (25 III compression loops) |
+| M09 | genesis | 3 | **Paused** | (resumes after MCP-7) |
+| M10 | genesis | 3 | **Paused** | (resumes after MCP-7) |
+| Workstream A | civic_press | pre-B | **Completed** | 1 (this session) |
+| MCP-0 | civic_press | P0 | Planned | 1 |
+| MCP-1 | civic_press | P0 | Planned | 1 |
+| MCP-2 | civic_press | P0 | Planned | 1 + N ingest |
+| MCP-3 | civic_press | P1 | Planned | 1 |
+| MCP-4 | civic_press | P2 | Planned | 1 |
+| MCP-5 | civic_press | P2 | Planned | 1 |
+| MCP-6 | civic_press | P2 | Planned | 1 |
+| MCP-7 | civic_press | P3 | Planned | 1 |
 
 ## Timeline
 
@@ -206,8 +222,20 @@ None.
 
 ## Next Steps
 
-1. **M09 (VideoForge setup)** — next Phase 3 mission. Configure VideoForge wrapper for educational video production.
-2. **M10 (PresentationForge setup)** — follows M09. Configure PresentationForge wrapper for pitch decks and council presentations.
-3. After M10: Phase 3 gate review, then Phase 4 (Launch Preparation, M11-M14).
-4. Phase 4 content strategy should address funder-facing outcomes and measurable metrics (P0 finding from R10 persona walkthroughs).
-5. **Completed backlog items**: `idea_hero_image_generation.md`, `idea_lighthouse_ci_integration.md`, `idea_a11y_hardening.md` — all absorbed into R9.
+1. **Workstream B (open `campaign_civic_press_redesign`)** — author `how/campaigns/campaign_civic_press_redesign/campaign_civic_press_redesign.md` charter with phases (P0/P1/P2/P3), the 8-mission roster (MCP-0..MCP-7), and the decision register (D-FONT-PAIRING-FINAL, D-COLOR-TOKENS open; pixel-art-pipeline, font posture, campaign frame, vault rename, CLAUDE.md trim already locked per plan).
+2. **MCP-0 (Design tokens + style sheet)** — settle D-FONT-PAIRING-FINAL (Fraunces vs. similar display, Source Serif 4 vs. Newsreader for body, JetBrains Mono vs. Departure Mono for functional) and D-COLOR-TOKENS (paper, ink, press-red, civic-blue final hex + `--pixel-*` palette) with live specimens. Install `@fontsource` packages. Persona: P-01 Technical Reviewer.
+3. **MCP-1 (Shared scaffolding)** — build masthead, colophon footer, page-opener pattern, pull quote, marginalia, status chip, section-opener variants. Persona: P-08 Mentor/Developer.
+4. **MCP-2 (Pixel-art prompt pack + dispatch to Herb's agent)** — author ~30 per-asset prompts at `what/pixel_prompts/civic_press/`; coordination memo at `who/coordination/coord_2026_MM_DD_civic_press_pixel_art_dispatch.md`; placeholder PNG stubs in `public/pixel/`. Push to public remote; Stanley signals Herb.
+5. **MCP-3 → MCP-6** — page rebuilds with formal III pass per mission (Workstream C cadence).
+6. **MCP-7** — cross-page audit + production deploy + AAR + graduation review of accumulated III traps.
+7. **After MCP-7 ships**: resume genesis M09 (VideoForge) and M10 (PresentationForge) — both inherit the locked visual system.
+
+## Civic Press P0 design directives
+
+Stanley's two-part directive (home page + system-wide) lives in plan context. Key doctrine pillars:
+- **The Civic Press** — editorial broadsheet × 16-bit civic pixel art × open-standard quiet authority
+- Four-color palette: paper (#F4EFE6-#F8F3EA) / ink (#1A1714-#15110D) / press-red (#C8321C-#B83A2B) / civic-blue (#2A4E6E-#1F3A52)
+- FOSS-only type: Fraunces (display) + Source Serif 4 or Newsreader (body) + JetBrains Mono or Departure Mono (functional)
+- Reverse-Big-Brother promotion to home page (community governance + no data extraction + open standards as written promises)
+- Two-birds line propagated to 4 placements; Michael Brooks dedicatory line + bilingual posture in every footer
+- Pilot copy sharpened: GR oral-history archive + Social Security; LA bilingual learning enablement leads
