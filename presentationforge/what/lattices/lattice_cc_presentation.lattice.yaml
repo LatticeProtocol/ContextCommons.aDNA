@@ -127,4 +127,4 @@ lattice:
 
   federation:
     discoverable: true
-    source_instance: context_commons.aDNA
+    source_instance: ContextCommons.aDNA

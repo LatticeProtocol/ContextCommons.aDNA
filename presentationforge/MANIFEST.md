@@ -15,7 +15,7 @@ tags: [presentationforge, forge, manifest]
 | **Name** | PresentationForge (Context Commons) |
 | **Type** | Lightweight forge wrapper |
 | **Version** | 1.0.0 |
-| **Parent Vault** | context_commons.aDNA |
+| **Parent Vault** | ContextCommons.aDNA |
 | **Source** | `lattice-protocol/extensions/canvas/` |
 | **Output** | Slide decks for partnerships, council, and community audiences |
 

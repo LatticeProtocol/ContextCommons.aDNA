@@ -15,7 +15,7 @@ tags: [siteforge, forge, manifest]
 | **Name** | SiteForge (Context Commons) |
 | **Type** | Lightweight forge wrapper |
 | **Version** | 1.0.0 |
-| **Parent Vault** | context_commons.aDNA |
+| **Parent Vault** | ContextCommons.aDNA |
 | **Source Lattice** | `lattice_website_builder.lattice.yaml` v2.0 |
 | **Archetype** | `organization_landing` |
 | **Output** | Astro 6 website (Context Commons program site) |

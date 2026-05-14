@@ -43,7 +43,7 @@ If only ONE indicates first-run (partial onboarding), read the skill file and re
 ## Project Map
 
 ```
-context_commons.aDNA/
+ContextCommons.aDNA/
 ├── CLAUDE.md                    # Agent master context (this file)
 ├── AGENTS.md                    # Root agent guide
 ├── MANIFEST.md                  # Project overview, architecture, entry points

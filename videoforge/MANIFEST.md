@@ -15,7 +15,7 @@ tags: [videoforge, forge, manifest]
 | **Name** | VideoForge (Context Commons) |
 | **Type** | Lightweight forge wrapper |
 | **Version** | 1.0.0 |
-| **Parent Vault** | context_commons.aDNA |
+| **Parent Vault** | ContextCommons.aDNA |
 | **Source Package** | `lattice-video-forge` (lvf) |
 | **Output** | Educational and promotional video content |
 

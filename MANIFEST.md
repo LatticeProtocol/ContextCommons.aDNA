@@ -19,7 +19,7 @@ Built on the aDNA Context Graph Standard and the Lattice Protocol. *"Every commu
 This project uses the **aDNA (Agentic DNA)** knowledge architecture — a bare triad deployment extended with 12 domain-specific entity types and 3 forge wrappers.
 
 ```
-context_commons.aDNA/
+ContextCommons.aDNA/
 ├── what/        # WHAT — Knowledge, context library, curriculum, use cases
 ├── how/         # HOW — Operations, campaigns, tracks, curriculum modules
 ├── who/         # WHO — Communities, mentors, stewards, builders, partners
