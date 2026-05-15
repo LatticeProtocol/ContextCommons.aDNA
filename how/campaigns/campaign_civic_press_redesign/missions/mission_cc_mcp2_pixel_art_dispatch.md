@@ -2,23 +2,36 @@
 type: campaign_mission
 created: 2026-05-14
 updated: 2026-05-14
-status: planned
+status: phase_a_dispatched
 last_edited_by: agent_gutenberg
 campaign: campaign_civic_press_redesign
 phase: 0
 mission_id: MCP-2
-session_estimate: "1 (kick-off) + N (ingest)"
+session_estimate: "1 (Phase A dispatch) + 1 (Phase B review) + 1 (Phase C dispatch) + N (Phase D ingest)"
 iii_persona: (none — coordination mission)
 tags: [mission, civic_press, pixel_art, herb_dispatch, coordination, p0]
 ---
 
-# Mission MCP-2: Pixel-Art Prompt Pack + Dispatch to Herb's Agent
+# Mission MCP-2: Pixel-Art Prompt Pack + Generation + Ingest (cross-machine, Herb-authored)
 
 ## Goal
 
-Author one prompt artifact per pixel-art asset (~30 pieces) so layout work in MCP-3 through MCP-6 can proceed against placeholders, then dispatch the prompt pack to Herb's agent via the cross-machine coordination system. Herb generates; Stanley pulls and ingests in subsequent ingest sessions.
+Ship 37 pixel-art pieces — hero diptychs, section plates, role portraits, track plates, lifecycle plates, pilot icons, three seals — under a single-artist / single-palette / single-style discipline, ingested into `site/public/pixel/` and wired into pages at MCP-3..MCP-6. The work is **dispatched cross-machine to Herb's agent** in two stages — prompt authoring first (Phase A), image generation second (Phase C) — with Stanley review checkpoints between.
 
-This mission has two phases: a single **kick-off session** (author prompts, place placeholders, dispatch memo, push) and **N ingest sessions** (as Herb's batches return, swap placeholders for finals, verify Playwright snapshot tests).
+**Reshape note (2026-05-14)**: this mission was originally scoped as "Stanley authors prompts; Herb generates images" — reshaped to "Herb authors prompts; Stanley reviews; Herb generates images" at Stanley's request. The reshape gives Stanley a cheap text-level checkpoint before image generation commits resources, and leverages Herb's specialization in visual + cross-vault judgment.
+
+## Phases
+
+| Phase | Owner | Outcome | Dispatch artifact |
+|---|---|---|---|
+| **A — Prompt-pack authoring** | Herb's agent | 37 prompt files at `what/pixel_prompts/civic_press/<asset_name>.md` + `INDEX.md` + `INGEST_LOG.md`; PR open to `main`; done-note filed | `who/coordination/coord_2026_05_14_civic_press_pixel_prompts_dispatch.md` (dispatched at kick-off 2026-05-14) |
+| **B — Stanley reviews + merges** | Stanley | Pull PR; spot-check 3-5 prompts against the exemplar + style sheet for palette/structure/alt-text adherence; merge OR request revisions via a coord-memo update | (in-vault review; no new dispatch artifact) |
+| **C — Image generation** | Herb's agent | 37 PNGs at native resolution + 3-4× scaled variants; batched feature branches `pixel-art-batch-N`; PR per batch | New coord memo authored at Phase B close: `who/coordination/coord_2026_05_XX_civic_press_pixel_generation_dispatch.md` |
+| **D — Stanley ingests + ships** | Stanley | Per-batch Playwright snapshot test; `INGEST_LOG.md` updated `placeholder` → `ingested`; placeholders → finals wired into MCP-3..MCP-6 components | (in-vault ingest sessions; one per batch) |
+
+**Phase A dispatched 2026-05-14** at this kick-off; mission status `phase_a_dispatched` until Herb's PR lands.
+
+This mission does NOT move to `status: completed` until Phase D finishes — that is, until all 37 placeholder rows in `INGEST_LOG.md` flip to `ingested`. P0 → P1 phase-gate closes at MCP-2 **kick-off** complete (per campaign master doc); the ongoing phases B/C/D run in parallel with P1+ work.
 
 ## Dependencies
 
@@ -113,17 +126,23 @@ Author `what/pixel_prompts/civic_press/INGEST_LOG.md` — checklist with one row
 
 ## Focus Areas
 
-1. **Kick-off session** — author all 37 prompts + index + INGEST_LOG + 37 placeholder PNGs + coordination memo. Single session if velocity holds.
-2. **Push to public remote** — Stanley pushes; signals Herb out-of-band that the dispatch is live.
-3. **N ingest sessions** — Stanley pulls Herb's PRs / batches; runs the per-asset Playwright snapshot test; merges if green; updates INGEST_LOG.
+1. **Phase A kick-off (Stanley side, 2026-05-14)** — author coord memo addressed to Herb's agent + canonical exemplar prompt (`hero_diptych_grand_rapids.md`) + structural template (`_template_prompt.md`) + 37 placeholder PNGs at native resolutions + amended mission file (this document) + STATE.md tick + push to remote. Signal Herb out-of-band.
+2. **Phase A execution (Herb side)** — Herb's agent pulls origin, reads coord memo + inputs, authors 37 prompt files mirroring the exemplar, commits to feature branch `pixel-prompts-pack`, opens PR to `main`, files done-note in `who/coordination/`, flips coord-memo `status: filed → fulfilled`.
+3. **Phase B (Stanley side)** — pull PR, spot-check 3-5 prompts (palette discipline, structure adherence, alt-text register), merge OR request revisions via coord-memo update.
+4. **Phase C dispatch (Stanley side, after Phase B merge)** — author new coord memo for image generation; reference the merged prompt pack; specify return format (PNG at native + 3-4× scaled variants on feature branches `pixel-art-batch-N`).
+5. **Phase C execution (Herb side)** — Herb's agent generates images batch-wise; commits to feature branches; opens PR per batch.
+6. **Phase D ingest sessions (Stanley side, N sessions)** — per batch: pull, run per-asset Playwright snapshot test, merge if green, update `INGEST_LOG.md` row `placeholder` → `ingested`.
 
 ## Success Criteria
 
-- **Kick-off**: 37 prompt artifacts + 37 placeholders + INGEST_LOG + coordination memo all committed and pushed. Herb signaled.
-- **Per ingest session**: ≥1 placeholder → final transition; INGEST_LOG updated; Playwright snapshot passes; commit pushed.
-- **At MCP-7**: zero rows with `status: placeholder` in INGEST_LOG.
+- **Phase A kick-off**: coord memo + exemplar prompt + structural template + 37 placeholder PNGs + amended mission file + STATE tick all committed and pushed. Herb signaled out-of-band.
+- **Phase A close (Herb)**: 37 prompt files + INDEX + INGEST_LOG on `pixel-prompts-pack` branch; PR open; done-note filed.
+- **Phase B close (Stanley)**: PR merged to `main` (or revisions cycle closed).
+- **Phase C close (Herb, per batch)**: PNG batch on feature branch with passing palette-discipline check.
+- **Phase D close (per ingest session)**: ≥1 row in INGEST_LOG flips to `ingested`; snapshot test passes; commit pushed.
+- **At MCP-7**: zero rows with `status: placeholder` or `status: prompt_authored` in INGEST_LOG — every row reads `ingested`.
 - (No III pass on this mission — it's coordination, not authoring against a quality target. Persona walkthroughs apply to the rendered pages in MCP-3 onward.)
-- Mission AAR appended at kick-off close (separate AARs for each ingest session if useful).
+- Mission AAR appended at each Phase close.
 
 ## Not in scope
 
@@ -133,4 +152,22 @@ Author `what/pixel_prompts/civic_press/INGEST_LOG.md` — checklist with one row
 
 ## AAR
 
-(pending kick-off close)
+### Phase A kick-off (2026-05-14)
+
+- **Worked:** Cross-machine dispatch wired end-to-end on first attempt. Coord memo at `who/coordination/coord_2026_05_14_civic_press_pixel_prompts_dispatch.md` mirrors the lattice-labs precedent (frontmatter + TL;DR + Why + Scope + Inputs + Output spec + Boundary rules + Bootstrap protocol + 3-signal Signal-back + Ack + Critical context). Canonical exemplar at `what/pixel_prompts/civic_press/hero_diptych_grand_rapids.md` instantiates every section Herb's agent must mirror. Structural template `_template_prompt.md` lets Herb `cp` and fill. 37 placeholder PNGs ship in `site/public/pixel/` so MCP-3+ layout work isn't blocked while Phase A runs.
+- **Didn't:** Phase C image-generation dispatch not authored — deferred to a new coord memo after Phase B merge (correct ordering — the prompt pack must land + be reviewed first).
+- **Finding:** The "phase: A" frontmatter key on the coord memo is non-standard vs. the lattice-labs precedent (which omits the field). Adopted here because MCP-2 has 4 phases and a single coord memo addresses only one. If multiple agents need this convention, propose it for canonical coord-memo schema in a future III pack or skill.
+- **Change:** Mission scope reshaped from "Stanley authors prompts; Herb generates" to "Herb authors prompts; Stanley reviews; Herb generates". Added Phase B review checkpoint between authoring and generation — cheap revision cycle at the markdown layer beats expensive re-generation at the PNG layer.
+- **Follow-up:** (a) Out-of-band signal to Herb after push — Stanley signals via preferred channel. (b) Stanley's next session against this vault reads `who/coordination/` in startup checklist step 5; Herb's done-note will surface naturally. (c) After Phase B merge, author the Phase C coord memo referencing the merged prompt pack.
+
+### Phase A close (Herb)
+
+(pending Herb's PR + done-note)
+
+### Phase B close (Stanley review + merge)
+
+(pending Phase A close)
+
+### Phase C close + Phase D ingest sessions
+
+(pending Phase B close)
