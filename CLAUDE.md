@@ -1,13 +1,13 @@
 ---
 type: governance
-version: "7.0"
-token_estimate: ~3200
+version: "7.1"
+token_estimate: ~2600
 updated: 2026-05-14
 last_edited_by: agent_gutenberg
 ---
 
 # CLAUDE.md — Context Commons
-<!-- v7.0 | 2026-05-14 — aggressive trim: reference content moved to what/context/ -->
+<!-- v7.1 | 2026-05-14 — Project Map moved to what/context/cc_project_map.md -->
 
 ## Identity & Personality
 
@@ -40,66 +40,9 @@ If `MANIFEST.md` contains `role: template`, this is the base template inside `.a
 
 ## Project Map
 
-```
-ContextCommons.aDNA/
-├── CLAUDE.md                    # Agent master context (this file)
-├── AGENTS.md                    # Root agent guide
-├── MANIFEST.md                  # Project overview, architecture, entry points
-├── STATE.md                     # Operational state — current phase, blockers, next steps
-├── README.md                    # Human getting-started guide
-│
-├── what/                        # WHAT — Knowledge, context, curriculum
-│   ├── context/                 # Agent context library (inherited + CC topics)
-│   │   ├── program_design/      # Thesis, principles, architecture, governance, standing orders, domain knowledge
-│   │   ├── fundraising/         # Funding strategy, grant catalogs, operations, fiscal sponsorship
-│   │   ├── curriculum_framework/# Track structures, module template
-│   │   ├── community_engagement/# Partnership model, community reqs
-│   │   ├── pilot_programs/      # Grand Rapids, LA pilot designs
-│   │   ├── use_case_domains/    # Healthcare, immigration, education
-│   │   ├── adna_for_communities/# aDNA simplified for non-technical audience
-│   │   ├── object_standards/    # Module/dataset/lattice standards + compliance dimensions
-│   │   └── about_forges.md      # Forge federation reference
-│   ├── use_cases/               # Community use case specifications
-│   ├── pilots/                  # Pilot program designs and evaluation
-│   ├── partnerships/            # Partnership proposals and agreements
-│   ├── decisions/               # Architecture Decision Records
-│   ├── docs/                    # aDNA specification documents
-│   ├── pixel_prompts/           # Image-generation prompt packs (cross-machine dispatch)
-│   └── lattices/                # Lattice YAML tools, schema, examples
-│
-├── how/                         # HOW — Operations
-│   ├── campaigns/               # Multi-mission strategic initiatives
-│   ├── missions/                # Standalone missions
-│   ├── sessions/                # Session tracking (active/ + history/)
-│   ├── templates/               # 22 inherited + 12 CC-specific templates
-│   ├── skills/                  # Reusable agent recipes
-│   ├── tracks/                  # Track progression (Builder, Steward, Elder)
-│   ├── curriculum/              # Curriculum module tracking
-│   ├── editorial/               # Content pipeline (Phase 2)
-│   ├── backlog/                 # Ideas and improvements
-│   ├── pipelines/               # Content-as-code workflows
-│   └── quests/                  # Community validation experiments
-│
-├── who/                         # WHO — People, communities, governance
-│   ├── communities/             # Pilot community profiles
-│   ├── mentors/                 # Lattice developer mentors
-│   ├── stewards/                # Community stewards
-│   ├── builders/                # Youth builders (14-24)
-│   ├── partners/                # Technology & community partners
-│   ├── council/                 # Curriculum Council members
-│   ├── governance/              # Roles, policies, charter
-│   └── coordination/            # Cross-agent / cross-machine notes
-│
-├── iii/                         # III framework consumer wrapper (federation_ref → III.aDNA)
-├── siteforge/                   # Forge wrapper — Context Commons website
-├── videoforge/                  # Forge wrapper — educational videos
-├── presentationforge/           # Forge wrapper — pitch decks, council presentations
-└── site/                        # Generated Astro 6 website (SiteForge output)
-```
+Three-triad aDNA layout (`what/` knowledge, `how/` operations, `who/` governance) + three forge wrappers (`siteforge/`, `videoforge/`, `presentationforge/`) + `iii/` framework wrapper + `site/` (Astro 6 build output).
 
-**Forge federation** — three wrappers (`siteforge/`, `videoforge/`, `presentationforge/`) federate to source forges via `federation_ref:` with `version_policy: minor`. Never copy forge implementation into wrappers. Full reference: `what/context/about_forges.md`.
-
-**III framework** — `iii/` wrapper federates to `III.aDNA` for the Inspect/Introspect/Improve quality loop. See `iii/CLAUDE.md` for packs declared and persona registry.
+Full annotated tree: `what/context/cc_project_map.md`. Forge federation reference: `what/context/about_forges.md`. III wrapper: `iii/CLAUDE.md`.
 
 ---
 
@@ -281,4 +224,4 @@ Use bidirectional wikilinks when adding relationships between entities.
 While working in any aDNA vault, stay alert for **framework-level** improvement opportunities — missing template fields, undocumented patterns, naming inconsistencies, or gaps you had to work around. When you notice one, mention it to the user at a natural pause point (end of task, SITREP). If approved, create a backlog idea file with the `idea_upstream_` prefix. Full protocol: `how/skills/skill_upstream_contribution.md`.
 
 ---
-<!-- v7.0 | 2026-05-14 -->
+<!-- v7.1 | 2026-05-14 -->
