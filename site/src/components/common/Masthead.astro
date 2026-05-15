@@ -1,0 +1,72 @@
+---
+interface Props {
+  editionNumber?: string;
+  dateString?: string;
+}
+
+const rawPath = Astro.url.pathname;
+const pathname = rawPath === '/' ? '/' : rawPath.replace(/\/$/, '');
+
+const today = new Date().toISOString().slice(0, 10);
+const { editionNumber = 'VOL. I — NO. 1', dateString = today } = Astro.props;
+
+const navItems = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Curriculum', href: '/curriculum' },
+  { label: 'Pilots', href: '/pilots' },
+  { label: 'Get Involved', href: '/get-involved' },
+  { label: 'Partners', href: '/partners' },
+  { label: 'Resources', href: '/resources' },
+  { label: 'Contact', href: '/contact' },
+];
+---
+
+<header class="bg-[var(--paper)] border-b border-[var(--paper-rule)]">
+  <div class="max-w-[var(--content-width)] mx-auto px-[var(--space-4)] py-[var(--space-6)]">
+    <a
+      href="/"
+      class="block text-center md:text-left mb-[var(--space-3)] no-underline"
+      aria-label="Context Commons — home"
+    >
+      <span
+        class="block text-[length:var(--text-4xl)] md:text-[length:var(--text-5xl)] tracking-tight text-[var(--ink)] leading-none"
+        style="font-family: var(--font-display); font-weight: 900;"
+      >
+        Context Commons
+      </span>
+    </a>
+
+    <div
+      class="flex justify-between items-baseline pb-[var(--space-2)] border-b border-[var(--paper-rule)] text-[length:var(--text-xs)] uppercase tracking-[0.08em] text-[var(--ink-soft)]"
+      style="font-family: var(--font-mono);"
+    >
+      <span>{dateString}</span>
+      <span>{editionNumber}</span>
+    </div>
+
+    <nav class="pt-[var(--space-3)]" aria-label="Site navigation">
+      <ul
+        class="flex flex-wrap items-center justify-center md:justify-start gap-x-[var(--space-5)] gap-y-[var(--space-2)] text-[length:var(--text-sm)] list-none p-0 m-0"
+        style="font-family: var(--font-display);"
+      >
+        {navItems.map(({ label, href }) => (
+          <li>
+            <a
+              href={href}
+              class:list={[
+                'inline-block py-[var(--space-1)] transition-colors duration-[var(--transition-fast)] no-underline',
+                pathname === href
+                  ? 'text-[var(--press-red)] border-b-[1.5px] border-[var(--press-red)]'
+                  : 'text-[var(--ink)] hover:text-[var(--civic-blue-depth)] hover:underline underline-offset-4',
+              ]}
+              aria-current={pathname === href ? 'page' : undefined}
+            >
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>

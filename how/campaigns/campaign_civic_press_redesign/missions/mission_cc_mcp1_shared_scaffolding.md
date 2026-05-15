@@ -2,12 +2,13 @@
 type: campaign_mission
 created: 2026-05-14
 updated: 2026-05-14
-status: planned
+status: completed
 last_edited_by: agent_gutenberg
 campaign: campaign_civic_press_redesign
 phase: 0
 mission_id: MCP-1
 session_estimate: 1
+sessions_actual: 1
 iii_persona: P-08 Mentor / Developer
 tags: [mission, civic_press, scaffolding, components, p0]
 ---
@@ -63,4 +64,8 @@ Build the reusable components every page will inherit before any page-level work
 
 ## AAR
 
-(pending mission close)
+- **Worked:** 8 components shipped in one session (Masthead + ColophonFooter in `common/`, six section components in `sections/`); 12 atom-level Playwright tests × 3 viewports = 34 passed + 2 viewport-skips (keyboard test on mobile/tablet) + 0 failed; full suite 380 passed / 19 skipped / 0 failed against a 363-run baseline. Token purity verified — 0 hex literals, 0 alias names (`--brand-*`, `--color-*`) in any new component. P-08 keyboard-nav test confirms tab order through all 8 Masthead links.
+- **Didn't:** Initial atom-test page `__scaffolding-atoms.astro` was silently excluded by Astro's `_`-prefix routing convention. Build ran clean (no error) but produced 9 routes instead of 10; spec then failed because `/__scaffolding-atoms/` didn't exist. Rename to `scaffolding-atoms.astro` resolved it.
+- **Finding:** Astro's `_`-prefix file exclusion is a silent build behavior — no warning, no error, just an absent route. The "infra route" signal belongs in `meta name=robots content=noindex,nofollow` + zero nav links, not in the filename. Captured as **CC-MCP1-001** (framework_convention trap, high graduation candidate for III web-design pack — applies to every Astro vault that builds dev/test/internal pages).
+- **Change:** Masthead + ColophonFooter coexist with legacy Header/Footer (per campaign CLAUDE.md "don't rewrite components wholesale"). MCP-3 swaps them at the home-page layout level. SectionOpener's two branches (editorial/plate) duplicate kicker+h2 markup — accepted as the cost of readability; revisit only if a third variant surfaces.
+- **Follow-up:** (a) Masthead has no skip-to-main link of its own; when MCP-3 substitutes Masthead for Header in BaseLayout, ensure BaseLayout's existing skip link is preserved or moved into Masthead. (b) `navItems` array is duplicated in Header.astro and Masthead.astro — consolidate at MCP-3 swap-in (extract to a shared `src/data/nav.ts`). (c) Atom-test page `/scaffolding-atoms/` lifetime: lean toward "keep as living style guide"; ratify at MCP-7. (d) Old woff2 cleanup (libre-baskerville, source-sans-3 — 5 files) and `--brand-*` alias retirement still deferred to MCP-7 per style sheet line 112.

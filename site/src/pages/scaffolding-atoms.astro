@@ -1,0 +1,171 @@
+---
+// MCP-1 atom-test fixture page. Renders each Civic Press scaffolding component
+// with sample props; consumed by tests/components-scaffolding.spec.ts.
+// Astro convention: filenames starting with `_` are excluded from routing,
+// so this page uses a normal filename. It's marked noindex,nofollow (see
+// <head>) and is not linked from any nav. Deletable at MCP-7 or kept as a
+// living style guide.
+
+import '../styles/global.css';
+import Masthead from '../components/common/Masthead.astro';
+import ColophonFooter from '../components/common/ColophonFooter.astro';
+import PageOpener from '../components/sections/PageOpener.astro';
+import PullQuote from '../components/sections/PullQuote.astro';
+import Marginalia from '../components/sections/Marginalia.astro';
+import StatusChip from '../components/sections/StatusChip.astro';
+import SectionOpener from '../components/sections/SectionOpener.astro';
+import LibraryCatalogueCard from '../components/sections/LibraryCatalogueCard.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Civic Press Scaffolding Atoms — MCP-1</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <link rel="preload" href="/fonts/fraunces-700.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/source-serif-4-400.woff2" as="font" type="font/woff2" crossorigin />
+  </head>
+  <body
+    class="bg-[var(--paper)] text-[var(--ink)] min-h-screen"
+    style="font-family: var(--font-body);"
+  >
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-[var(--paper-alt)] focus:text-[var(--ink)]"
+    >
+      Skip to main content
+    </a>
+
+    <section id="atom-masthead">
+      <Masthead editionNumber="VOL. I — NO. 1" dateString="2026-05-14" />
+    </section>
+
+    <main id="main" class="max-w-3xl mx-auto px-4 py-12 space-y-16">
+      <section id="atom-page-opener">
+        <h2
+          class="mb-3 text-sm uppercase tracking-widest text-[var(--ink-soft-2)]"
+          style="font-family: var(--font-mono);"
+        >
+          // PageOpener
+        </h2>
+        <PageOpener standfirstId="atom-standfirst">
+          <Fragment slot="kicker">Volume I, Issue 1</Fragment>
+          <Fragment slot="title">A press, on terms</Fragment>
+          <Fragment slot="standfirst">
+            A community is the only legitimate author of the knowledge it lives by.
+          </Fragment>
+        </PageOpener>
+      </section>
+
+      <section id="atom-section-opener-editorial">
+        <h2
+          class="mb-3 text-sm uppercase tracking-widest text-[var(--ink-soft-2)]"
+          style="font-family: var(--font-mono);"
+        >
+          // SectionOpener (editorial)
+        </h2>
+        <SectionOpener variant="editorial">
+          <Fragment slot="kicker">Section</Fragment>
+          <Fragment slot="title">Who runs the press</Fragment>
+        </SectionOpener>
+      </section>
+
+      <section id="atom-section-opener-plate">
+        <h2
+          class="mb-3 text-sm uppercase tracking-widest text-[var(--ink-soft-2)]"
+          style="font-family: var(--font-mono);"
+        >
+          // SectionOpener (plate)
+        </h2>
+        <SectionOpener variant="plate" plateAlt="Pixel-art plate placeholder">
+          <Fragment slot="plate">
+            <svg viewBox="0 0 24 24" width="96" height="96" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" fill="var(--paper-rule)" />
+              <rect x="6" y="6" width="12" height="12" fill="var(--press-red)" />
+              <rect x="9" y="9" width="6" height="6" fill="var(--paper)" />
+            </svg>
+          </Fragment>
+          <Fragment slot="kicker">Field dispatch</Fragment>
+          <Fragment slot="title">Grand Rapids</Fragment>
+        </SectionOpener>
+      </section>
+
+      <section id="atom-pull-quote">
+        <h2
+          class="mb-3 text-sm uppercase tracking-widest text-[var(--ink-soft-2)]"
+          style="font-family: var(--font-mono);"
+        >
+          // PullQuote
+        </h2>
+        <PullQuote attribution="Pastor Williams, Grand Rapids">
+          Every community deserves its own printing press. We are here to help them build it.
+        </PullQuote>
+      </section>
+
+      <section id="atom-marginalia">
+        <h2
+          class="mb-3 text-sm uppercase tracking-widest text-[var(--ink-soft-2)]"
+          style="font-family: var(--font-mono);"
+        >
+          // Marginalia
+        </h2>
+        <p>
+          Body paragraph with a sidenote for context. The marginalia floats right on desktop,
+          drops inline on mobile.
+          <Marginalia label="Editor's note">
+            The press belongs to the community that funds and edits it. The terms are written.
+          </Marginalia>
+          The paragraph continues regardless of viewport, demonstrating how the sidenote
+          flows next to the body text on a wide screen.
+        </p>
+      </section>
+
+      <section id="atom-status-chip-default">
+        <h2
+          class="mb-3 text-sm uppercase tracking-widest text-[var(--ink-soft-2)]"
+          style="font-family: var(--font-mono);"
+        >
+          // StatusChip (default)
+        </h2>
+        <StatusChip label="Q3 2026" />
+      </section>
+
+      <section id="atom-status-chip-draft">
+        <h2
+          class="mb-3 text-sm uppercase tracking-widest text-[var(--ink-soft-2)]"
+          style="font-family: var(--font-mono);"
+        >
+          // StatusChip (draft)
+        </h2>
+        <StatusChip label="Draft" variant="draft" />
+      </section>
+
+      <section id="atom-library-card">
+        <h2
+          class="mb-3 text-sm uppercase tracking-widest text-[var(--ink-soft-2)]"
+          style="font-family: var(--font-mono);"
+        >
+          // LibraryCatalogueCard
+        </h2>
+        <LibraryCatalogueCard
+          callNumber="[A]"
+          title="Three-track curriculum framework"
+          meta={[
+            { key: 'TRACK', value: 'Core / Builder / Steward' },
+            { key: 'PILOT', value: 'Grand Rapids · Los Angeles' },
+            { key: 'STATUS', value: 'Pilot Q3 2026' },
+          ]}
+        >
+          A curriculum is itself a context graph. Each module is a typed object with
+          provenance, prerequisites, and an audience-fit declaration.
+        </LibraryCatalogueCard>
+      </section>
+    </main>
+
+    <section id="atom-colophon-footer">
+      <ColophonFooter />
+    </section>
+  </body>
+</html>

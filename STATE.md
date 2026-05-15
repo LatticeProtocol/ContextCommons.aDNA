@@ -4,7 +4,7 @@ created: 2026-04-12
 updated: 2026-05-14
 status: active
 last_edited_by: agent_gutenberg
-last_session: session_stanley_20260514_civic_press_trim_v71_plus_mcp0
+last_session: session_stanley_20260514_mcp1_shared_scaffolding
 tags: [state, governance, civic_press]
 ---
 
@@ -14,7 +14,7 @@ Dynamic operational snapshot for cold-start orientation. Updated each session.
 
 ## Current Phase
 
-**Civic Press P0 active. Workstreams A + B + MCP-0 complete 2026-05-14. MCP-1 (shared scaffolding) is the next mission. CLAUDE.md v7.1 also shipped (227 lines, conservative second-pass trim — Project Map moved to `what/context/cc_project_map.md`).**
+**Civic Press P0 active. Workstreams A + B + MCP-0 + MCP-1 complete 2026-05-14. MCP-2 (pixel-art prompt pack + Herb dispatch) is the next mission. CLAUDE.md v7.1 also shipped (227 lines, conservative second-pass trim — Project Map moved to `what/context/cc_project_map.md`).**
 
 Genesis campaign Phase 2 gate passed (2026-04-13). Phase 3 partially complete — M07, M08, M08-R, M08-C all closed; M09 (VideoForge) and M10 (PresentationForge) **paused 2026-05-14** so the Civic Press redesign can land a new visual doctrine before forge-wrapper configuration commits to it. New campaign `campaign_civic_press_redesign` opened with full scaffolding: governance CLAUDE.md, master doc (charter + 4 phases + 8-mission roster + decision register), 8 mission stub files (MCP-0..MCP-7), audits/ + what/pixel_prompts/ directories. Plan: `~/.claude/plans/please-read-the-claude-md-glittery-waterfall.md`.
 
@@ -61,6 +61,7 @@ Genesis campaign Phase 2 gate passed (2026-04-13). Phase 3 partially complete �
 - **Civic Press Workstream A completed 2026-05-14** — vault rename `context_commons.aDNA` → `ContextCommons.aDNA` (commit `a7dbbd2`; workspace router + 21 sibling-vault live refs + auto-memory dir all migrated; sibling-vault edits left uncommitted in those repos for Stanley to batch-review). CLAUDE.md aggressive trim 413 → 284 lines (commit `6068924`; v6.0 → v7.0; 4 companion context files created: `about_forges.md`, `context_cc_standing_orders_program.md`, `context_cc_domain_knowledge.md`, `context_object_standards_compliance.md`). `iii/` consumer wrapper bootstrapped (commit `fb3df49`; federation_ref pinned to III.aDNA v0.2.0 / commit `5cd210e`; 6 packs declared incl. `whitepaper_communication` for editorial copy; 8-persona registry extracted from M08-R batches; empty learning store JSONL initialized). GitHub repo renamed `context-commons-adna` → `ContextCommons.aDNA` and visibility flipped PRIVATE → PUBLIC. M09 + M10 status `planned` → `paused` with resume condition "after MCP-7 ships."
 - **Civic Press Workstream B completed 2026-05-14** — campaign `campaign_civic_press_redesign` fully scaffolded. Authored campaign-scoped CLAUDE.md (governance + context-loading per phase + phase-gate doctrine integrity checks + III cadence wiring + pixel-art dispatch pattern + explicit don'ts), master doc with charter + 4-phase structure + 8-mission roster + decision register (6 locked, 5 open), 8 mission stub files (MCP-0..MCP-7) with persona assignments + success criteria + scope boundaries, audits/ directory for phase-gate audit artifacts, what/pixel_prompts/ landing for MCP-2 prompt pack. Two-birds-line placements tracked: #1 home hero (MCP-3) / #2 About Leaf I (MCP-4) / #3 LA mentorship paragraph + #4 Builder column (MCP-5). Workstream B closed same Claude conversation as A — single-session pattern held for both infrastructure workstreams.
 - **CLAUDE.md v7.1 completed 2026-05-14** — conservative second-pass trim 284 → 227 lines (-57, ~20% additional reduction; v7.0 was already a 31% aggressive trim from 413). Project Map H2 (full annotated tree + Forge federation + III framework paragraphs) moved to new `what/context/cc_project_map.md` companion; CLAUDE.md keeps a 4-line summary + pointers. All 9 H2 sections preserved (Identity, First-Run, Project Map, Safety, Standing Orders, Git Coordination, Agent Protocol, Domain Knowledge, Working with Content). token_estimate 3200 → 2600. Commit `d2f5cbc`.
+- **MCP-1 completed 2026-05-14** — Civic Press shared scaffolding. 8 new components shipped: `Masthead.astro` + `ColophonFooter.astro` in `site/src/components/common/`; `PageOpener.astro` + `PullQuote.astro` + `Marginalia.astro` + `StatusChip.astro` + `SectionOpener.astro` (editorial + plate variants) + `LibraryCatalogueCard.astro` in `site/src/components/sections/`. Atom-test fixture page at `site/src/pages/scaffolding-atoms.astro` (10 routes total in build; noindex/nofollow; not linked from nav). New Playwright spec `tests/components-scaffolding.spec.ts` — 12 atom tests × 3 viewports = 34 passed + 2 viewport-skips + 0 failed. Full suite 380 passed / 19 skipped / 0 failed (363-run baseline preserved, no regressions). Token purity verified: 0 hex literals, 0 `--brand-*` / `--color-*` alias names in any new component — all consume MCP-0 semantic tokens (`--ink`, `--paper`, `--paper-rule`, `--press-red`, `--civic-blue`, `--font-display`, `--font-body`, `--font-mono`). Masthead mirrors Header's pathname-normalisation logic; ColophonFooter ships with directive §8.3 + §8.4 drafts as default prop values (D-MICHAEL-BROOKS-LINE + D-BILINGUAL-LANGUAGES still resolve formally at MCP-3). III pass Persona P-08 Mentor/Developer captured 1 trap: **CC-MCP1-001** (`astro_underscore_prefix_excludes_route` — `_`-prefixed pages are silently excluded from Astro routing; build runs clean but produces no route; rename to non-underscore filename + use `meta noindex` for "infra" signal instead; high graduation candidacy for III web-design pack). Build green; Lighthouse deferred (no production page changed). Aliases + obsolete woff2 cleanup remain deferred to MCP-7 per locked style sheet.
 - **MCP-0 completed 2026-05-14** — Civic Press design tokens + style sheet locked. **D-FONT-PAIRING-FINAL** signed: Fraunces (display) + Source Serif 4 (body) + JetBrains Mono Variable (functional), all FOSS via `@fontsource`; specimen comparison deferred per Stanley's plan-mode choice. **D-COLOR-TOKENS** signed: paper #F4EFE6 / ink #1A1714 / press-red #C8321C / civic-blue #2A4E6E + AA-safe ink-soft variants + 12-color bounded pixel palette. WCAG verified 4.65:1–16.7:1 across documented pairs. Deliverables: `site/src/styles/branding.css` rewritten (94 → 219 lines with retirement-gate inline comment), `site/src/layouts/BaseLayout.astro` preload links updated, 9 new woff2 in `site/public/fonts/`, package.json adds 3 @fontsource deps, `what/decisions/civic_press_style_sheet.md` NEW one-page locked reference (138 lines), `siteforge/what/context/cc_voice_mapping.yaml` appended with `editorial_voice:` + `two_birds_line_schedule:` (canonical line locked + 4 placements mapped to MCP-3/4/5). III pass (Persona P-01 Technical Reviewer) captured 2 traps to local learning store: **CC-MCP0-001** (alias retirement gate must be inline in source, not just in docs — fix shipped in-mission) and **CC-MCP0-002** (token alias semantic-pair break — old palette had gold/dark-green button pair at 7.5:1; aliasing rotated to press-red/civic-blue-depth at 2.2:1 fail; surgical fixes to CTABanner.astro brand variant + index.astro hero CTA `style=color` → `--paper` resolved all 4 axe-core violations; high graduation candidacy for III canonical web-design pack). Gates: `npm run build` green / 22 Playwright non-visual tests pass (3 pre-existing Vercel-analytics flakes) / 8/8 a11y tests pass post-fix / Lighthouse deferred to MCP-7 deploy (font payload reset expected at MCP-1 subsetting).
 
 ## Active Campaigns
@@ -68,7 +69,7 @@ Genesis campaign Phase 2 gate passed (2026-04-13). Phase 3 partially complete �
 | Campaign | Phase | Status | Priority |
 |----------|-------|--------|----------|
 | `campaign_context_commons_genesis` | Phase 3 (M09/M10 paused) | **Suspended** | Resumes after Civic Press |
-| `campaign_civic_press_redesign` | Workstream A ✓ + B ✓ → P0 (MCP-0 next) | **Active** | Primary |
+| `campaign_civic_press_redesign` | P0 — MCP-0 ✓ + MCP-1 ✓ → MCP-2 next | **Active** | Primary |
 
 ## Mission Status
 
@@ -91,7 +92,7 @@ Genesis campaign Phase 2 gate passed (2026-04-13). Phase 3 partially complete �
 | Workstream B | civic_press | pre-P0 | **Completed** | 1 (2026-05-14, same conv. as A) |
 | CLAUDE.md v7.1 trim | civic_press | A2-follow-up | **Completed** | 1 (2026-05-14, same conv. as MCP-0) |
 | MCP-0 | civic_press | P0 | **Completed** | 1 (2026-05-14) |
-| MCP-1 | civic_press | P0 | Planned | 1 |
+| MCP-1 | civic_press | P0 | **Completed** | 1 (2026-05-14) |
 | MCP-2 | civic_press | P0 | Planned | 1 + N ingest |
 | MCP-3 | civic_press | P1 | Planned | 1 |
 | MCP-4 | civic_press | P2 | Planned | 1 |
@@ -227,8 +228,8 @@ None.
 
 ## Next Steps
 
-1. **MCP-1 (Shared scaffolding)** — 8 components (Masthead, PageOpener, PullQuote, Marginalia, StatusChip, SectionOpener, LibraryCatalogueCard, ColophonFooter) + atom tests. Persona P-08 Mentor/Developer. Will also retire backward-compat token aliases AND clean up old woff2 files (libre-baskerville, source-sans-3) AND optimize font subsetting. Full mission file at `how/campaigns/campaign_civic_press_redesign/missions/mission_cc_mcp1_shared_scaffolding.md`.
-3. **MCP-2 (Pixel-art prompt pack + dispatch)** — ~37 per-asset prompts at `what/pixel_prompts/civic_press/`; coordination memo to Herb's agent; placeholder PNGs in `public/pixel/`. Push to public remote; Stanley signals Herb. Then N ingest sessions as batches return.
+1. **MCP-2 (Pixel-art prompt pack + dispatch)** — ~37 per-asset prompts at `what/pixel_prompts/civic_press/`; coordination memo to Herb's agent; placeholder PNGs in `public/pixel/`. Push to public remote; Stanley signals Herb. Then N ingest sessions as batches return. No formal III pass (coordination work).
+2. **MCP-1 follow-ups** to fold into MCP-3 home rebuild: (a) when Masthead replaces Header in BaseLayout, preserve the existing skip-to-main link; (b) consolidate the duplicated `navItems` array (currently in both `Header.astro` and `Masthead.astro`) into a shared module like `src/data/nav.ts`; (c) decide atom-test page `/scaffolding-atoms/` lifetime — lean toward "keep as living style guide".
 4. **MCP-3 (Home page rebuild)** — P1 phase gate. One-sentence test. Personas P-02 + P-03 two-pass.
 5. **MCP-4 → MCP-6** — subpage rebuilds with formal III pass per mission.
 6. **MCP-7** — cross-page audit + production deploy + AAR + graduation review of accumulated III traps.

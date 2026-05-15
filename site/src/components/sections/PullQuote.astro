@@ -1,0 +1,39 @@
+---
+interface Props {
+  attribution?: string;
+}
+
+const { attribution } = Astro.props;
+---
+
+<blockquote class="pull-quote relative my-[var(--space-8)] py-[var(--space-6)] pl-[var(--space-10)] pr-[var(--space-6)] border-t border-b border-[var(--paper-rule)]">
+  <div
+    class="italic text-[length:var(--text-lg)] leading-relaxed text-[var(--ink)]"
+    style="font-family: var(--font-body);"
+  >
+    <slot />
+  </div>
+  {attribution && (
+    <cite
+      class="block mt-[var(--space-3)] text-[length:var(--text-xs)] uppercase tracking-[0.08em] text-[var(--ink-soft)] not-italic"
+      style="font-family: var(--font-mono);"
+    >
+      — {attribution}
+    </cite>
+  )}
+</blockquote>
+
+<style>
+  .pull-quote::before {
+    content: '\201C';
+    position: absolute;
+    left: var(--space-3);
+    top: var(--space-2);
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--press-red);
+    pointer-events: none;
+  }
+</style>

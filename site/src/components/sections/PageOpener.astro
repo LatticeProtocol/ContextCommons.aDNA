@@ -1,0 +1,36 @@
+---
+interface Props {
+  standfirstId?: string;
+}
+
+const { standfirstId = 'page-standfirst' } = Astro.props;
+const hasKicker = Astro.slots.has('kicker');
+const hasStandfirst = Astro.slots.has('standfirst');
+---
+
+<header class="pb-[var(--space-8)] mb-[var(--space-8)] border-b border-[var(--paper-rule)]">
+  {hasKicker && (
+    <div
+      class="text-[length:var(--text-sm)] uppercase tracking-[0.12em] text-[var(--press-red)] mb-[var(--space-3)]"
+      style="font-family: var(--font-display); font-weight: 600;"
+    >
+      <slot name="kicker" />
+    </div>
+  )}
+  <h1
+    class="text-[length:var(--text-3xl)] md:text-[length:var(--text-4xl)] leading-tight text-[var(--ink)] mb-[var(--space-4)]"
+    style="font-family: var(--font-display); font-weight: 700;"
+    aria-describedby={hasStandfirst ? standfirstId : undefined}
+  >
+    <slot name="title" />
+  </h1>
+  {hasStandfirst && (
+    <p
+      id={standfirstId}
+      class="italic text-[length:var(--text-lg)] leading-relaxed text-[var(--ink-soft)] max-w-[var(--prose-width)]"
+      style="font-family: var(--font-body);"
+    >
+      <slot name="standfirst" />
+    </p>
+  )}
+</header>

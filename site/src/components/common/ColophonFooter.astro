@@ -1,0 +1,38 @@
+---
+interface Props {
+  dedicatoryLine?: string;
+  languages?: string[];
+  colophonNote?: string;
+}
+
+const {
+  dedicatoryLine = 'In memory of Michael Brooks, who taught us that a community has the right to be diagnosed by its own people.',
+  languages = ['ESPAÑOL', '中文', '한국어', 'TAGALOG', 'հայերեն', 'SWAHILI', 'KAREN', 'ARABIC'],
+  colophonNote = 'Set in Fraunces, Source Serif 4, and JetBrains Mono. Built on the aDNA Context Graph Standard and the Lattice Protocol. Open-source under MIT and CC BY 4.0.',
+} = Astro.props;
+---
+
+<footer class="bg-[var(--paper-alt)] border-t border-[var(--paper-rule)] mt-[var(--space-16)]">
+  <div class="max-w-[var(--content-width)] mx-auto px-[var(--space-4)] py-[var(--space-12)]">
+    <p
+      class="italic text-[length:var(--text-base)] leading-relaxed text-[var(--ink-soft)] mb-[var(--space-6)] max-w-[var(--prose-width)]"
+      style="font-family: var(--font-body);"
+    >
+      {dedicatoryLine}
+    </p>
+
+    <div
+      class="pb-[var(--space-6)] mb-[var(--space-6)] border-b border-[var(--paper-rule)] text-[length:var(--text-xs)] uppercase tracking-[0.08em] text-[var(--ink-soft-2)] leading-relaxed"
+      style="font-family: var(--font-mono);"
+    >
+      {languages.join(' · ')} — TRANSLATIONS IN PREPARATION
+    </div>
+
+    <p
+      class="text-[length:var(--text-xs)] tracking-[0.04em] text-[var(--ink-soft-2)] leading-relaxed"
+      style="font-family: var(--font-mono);"
+    >
+      {colophonNote}
+    </p>
+  </div>
+</footer>

@@ -1,0 +1,40 @@
+---
+interface Props {
+  callNumber: string;
+  title: string;
+  meta: Array<{ key: string; value: string }>;
+}
+
+const { callNumber, title, meta } = Astro.props;
+---
+
+<article class="py-[var(--space-6)] border-t border-b border-[var(--paper-rule)]">
+  <div class="flex items-baseline gap-[var(--space-3)] mb-[var(--space-3)]">
+    <span
+      class="text-[length:var(--text-lg)] text-[var(--press-red)] flex-shrink-0"
+      style="font-family: var(--font-display); font-weight: 700;"
+    >
+      {callNumber}
+    </span>
+    <h3
+      class="text-[length:var(--text-xl)] leading-tight text-[var(--ink)]"
+      style="font-family: var(--font-display); font-weight: 700;"
+    >
+      {title}
+    </h3>
+  </div>
+  <div
+    class="text-[length:var(--text-base)] leading-relaxed text-[var(--ink-soft)] mb-[var(--space-4)] max-w-[var(--prose-width)]"
+    style="font-family: var(--font-body);"
+  >
+    <slot />
+  </div>
+  <dl class="space-y-[var(--space-1)] text-[length:var(--text-xs)]" style="font-family: var(--font-mono);">
+    {meta.map(({ key, value }) => (
+      <div class="flex gap-[var(--space-3)]">
+        <dt class="text-[var(--ink-soft-2)] uppercase tracking-[0.08em] flex-shrink-0">{key}</dt>
+        <dd class="text-[var(--ink)]">{value}</dd>
+      </div>
+    ))}
+  </dl>
+</article>

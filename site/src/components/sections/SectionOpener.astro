@@ -1,0 +1,56 @@
+---
+interface Props {
+  variant?: 'editorial' | 'plate';
+  plateAlt?: string;
+}
+
+const { variant = 'editorial', plateAlt } = Astro.props;
+const hasKicker = Astro.slots.has('kicker');
+const isPlate = variant === 'plate';
+---
+
+{isPlate ? (
+  <header class="flex items-start gap-[var(--space-5)] pb-[var(--space-4)] mb-[var(--space-6)] border-b border-[var(--paper-rule)]">
+    <div
+      class="flex-shrink-0 w-24 h-24"
+      role={plateAlt ? 'img' : undefined}
+      aria-label={plateAlt || undefined}
+      aria-hidden={plateAlt ? undefined : 'true'}
+    >
+      <slot name="plate" />
+    </div>
+    <div class="flex-1 min-w-0">
+      {hasKicker && (
+        <div
+          class="text-[length:var(--text-xs)] uppercase tracking-[0.12em] text-[var(--press-red)] mb-[var(--space-2)]"
+          style="font-family: var(--font-display); font-weight: 600;"
+        >
+          <slot name="kicker" />
+        </div>
+      )}
+      <h2
+        class="text-[length:var(--text-2xl)] leading-tight text-[var(--ink)]"
+        style="font-family: var(--font-display); font-weight: 700;"
+      >
+        <slot name="title" />
+      </h2>
+    </div>
+  </header>
+) : (
+  <header class="pb-[var(--space-4)] mb-[var(--space-6)] border-b border-[var(--paper-rule)]">
+    {hasKicker && (
+      <div
+        class="text-[length:var(--text-xs)] uppercase tracking-[0.12em] text-[var(--press-red)] mb-[var(--space-2)]"
+        style="font-family: var(--font-display); font-weight: 600;"
+      >
+        <slot name="kicker" />
+      </div>
+    )}
+    <h2
+      class="text-[length:var(--text-2xl)] leading-tight text-[var(--ink)]"
+      style="font-family: var(--font-display); font-weight: 700;"
+    >
+      <slot name="title" />
+    </h2>
+  </header>
+)}
