@@ -191,3 +191,117 @@ voice_mapping:
         - mentor_application
         - partner_inquiry
         - general_contact
+
+# ============================================================
+# Civic Press editorial-voice rules — added at MCP-0 (2026-05-14)
+# Doctrine: plain-spoken authority. The Civic Press doesn't hedge,
+# doesn't cheerlead, doesn't speak corporate. It states.
+# Applies to ALL pages in addition to per-page voice mappings above.
+# ============================================================
+
+editorial_voice:
+  doctrine: plain_spoken_authority
+  apply_to: all_pages
+  applies_at_mission: MCP-3_onward
+
+  rules:
+    - id: strike_hedges
+      rule: >
+        Strike "we believe", "we think", "we feel", "may", "could potentially",
+        "we hope to", "in our view". The Civic Press states what is true and
+        what the program does. Hedges read as uncertainty; uncertainty reads
+        as not-ready-yet.
+      directive_ref: "§8.1"
+
+    - id: strike_second_person_pep
+      rule: >
+        Strike "you will be empowered to...", "you'll discover...", "you will
+        learn so much...", "you've got this!". Second-person pep is the voice
+        of a corporate landing page selling enthusiasm. The Civic Press speaks
+        to readers as adults — name the work, name the outcome, leave the
+        feelings to them. Where you must address the reader, use third person
+        ("youth builders build...") or imperative ("apply by Q3...").
+      directive_ref: "§8.1"
+
+    - id: one_specific_noun
+      rule: >
+        One specific noun beats three abstract ones. Replace "communities,
+        learners, and stakeholders gain knowledge" with "Mrs. Johnson sorts
+        her Medicare Part D enrollment before December 7." Every paragraph
+        should be answerable to: WHO, exactly. WHAT, exactly. WHERE, exactly.
+        If no specific noun fits, the paragraph isn't ready.
+      directive_ref: "§8.1"
+
+    - id: michael_brooks_dedicatory_line
+      rule: >
+        Every page footer carries the Michael Brooks dedicatory line.
+        Final wording locked in MCP-3 (D-MICHAEL-BROOKS-LINE).
+      placement: all_footers
+      directive_ref: "§colophon"
+      decision_id: D-MICHAEL-BROOKS-LINE
+      decision_status: open_locked_in_MCP-3
+
+    - id: bilingual_posture_footer
+      rule: >
+        Every page footer signals bilingual posture — at minimum a brief
+        phrase in Spanish (LA pilot anchor) and an English line acknowledging
+        translated materials in pilot communities. Final language list locked
+        in MCP-3 (D-BILINGUAL-LANGUAGES).
+      placement: all_footers
+      directive_ref: "§colophon"
+      decision_id: D-BILINGUAL-LANGUAGES
+      decision_status: open_locked_in_MCP-3
+
+# ============================================================
+# Two-birds line — propagated to 4 placements across the site.
+# Same paragraph addresses BOTH the labor-market systemic concern AND
+# the participant promise. Lands in press-red on home hero (placement #1)
+# and as section-close lines on About / Pilots / Get Involved.
+# Lock at MCP-0; placements executed by MCP-3, MCP-4, MCP-5.
+# ============================================================
+
+two_birds_line_schedule:
+  canonical_line: >
+    In a labor market where the entry-level rung is being pulled up,
+    you walk out of this program with the apprenticeship that rung
+    used to give you.
+
+  rationale: >
+    Threads two stories in one sentence — the systemic concern (entry-level
+    jobs disappearing under AI) and the program response (apprenticeship
+    that fills the gap). Lands as the program's strongest single claim.
+
+  placements:
+    - id: placement_1_home_hero
+      page: home (/)
+      location: hero diptych — hinge line below sub-headline
+      style: press-red text
+      lands_at_mission: MCP-3
+      directive_ref: "§3.2"
+
+    - id: placement_2_about_leaf_i_close
+      page: about (/about)
+      location: Leaf I "The Press" — final paragraph close
+      style: standard body, italic close
+      lands_at_mission: MCP-4
+      directive_ref: "§Leaf I close"
+
+    - id: placement_3_la_mentorship
+      page: pilots (/pilots)
+      location: Pilot B (Los Angeles) dispatch — mentorship paragraph
+      style: standard body, embedded in narrative
+      lands_at_mission: MCP-5
+      directive_ref: "§Pilot B mentorship"
+
+    - id: placement_4_builder_column
+      page: get-involved (/get-involved)
+      location: Builder column — "What you'll earn" subsection
+      style: standard body, embedded under "What you'll earn"
+      lands_at_mission: MCP-5
+      directive_ref: "§4.4"
+
+  cross_reference_audit_at: MCP-7
+  audit_note: >
+    At MCP-7 cross-page audit, verify the line appears EXACTLY 4 times,
+    no paraphrases. The line is a fixed phrase; rewording dilutes the claim.
+

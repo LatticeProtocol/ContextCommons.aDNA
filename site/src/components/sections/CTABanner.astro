@@ -14,7 +14,9 @@ const variantStyles = {
     bg: 'bg-[var(--brand-primary)]',
     text: 'text-white',
     muted: 'text-white/80',
-    btn: 'bg-[var(--brand-accent)] text-[var(--brand-primary-dark)] hover:bg-[var(--brand-accent-light)] shadow-[var(--shadow-md)] hover:shadow-[var(--shadow-lg)]',
+    // MCP-0: paper on press-red (≈4.8:1 AA). Was --brand-primary-dark
+    // (civic-blue-depth on press-red = 2.2:1 fail under new doctrine).
+    btn: 'bg-[var(--brand-accent)] text-[var(--paper)] hover:bg-[var(--brand-accent-light)] hover:text-[var(--paper)] shadow-[var(--shadow-md)] hover:shadow-[var(--shadow-lg)]',
     section: 'py-[var(--space-24)] md:py-[var(--space-32)]',
   },
   accent: {

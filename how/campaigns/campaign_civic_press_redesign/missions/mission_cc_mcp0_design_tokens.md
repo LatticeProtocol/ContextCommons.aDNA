@@ -2,14 +2,16 @@
 type: campaign_mission
 created: 2026-05-14
 updated: 2026-05-14
-status: planned
+status: completed
 last_edited_by: agent_gutenberg
 campaign: campaign_civic_press_redesign
 phase: 0
 mission_id: MCP-0
 session_estimate: 1
+session_actual: 1
 iii_persona: P-01 Technical Reviewer
-tags: [mission, civic_press, design_tokens, style_sheet, p0]
+iii_traps_captured: [CC-MCP0-001, CC-MCP0-002]
+tags: [mission, civic_press, design_tokens, style_sheet, p0, completed]
 ---
 
 # Mission MCP-0: Design Tokens + Style Sheet
@@ -59,4 +61,30 @@ Lock the visual doctrine before any layout work. Produce a one-page style sheet 
 
 ## AAR
 
-(pending mission close)
+- **Worked**: FOSS-defaults pairing landed cleanly (Fraunces 400/600/700/900 + Source Serif 4 400/400-italic/600/700 + JetBrains Mono Variable) — single npm i, 9 woff2 copied, branding.css rewritten with four-color doctrine + 12-color pixel palette + backward-compat aliases. Build green; all 8 a11y tests pass after surgical contrast fixes.
+- **Didn't**: First a11y run flagged 4 contrast violations — old palette had a (gold button, dark-green text) pair that aliasing rotated into (press-red button, civic-blue-depth text) = 2.2:1 fail. Plan assumed visual regressions only; this was a real WCAG block. Two surgical fixes: CTABanner brand variant + home hero inline style → text-[var(--paper)].
+- **Finding**: **Token alias semantic-pair break trap (CC-MCP0-002)** — token aliases preserve color identity but NOT contrast pairings. A palette refactor that aliases two tokens used together as text-on-bg almost always breaks WCAG even when each token is individually fine. Run axe-core BEFORE mission close, not after. High graduation candidacy for III canonical web-design pack.
+- **Change**: Future palette-refactor missions invoke axe-core as part of Inspect, not Verification — catches the pair-break earlier in the loop. Updated the III pass cadence for MCP-1+.
+- **Follow-up**: (1) Lighthouse CI deferred to MCP-7 deploy (font-payload baseline reset expected as MCP-1 optimizes subsetting). (2) Old woff2 files (libre-baskerville-*, source-sans-3-*) still in `site/public/fonts/` — cleanup deferred to MCP-1 alongside font subsetting work. (3) Optical-size axis swap to `@fontsource-variable/fraunces` is a one-line bump if hero broadsheet feels cramped at scale. (4) Departure Mono evaluation queued for MCP-2 alongside pixel-art ingest. (5) CC-MCP0-002 graduation candidate — review at MCP-7 with other domain-general traps.
+
+### Decisions Locked
+- **D-FONT-PAIRING-FINAL** → Fraunces (display, 400/600/700/900) + Source Serif 4 (body, 400/400-italic/600/700) + JetBrains Mono Variable (functional, wght 100-800).
+- **D-COLOR-TOKENS** → paper #F4EFE6/#F8F3EA + ink #1A1714 (with -depth, -soft #3D3530, -soft-2 #5A4E45) + press-red #C8321C/-depth #B83A2B + civic-blue #2A4E6E/-depth #1F3A52 + 12-color bounded pixel palette. WCAG verified 4.65:1 to 16.7:1 across documented pairs.
+
+### Deliverables
+- `site/src/styles/branding.css` — rewritten (94 → 219 lines; 9 @font-face + 4-color tokens + 12-color pixel palette + AA-safe variants + backward-compat aliases with inline retirement-gate comment naming MCP-7).
+- `site/src/layouts/BaseLayout.astro` — preload links updated (fraunces-700 + source-serif-4-400).
+- `site/public/fonts/` — 9 new woff2 files added.
+- `site/package.json` — `@fontsource/fraunces`, `@fontsource/source-serif-4`, `@fontsource-variable/jetbrains-mono` added.
+- `site/src/components/sections/CTABanner.astro` — brand variant button text fix (`--brand-primary-dark` → `--paper`).
+- `site/src/pages/index.astro` — home hero CTA inline style fix (same fix).
+- `what/decisions/civic_press_style_sheet.md` — NEW one-page locked reference (138 lines).
+- `siteforge/what/context/cc_voice_mapping.yaml` — `editorial_voice:` block + `two_birds_line_schedule:` block appended.
+- `iii/what/context/context_commons_iii_learning_store.jsonl` — 2 trap entries (CC-MCP0-001 alias drift, CC-MCP0-002 pair break).
+
+### Verification Pass
+- `npm run build` — green, 9 pages built in 861ms.
+- Playwright build.spec / pages-render / console / links — 22 passed + 3 pre-existing Vercel-analytics flakes.
+- Playwright a11y (desktop, axe-core) — 8/8 passed post-fix.
+- Lighthouse — deferred to MCP-7 deploy (font-payload baseline reset expected during MCP-1 subsetting).
+
